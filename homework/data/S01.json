@@ -1,0 +1,356 @@
+{
+ "session": "S01",
+ "title": "Alphabet & Spelling Out Loud",
+ "intro": "Làm bài trong khoảng 20–25 phút. Phần A–D được chấm tự động; phần E–F thầy sẽ chấm và nhận xét.",
+ "sections": [
+  {
+   "id": "A",
+   "title": "A. Listen & choose",
+   "vi": "Nghe và chọn chữ cái đúng",
+   "items": [
+    {
+     "id": "A1",
+     "type": "listen_mcq",
+     "prompt": "Which letter do you hear?",
+     "audio": "lessons/S01/audio/Letters/S01_letter_G.mp3",
+     "options": [
+      "J",
+      "G",
+      "Z"
+     ],
+     "points": 1,
+     "ah": [
+      "d2851cde92ffc723b273404854df6a492440edd46e27d6d23b05a0a39f607e47"
+     ]
+    },
+    {
+     "id": "A2",
+     "type": "listen_mcq",
+     "prompt": "Which letter do you hear?",
+     "audio": "lessons/S01/audio/Letters/S01_letter_E.mp3",
+     "options": [
+      "I",
+      "A",
+      "E"
+     ],
+     "points": 1,
+     "ah": [
+      "a409ee3e6416ae0d70dbe371bdec6c76cb8eb00850a3aadb8f6531c0e08f05c9"
+     ]
+    },
+    {
+     "id": "A3",
+     "type": "listen_mcq",
+     "prompt": "Which letter do you hear?",
+     "audio": "lessons/S01/audio/Letters/S01_letter_H.mp3",
+     "options": [
+      "H",
+      "A",
+      "K"
+     ],
+     "points": 1,
+     "ah": [
+      "c0e0618ec49becef95b0ad28474e01356aeefa2eabc07072d89a9fa24a76886e"
+     ]
+    },
+    {
+     "id": "A4",
+     "type": "listen_mcq",
+     "prompt": "Which letter do you hear?",
+     "audio": "lessons/S01/audio/Letters/S01_letter_R.mp3",
+     "options": [
+      "A",
+      "O",
+      "R"
+     ],
+     "points": 1,
+     "ah": [
+      "8acb06bf0eab2c2cd7cbb3c57a812c940f87932d37a2942ba401743ceb7b4a03"
+     ]
+    },
+    {
+     "id": "A5",
+     "type": "listen_mcq",
+     "prompt": "Which letter do you hear?",
+     "audio": "lessons/S01/audio/Letters/S01_letter_Y.mp3",
+     "options": [
+      "I",
+      "Y",
+      "W"
+     ],
+     "points": 1,
+     "ah": [
+      "afd64beeb285c8eb0d56366ad5c42823894e1c3b9d7c48771319ff954f570513"
+     ]
+    },
+    {
+     "id": "A6",
+     "type": "listen_mcq",
+     "prompt": "Which letter do you hear?",
+     "audio": "lessons/S01/audio/Letters/S01_letter_Q.mp3",
+     "options": [
+      "U",
+      "K",
+      "Q"
+     ],
+     "points": 1,
+     "ah": [
+      "e23c55a2a8e04330b607d1d6499d9576a384b6ace1ce479a7f5b2afcf137e5bb"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "B. Listen & write",
+   "vi": "Nghe đánh vần và viết lại (tên viết IN HOA, email viết thường)",
+   "items": [
+    {
+     "id": "B1",
+     "type": "listen_type",
+     "prompt": "Write the name.",
+     "audio": "homework/audio/S01/S01_HW_B1.mp3",
+     "placeholder": "NAME",
+     "points": 1,
+     "ah": [
+      "c02b8007ea6fb8deb271dbbb3c10dca753daa8e61374666bca553ed5c4510b0f"
+     ]
+    },
+    {
+     "id": "B2",
+     "type": "listen_type",
+     "prompt": "Write the name.",
+     "audio": "homework/audio/S01/S01_HW_B2.mp3",
+     "placeholder": "NAME",
+     "points": 1,
+     "ah": [
+      "c02fba869698f8e332ae601e08c4fc9f94ba82e42f971ed17a024773c168d3ca"
+     ]
+    },
+    {
+     "id": "B3",
+     "type": "listen_type",
+     "prompt": "Write the name.",
+     "audio": "homework/audio/S01/S01_HW_B3.mp3",
+     "placeholder": "NAME",
+     "points": 1,
+     "ah": [
+      "adccc04d0f900790f8523bd421eac7f0d19874fbe60342ab082183678875846e"
+     ]
+    },
+    {
+     "id": "B4",
+     "type": "listen_type",
+     "prompt": "Write the name.",
+     "audio": "homework/audio/S01/S01_HW_B4.mp3",
+     "placeholder": "NAME",
+     "points": 1,
+     "ah": [
+      "80b207faa7148f85b1d68825018167e7a679353d8c1f3787bb860e9d7df833fb"
+     ]
+    },
+    {
+     "id": "B5",
+     "type": "listen_type",
+     "prompt": "Write the email address.",
+     "audio": "homework/audio/S01/S01_HW_B5.mp3",
+     "placeholder": "email…",
+     "points": 1,
+     "ah": [
+      "c3d6cfa1c831d22216f460966e45b13d375e4bcbaaf2db72f2faab84c2d96cf8"
+     ]
+    },
+    {
+     "id": "B6",
+     "type": "listen_type",
+     "prompt": "Write the email address.",
+     "audio": "homework/audio/S01/S01_HW_B6.mp3",
+     "placeholder": "email…",
+     "points": 1,
+     "ah": [
+      "5b9c58ec7b8ea33af76f325d7f7704ff57edd0b209dd10226bdfafa1f9819419"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "C. Odd one out",
+   "vi": "Chọn chữ cái có âm khác nhóm",
+   "items": [
+    {
+     "id": "C1",
+     "type": "mcq",
+     "prompt": "Which letter has a different sound?",
+     "options": [
+      "A",
+      "J",
+      "K",
+      "E"
+     ],
+     "points": 1,
+     "ah": [
+      "932b72012a8347bc7cab5ee08c770318c8738dfc1433b795b45e8d5871793150"
+     ]
+    },
+    {
+     "id": "C2",
+     "type": "mcq",
+     "prompt": "Which letter has a different sound?",
+     "options": [
+      "B",
+      "C",
+      "F",
+      "D"
+     ],
+     "points": 1,
+     "ah": [
+      "2c5de52b8907c0a37bde33463c5b74f2e8b581d0b09a60b1204f5e2b5d38b317"
+     ]
+    },
+    {
+     "id": "C3",
+     "type": "mcq",
+     "prompt": "Which letter has a different sound?",
+     "options": [
+      "O",
+      "Q",
+      "U",
+      "W"
+     ],
+     "points": 1,
+     "ah": [
+      "b5b9e22674a7dbd1778810d65810f925c392a7a6c05afac3c37e8241d396f74e"
+     ]
+    },
+    {
+     "id": "C4",
+     "type": "mcq",
+     "prompt": "Which letter has a different sound?",
+     "options": [
+      "L",
+      "M",
+      "N",
+      "P"
+     ],
+     "points": 1,
+     "ah": [
+      "633544811b8c2a9bcf611c16ec6193e83c537797e51a66b3a541c19a5ce5edb6"
+     ]
+    },
+    {
+     "id": "C5",
+     "type": "mcq",
+     "prompt": "Which letter has a different sound?",
+     "options": [
+      "H",
+      "J",
+      "K",
+      "G"
+     ],
+     "points": 1,
+     "ah": [
+      "4fc16aa5f3360c717a1ece6589b8a5eeaafb045297c0961d5d2960cea55b535f"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "D. Complete the phrases",
+   "vi": "Điền 1 từ vào chỗ trống",
+   "items": [
+    {
+     "id": "D1",
+     "type": "gap",
+     "prompt": "How do you ____ your surname?",
+     "points": 1,
+     "ah": [
+      "79acc0c985b14824d8dab943e7f239457647c134a9e9976c2d11b374fa0764d8"
+     ]
+    },
+    {
+     "id": "D2",
+     "type": "gap",
+     "prompt": "Could you spell that ____, please?",
+     "points": 1,
+     "ah": [
+      "58652202b29d595062eef5c96f2ffca35263a159fc7fe095a147598f9209ce80"
+     ]
+    },
+    {
+     "id": "D3",
+     "type": "gap",
+     "prompt": "Is that a ____ letter? (= chữ in hoa)",
+     "points": 1,
+     "ah": [
+      "ea39fc15a6d670c5665f071fabdfb2e5163e08f585393a198b9ba72f7aee778f"
+     ]
+    },
+    {
+     "id": "D4",
+     "type": "gap",
+     "prompt": "My email is all ____ case. (= chữ thường)",
+     "points": 1,
+     "ah": [
+      "3d304d285169771af14e0ae5cf82793bae3febbcefa2eff06bcf4548e5358a72"
+     ]
+    },
+    {
+     "id": "D5",
+     "type": "gap",
+     "prompt": "In an email address, \"@\" is read as ____.",
+     "points": 1,
+     "ah": [
+      "fee666354cc48be72770859aeaef2d353e7973af431625341a976c4e5f49f2bc"
+     ]
+    },
+    {
+     "id": "D6",
+     "type": "gap",
+     "prompt": "\"_\" is read as ____.",
+     "points": 1,
+     "ah": [
+      "8ee8dad317cd3d8e216dd68b02d3a94df084eac8830839c9f6a5a1d5a03c814a"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "E. Writing",
+   "vi": "Viết — thầy chấm",
+   "items": [
+    {
+     "id": "E1",
+     "type": "writing",
+     "points": 10,
+     "minWords": 40,
+     "prompt": "Write a short dialogue (6–8 lines) at a hotel reception. The receptionist asks for your name and email, asks you to spell them, and uses \"Could you spell that again, please?\" once."
+    },
+    {
+     "id": "E2",
+     "type": "writing",
+     "points": 5,
+     "minWords": 6,
+     "prompt": "Write 3 English words you see every day and how you spell them. Example: KFC — K-F-C."
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "F. Voice note #1",
+   "vi": "Ghi âm — thầy chấm",
+   "items": [
+    {
+     "id": "F1",
+     "type": "voice",
+     "points": 10,
+     "maxSec": 180,
+     "prompt": "Record 60–90 seconds: (1) say the alphabet by sound families (A-H-J-K, B-C-D-E…), (2) spell your full name and your email, (3) say and spell 3 English words you see every day."
+    }
+   ]
+  }
+ ],
+ "autoMax": 23
+}

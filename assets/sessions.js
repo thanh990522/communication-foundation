@@ -17,7 +17,8 @@ window.SESSIONS = [
   "status": "live",
   "url": "lessons/S01/",
   "zip": "lessons/S01/S01_Audio_MP3.zip",
-  "offline": "lessons/S01/S01_offline.html"
+  "offline": "lessons/S01/S01_offline.html",
+  "hw": "homework/?s=S01"
  },
  {
   "id": "S02",

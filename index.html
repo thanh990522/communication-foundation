@@ -16,6 +16,7 @@
   --p1:#1D4ED8; --p2:#0EA5E9; --p3:#7C3AED; --p4:#E8590C;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
 a{color:inherit}
@@ -94,6 +95,39 @@ main{padding:28px 0 60px}
 .card.live::after{content:"";position:absolute;right:-26px;top:-26px;width:70px;height:70px;border-radius:50%;background:var(--yellow);opacity:.85}
 .empty{padding:40px;text-align:center;color:var(--muted);font-weight:600;background:#fff;border:2px dashed var(--line);border-radius:18px}
 
+
+/* my progress */
+#progress{padding:24px 0 4px;scroll-margin-top:70px}
+.mp{background:#fff;border:2px solid var(--line);border-radius:22px;box-shadow:var(--shadow-s);overflow:hidden}
+.mp-h{display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(90deg,var(--navy),var(--blue));color:#fff;flex-wrap:wrap}
+.mp-h .av{width:48px;height:48px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;flex:none}
+.mp-h h2{font-size:20px;font-weight:900;line-height:1.2}
+.mp-h small{color:#C9D6FF;font-weight:600;font-size:13.5px}
+.mp-h .sp{flex:1}
+.mp-h button{font:inherit;font-weight:800;font-size:13.5px;border:none;border-radius:10px;padding:8px 12px;cursor:pointer;background:rgba(255,255,255,.14);color:#fff}
+.mp-h button.y{background:var(--yellow);color:var(--navy)}
+.mp-b{padding:18px 20px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.kpi b{display:block;font-size:28px;font-weight:900;color:var(--navy);line-height:1.1}
+.kpi span{font-size:13px;color:var(--muted);font-weight:700}
+.kpi:first-child{background:var(--yellow-soft);border-color:var(--yellow)}
+.next{margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--sky);border-radius:14px;padding:12px 14px;font-weight:700;color:var(--navy)}
+.next a{margin-left:auto}
+.hwt{width:100%;border-collapse:separate;border-spacing:0;margin-top:14px;font-size:14.5px}
+.hwt th{text-align:left;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:6px 10px;border-bottom:2px solid var(--line)}
+.hwt td{padding:10px;border-bottom:1.5px solid var(--line);vertical-align:top}
+.hwt td b{color:var(--navy)}
+.st{display:inline-block;font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.st.todo{background:#EEF1F7;color:#64748B}.st.sent{background:var(--sky);color:var(--blue)}.st.done{background:#DCFCE7;color:#15803D}
+.fbk{margin-top:4px;color:var(--ink);font-size:13.5px;background:#F8FAFF;border-left:3px solid var(--green);padding:6px 9px;border-radius:6px;white-space:pre-wrap}
+.mp-empty{display:flex;align-items:center;gap:16px;padding:20px;flex-wrap:wrap}
+.mp-empty p{flex:1;min-width:220px;color:var(--muted)}
+.mp-empty b{color:var(--navy)}
+.hwbtn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:800;font-size:14px;padding:9px 12px;border-radius:11px;background:var(--yellow);color:var(--navy);box-shadow:0 3px 0 #c99400}
+.hwst{font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px}
+.loginbtn{font:inherit;font-weight:800;font-size:15px;border:none;border-radius:12px;padding:11px 18px;cursor:pointer;background:var(--blue);color:#fff;box-shadow:0 3px 0 #163a9e}
+@media (max-width:700px){ .kpis{grid-template-columns:repeat(2,1fr)} .hwt .hide-m{display:none} }
 footer{background:var(--navy);color:#C9D6FF;padding:28px 0;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer b{color:var(--yellow)}
@@ -132,6 +166,8 @@ footer b{color:var(--yellow)}
   </div>
 </header>
 
+<section id="progress"><div class="wrap"><div class="mp" id="mp"></div></div></section>
+
 <nav class="tools">
   <div class="wrap">
     <button class="tab on" data-ph="0">Tất cả</button>
@@ -153,6 +189,8 @@ footer b{color:var(--yellow)}
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
+<script src="assets/student.js"></script>
 <script src="assets/sessions.js"></script>
 <script>
 (function(){
@@ -166,11 +204,20 @@ footer b{color:var(--yellow)}
   document.getElementById('progTxt').textContent=live+' / '+SESSIONS.length+' bài đã mở';
   document.getElementById('progBar').style.width=(live/SESSIONS.length*100)+'%';
 
+  let PROG=null;
+  const progOf=id=>PROG&&PROG.sessions?PROG.sessions.find(x=>x.session===id):null;
+  function hwChip(s){
+    if(!s.hw||!GTStudent.get()) return '';
+    const p=progOf(s.id);
+    if(!p) return '<span class="hwst st todo">Chưa làm</span>';
+    if(p.status==='Đã chấm'||p.teacherScore) return `<span class="hwst st done">✓ Đã chấm${p.teacherScore?' · '+esc(p.teacherScore):''}</span>`;
+    return `<span class="hwst st sent">✓ Đã nộp${p.bestPct!==''&&p.bestPct!=null?' · '+p.bestPct+'%':''}</span>`;
+  }
   function card(s){
     const ph=phaseOf(s.week), cp=/^Checkpoint/i.test(s.title), isLive=s.status==='live';
     const tags=(cp?'<span class="tag cp">Checkpoint</span>':'')+(isLive?'<span class="tag live">Đã mở</span>':'<span class="tag soon">Sắp ra mắt</span>');
     const acts=isLive
-      ? `<a class="go" href="${esc(s.url)}">Vào học →</a>${s.zip?`<a class="zip" href="${esc(s.zip)}" download>⬇ Audio (ZIP)</a>`:''}${s.offline?`<a class="zip" href="${esc(s.offline)}" download="${esc(s.id)}_offline.html" title="1 file HTML có sẵn audio, dùng khi không có Internet">⬇ Bản offline</a>`:''}`
+      ? `<a class="go" href="${esc(s.url)}">Vào học →</a>${s.hw?`<a class="hwbtn" href="${esc(s.hw)}">📝 Homework</a>${hwChip(s)}`:''}${s.zip?`<a class="zip" href="${esc(s.zip)}" download>⬇ Audio (ZIP)</a>`:''}${s.offline?`<a class="zip" href="${esc(s.offline)}" download="${esc(s.id)}_offline.html" title="1 file HTML có sẵn audio, dùng khi không có Internet">⬇ Bản offline</a>`:''}`
       : `<span class="lock">🔒 Bài đang được soạn</span>`;
     return `<article class="card ${isLive?'live':'soon'}${cp?' checkpoint':''}"><div class="top"><span class="sid" style="background:${COLORS[ph.n]}">${s.id}</span>${tags}</div><h3>${esc(s.title)}</h3><p>${esc(s.goal)}</p><div class="acts">${acts}</div></article>`;
   }
@@ -194,6 +241,47 @@ footer b{color:var(--yellow)}
     }
     document.getElementById('list').innerHTML=html||'<div class="empty">Không tìm thấy bài phù hợp.</div>';
   }
+  /* ---------- my progress */
+  const HWS=SESSIONS.filter(s=>s.status==='live'&&s.hw);
+  function renderMP(){
+    const me=GTStudent.get(), box=document.getElementById('mp');
+    if(!me){
+      box.innerHTML=`<div class="mp-empty"><div style="font-size:40px">📊</div><p><b>Tiến độ của tôi</b><br>Đăng nhập bằng tên + email để làm homework, nộp bài trực tiếp và xem điểm, nhận xét của thầy cho từng buổi.</p><button class="loginbtn" id="mpLogin">Đăng nhập học viên</button></div>`;
+      document.getElementById('mpLogin').onclick=doLogin; return;
+    }
+    const rows=HWS.map(s=>({s,p:progOf(s.id)}));
+    const sent=rows.filter(r=>r.p).length, graded=rows.filter(r=>r.p&&(r.p.status==='Đã chấm'||r.p.teacherScore)).length;
+    const pcts=rows.filter(r=>r.p&&r.p.bestPct!==''&&r.p.bestPct!=null).map(r=>+r.p.bestPct);
+    const avg=pcts.length?Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length)+'%':'—';
+    const vn=rows.reduce((a,r)=>a+(r.p?+r.p.voice||0:0),0);
+    const next=rows.find(r=>!r.p);
+    const initials=me.name.split(' ').filter(Boolean).slice(-2).map(w=>w[0]).join('').toUpperCase();
+    const stCell=p=>!p?'<span class="st todo">Chưa làm</span>':(p.status==='Đã chấm'||p.teacherScore)?'<span class="st done">Đã chấm</span>':'<span class="st sent">Đã nộp</span>';
+    box.innerHTML=`<div class="mp-h"><div class="av">${esc(initials)}</div><div><h2>Tiến độ của ${esc(me.name)}</h2><small>${esc(me.email)}${PROG?'':' · đang tải…'}</small></div><span class="sp"></span><button id="mpRefresh">↻ Cập nhật</button><button id="mpOut">Không phải bạn?</button></div>
+      <div class="mp-b">
+        <div class="kpis">
+          <div class="kpi"><b>${sent}/${HWS.length}</b><span>homework đã nộp</span></div>
+          <div class="kpi"><b>${avg}</b><span>điểm tự chấm TB (cao nhất)</span></div>
+          <div class="kpi"><b>${graded}</b><span>bài thầy đã chấm</span></div>
+          <div class="kpi"><b>${vn}</b><span>voice notes đã gửi</span></div>
+        </div>
+        ${next?`<div class="next">🎯 Bài nên làm tiếp: <span>${esc(next.s.id)} · ${esc(next.s.title)}</span><a class="hwbtn" href="${esc(next.s.hw)}">Làm ngay →</a></div>`:(HWS.length?'<div class="next">🏆 Bạn đã nộp tất cả homework đang mở. Tuyệt vời!</div>':'')}
+        ${HWS.length?`<table class="hwt"><tr><th>Buổi</th><th>Trạng thái</th><th>Tự chấm</th><th class="hide-m">Số lần</th><th>Thầy chấm & nhận xét</th></tr>${rows.map(({s,p})=>`<tr><td><b>${esc(s.id)}</b><br><a href="${esc(s.hw)}">${esc(s.title)}</a></td><td>${stCell(p)}</td><td>${p&&p.bestPct!==''&&p.bestPct!=null?'<b>'+p.bestPct+'%</b>':'—'}</td><td class="hide-m">${p?p.attempts:0}</td><td>${p&&p.teacherScore?'<b>'+esc(p.teacherScore)+'</b>':'—'}${p&&p.feedback?`<div class="fbk">💬 ${esc(p.feedback)}</div>`:''}</td></tr>`).join('')}</table>`:''}
+        ${GTStudent.online()?'':'<p style="margin-top:12px;color:#8A5300;font-weight:700">⚠️ Hệ thống nộp bài chưa được kết nối — tiến độ sẽ hiện khi thầy bật hệ thống.</p>'}
+      </div>`;
+    document.getElementById('mpRefresh').onclick=loadProgress;
+    document.getElementById('mpOut').onclick=()=>{ GTStudent.clear(); PROG=null; renderMP(); render(); };
+  }
+  async function doLogin(){ const s=await GTStudent.loginDialog(); if(s){ PROG=GTStudent.cachedProgress(); renderMP(); render(); loadProgress(); } }
+  async function loadProgress(){
+    if(!GTStudent.get()) return;
+    PROG=GTStudent.cachedProgress()||PROG; renderMP(); render();
+    if(!GTStudent.online()) return;
+    try{ PROG=await GTStudent.progress(); }catch(e){}
+    renderMP(); render();
+  }
+  loadProgress(); renderMP();
+
   document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{state.ph=+t.dataset.ph;render();}));
   document.getElementById('onlyLive').addEventListener('change',e=>{state.only=e.target.checked;render();});
   document.getElementById('q').addEventListener('input',e=>{state.q=e.target.value;render();});

@@ -3,3 +3,5 @@ tools/lesson-builder/*/dist/
 tools/lesson-builder/*/mp3/
 tools/lesson-builder/*/manifest.json
 __pycache__/
+tools/homework-builder/*/cache/
+backend/test/node_modules/
