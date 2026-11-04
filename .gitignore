@@ -1,0 +1,5 @@
+tools/lesson-builder/*/cache/
+tools/lesson-builder/*/dist/
+tools/lesson-builder/*/mp3/
+tools/lesson-builder/*/manifest.json
+__pycache__/
