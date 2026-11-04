@@ -16,7 +16,8 @@ window.SESSIONS = [
   "goal": "Đọc đúng tên 26 chữ cái theo 7 nhóm âm; nghe và đánh vần tên, email; hỏi lại khi chưa nghe rõ.",
   "status": "live",
   "url": "lessons/S01/",
-  "zip": "lessons/S01/S01_Audio_MP3.zip"
+  "zip": "lessons/S01/S01_Audio_MP3.zip",
+  "offline": "lessons/S01/S01_offline.html"
  },
  {
   "id": "S02",

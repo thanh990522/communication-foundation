@@ -9,14 +9,19 @@ OUT = os.path.normpath(os.path.join(HERE, '..', '..', '..', 'lessons', 'S01'))
 MP3 = os.path.join(HERE, 'mp3')
 
 h = open(SRC, encoding='utf-8').read()
+SITE = 'https://thanh990522.github.io/communication-foundation/'
+LESSON_URL = SITE + 'lessons/S01/'
+offline = h  # single-file version: audio embedded, works with no Internet
 
 # 1) replace the embedded AUDIO table with relative MP3 paths
-m = re.search(r'const AUDIO = (\{.*?\});\s*// id ->', h, re.S)
+m = re.search(r'const AUDIO = (\{.*?\});\s*const ONLINE_BASE', h, re.S)
 assert m, 'AUDIO table not found'
 audio = json.loads(m.group(1))
 for v in audio.values():
     v['src'] = 'audio/' + v['file']
 h = h[:m.start(1)] + json.dumps(audio, ensure_ascii=False) + h[m.end(1):]
+assert "/*ONLINE_BASE*/''" in h
+h = h.replace("/*ONLINE_BASE*/''", json.dumps(LESSON_URL))
 
 # 2) link back to the course home on the cover and the closing slide
 home = '<a href="../../" style="color:var(--blue);font-weight:800;text-decoration:none">← Tất cả bài học</a>'
@@ -30,6 +35,7 @@ if os.path.isdir(OUT):
     shutil.rmtree(OUT)
 os.makedirs(OUT)
 open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h)
+open(os.path.join(OUT, 'S01_offline.html'), 'w', encoding='utf-8').write(offline)
 shutil.copytree(MP3, os.path.join(OUT, 'audio'))
 with zipfile.ZipFile(os.path.join(OUT, 'S01_Audio_MP3.zip'), 'w', zipfile.ZIP_DEFLATED) as z:
     for root, _, files in os.walk(MP3):

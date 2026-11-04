@@ -170,7 +170,7 @@ footer b{color:var(--yellow)}
     const ph=phaseOf(s.week), cp=/^Checkpoint/i.test(s.title), isLive=s.status==='live';
     const tags=(cp?'<span class="tag cp">Checkpoint</span>':'')+(isLive?'<span class="tag live">Đã mở</span>':'<span class="tag soon">Sắp ra mắt</span>');
     const acts=isLive
-      ? `<a class="go" href="${esc(s.url)}">Vào học →</a>${s.zip?`<a class="zip" href="${esc(s.zip)}" download>⬇ Audio (ZIP)</a>`:''}`
+      ? `<a class="go" href="${esc(s.url)}">Vào học →</a>${s.zip?`<a class="zip" href="${esc(s.zip)}" download>⬇ Audio (ZIP)</a>`:''}${s.offline?`<a class="zip" href="${esc(s.offline)}" download="${esc(s.id)}_offline.html" title="1 file HTML có sẵn audio, dùng khi không có Internet">⬇ Bản offline</a>`:''}`
       : `<span class="lock">🔒 Bài đang được soạn</span>`;
     return `<article class="card ${isLive?'live':'soon'}${cp?' checkpoint':''}"><div class="top"><span class="sid" style="background:${COLORS[ph.n]}">${s.id}</span>${tags}</div><h3>${esc(s.title)}</h3><p>${esc(s.goal)}</p><div class="acts">${acts}</div></article>`;
   }
