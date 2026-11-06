@@ -38,15 +38,13 @@ rep('<button class="lb" data-letter="U">U</button><button class="lb" data-letter
     '<button class="lb" data-letter="U">U</button><button class="lb" data-letter="Z">Z 🇬🇧</button><button class="lb" data-a="L_Z_US">Z 🇺🇸</button>')
 assert 'data-seq' not in h.split('<script>')[0]
 # ---- download slots ----
-rep('<div class="tip grow" style="padding:9px 14px">🅰 <b>5 vowel letters</b>','<span id="azDl"></span><div class="tip grow" style="padding:9px 14px">🅰 <b>5 vowel letters</b>')
+rep('<button class="btn ghost" id="playAZpause">⏹ Stop</button>','<button class="btn ghost" id="playAZpause">⏹ Stop</button><span id="azDl"></span>')
 rep('<button class="btn" id="famAll">▶ Chant all 7 families</button>','<button class="btn" id="famAll">▶ Chant all 7 families</button><span id="famDl"></span>')
-rep('<span style="font-size:12px;color:var(--muted);font-weight:600">Click 1 dòng để nghe riêng dòng đó</span>','<span id="dlgDl"></span>')
-rep('<div class="script blur" id="script"></div>','<div style="padding:0 14px;font-size:12px;color:var(--muted);font-weight:600">Click 1 dòng để nghe riêng dòng đó · R = Receptionist · L = Linh</div><div class="script blur" id="script"></div>')
+rep('<span style="font-size:12px;color:var(--muted);font-weight:600">R = Receptionist · L = Linh</span>','<span id="dlgDl"></span>')
+rep('<div class="script blur" id="script"></div>','<div style="padding:0 14px;font-size:12px;color:var(--muted);font-weight:600">R = Receptionist · L = Linh</div><div class="script blur" id="script"></div>')
 # ---- text updates ----
 rep('<span>Bấm vào chữ cái để nghe · <span class="kbd">←</span> <span class="kbd">→</span> chuyển slide · <span class="kbd">N</span> ghi chú GV</span>',
     '<span>Bấm vào chữ cái để nghe · <span class="kbd">←</span> <span class="kbd">→</span> chuyển slide · <span class="kbd">F</span> toàn màn hình</span>')
-rep('<li>Mở file bằng <b>Chrome hoặc Edge</b>, có Internet để có giọng đọc tự nhiên (Google / Microsoft Natural). Chọn giọng UK/US và tốc độ ở thanh công cụ dưới cùng.</li>',
-    '<li>Toàn bộ audio là file MP3 thật đã nhúng sẵn trong file (giọng Anh–Anh), chạy offline, không cần Internet. Mỗi bài nghe có nút ⬇ để tải MP3; slide cuối là "Audio library" chứa toàn bộ file.</li>')
 h=h.replace('Phím tắt: <span class="kbd">←/→</span> chuyển slide · <span class="kbd">F</span> toàn màn hình · <span class="kbd">N</span> ghi chú · <span class="kbd">T</span> đồng hồ · <span class="kbd">M</span> mục lục · <span class="kbd">Esc</span> dừng audio.',
     'Phím tắt (không có thanh điều khiển trên màn hình): <span class="kbd">←/→</span> hoặc bút trình chiếu để chuyển slide · <span class="kbd">F</span> toàn màn hình · <span class="kbd">N</span> bật/tắt ghi chú GV · <span class="kbd">Esc</span> dừng audio.')
 h=re.sub(r'<li>Z: đổi UK/US ở thanh công cụ.*?</li>','<li>Z: file dùng giọng Anh–Anh ("zed"). Muốn nghe kiểu Mỹ ("zee") → slide Pronunciation clinic, nút Z 🇺🇸.</li>',h,count=1)

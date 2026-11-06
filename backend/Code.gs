@@ -22,7 +22,9 @@ var HEADERS = {
   Homework: ['Session', 'QID', 'Section', 'Type', 'Prompt', 'Options (a | b | c)', 'Answer (đáp án | đáp án khác)',
              'Audio URL', 'Points', 'Active']
 };
-var STATUS_SUBMITTED = 'Đã nộp';
+var PASS_PCT = 80;
+var STATUS_PASSED = 'Đạt';
+var STATUS_FAILED = 'Chưa đạt - làm lại';
 var STATUS_GRADED = 'Đã chấm';
 
 /* ------------------------------------------------------------------ entry points */
@@ -125,10 +127,11 @@ function progress_(p) {
   data.forEach(function (r) {
     if (String(r[1]).toLowerCase() !== email) return;
     var s = String(r[3]);
-    var o = by[s] || (by[s] = { session: s, attempts: 0, bestPct: null, lastAt: '', status: '', teacherScore: '', feedback: '', voice: 0 });
+    var o = by[s] || (by[s] = { session: s, attempts: 0, bestPct: null, passed: false, lastAt: '', status: '', teacherScore: '', feedback: '', voice: 0 });
     o.attempts++;
     var pct = r[7] === '' ? null : Number(r[7]);
     if (pct != null && !isNaN(pct) && (o.bestPct == null || pct > o.bestPct)) o.bestPct = pct;
+    if (pct != null && pct >= PASS_PCT) o.passed = true;
     o.lastAt = iso_(r[0]);
     if (r[10]) o.status = String(r[10]);
     if (r[11] !== '' && r[11] != null) o.teacherScore = String(r[11]);
@@ -193,7 +196,7 @@ function submit_(p) {
     });
     ss_().getSheetByName('Submissions').appendRow([
       new Date(), email, name, session, attempt, autoScore, autoMax, pct,
-      written, links.join('\n'), STATUS_SUBMITTED, '', '',
+      written, links.join('\n'), (pct !== '' && pct >= PASS_PCT) ? STATUS_PASSED : STATUS_FAILED, '', '',
       JSON.stringify(p.details || {}).slice(0, 45000)
     ]);
     // keep the student list fresh
@@ -203,7 +206,7 @@ function submit_(p) {
     }
     if (!seen) ss_().getSheetByName('Students').appendRow([email, name, new Date(), new Date()]);
   } finally { lock.releaseLock(); }
-  return { attempt: attempt, voiceLinks: links.length, pct: pct };
+  return { attempt: attempt, voiceLinks: links.length, pct: pct, passed: pct !== '' && pct >= PASS_PCT };
 }
 
 function folder_(session) {

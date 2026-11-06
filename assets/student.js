@@ -57,7 +57,6 @@
         <form class="gl-box" novalidate>
           <div class="gl-kick">Góc học viên</div>
           <h3>${opts.title || 'Đăng nhập để làm bài & theo dõi tiến độ'}</h3>
-          <p class="gl-sub">Dùng <b>cùng một email</b> mỗi lần để hệ thống ghép đúng tiến độ của bạn.</p>
           <label>Họ và tên<input name="name" autocomplete="name" placeholder="VD: Nguyễn Minh An" required></label>
           <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" placeholder="VD: an.nguyen@gmail.com" required></label>
           <div class="gl-err" hidden></div>

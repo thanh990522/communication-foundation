@@ -35,14 +35,13 @@ const NAMES_TEST = [['Mr','Black'],['Mrs','Green'],['Ms','Hayes'],['Mr','Jarvis'
 const SYMB = [['@','at'],['.','dot'],['_','underscore'],['-','hyphen'],['.com','dot com'],['.vn','dot V-N'],['ss','double S'],['abc','all lower case']];
 const EMAILS = ['lan.pham@gmail.com','tom_baker99@yahoo.com','info@abc-english.vn','minh.anh2002@outlook.com'];
 const QA = [
-  ["What's your name?","My name's Linh."],
-  ["How do you spell your first name?","It's L-I-N-H."],
-  ["How do you spell your surname?","It's N-G-U-Y-E-N."],
-  ["Sorry, could you spell that again, please?","Sure. N-G-U-Y-E-N."],
-  ['Is that G as in "good"?',"Yes, that's right."],
-  ['Is that J as in "juice"?','No, it\'s G as in "good".'],
-  ["What's your email address?","It's l-i-n-h dot n-g at gmail dot com."],
-  ["Is that all lower case?","Yes, it's all lower case."]
+  ["What's your name?",["My name's Linh.","I'm Linh Nguyen.","It's Nguyen Thuy Linh."]],
+  ["How do you spell your first name?",["It's L-I-N-H.","L-I-N-H. Linh."]],
+  ["How do you spell your surname?",["It's N-G-U-Y-E-N.","N-G-U-Y-E-N. That's my family name."]],
+  ["Sorry, could you spell that again, please?",["Sure. N-G-U-Y-E-N.","Of course. N… G… U… Y… E… N."]],
+  ['Is that G as in "good"?',["Yes, that's right.",'No, it\'s J as in "juice".']],
+  ["What's your email address?",["It's linh.ng@gmail.com.","My email is linh.ng@gmail.com."]],
+  ["Is that all lower case?",["Yes, it's all lower case.","No, the L is a capital letter."]]
 ];
 const IDCARDS = [
   ['Hannah Brooks','hannah.brooks@gmail.com','London, UK'],
@@ -68,14 +67,14 @@ const SPELL_LV = [
   ['⭐ Easy',['Tom','Nam','Anna','Linh']],
   ['⭐⭐ Medium',['Sarah','James','Hieu','Giang']],
   ['⭐⭐⭐ Hard',['Phuong','Nguyen','Quynh','Jackson']],
-  ['🏆 Challenge',['Phillips','Wright','anh.tran@gmail.com','mai_vu@yahoo.com']]
+  ['🏆 Challenge',['Le Hoang Phuc','Emma Wright','Nguyen Thanh Huong','Jonathan Phillips']]
 ];
 function spelledText(str){
   const at=str.indexOf('@'), loc=at<0?str:str.slice(0,at), dom=at<0?'':str.slice(at+1), out=[];
   for(let i=0;i<loc.length;i++){ const c=loc[i];
     if(/[a-z]/i.test(c)){ if(i+1<loc.length&&loc[i+1].toUpperCase()===c.toUpperCase()){out.push('double '+c.toUpperCase());i++;} else out.push(c.toUpperCase()); }
-    else if(c==='.') out.push('dot'); else if(c==='_') out.push('underscore'); else if(c==='-') out.push('hyphen'); }
-  let t=out.join(' – ');
+    else if(c==='.') out.push('dot'); else if(c==='_') out.push('underscore'); else if(c==='-') out.push('hyphen'); else if(c===' ') out.push('/'); }
+  let t=out.join(' – ').replace(/ – \/ – /g,'  /  ');
   if(at>=0) t+=' – at – '+dom.split('.').join(' dot ');
   return t;
 }
@@ -195,7 +194,7 @@ const PLAY_SVG='<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const fname = id => AUDIO[id].file.split('/').pop();
 const dlHref = id => { const c=candidates(id); return c[0]||srcOf(id); };
-const dl = (id,label) => `<a class="dl" href="${dlHref(id)}" download="${esc(fname(id))}" title="Tải ${esc(fname(id))}">⬇${label?' '+label:''}</a>`;
+const dl = (id,label) => `<a class="dl" href="${dlHref(id)}" download="${esc(fname(id))}" title="Download ${esc(fname(id))}">⬇${label?' '+label:''}</a>`;
 
 /* =========================================================
    BUILDERS
@@ -249,7 +248,7 @@ function buildOdd(){
 }
 function normalize(s){ return String(s).toLowerCase().replace(/[\s\-–]+/g,'').trim(); }
 function buildSpell(){
-  document.getElementById('spell').innerHTML = SPELL_LV.map(([lv,names],L)=>`<div class="lv"><div class="lh">${lv}<span style="font-size:13px;opacity:.8">${names.length} names</span></div><div class="items">${names.map((n,k)=>{const id='SP_'+L+'_'+k;return `<div class="sp-i${n.includes('@')?' mail':''}"><div class="nm"><b>${esc(n)}</b><button class="play sm" data-a="${id}">${PLAY_SVG}</button>${dl(id)}<button class="eye" data-rv="${L}_${k}" title="Xem cách đánh vần">👁</button></div><div class="rv" id="rv${L}_${k}"></div></div>`;}).join('')}</div></div>`).join('');
+  document.getElementById('spell').innerHTML = SPELL_LV.map(([lv,names],L)=>`<div class="lv"><div class="lh">${lv}<span style="font-size:13px;opacity:.8">${names.length} names</span></div><div class="items">${names.map((n,k)=>{const id='SP_'+L+'_'+k;return `<div class="sp-i${n.includes('@')?' mail':''}${n.includes(' ')?' multi':''}"><div class="nm"><b>${esc(n)}</b><button class="play sm" data-a="${id}">${PLAY_SVG}</button>${dl(id)}<button class="eye" data-rv="${L}_${k}" title="Show spelling">👁</button></div><div class="rv" id="rv${L}_${k}"></div></div>`;}).join('')}</div></div>`).join('');
   document.querySelectorAll('[data-rv]').forEach(b=>b.addEventListener('click',()=>{ const [L,k]=b.dataset.rv.split('_').map(Number); const el=document.getElementById('rv'+b.dataset.rv); el.textContent=el.textContent?'':spelledText(SPELL_LV[L][1][k]); }));
 }
 function buildDialogue(){
@@ -257,7 +256,7 @@ function buildDialogue(){
   sc.innerHTML = DIALOGUE.map((d,i)=>`<div class="ln" data-ln="${i}"><span class="who ${d[0]}">${d[0]==='R'?'R':'L'}</span><span class="tx">${esc(d[1])}</span></div>`).join('');
   sc.querySelectorAll('.ln').forEach(l=>{ const i=+l.dataset.ln; l.insertAdjacentHTML('beforeend',dl('DLG_'+i)); });
   sc.querySelectorAll('.ln').forEach(l=>l.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; const i=+l.dataset.ln; playQueue(['DLG_'+i],k=>hl(k<0?-1:i)); }));
-  document.getElementById('dlgDl').innerHTML = dl('DLG_ALL','Tải full dialogue (MP3)');
+  document.getElementById('dlgDl').innerHTML = dl('DLG_ALL','Full dialogue (MP3)');
 }
 function hl(i){ document.querySelectorAll('#script .ln').forEach((l,k)=>l.classList.toggle('now',k===i)); if(i>=0){const el=document.querySelector('#script .ln[data-ln="'+i+'"]'); el&&el.scrollIntoView({block:'nearest'});} }
 function playDialogue(btn){ playQueue(DIALOGUE.map((_,i)=>'DLG_'+i),hl,450,btn); }
@@ -285,7 +284,7 @@ function buildEmail(){
 }
 /* ---------- questions & answers */
 function buildQA(){
-  document.getElementById('qa').innerHTML = QA.map(([q,a],i)=>`<div class="qap"><div class="qrow q"><span class="who">Q</span><span>${esc(q)}</span><button class="play sm" data-a="QA_${i}_q">${PLAY_SVG}</button></div><div class="qrow a"><span class="who">A</span><span>${esc(a)}</span><button class="play sm y" data-a="QA_${i}_a">${PLAY_SVG}</button></div></div>`).join('');
+  document.getElementById('qa').innerHTML = QA.map(([q,as],i)=>`<div class="qap"><div class="qrow q"><span class="who">Q</span><span>${esc(q)}</span><button class="play sm" data-a="QA_${i}_q">${PLAY_SVG}</button></div>${as.map((a,j)=>`<div class="qrow a"><span class="who">${as.length>1?String.fromCharCode(97+j):'A'}</span><span>${esc(a)}</span><button class="play sm y" data-a="QA_${i}_a${j}">${PLAY_SVG}</button></div>`).join('')}</div>`).join('');
 }
 /* ---------- ID cards */
 let idCur=-1;
@@ -410,8 +409,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   buildSpell(); buildDialogue(); buildKb(); hmNew();
   document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(b.closest('#lib,#spell,#odd,#nt,#emails,#symg,#qa')||!AUDIO[id]) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   document.querySelectorAll('#acr .a').forEach((c,i)=>c.querySelector('.bk').insertAdjacentHTML('beforeend',dl('ACR_'+i)));
-  document.getElementById('azDl').innerHTML=dl('AZ','Tải A–Z (MP3)');
-  document.getElementById('famDl').innerHTML=dl('FAM_ALL','Tải 7 nhóm (MP3)');
+  document.getElementById('azDl').innerHTML=dl('AZ','A–Z (MP3)');
+  document.getElementById('famDl').innerHTML=dl('FAM_ALL','7 families (MP3)');
 
   document.getElementById('playAZ').onclick=e=>playAZ(e.currentTarget);
   document.getElementById('playAZpause').onclick=stopAll;

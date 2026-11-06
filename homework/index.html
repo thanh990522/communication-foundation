@@ -121,6 +121,10 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 .score small{font-size:24px;color:var(--muted)}
 .res h2{font-size:22px;color:var(--navy);margin:8px 0 4px}
 .res p{color:var(--muted)}
+.res .sub2{font-weight:800;color:var(--muted);margin-top:4px}
+.res.pass{border-color:#86EFAC;background:linear-gradient(180deg,#F0FDF4,#fff)}
+.res.fail{border-color:#FCA5A5;background:linear-gradient(180deg,#FEF2F2,#fff)}
+.res.fail .score{color:var(--red)}.res.pass .score{color:var(--green)}
 .res .acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
 .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:12px;padding:11px 16px;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none}
 .btn.blue{background:var(--blue);color:#fff;box-shadow:0 3px 0 #163a9e}
@@ -175,6 +179,7 @@ const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').rep
 const PLAY='<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
 const PAUSE='<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
 const AUTO=['mcq','listen_mcq','listen_type','gap'];
+const PASS=80;   // % needed to pass; below this the homework must be redone
 let HW=null, ITEMS=[], answers={}, voice={}, student=null, submitted=false, lastResult=null;
 
 /* ---------------- utils */
@@ -198,14 +203,11 @@ function modal(title,html,buttons){
 /* ---------------- audio player (one at a time) */
 let player=null, playerBtn=null;
 const played={};
-const examMode=()=>{ const c=document.getElementById('examMode'); return !!(c&&c.checked); };
 function stopAudio(){ if(player){ player.pause(); player=null; } if(playerBtn){ playerBtn.classList.remove('on'); playerBtn.innerHTML=PLAY; playerBtn=null; } }
 function playAudio(btn,url){
-  if(playerBtn===btn){ if(examMode()) return; stopAudio(); return; }
-  if(examMode()&&played[url]&&!submitted){ toast('Chế độ thi thật: mỗi audio chỉ nghe 1 lần. Tắt chế độ này để nghe lại.'); return; }
+  if(playerBtn===btn){ stopAudio(); return; }
   stopAudio();
   played[url]=(played[url]||0)+1;
-  if(examMode()) setTimeout(()=>btn.classList.add('used'),50);
   const a=new Audio(abs(url)); player=a; playerBtn=btn; btn.classList.add('on'); btn.innerHTML=PAUSE;
   a.onended=stopAudio; a.onerror=()=>{ stopAudio(); toast('Không phát được audio. Kiểm tra Internet rồi thử lại.'); };
   a.play().catch(()=>{ stopAudio(); toast('Trình duyệt chặn âm thanh — bấm ▶ lại.'); });
@@ -218,7 +220,7 @@ function render(){
   HW.sections.forEach(sec=>{
     const pts=sec.items.reduce((a,it)=>a+(it.points||1),0);
     const teach=teacherSection(sec);
-    html+=`<section class="sec${teach?' teacher':''}"><div class="sec-h"><div><h2>${esc(sec.title)}</h2><small>${esc(sec.vi||'')}</small></div><span class="pts">${teach?'👩‍🏫 Thầy chấm':'⚡ Tự chấm'} · ${pts} điểm</span></div>${sec.audio?`<div class="secaud"><button type="button" class="play" data-audio="${esc(sec.audio)}" aria-label="Nghe">${PLAY}</button><div><b>Nghe cuộc gọi</b><small>Đọc form trước khi nghe · điền trong lúc nghe</small></div></div>`:''}${sec.note?`<div class="secnote">${esc(sec.note)}</div>`:''}<div class="items">`;
+    html+=`<section class="sec${teach?' teacher':''}"><div class="sec-h"><div><h2>${esc(sec.title)}</h2></div><span class="pts">${pts} ${pts>1?'points':'point'}</span></div>${sec.audio?`<div class="secaud"><button type="button" class="play" data-audio="${esc(sec.audio)}" aria-label="Nghe">${PLAY}</button><div><b>Listen to the call</b></div></div>`:''}${sec.note?`<div class="secnote">${esc(sec.note)}</div>`:''}<div class="items">`;
     sec.items.forEach(it=>{
       n++; it._n=n;
       html+=`<div class="it" id="it_${esc(it.id)}"><span class="qn">${n}</span><div class="body">${itemBody(it)}</div></div>`;
@@ -232,7 +234,7 @@ function render(){
 }
 function itemBody(it){
   const v=answers[it.id];
-  const audio=it.audio?`<div class="row"><button type="button" class="play" data-audio="${esc(it.audio)}" aria-label="Nghe">${PLAY}</button><span class="play-hint">Bấm ▶ để nghe (nghe lại bao nhiêu lần cũng được)</span></div>`:'';
+  const audio=it.audio?`<div class="row"><button type="button" class="play" data-audio="${esc(it.audio)}" aria-label="Nghe">${PLAY}</button></div>`:'';
   const mark=`<div class="markbox"></div>`;
   switch(it.type){
     case 'mcq': case 'listen_mcq':
@@ -358,7 +360,7 @@ function showMarks(details){
   ITEMS.forEach(it=>{
     const el=document.getElementById('it_'+it.id); if(!el) return;
     const box=el.querySelector('.markbox'); el.classList.remove('right','wrong');
-    if(details[it.id]){ const ok=details[it.id].ok; el.classList.add(ok?'right':'wrong'); box.innerHTML=`<span class="mark ${ok?'right':'wrong'}">${ok?'✓ Đúng':'✗ Chưa đúng'}</span>`; }
+    if(details[it.id]){ const ok=details[it.id].ok; el.classList.add(ok?'right':'wrong'); box.innerHTML=`<span class="mark ${ok?'right':'wrong'}">${ok?'✓ Correct':'✗ Wrong'}</span>`; }
     else if(!AUTO.includes(it.type)) box.innerHTML=(it.type==='voice'?voice[it.id]:String(answers[it.id]||'').trim())?'<span class="mark wait">⏳ Chờ thầy chấm</span>':'';
   });
 }
@@ -375,7 +377,7 @@ async function submit(){
   const g=await grade();
   if(!GTStudent.online()){
     showMarks(g.details); btn.disabled=false; btn.textContent='Nộp bài';
-    await modal('Đã chấm thử',`<p>Phần tự chấm: <b>${g.score}/${g.max}</b>.</p><p>Hệ thống nộp bài chưa được kết nối nên bài <b>chưa được gửi</b> cho thầy.</p>`,[{label:'OK',value:1,cls:'blue'}]);
+    submitted=true; lockForm(true); showResult(g,{attempt:0});
     return;
   }
   btn.textContent='Đang nộp…';
@@ -399,18 +401,17 @@ function lockForm(on){
   $('#bar').hidden=on;
 }
 function showResult(g,out){
-  const pct=g.max?Math.round(g.score/g.max*100):0;
-  const hasTeacher=ITEMS.some(it=>!AUTO.includes(it.type));
+  const pct=g.max?Math.round(g.score/g.max*100):0, pass=pct>=PASS;
   const r=$('#result');
-  r.innerHTML=`<div class="res"><div class="score">${g.score}<small> / ${g.max}</small></div><h2>${pct>=80?'🎉 Tuyệt vời!':pct>=60?'👍 Khá tốt!':'💪 Cố gắng thêm nhé!'} Đã nộp bài lần ${out.attempt}</h2>
-    <p>Phần tự chấm đạt <b>${pct}%</b>. ${hasTeacher?'Phần viết và voice note đã được gửi — thầy sẽ chấm và nhận xét trong mục <b>Tiến độ của tôi</b>.':''}</p>
-    <p style="margin-top:6px">Xem lại các câu bên dưới: ✓ đúng · ✗ chưa đúng. Bạn có thể làm lại để cải thiện điểm.</p>
-    <div class="acts"><button class="btn blue" type="button" id="again">↻ Làm lại</button><a class="btn light" href="../#progress">📊 Tiến độ của tôi</a></div></div>`;
+  r.innerHTML=`<div class="res ${pass?'pass':'fail'}"><div class="score">${pct}<small>%</small></div><div class="sub2">${g.score} / ${g.max}</div>
+    <h2>${pass?'✅ Passed':'❌ Not passed — please do it again'}</h2>
+    <p>${pass?'Great job!':`You need at least <b>${PASS}%</b>.`}</p>
+    <div class="acts">${pass?`<a class="btn blue" href="../#progress">📊 My progress</a><button class="btn light" type="button" id="again">↻ Try again</button>`:`<button class="btn blue" type="button" id="again">↻ Do it again</button>`}</div></div>`;
   r.style.display='block'; r.scrollIntoView({behavior:'smooth'});
   $('#again').onclick=()=>{
-    Object.keys(played).forEach(k=>delete played[k]);
-    submitted=false; lockForm(false); r.style.display='none';
-    ITEMS.forEach(it=>{ const el=document.getElementById('it_'+it.id); if(el){ el.classList.remove('right','wrong'); el.querySelector('.markbox').innerHTML=''; } });
+    submitted=false; answers={}; try{ localStorage.removeItem(draftKey()); }catch(e){}
+    lockForm(false); r.style.display='none';
+    const sb=$('#send'); sb.disabled=false; sb.textContent='Nộp bài';
     Object.keys(voice).forEach(k=>{ URL.revokeObjectURL(voice[k].url); delete voice[k]; });
     render(); window.scrollTo({top:0,behavior:'smooth'});
   };
@@ -425,10 +426,11 @@ function notice(html,cls){ $('#notices').insertAdjacentHTML('beforeend',`<div cl
 function showStatus(pr){
   const s=pr&&pr.sessions&&pr.sessions.find(x=>x.session===SESSION);
   document.querySelectorAll('#notices .notice.status').forEach(n=>n.remove());
-  if(!s) return;
-  let h=`<b>Bạn đã nộp ${s.attempts} lần</b>${s.bestPct!=null&&s.bestPct!==''?` · tự chấm cao nhất <b>${s.bestPct}%</b>`:''} · trạng thái: <b>${esc(s.status||'Đã nộp')}</b>${s.teacherScore?` · điểm thầy chấm: <b>${esc(s.teacherScore)}</b>`:''}`;
+  if(!s||s.bestPct==null||s.bestPct==='') return;
+  const pass=+s.bestPct>=PASS;
+  let h=pass?`✅ <b>Passed</b> · best score <b>${s.bestPct}%</b>`:`❌ <b>Not passed yet</b> · best score <b>${s.bestPct}%</b> · need ${PASS}%`;
   if(s.feedback) h+=`<div class="fb">💬 ${esc(s.feedback)}</div>`;
-  notice(h,'good status');
+  notice(h,(pass?'good':'warn')+' status');
 }
 
 /* ---------------- boot */
@@ -436,15 +438,14 @@ async function boot(){
   student=GTStudent.get(); setMe();
   $('#meSwitch').onclick=async()=>{ const s=await GTStudent.loginDialog({title:'Đổi tài khoản học viên'}); if(s){ student=s; setMe(); loadDraft(); render(); refreshStatus(); } };
   $('#send').onclick=submit;
-  if(!GTStudent.online()) notice('⚠️ <b>Hệ thống nộp bài chưa được kết nối.</b> Bạn vẫn làm bài và chấm thử phần tự chấm được, nhưng bài chưa gửi cho thầy.','warn');
+  if(!GTStudent.online()) notice('⚠️ Hệ thống nộp bài chưa được kết nối — kết quả chưa được gửi cho thầy.','warn');
 
   let data;
   try{ const r=await fetch('data/'+SESSION+'.json',{cache:'no-cache'}); if(!r.ok) throw 0; data=await r.json(); }
   catch(e){ $('#hw').innerHTML=`<div class="loading">Chưa có homework cho buổi ${esc(SESSION)}. <a href="../">Về trang chủ</a></div>`; return; }
   HW=data;
   document.title=`Homework ${SESSION} · ${HW.title}`;
-  $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>${esc(HW.kind||'Homework')} homework</em>`; $('#intro').textContent=HW.intro||'';
-  if(HW.sections.some(s=>s.audio||s.items.some(it=>it.audio))) $('#notices').insertAdjacentHTML('beforeend','<label class="notice info exam"><input type="checkbox" id="examMode"> 🎯 <b>Chế độ thi thật</b> — mỗi audio chỉ được nghe 1 lần (như IELTS). Tắt đi để luyện nghe lại nhiều lần.</label>');
+  $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>${esc(HW.kind||'Homework')} homework</em>`; $('#intro').textContent='';
 
   // teacher-added questions from the Google Sheet (optional)
   if(GTStudent.online()){

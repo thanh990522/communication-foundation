@@ -192,6 +192,9 @@ def build_audio():
 
 def build_json():
     hw = json.loads(json.dumps(HOMEWORK))
+    hw.pop('intro', None)
+    for sec in hw['sections']: sec.pop('vi', None)
+    hw['pass'] = 80
     auto_max = 0
     for sec in hw['sections']:
         for it in sec['items']:

@@ -116,26 +116,30 @@ for i,(t,n) in enumerate(NAMES_TEST):
     toks=tokens(n.upper())
     for j,tk in enumerate(toks): k+=[want(RYAN,tk),.22]
     clip(f'NT_{i}',f'Listening_Spelling_test/S01_NT_q{i+1:02d}_{t}_{n}.mp3',k,f'Question {i+1}: {t} {n}')
-SPELL=[['Tom','Nam','Anna','Linh'],['Sarah','James','Hieu','Giang'],['Phuong','Nguyen','Quynh','Jackson'],['Phillips','Wright','anh.tran@gmail.com','mai_vu@yahoo.com']]
+SPELL=[['Tom','Nam','Anna','Linh'],['Sarah','James','Hieu','Giang'],['Phuong','Nguyen','Quynh','Jackson'],['Le Hoang Phuc','Emma Wright','Nguyen Thanh Huong','Jonathan Phillips']]
 LVN=['Easy','Medium','Hard','Challenge']
 for L,lst in enumerate(SPELL):
     for k,n in enumerate(lst):
-        clip(f'SP_{L}_{k}',f'Spell_the_names/S01_spell_{L+1}{LVN[L]}_{k+1}_{n.replace("@","_at_")}.mp3',plan([('s',n)],SONIA,gap=.3),f'{LVN[L]} {k+1}: {n}')
+        clip(f'SP_{L}_{k}',f'Spell_the_names/S01_spell_{L+1}{LVN[L]}_{k+1}_{n.replace(" ","_")}.mp3',plan([('s',n)],SONIA,gap=.3),f'{LVN[L]} {k+1}: {n}')
 SYMB=[('at','at'),('dot','dot'),('underscore','underscore'),('hyphen','hyphen, or dash'),('dotcom','dot com'),('dotvn','dot V N'),('doubleS','double S'),('lower','all lower case')]
 for i,(fn,t) in enumerate(SYMB): clip(f'SYM_{i}',f'Email_symbols/S01_symbol_{i+1}_{fn}.mp3',[want(SONIA,t)],t)
 EMAILS=['lan.pham@gmail.com','tom_baker99@yahoo.com','info@abc-english.vn','minh.anh2002@outlook.com']
 for i,e in enumerate(EMAILS): clip(f'EM_{i}',f'Email_symbols/S01_email_{i+1}.mp3',plan([('s',e)],SONIA,gap=.26),e)
-QA=[(["What's your name?"],["My name's Linh."]),
-    (["How do you spell your first name?"],["It's",('s','LINH')]),
-    (["How do you spell your surname?"],["It's",('s','NGUYEN')]),
-    (["Sorry, could you spell that again, please?"],["Sure.",('s','NGUYEN')]),
-    (['Is that G as in "good"?'],["Yes, that's right."]),
-    (['Is that J as in "juice"?'],['No, it\'s G as in "good".']),
-    (["What's your email address?"],["It's",('s','linh.ng@gmail.com')]),
-    (["Is that all lower case?"],["Yes, it's all lower case."])]
-for i,(q,a) in enumerate(QA):
+QA=[(["What's your name?"],[["My name's Linh."],["I'm Linh Nguyen."],["It's Nguyen Thuy Linh."]]),
+    (["How do you spell your first name?"],[["It's",('s','LINH')],[('s','LINH'),"Linh."]]),
+    (["How do you spell your surname?"],[["It's",('s','NGUYEN')],[('s','NGUYEN'),"That's my family name."]]),
+    (["Sorry, could you spell that again, please?"],[["Sure.",('s','NGUYEN')],["Of course.",('slow','NGUYEN')]]),
+    (['Is that G as in "good"?'],[["Yes, that's right."],['No, it\'s J as in "juice".']]),
+    (["What's your email address?"],[["It's",('s','linh.ng@gmail.com')],["My email is",('s','linh.ng@gmail.com')]]),
+    (["Is that all lower case?"],[["Yes, it's all lower case."],["No, the L is a capital letter."]])]
+for i,(q,alist) in enumerate(QA):
     clip(f'QA_{i}_q',f'Questions_answers/S01_QA{i+1}_question.mp3',plan(q,RYAN,rate='-5%'),'Q: '+q[0])
-    clip(f'QA_{i}_a',f'Questions_answers/S01_QA{i+1}_answer.mp3',plan(a,LIBBY,rate='-5%'),'A: '+str(a[0]))
+    for j,a in enumerate(alist):
+        k=[]
+        for sg in a:
+            if isinstance(sg,tuple) and sg[0]=='slow': k+=plan([('s',sg[1])],LIBBY,gap=.7)
+            else: k+=plan([sg],LIBBY,rate='-5%')
+        clip(f'QA_{i}_a{j}',f'Questions_answers/S01_QA{i+1}_answer_{"abc"[j]}.mp3',k,'A: '+str(a[0]))
 DLG=[('R',["Good morning! Welcome to Bright English Centre. Can I have your name, please?"]),
  ('S',["Sure. My name's Linh. Nguyen Thuy Linh."]),
  ('R',["Nice to meet you, Linh. How do you spell your first name?"]),
