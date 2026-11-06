@@ -326,6 +326,7 @@ def build():
         for root, _, files in os.walk(os.path.join(HERE, 'mp3')):
             for f in sorted(files):
                 p = os.path.join(root, f); z.write(p, os.path.relpath(p, os.path.join(HERE, 'mp3')))
+        z.write(os.path.join(HERE, 'listening', os.path.basename(C.LISTEN['file'])), C.LISTEN['file'])
     print('S02 ->', OUT, deck.count('<section class="slide'), 'slides,', len(man), 'audio')
 
 if __name__ == '__main__':
