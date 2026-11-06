@@ -308,14 +308,58 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 #timer .ct{display:flex;gap:6px}
 #timer .ct button{flex:1;height:34px;border-radius:9px;font-weight:800;font-size:14px}
 #noVoice{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-weight:700;padding:10px 16px;border-radius:12px;z-index:80;display:none;font-size:14px}
+
+/* ---------- spelling test ---------- */
+.nt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
+.nti{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 12px}
+.nti .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:14px}
+.ntt{flex:none;min-width:46px;font-weight:900;color:var(--blue);font-size:18px}
+.nti input{flex:1;min-width:0;width:100%;height:42px;border:2px solid var(--line);border-radius:10px;padding:0 10px;font-size:19px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px}
+.nti input.ok{border-color:var(--green);background:var(--green-soft)}
+.nti input.no{border-color:var(--red);background:var(--red-soft)}
+.nti .ans{flex:none;font-weight:900;color:var(--green);font-size:15px;min-width:0}
+.nti.now{border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
+.ntex{display:flex;align-items:center;gap:10px;font-size:22px;color:var(--navy)}
+/* ---------- email symbols ---------- */
+.symg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:500px;flex:none;align-content:start}
+.sy{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 10px}
+.sy .k{flex:none;min-width:58px;height:46px;padding:0 8px;border-radius:10px;background:var(--navy);color:var(--yellow);font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans',monospace}
+.sy span{flex:1;font-weight:800;color:var(--navy);font-size:16px;line-height:1.2;white-space:nowrap}
+.em{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px}
+.em b{flex:1;min-width:0;font-family:'Noto Sans',monospace;font-size:22px;color:var(--navy);letter-spacing:.3px}
+.em .rv{font-size:14px;font-weight:700;color:var(--blue)}
+/* ---------- questions & answers ---------- */
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;flex:1;align-content:start}
+.qap{display:flex;flex-direction:column;gap:6px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:8px 12px}
+.qrow{display:flex;align-items:center;gap:10px}
+.qrow .who{flex:none;width:26px;height:26px;border-radius:8px;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.qrow.q .who{background:var(--blue);color:#fff}.qrow.a .who{background:var(--yellow);color:var(--navy)}
+.qrow span{flex:1;font-size:17px;font-weight:700;color:var(--navy);line-height:1.3}
+.qrow.a span{color:#7A5200}
+.qap .play.sm{width:30px;height:30px}
+/* ---------- ID cards ---------- */
+.idc{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:20px;padding:18px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden;min-height:210px}
+.idc::after{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:var(--yellow);opacity:.9}
+.idc .lab{font-size:12px;font-weight:800;letter-spacing:1.4px;color:var(--yellow);text-transform:uppercase}
+.idc .nm{font-size:30px;font-weight:900;margin:6px 0 10px;line-height:1.1;position:relative;z-index:1}
+.idc .ln2{display:flex;gap:8px;font-size:16px;margin-top:4px}
+.idc .ln2 i{font-style:normal;color:#C9D6FF;min-width:62px;font-weight:700}
+.idc .ln2 b{font-family:'Noto Sans',monospace;font-weight:700}
+.idc .no{position:absolute;right:18px;bottom:14px;font-weight:900;color:var(--yellow);font-size:14px}
+/* ---------- free practice ---------- */
+.sit{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;flex:1;align-content:start}
+.st{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;transition:.2s}
+.st h4{font-size:17px;color:var(--navy);display:flex;gap:8px;align-items:center}
+.st h4 .e{font-size:22px}
+.st p{font-size:14px;line-height:1.4;color:#334155}
+.st p b{color:var(--blue)}
+.st.pick{border-color:var(--yellow);box-shadow:0 0 0 4px var(--yellow-soft);transform:scale(1.02)}
 </style>
 </head>
 <body>
 <div id="noVoice">⚠ Trình duyệt này chưa có giọng đọc tiếng Anh. Hãy mở file bằng Google Chrome hoặc Microsoft Edge (có kết nối Internet).</div>
 
-<div id="viewport"><div id="deck">
-
-<!-- ================= 1. COVER ================= -->
+<div id="viewport"><div id="deck"><!-- ================= 1. COVER ================= -->
 <section class="slide cover" data-title="Cover">
   <span class="chip c-input">Week 01 · Session 01</span>
   <div style="font-weight:800;color:var(--blue);font-size:17px;letter-spacing:.5px;margin-bottom:8px">A1 → A2 COMMUNICATION ACCELERATOR</div>
@@ -337,47 +381,45 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
   </aside>
 </section>
 
-<!-- ================= 2. LESSON MAP ================= -->
+<!-- ================= Lesson map ================= -->
 <section class="slide" data-title="Lesson map">
-  <div class="s-head"><span class="chip c-wrap">Lesson map · 90′</span><h2>Today's <em>journey</em></h2><p class="sub">Flow: Warm-up → Input → Controlled practice → Speaking → Fluency → Wrap-up</p></div>
+  <div class="s-head"><span class="chip c-wrap">Lesson map · 90′</span><h2>Today's <em>journey</em></h2><p class="sub">Warm-up → Alphabet → Names → Listening → Email → Questions → Dialogue → Practice → Free practice → Game</p></div>
   <div class="agenda">
-    <div class="ag wrap"><div class="m">3′</div><div><b>Welcome &amp; goals</b><small>Mục tiêu buổi học</small></div></div>
-    <div class="ag warm"><div class="m">6′</div><div><b>Warm-up · Say the letters!</b><small>Acronyms: ATM, KFC, VIP…</small></div></div>
-    <div class="ag input"><div class="m">10′</div><div><b>Input 1 · 26 letters + capitals</b><small>Nghe – nhắc lại – nhận diện</small></div></div>
-    <div class="ag input"><div class="m">9′</div><div><b>Input 2 · 7 sound families + Odd one out</b><small>Nhóm âm của tên chữ cái</small></div></div>
-    <div class="ag listen"><div class="m">10′</div><div><b>Pronunciation clinic + Listening 1</b><small>Lỗi hay gặp của người Việt</small></div></div>
-    <div class="ag speak"><div class="m">6′</div><div><b>Speaking · Spell the names</b><small>Đánh vần tên từ dễ đến khó</small></div></div>
-    <div class="ag input"><div class="m">10′</div><div><b>Input 3 · Spelling toolkit + dialogue</b><small>How do you spell…? / Could you spell that again?</small></div></div>
-    <div class="ag speak"><div class="m">10′</div><div><b>Speaking 1 · Info-gap "Spell &amp; Check"</b><small>Pairs · breakout rooms</small></div></div>
-    <div class="ag speak"><div class="m">12′</div><div><b>Speaking 2 · Role-play "Sign me up!"</b><small>Gym · Hotel · Delivery</small></div></div>
-    <div class="ag prac"><div class="m">6′</div><div><b>Games · Mystery word / Letter wheel</b><small>Whole class</small></div></div>
-    <div class="ag speak"><div class="m">4′</div><div><b>Fluency · 30-second Spell Card</b><small>Từng học viên</small></div></div>
-    <div class="ag wrap"><div class="m">4′</div><div><b>Wrap-up · Exit ticket · Homework</b><small>Voice note #1</small></div></div>
+    <div class="ag warm"><div class="m">6′</div><div><b>1 · Warm-up · Say the letters!</b><small>ATM, KFC, VIP…</small></div></div>
+    <div class="ag input"><div class="m">16′</div><div><b>2 · The alphabet</b><small>26 letters · 7 sound families · danger zone</small></div></div>
+    <div class="ag speak"><div class="m">6′</div><div><b>3 · Read the names · easy → hard</b><small>Tom → Nguyen → Phillips</small></div></div>
+    <div class="ag listen"><div class="m">8′</div><div><b>4 · Listening · Spelling test</b><small>Nghe đánh vần & tự viết tên</small></div></div>
+    <div class="ag input"><div class="m">6′</div><div><b>5 · Email symbols</b><small>@ at · . dot · _ underscore</small></div></div>
+    <div class="ag input"><div class="m">8′</div><div><b>6 · Questions &amp; answers</b><small>How do you spell…? → It's…</small></div></div>
+    <div class="ag listen"><div class="m">5′</div><div><b>7 · Model dialogue</b><small>At the reception desk</small></div></div>
+    <div class="ag speak"><div class="m">10′</div><div><b>8 · Pair practice</b><small>Thông tin cá nhân hoặc ID card</small></div></div>
+    <div class="ag speak"><div class="m">12′</div><div><b>9 · Free practice</b><small>6 tình huống đời thực</small></div></div>
+    <div class="ag prac"><div class="m">8′</div><div><b>10 · Spelling games</b><small>Mystery word · Letter wheel</small></div></div>
+    <div class="ag wrap"><div class="m">3′</div><div><b>Wrap-up</b><small>Can-do check · exit ticket</small></div></div>
+    <div class="ag listen"><div class="m">HW</div><div><b>Homework · Listening</b><small>Spelling test online — nộp trực tiếp</small></div></div>
   </div>
   <div class="row" style="margin-top:10px;align-items:center">
     <div class="grow"><div style="font-weight:800;color:var(--navy);font-size:14px">Tỉ trọng thời gian (ước tính)</div>
-      <div class="ratio"><span style="width:30%;background:var(--blue)"></span><span style="width:18%;background:#FFB000"></span><span style="width:52%;background:var(--navy)"></span></div>
-      <div class="legend" style="margin-top:6px"><span><i style="background:var(--blue)"></i>Input ≈ 30%</span><span><i style="background:#FFB000"></i>Listening &amp; drills ≈ 18%</span><span><i style="background:var(--navy)"></i>Học viên nói (pairs, role-play, games) ≈ 52%</span></div>
+      <div class="ratio"><span style="width:33%;background:var(--blue)"></span><span style="width:15%;background:#FFB000"></span><span style="width:52%;background:var(--navy)"></span></div>
+      <div class="legend" style="margin-top:6px"><span><i style="background:var(--blue)"></i>Input ≈ 33%</span><span><i style="background:#FFB000"></i>Listening ≈ 15%</span><span><i style="background:var(--navy)"></i>Học viên nói (pairs, role-play, games) ≈ 52%</span></div>
     </div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>02</b></span></div>
-  <aside class="notes"><h4>Gợi ý</h4><ul><li>Đây là slide để GV nắm nhịp; chỉ lướt nhanh với học viên (15 giây).</li><li>Nếu thiếu giờ: chỉ chơi 1 trong 2 game (slide 17 hoặc 18); không cắt Speaking 1–2.</li></ul></aside>
 </section>
 
-<!-- ================= 3. OBJECTIVES ================= -->
+<!-- ================= Objectives ================= -->
 <section class="slide" data-title="Objectives">
   <div class="s-head"><span class="chip c-wrap">Can-do goals</span><h2>By the end of today, <em>you can…</em></h2><p class="sub">Sau buổi học này, bạn có thể…</p></div>
   <div class="obj">
-    <div class="card"><div class="ic">🔤</div><b>Say all 26 letters clearly</b><p>Đọc đúng tên 26 chữ cái, phân biệt chữ in hoa / chữ thường.</p></div>
-    <div class="card"><div class="ic">🎵</div><b>Group letters by sound</b><p>Nhớ 7 nhóm âm: A-H-J-K, B-C-D-E…</p></div>
-    <div class="card"><div class="ic">👂</div><b>Catch spelled words</b><p>Nghe và viết đúng tên, email được đánh vần.</p></div>
-    <div class="card"><div class="ic">🙋</div><b>Ask for spelling politely</b><p>"How do you spell…?" · "Could you spell that again, please?"</p></div>
-    <div class="card"><div class="ic">📧</div><b>Spell your name &amp; email</b><p>Đánh vần thông tin cá nhân khi đăng ký, đặt phòng, gọi điện.</p></div>
+    <div class="card"><div class="ic">🔤</div><b>Say all 26 letters clearly</b><p>Đọc đúng tên chữ cái theo 7 nhóm âm, không nhầm A/E/I, G/J.</p></div>
+    <div class="card"><div class="ic">🗣</div><b>Spell names aloud</b><p>Đánh vần tên từ dễ đến khó, kể cả "double L".</p></div>
+    <div class="card"><div class="ic">👂</div><b>Catch spelled names</b><p>Nghe một lần và viết đúng tên được đánh vần.</p></div>
+    <div class="card"><div class="ic">📧</div><b>Read email addresses</b><p>@ at · . dot · _ underscore · all lower case.</p></div>
+    <div class="card"><div class="ic">🙋</div><b>Ask &amp; answer</b><p>"How do you spell…?" · "Could you spell that again, please?"</p></div>
   </div>
   <div class="tip" style="margin-top:20px;font-size:17px">🎯 <b>Success criterion (theo syllabus):</b> spell personal details accurately with <b>≥ 80% accuracy</b> — đánh vần thông tin cá nhân chính xác từ 80% trở lên.</div>
   <div class="tip" style="margin-top:10px;background:var(--sky);border-color:var(--blue)">🗣 <b>Class rule today:</b> Every time you hear a letter — <b>say it back</b>. Unmute, speak, mute. Đừng chỉ nghe — hãy nói!</div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>03</b></span></div>
-  <aside class="notes"><h4>Cách làm (1′)</h4><ul><li>Đọc to 5 can-do, mỗi học viên chọn 1 mục mình thấy khó nhất và gõ số (1–5) vào chat.</li><li>Ghi nhận để cuối buổi so sánh ở slide Wrap-up.</li></ul></aside>
 </section>
 
 <!-- ================= 4. WARM-UP ================= -->
@@ -396,7 +438,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= 5. INPUT 1: 26 LETTERS ================= -->
 <section class="slide" data-title="Input 1: 26 letters">
   <div class="badges"><span class="badge y">⏱ 6′</span><span class="badge">👂 Listen → 🗣 Repeat</span></div>
-  <div class="s-head"><span class="chip c-input">Input 1</span><h2>The <em>26 letters</em> of English</h2><p class="sub">Click từng chữ để nghe · "Play A–Z" để nghe cả bảng · Màu ở đáy = nhóm âm (xem slide sau)</p></div>
+  <div class="s-head"><span class="chip c-input">Alphabet · 1</span><h2>The <em>26 letters</em> of English</h2><p class="sub">Click từng chữ để nghe · "Play A–Z" để nghe cả bảng · Màu ở đáy = nhóm âm (slide sau)</p></div>
   <div class="abc" id="abc"></div>
   <div class="row" style="margin-top:14px;align-items:center">
     <button class="btn" id="playAZ">▶ Play A–Z</button>
@@ -407,59 +449,20 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
   <aside class="notes"><h4>Quy trình (6′)</h4><ul><li><b>Listen only:</b> Play A–Z lần 1, học viên chỉ nghe, nhìn chữ sáng lên.</li><li><b>Choral repeat:</b> Click từng hàng (9 chữ), cả lớp unmute đọc theo. Lưu ý: online có độ trễ, nên GV làm "back-chaining" theo hàng.</li><li><b>Individual check:</b> GV click một chữ ngẫu nhiên, gọi tên 1 học viên đọc lại. Hoặc ngược lại: GV nói chữ → học viên gõ chữ vào chat (nhanh nhất thắng).</li><li>Z: đổi UK/US ở thanh công cụ để nghe "zed" (Anh) vs "zee" (Mỹ).</li></ul></aside>
 </section>
 
-<!-- ================= 6. INPUT 1b: CAPITAL / LOWER CASE ================= -->
-<section class="slide" data-title="Input 1b: Capital or lower case?">
-  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">🗣 Read aloud</span></div>
-  <div class="s-head"><span class="chip c-input">Input 1 · Part B</span><h2><em>Capital</em> or <em>lower-case</em>?</h2><p class="sub">Khi đọc mật khẩu, username, email — phải nói rõ chữ hoa hay chữ thường</p></div>
-  <div class="row" style="gap:20px">
-    <div class="card" style="padding:18px;width:480px">
-      <div class="row" style="align-items:center;gap:14px;margin-bottom:12px">
-        <div style="font-size:84px;font-weight:900;color:var(--navy);line-height:1">J</div>
-        <div><b style="color:var(--blue)">capital J</b><br><span style="color:var(--muted);font-size:14px">= upper-case J / chữ in hoa</span></div>
-        <button class="play sm" data-seq='["capital J"]'><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button>
-      </div>
-      <div class="row" style="align-items:center;gap:14px;margin-bottom:12px">
-        <div style="font-size:84px;font-weight:900;color:var(--blue);line-height:1;width:52px;text-align:center">j</div>
-        <div><b style="color:var(--blue)">small j</b><br><span style="color:var(--muted);font-size:14px">= lower-case j / chữ thường</span></div>
-        <button class="play sm" data-seq='["small J"]'><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button>
-      </div>
-      <div class="ph"><button class="play sm" data-seq='["It is all lower case."]'><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button><span>It's <b>all lower case</b>.</span></div>
-      <div class="ph"><button class="play sm" data-seq='["It is all capitals."]'><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button><span>It's <b>all capitals</b> (all caps).</span></div>
-      <div class="ph"><button class="play sm" data-seq='["Is that a capital letter?"]'><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button><span>Is that a <b>capital letter</b>?</span></div>
-    </div>
-    <div class="grow col">
-      <div style="font-weight:800;color:var(--navy);font-size:18px">🗣 Read these usernames aloud → then click to check</div>
-      <div id="unames" class="col" style="gap:10px"></div>
-    </div>
-  </div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>06</b></span></div>
-  <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Dạy 4 cụm: <i>capital J / small j / all lower case / all capitals</i> — cả lớp nhắc lại.</li><li>Mỗi username: gọi 1 học viên đọc to → cả lớp nghe & gõ lại vào chat → click ▶ để nghe mẫu và so sánh.</li><li>CCQ: "Is <i>m</i> a capital letter?" (No, it's small / lower-case.)</li></ul></aside>
-</section>
-
 <!-- ================= 7. INPUT 2: SOUND FAMILIES ================= -->
 <section class="slide" data-title="Input 2: 7 sound families">
   <div class="badges"><span class="badge y">⏱ 5′</span><span class="badge">🎵 Chant</span></div>
-  <div class="s-head"><span class="chip c-input">Input 2</span><h2>7 <em>sound families</em> of letter names</h2><p class="sub">Tên các chữ cái chia thành 7 nhóm theo nguyên âm — nhớ theo nhóm sẽ không nhầm A/E/I</p></div>
+  <div class="s-head"><span class="chip c-input">Alphabet · 2</span><h2>7 <em>sound families</em> of letter names</h2><p class="sub">Tên các chữ cái chia thành 7 nhóm theo nguyên âm — nhớ theo nhóm sẽ không nhầm A/E/I</p></div>
   <div class="fam" id="fam"></div>
   <div class="row" style="margin-top:12px;align-items:center"><button class="btn" id="famAll">▶ Chant all 7 families</button><div class="tip grow" style="padding:8px 14px">🔑 Mẹo nhớ: <b>/eɪ/</b> như <i>say</i> · <b>/iː/</b> như <i>see</i> · <b>/e/</b> như <i>pen</i> · <b>/aɪ/</b> như <i>my</i> · <b>/əʊ/</b> như <i>go</i> · <b>/uː/</b> như <i>you</i> · <b>/ɑː/</b> như <i>car</i></div></div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>07</b></span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>06</b></span></div>
   <aside class="notes"><h4>Quy trình (5′)</h4><ul><li>Play từng cột → cả lớp chant theo nhịp (vỗ tay: A–H–J–K).</li><li>Hỏi: "Which family has the most letters?" (/iː/ — B C D E G P T V, + Z in US English).</li><li>Lưu ý chọn UK/US: Z ở nhóm /e/ (zed, UK) hoặc /iː/ (zee, US). O: /əʊ/ (UK) ~ /oʊ/ (US). R: /ɑː/ (UK) ~ /ɑːr/ (US).</li><li>Ký hiệu IPA chỉ dùng như "nhãn nhóm" để nhớ — không dạy sâu IPA ở buổi này.</li></ul></aside>
-</section>
-
-<!-- ================= 8. ODD ONE OUT ================= -->
-<section class="slide" data-title="Practice: Odd one out">
-  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">🗣 Individual → explain</span></div>
-  <div class="s-head"><span class="chip c-prac">Controlled practice</span><h2>Odd one out — <em>which letter sounds different?</em></h2><p class="sub">Đọc to cả 4 chữ → tìm chữ khác nhóm âm → giải thích bằng khung câu</p></div>
-  <div class="odd" id="odd"></div>
-  <div class="tip" style="margin-top:16px;font-size:17px">🗣 Sentence frame: <b>"<span style="color:var(--blue)">E</span> is the odd one out because it sounds like <i>see</i>. The others sound like <i>say</i>."</b></div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>08</b></span></div>
-  <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Mỗi hàng gọi 1 học viên: đọc to 4 chữ + nói đáp án bằng khung câu. Click 🔊 để cả lớp nghe kiểm tra, rồi "Reveal".</li><li>Đáp án: 1-E · 2-F · 3-I · 4-O · 5-K · 6-R.</li></ul></aside>
 </section>
 
 <!-- ================= 9. PRONUNCIATION CLINIC ================= -->
 <section class="slide" data-title="Pronunciation clinic">
   <div class="badges"><span class="badge y">⏱ 5′</span><span class="badge">🗣 Choral → individual</span></div>
-  <div class="s-head"><span class="chip c-listen">Pronunciation clinic</span><h2>Danger zone: <em>letters we often mix up</em></h2><p class="sub">Nghe mẫu → nhắc lại → GV gọi từng người kiểm tra</p></div>
+  <div class="s-head"><span class="chip c-listen">Alphabet · 3 · Danger zone</span><h2>Danger zone: <em>letters we often mix up</em></h2><p class="sub">Nghe mẫu → nhắc lại → GV gọi từng người kiểm tra</p></div>
   <div class="clinic">
     <div class="card cl"><h4>A · E · I <span class="tag">top mistake</span></h4><p>A = <span class="ipa">/eɪ/</span> (không phải "a"), E = <span class="ipa">/iː/</span> (không phải "e"), I = <span class="ipa">/aɪ/</span> (không phải "i").</p><div class="ls"><button class="lb" data-letter="A">A</button><button class="lb" data-letter="E">E</button><button class="lb" data-letter="I">I</button></div></div>
     <div class="card cl"><h4>G vs J</h4><p>G = <span class="ipa">/dʒiː/</span> vần với <i>see</i>. J = <span class="ipa">/dʒeɪ/</span> vần với <i>say</i>. Rất hay bị đảo ngược!</p><div class="ls"><button class="lb" data-letter="G">G</button><button class="lb" data-letter="J">J</button></div></div>
@@ -470,45 +473,81 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
     <div class="card cl"><h4>F L M N S X <span class="tag">ending</span></h4><p>Bắt đầu bằng <span class="ipa">/e/</span> và <b>giữ âm cuối</b>: ef, el, em, en, es, eks — đừng nuốt âm cuối.</p><div class="ls"><button class="lb" data-letter="F">F</button><button class="lb" data-letter="L">L</button><button class="lb" data-letter="M">M</button><button class="lb" data-letter="N">N</button><button class="lb" data-letter="S">S</button><button class="lb" data-letter="X">X</button></div></div>
     <div class="card cl"><h4>Q vs U · Z</h4><p>Q = <span class="ipa">/kjuː/</span> (có "k"), U = <span class="ipa">/juː/</span> như <i>you</i>. Z = zed (UK) / zee (US) — chọn 1 kiểu và dùng nhất quán.</p><div class="ls"><button class="lb" data-letter="Q">Q</button><button class="lb" data-letter="U">U</button><button class="lb" data-letter="Z">Z</button></div></div>
   </div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>09</b></span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>07</b></span></div>
   <aside class="notes"><h4>Quy trình (5′)</h4><ul><li>Ưu tiên các thẻ mà lỗi xuất hiện ở warm-up.</li><li>Kỹ thuật online: "Mouth it" — GV khẩu hình không ra tiếng một chữ (G hay J?), học viên gõ đáp án vào chat.</li><li>Gọi 4–5 học viên đọc cặp dễ nhầm: "G – J – G", "A – E – I", "M – N".</li></ul></aside>
 </section>
 
-<!-- ================= 10. LISTENING 1 ================= -->
-<section class="slide" data-title="Listening 1: Which letter?">
-  <div class="badges"><span class="badge y">⏱ 5′</span><span class="badge">👂 Individual</span></div>
-  <div class="s-head"><span class="chip c-listen">Listening 1</span><h2>Which letter do you <em>hear</em>?</h2><p class="sub">Nhấn ▶ để nghe → chọn đáp án. Học viên gõ đáp án vào chat TRƯỚC khi GV click.</p></div>
-  <div class="quiz" id="quiz"></div>
-  <div class="row" style="margin-top:14px;align-items:center"><span class="score" id="qScore">Score: 0 / 12</span><button class="btn ghost" id="qReset">↺ Reset</button><div class="tip grow" style="padding:8px 14px">🗣 Sau mỗi câu: cả lớp <b>đọc lại chữ đúng 2 lần</b>.</div></div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>10</b></span></div>
-  <aside class="notes"><h4>Quy trình (5′)</h4><ul><li>Mỗi câu chơi 1–2 lần. Học viên gõ số câu + đáp án vào chat (VD: "3 A").</li><li>GV click đáp án đa số chọn → hiện đúng/sai → cả lớp đọc lại chữ đúng.</li><li>Đáp án: 1 E · 2 G · 3 A · 4 V · 5 N · 6 J · 7 I · 8 R · 9 H · 10 Q · 11 Y · 12 X.</li></ul></aside>
+<!-- ================= 8. ODD ONE OUT ================= -->
+<section class="slide" data-title="Practice: Odd one out">
+  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">🗣 Individual → explain</span></div>
+  <div class="s-head"><span class="chip c-prac">Alphabet · 4 · Check</span><h2>Odd one out — <em>which letter sounds different?</em></h2><p class="sub">Đọc to cả 4 chữ → tìm chữ khác nhóm âm → giải thích bằng khung câu</p></div>
+  <div class="odd" id="odd"></div>
+  <div class="tip" style="margin-top:16px;font-size:17px">🗣 Sentence frame: <b>"<span style="color:var(--blue)">E</span> is the odd one out because it sounds like <i>see</i>. The others sound like <i>say</i>."</b></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>08</b></span></div>
+  <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Mỗi hàng gọi 1 học viên: đọc to 4 chữ + nói đáp án bằng khung câu. Click 🔊 để cả lớp nghe kiểm tra, rồi "Reveal".</li><li>Đáp án: 1-E · 2-F · 3-I · 4-O · 5-K · 6-R.</li></ul></aside>
 </section>
 
 <!-- ================= 11. SPELL IT: EASY TO HARD ================= -->
 <section class="slide" data-title="Speaking: Spell the names">
   <div class="badges"><span class="badge y">⏱ 6′</span><span class="badge">🗣 Individual → pairs</span></div>
-  <div class="s-head"><span class="chip c-speak">Speaking · Spell it!</span><h2>Spell the <em>names</em> — easy → hard</h2><p class="sub">Nhìn tên → unmute và đánh vần thật to → bấm ▶ nghe mẫu để tự kiểm tra · 👁 xem cách đánh vần</p></div>
+  <div class="s-head"><span class="chip c-speak">Read the names</span><h2>Spell the <em>names</em> — easy → hard</h2><p class="sub">Nhìn tên → unmute và đánh vần thật to → bấm ▶ nghe mẫu để tự kiểm tra · 👁 xem cách đánh vần</p></div>
   <div class="spell" id="spell"></div>
   <div class="tip" style="margin-top:12px;font-size:17px">🗣 Pairs: <b>A:</b> "How do you spell <i>Anna</i>?" → <b>B:</b> "It's <i>A – double N – A</i>." → <b>A:</b> "Thanks!" · Đổi vai sau mỗi cột.</div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>09</b></span></div>
+</section>
+
+<!-- ================= Listening: Spelling test ================= -->
+<section class="slide" data-title="Listening: Spelling test">
+  <div class="badges"><span class="badge y">⏱ 8′</span><span class="badge">👂 → ✍</span></div>
+  <div class="s-head"><span class="chip c-listen">Listening · Spelling test</span><h2>Listen &amp; <em>write the names</em></h2><p class="sub">Nghe tên → nghe đánh vần <b>1 lần</b>, tốc độ tự nhiên → viết họ (surname) · dạng Spelling của IELTS Listening</p></div>
+  <div class="row" style="gap:18px;flex:1;min-height:0">
+    <div class="col grow" style="gap:12px;min-width:0">
+      <div class="nt" id="nt"></div>
+      <div class="row" style="align-items:center;flex-wrap:wrap"><button class="btn" id="ntAll">▶ Play all</button><button class="btn y" id="ntCheck">✓ Check</button><button class="btn ghost" id="ntShow">👁 Answers</button><button class="btn ghost" id="ntReset">↺ Reset</button><span class="score" id="ntScore">— / 10</span></div>
+      <div class="tip" style="font-size:15px;padding:10px 14px;background:var(--sky);border-color:var(--blue)">✍ <b>Your turn:</b> gõ <b>họ tên của bạn</b> (IN HOA) vào chat → unmute và đánh vần cho cả lớp nghe & viết lại.</div>
+    </div>
+    <div class="col" style="width:310px;flex:none">
+      <div class="card" style="padding:12px 14px">
+        <div style="font-weight:900;color:var(--navy);margin-bottom:4px">Example</div>
+        <div class="ntex"><span class="ntt">Mr</span><b>BLACK</b></div>
+        <div style="font-size:14px;color:var(--muted);margin-top:4px">🔊 "Question one. Mister Black. B-L-A-C-K."</div>
+      </div>
+      <div class="tip" style="font-size:14px;padding:10px 12px">⚠️ Tên có nhiều cách viết (Hayes / Hays) → <b>viết đúng như được đánh vần</b>. Sai 1 chữ = sai cả câu.</div>
+    </div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>10</b></span></div>
+</section>
+
+<!-- ================= Email symbols ================= -->
+<section class="slide" data-title="Email symbols">
+  <div class="badges"><span class="badge y">⏱ 6′</span><span class="badge">👂 Listen → 🗣 Read aloud</span></div>
+  <div class="s-head"><span class="chip c-input">Input · Email</span><h2>How to read <em>email addresses</em></h2><p class="sub">Nghe từng ký hiệu → nhắc lại → đọc to 4 email · bấm ▶ để kiểm tra</p></div>
+  <div class="row" style="gap:20px;flex:1;min-height:0">
+    <div class="symg" id="symg"></div>
+    <div class="col grow">
+      <div style="font-weight:900;color:var(--navy);font-size:18px">🗣 Read these emails aloud</div>
+      <div id="emails" class="col" style="gap:10px"></div>
+      <div class="card" style="padding:12px 16px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div class="row" style="align-items:center;gap:8px"><b style="font-size:40px;color:var(--navy);line-height:1">J</b><span><b style="color:var(--blue)">capital J</b><br><small style="color:var(--muted)">chữ in hoa</small></span><button class="play sm" data-a="CAP_J"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button></div>
+        <div class="row" style="align-items:center;gap:8px"><b style="font-size:40px;color:var(--blue);line-height:1">j</b><span><b style="color:var(--blue)">small j</b><br><small style="color:var(--muted)">chữ thường</small></span><button class="play sm" data-a="SMALL_J"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button></div>
+        <div class="row" style="align-items:center;gap:8px"><button class="play sm" data-a="PH_LOWER"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button><span>It's <b>all lower case</b>.</span></div>
+      </div>
+    </div>
+  </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>11</b></span></div>
 </section>
 
-<!-- ================= 12. INPUT 3: TOOLKIT ================= -->
-<section class="slide" data-title="Input 3: Spelling toolkit">
-  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">👂 Listen → 🗣 Repeat</span></div>
-  <div class="s-head"><span class="chip c-input">Input 3</span><h2>Your <em>spelling toolkit</em></h2><p class="sub">Cụm cố định để hỏi – trả lời – kiểm tra khi đánh vần</p></div>
-  <div class="tk">
-    <div class="card"><h3>🙋 Asking</h3><div id="tkAsk"></div></div>
-    <div class="card"><h3>💬 Answering &amp; checking</h3><div id="tkAns"></div></div>
-    <div class="card"><h3>📧 Email symbols</h3><div id="tkSym"></div></div>
-  </div>
+<!-- ================= Questions & answers ================= -->
+<section class="slide" data-title="Questions & answers">
+  <div class="badges"><span class="badge y">⏱ 8′</span><span class="badge">👂 → 🗣 Pairs</span></div>
+  <div class="s-head"><span class="chip c-input">Input · Sentence patterns</span><h2>Ask &amp; <em>answer</em> — spelling questions</h2><p class="sub">Nghe câu hỏi (▶ xanh) và câu trả lời (▶ vàng) → nhắc lại → luyện theo cặp: A hỏi, B trả lời, rồi đổi vai</p></div>
+  <div class="qa" id="qa"></div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>12</b></span></div>
-  <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Nghe từng câu → cả lớp nhắc lại, chú ý ngữ điệu lịch sự lên giọng ở "Could you spell that again, please?".</li><li>Nhấn mạnh 2 câu trọng tâm của syllabus: <b>How do you spell ___?</b> và <b>Could you spell that again, please?</b></li><li>"B as in boy" giúp phân biệt chữ dễ nhầm qua điện thoại / online.</li></ul></aside>
 </section>
 
 <!-- ================= 13. DIALOGUE ================= -->
 <section class="slide" data-title="Model dialogue: At reception">
-  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">👂 Listen twice</span></div>
+  <div class="badges"><span class="badge y">⏱ 5′</span><span class="badge">👂 Listen twice</span></div>
   <div class="s-head"><span class="chip c-listen">Model dialogue</span><h2>At the <em>reception desk</em></h2><p class="sub">Nghe lần 1: Linh đánh vần họ của mình mấy lần? · Nghe lần 2: điền form đăng ký</p></div>
   <div class="dlg">
     <div class="col">
@@ -535,72 +574,47 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
   <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Lần 1 (script mờ): trả lời Q1 → đáp án <b>2</b> (lễ tân xin đánh vần lại).</li><li>Lần 2: điền form. Đáp án: LINH · NGUYEN · thuylinh_ng@gmail.com</li><li>Lần 3 (Show script): click từng dòng, cả lớp shadowing — đọc đè theo audio.</li><li>Hỏi thêm: "Which letter does the receptionist check?" (G — "G as in good").</li></ul></aside>
 </section>
 
-<!-- ================= 14. PRACTISE THE DIALOGUE ================= -->
-<section class="slide" data-title="Practice: Make it yours">
-  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">👥 Pairs</span></div>
-  <div class="s-head"><span class="chip c-prac">Controlled → personalised</span><h2>Make it <em>yours</em></h2><p class="sub">Đọc theo cặp với thông tin THẬT của bạn (hoặc tên/email tự tạo) · đổi vai</p></div>
-  <div class="row" style="gap:20px;flex:1">
-    <div class="card grow" style="padding:18px 22px;font-size:18px;line-height:1.9">
-      <div><b style="color:var(--blue)">A:</b> Good morning! Can I have your name, please?</div>
-      <div><b style="color:#B07800">B:</b> Sure. My name's <span class="blank">&nbsp;</span>.</div>
-      <div><b style="color:var(--blue)">A:</b> How do you spell your first name?</div>
+<!-- ================= Pair practice: your info or ID card ================= -->
+<section class="slide" data-title="Pair practice: your info or ID card">
+  <div class="badges"><span class="badge y">⏱ 10′</span><span class="badge">👥 Pairs · swap</span></div>
+  <div class="s-head"><span class="chip c-speak">Speaking · Pair practice</span><h2>Your info <em>or an ID card</em></h2><p class="sub">B dùng thông tin thật của mình <b>hoặc</b> một ID card thầy phát · A hỏi theo khung và gõ lại vào chat để kiểm tra</p></div>
+  <div class="row" style="gap:20px;flex:1;min-height:0">
+    <div class="card grow" style="padding:16px 20px;font-size:18px;line-height:1.85">
+      <div><b style="color:var(--blue)">A:</b> Hello! What's your name, please?</div>
+      <div><b style="color:#B07800">B:</b> My name's <span class="blank">&nbsp;</span>.</div>
+      <div><b style="color:var(--blue)">A:</b> How do you spell your first name / surname?</div>
       <div><b style="color:#B07800">B:</b> It's <span class="blank">&nbsp;</span>.</div>
-      <div><b style="color:var(--blue)">A:</b> And your surname?</div>
-      <div><b style="color:#B07800">B:</b> <span class="blank">&nbsp;</span>.</div>
-      <div><b style="color:var(--blue)">A:</b> Sorry, could you spell that again, please? / Is that <span class="blank" style="min-width:60px">&nbsp;</span> as in <span class="blank" style="min-width:90px">&nbsp;</span>?</div>
-      <div><b style="color:#B07800">B:</b> Yes, that's right. / No, it's <span class="blank" style="min-width:60px">&nbsp;</span> as in <span class="blank" style="min-width:90px">&nbsp;</span>.</div>
-      <div><b style="color:var(--blue)">A:</b> And what's your email address?</div>
-      <div><b style="color:#B07800">B:</b> It's <span class="blank">&nbsp;</span>. That's all lower case.</div>
-      <div><b style="color:var(--blue)">A:</b> Let me check: <span class="blank">&nbsp;</span>. <b style="color:#B07800">B:</b> Perfect, thank you!</div>
+      <div><b style="color:var(--blue)">A:</b> Sorry, could you spell that again, please?</div>
+      <div><b style="color:var(--blue)">A:</b> Is that <span class="blank" style="min-width:50px">&nbsp;</span> as in <span class="blank" style="min-width:90px">&nbsp;</span>? <b style="color:#B07800">B:</b> Yes, that's right. / No, it's…</div>
+      <div><b style="color:var(--blue)">A:</b> What's your email address?</div>
+      <div><b style="color:#B07800">B:</b> It's <span class="blank">&nbsp;</span>. It's all lower case.</div>
+      <div><b style="color:var(--blue)">A:</b> Let me check: <span class="blank">&nbsp;</span>. <b style="color:#B07800">B:</b> Perfect, thanks!</div>
     </div>
-    <div class="col" style="width:330px">
-      <div class="steps card" style="padding:16px">
-        <div class="step"><span class="n">1</span><div><b>Round 1:</b> A đọc theo khung, B dùng thông tin thật.</div></div>
-        <div class="step"><span class="n">2</span><div><b>Round 2:</b> Đổi vai.</div></div>
-        <div class="step"><span class="n">3</span><div><b>Proof:</b> A gõ tên + email của B vào chat → B kiểm tra đúng/sai.</div></div>
-      </div>
-      <div class="tip">🔒 Không muốn dùng email thật? Tạo email "ảo", ví dụ <b>mai.english@gmail.com</b>.</div>
+    <div class="col" style="width:400px">
+      <div class="idc" id="idc"></div>
+      <div class="row" style="flex-wrap:wrap"><button class="btn y" id="idDraw">🎲 Draw a card</button><button class="btn sm" id="idCopy">📋 Copy card</button><button class="btn sm ghost" id="idAll">📋 Copy all 10 cards</button></div>
+      <div class="tip" style="font-size:14px">🔁 <b>Round 1:</b> B dùng thông tin thật · <b>Round 2:</b> B rút ID card · rồi đổi vai. A gõ tên + email vào chat → B xác nhận.</div>
     </div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>14</b></span></div>
-  <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Làm mẫu 1 lượt GV ↔ 1 học viên khá.</li><li>Có thể làm ngay trên main room theo cặp được chỉ định (A gọi B) để tiết kiệm thời gian chia room; hoặc breakout 3′.</li><li>Kiểm tra chat: email/tên gõ sai = lỗi nghe hoặc lỗi nói → hỏi lại cặp đó chữ nào gây nhầm.</li></ul></aside>
 </section>
 
-<!-- ================= 15. SPEAKING 1: INFO GAP ================= -->
-<section class="slide" data-title="Speaking 1: Info-gap Spell & Check">
-  <div class="badges"><span class="badge y">⏱ 10′</span><span class="badge">👥 Breakout pairs</span></div>
-  <div class="s-head"><span class="chip c-speak">Speaking 1 · Info gap</span><h2>Spell &amp; Check — <em>complete the contact list</em></h2><p class="sub">A và B có danh bạ thiếu thông tin khác nhau. Hỏi – đánh vần – kiểm tra. KHÔNG cho bạn xem bảng của mình!</p></div>
-  <div class="row" style="gap:18px;flex:1;min-height:0">
-    <div class="grow">
-      <div class="tabs"><button class="tab on" data-gap="A">Student A card</button><button class="tab" data-gap="B">Student B card</button><button class="tab" data-gap="K">🔑 Teacher key</button><button class="btn sm y" id="copyGap" style="margin-left:auto">📋 Copy card to send in chat</button></div>
-      <div id="gapTable"></div>
-    </div>
-    <div class="col" style="width:300px">
-      <div class="card" style="padding:14px">
-        <div style="font-weight:800;color:var(--navy);margin-bottom:6px">Useful questions</div>
-        <div style="font-size:14.5px;line-height:1.7">• What's <b>Daniel's</b> surname?<br>• How do you spell it?<br>• Which <b>city</b> does Sarah live in?<br>• What's her <b>email address</b>?<br>• Could you spell that again, please?<br>• Is that <b>double L</b>?<br>• Was that <b>M or N</b>?</div>
-      </div>
-      <div class="tip" style="font-size:14px">💡 <b>Leicester</b> đọc là /ˈlestə/, <b>Greenwich</b> là /ˈɡrenɪtʃ/ — cách đọc rất khác cách viết, nên <b>phải hỏi đánh vần!</b></div>
-    </div>
+<!-- ================= Free practice: real situations ================= -->
+<section class="slide" data-title="Free practice: real situations">
+  <div class="badges"><span class="badge y">⏱ 12′</span><span class="badge">👥 Breakout pairs</span></div>
+  <div class="s-head"><span class="chip c-speak">Free practice</span><h2>Real situations — <em>no script!</em></h2><p class="sub">Chọn (hoặc quay) 1 tình huống · tự nghĩ câu · dùng thông tin thật hoặc tự tạo · đổi vai sau mỗi tình huống</p></div>
+  <div class="sit" id="sit"></div>
+  <div class="row" style="margin-top:12px;align-items:stretch;gap:14px">
+    <button class="btn y" id="sitPick">🎲 Random situation</button>
+    <div class="tip grow" style="font-size:15px">✅ <b>Checklist:</b> chào hỏi · hỏi <i>"How do you spell…?"</i> · dùng <i>"Could you spell that again, please?"</i> · hỏi 1 email · đọc lại <i>"Let me check…"</i> · cảm ơn &amp; kết thúc.</div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>15</b></span></div>
-  <aside class="notes"><h4>Quy trình (10′)</h4><ul><li><b>Setup (1′):</b> Bấm "Copy card" với tab A → dán vào chat riêng cho học viên A; tương tự cho B (hoặc gửi trong breakout bằng "Broadcast message").</li><li><b>Demo (1′):</b> GV làm mẫu 1 câu hỏi với học viên.</li><li><b>Pairs (6′):</b> Mỗi người hỏi 9 thông tin. GV đi vòng các room, ghi lỗi phát âm chữ cái.</li><li><b>Feedback (2′):</b> Mở tab "Teacher key", học viên tự chấm. Ghi lỗi thường gặp lên Error corner (slide 20).</li><li>ICQs: "Can you show your card to your partner?" (No). "What do you say if you don't catch a letter?" (Could you spell that again, please?)</li></ul></aside>
-</section>
-
-<!-- ================= 16. SPEAKING 2: ROLE-PLAY ================= -->
-<section class="slide" data-title="Speaking 2: Role-play Sign me up!">
-  <div class="badges"><span class="badge y">⏱ 12′</span><span class="badge">👥 Breakout pairs · swap</span></div>
-  <div class="s-head"><span class="chip c-speak">Speaking 2 · Role-play</span><h2>"Sign me up!" — <em>real-life spelling</em></h2><p class="sub">Staff hỏi &amp; ghi thông tin · Customer trả lời &amp; đánh vần · Đổi vai sau mỗi tình huống</p></div>
-  <div class="rp" id="rp"></div>
-  <div class="tip" style="margin-top:12px;font-size:14.5px">✅ <b>Staff rules:</b> (1) hỏi <i>"How do you spell…?"</i> cho MỌI thông tin · (2) dùng <i>"Could you spell that again, please?"</i> ít nhất 1 lần · (3) đọc lại để xác nhận: <i>"Let me check: …"</i> · (4) gõ thông tin vào chat → Customer kiểm tra.</div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>16</b></span></div>
-  <aside class="notes"><h4>Quy trình (12′)</h4><ul><li>3 tình huống × ~3′ + 3′ feedback. Mỗi cặp: Round 1 (A = staff), Round 2 (B = staff), Round 3 tuỳ chọn.</li><li>Bấm "Copy" để gửi thẻ vai vào chat. Customer card 2 &amp; 3 có sẵn thông tin khó (O'Brien, Wednesday, Le Loi…) → buộc phải đánh vần cẩn thận.</li><li>Feedback: mời 1 cặp làm lại trên main room (performance), cả lớp gõ thông tin vào chat → chấm độ chính xác.</li></ul></aside>
 </section>
 
 <!-- ================= 17. GAME 1: MYSTERY WORD ================= -->
 <section class="slide" data-title="Game 1: Mystery word">
-  <div class="badges"><span class="badge y">⏱ 3′</span><span class="badge">🎮 Whole class</span></div>
-  <div class="s-head"><span class="chip c-prac">Game 1</span><h2>Mystery word — <em>say the letter to guess!</em></h2><p class="sub">Học viên phải NÓI tên chữ cái đúng phát âm thì GV mới bấm. Sai phát âm = không tính!</p></div>
+  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">🎮 Whole class</span></div>
+  <div class="s-head"><span class="chip c-prac">Spelling game 1</span><h2>Mystery word — <em>say the letter to guess!</em></h2><p class="sub">Học viên phải NÓI tên chữ cái đúng phát âm thì GV mới bấm. Sai phát âm = không tính!</p></div>
   <div class="row" style="align-items:center;justify-content:space-between;margin-bottom:6px">
     <div class="lives" id="lives"></div>
     <div class="row" style="gap:8px;align-items:center">
@@ -613,14 +627,14 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
   <div class="hm-word" id="hmWord"></div>
   <div id="hmMsg" style="text-align:center;font-weight:800;font-size:20px;color:var(--navy);min-height:30px;margin-bottom:10px"></div>
   <div class="kb" id="kb"></div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>17</b></span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>16</b></span></div>
   <aside class="notes"><h4>Cách chơi</h4><ul><li>Chia lớp 2 đội. Lần lượt mỗi đội unmute nói 1 chữ cái. Nói sai tên chữ (VD "hát" cho H) → mất lượt.</li><li>Khi đoán xong, cả đội phải <b>đánh vần lại cả từ</b> mới được điểm.</li><li>Click chữ trên bàn phím sẽ phát âm chữ đó (model lại cho cả lớp).</li></ul></aside>
 </section>
 
 <!-- ================= 18. GAME 2: LETTER WHEEL ================= -->
 <section class="slide" data-title="Game 2: Letter wheel">
-  <div class="badges"><span class="badge y">⏱ 3′</span><span class="badge">🗣 Individual · 20s</span></div>
-  <div class="s-head"><span class="chip c-prac">Game 2</span><h2>Letter wheel — <em>say it, spell it!</em></h2><p class="sub">Quay ra 1 chữ cái → nói 1 từ bất kỳ bắt đầu bằng chữ đó và đánh vần nó trong 20 giây</p></div>
+  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">🗣 Individual · 20s</span></div>
+  <div class="s-head"><span class="chip c-prac">Spelling game 2</span><h2>Letter wheel — <em>say it, spell it!</em></h2><p class="sub">Quay ra 1 chữ cái → nói 1 từ bất kỳ bắt đầu bằng chữ đó và đánh vần nó trong 20 giây</p></div>
   <div class="wheel">
     <div class="wl"><div id="wLetter">?</div></div>
     <div class="col" style="align-items:stretch;width:480px">
@@ -631,92 +645,66 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
       <div class="tip" style="font-size:14px">🗣 Frame: <b>"F — fish. F-I-S-H."</b></div>
     </div>
   </div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>18</b></span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>17</b></span></div>
   <aside class="notes"><h4>Cách chơi</h4><ul><li>Gọi học viên theo thứ tự (hoặc dùng name picker ở slide 19). Đúng trong 20s = 1 điểm cho đội.</li><li>Người kế tiếp gõ từ đó vào chat khi nghe đánh vần (luyện nghe).</li></ul></aside>
 </section>
 
-<!-- ================= 19. FLUENCY: SPELL CARD ================= -->
-<section class="slide" data-title="Fluency: 30-second Spell Card">
-  <div class="badges"><span class="badge y">⏱ 4′</span><span class="badge">🗣 Individual · 30s</span></div>
-  <div class="s-head"><span class="chip c-speak">Fluency round</span><h2>Your <em>30-second Spell Card</em></h2><p class="sub">Nói trôi chảy, không nhìn giấy · Cả lớp nghe và gõ lại email của bạn vào chat</p></div>
-  <div class="row" style="gap:20px;flex:1">
-    <div class="card frame grow">
-      Hi, my name is <span class="g">&nbsp;</span>.<br>
-      My first name is spelled <span class="g">&nbsp;</span>.<br>
-      My surname is spelled <span class="g">&nbsp;</span>.<br>
-      My email address is <span class="g" style="min-width:260px">&nbsp;</span>.<br>
-      That's <b>all lower case</b>. Thank you!
-      <div style="margin-top:10px"><button class="btn sm" data-seq='["Hi, my name is Linh.","My first name is spelled",{"s":"LINH"},"My surname is spelled",{"s":"NGUYEN"},"My email address is",{"s":"thuylinh_ng@gmail.com"},"That is all lower case. Thank you!"]'>▶ Model answer</button></div>
-    </div>
-    <div class="col" style="width:330px">
-      <div style="font-weight:800;color:var(--navy)">🎯 Who's next? (danh sách lớp, mỗi dòng 1 tên)</div>
-      <textarea class="names" id="names" placeholder="Nhập tên học viên…&#10;An&#10;Bình&#10;Chi"></textarea>
-      <div class="row"><button class="btn sm y" id="pick">🎲 Pick</button><button class="btn sm ghost" id="pickReset">↺</button><button class="btn sm" id="t30">⏱ 30s</button></div>
-      <div class="picked" id="picked">—</div>
-    </div>
-  </div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>19</b></span></div>
-  <aside class="notes"><h4>Quy trình (4′)</h4><ul><li>Pick ngẫu nhiên, mỗi học viên 30s. Các bạn khác gõ email nghe được vào chat → người nói xác nhận "Yes, that's right / No, it's …".</li><li>GV ghi nhanh: ai đạt ≥ 80% chính xác (theo chuẩn đầu ra).</li><li>Tên học viên chỉ lưu trên trình duyệt đang mở, không gửi đi đâu.</li></ul></aside>
-</section>
-
-<!-- ================= 20. WRAP-UP ================= -->
+<!-- ================= Wrap-up & exit ticket ================= -->
 <section class="slide" data-title="Wrap-up & exit ticket">
   <div class="badges"><span class="badge y">⏱ 3′</span><span class="badge">💬 Chat</span></div>
   <div class="s-head"><span class="chip c-wrap">Wrap-up</span><h2>What can you <em>do now</em>?</h2><p class="sub">Tự đánh giá · Error corner · Exit ticket</p></div>
   <div class="row" style="gap:20px;flex:1">
     <div class="col grow">
-      <label class="chk"><input type="checkbox"> I can say all 26 letters clearly.</label>
-      <label class="chk"><input type="checkbox"> I know the 7 sound families (A-H-J-K…).</label>
-      <label class="chk"><input type="checkbox"> I can catch spelled names and emails.</label>
+      <label class="chk"><input type="checkbox"> I can say all 26 letters clearly (A-E-I, G-J, H, R…).</label>
+      <label class="chk"><input type="checkbox"> I can spell names aloud — even "double L".</label>
+      <label class="chk"><input type="checkbox"> I can listen and write a spelled name.</label>
+      <label class="chk"><input type="checkbox"> I can read an email address: at · dot · underscore.</label>
       <label class="chk"><input type="checkbox"> I can ask "How do you spell…?" &amp; "Could you spell that again, please?"</label>
-      <label class="chk"><input type="checkbox"> I can spell my name and email confidently.</label>
     </div>
     <div class="col" style="width:420px">
       <div class="card" style="padding:14px;flex:1">
-        <div style="font-weight:800;color:var(--red);margin-bottom:6px">🛠 Error corner (GV ghi lỗi trong buổi)</div>
+        <div style="font-weight:800;color:var(--red);margin-bottom:6px">🛠 Error corner</div>
         <div contenteditable="true" style="min-height:120px;font-size:15px;line-height:1.6;outline:none;border:2px dashed var(--line);border-radius:10px;padding:8px">• H → "hát" ✗ → /eɪtʃ/ ✓<br>• G ↔ J đảo ngược<br>• </div>
       </div>
-      <div class="tip">🎟 <b>Exit ticket (chat):</b> (1) Gõ chữ cái bạn thấy khó nhất. (2) Unmute và đánh vần <b>tên một con phố</b> gần nhà bạn.</div>
+      <div class="tip">🎟 <b>Exit ticket:</b> unmute và đánh vần <b>email</b> của bạn (hoặc email tự tạo) — cả lớp gõ lại vào chat.</div>
     </div>
   </div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>20</b></span></div>
-  <aside class="notes"><h4>Quy trình (3′)</h4><ul><li>So sánh với lựa chọn ở slide 3. Học viên tick tự đánh giá (GV share màn hình, đọc to từng câu, học viên giơ tay/emoji).</li><li>Error corner: ô có thể gõ trực tiếp.</li></ul></aside>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>18</b></span></div>
 </section>
 
-<!-- ================= 21. HOMEWORK ================= -->
-<section class="slide" data-title="Homework & real-life task">
-  <div class="badges"><span class="badge y">⏱ 1′</span></div>
-  <div class="s-head"><span class="chip c-wrap">After class</span><h2>Homework &amp; <em>real-life task</em></h2><p class="sub">Tự học 10–15 phút/ngày · Voice note #1 của tuần</p></div>
+<!-- ================= Homework: Listening ================= -->
+<section class="slide" data-title="Homework: Listening">
+  <div class="badges"><span class="badge y">HW</span></div>
+  <div class="s-head"><span class="chip c-listen">Homework · Listening</span><h2>Spelling test — <em>online homework</em></h2><p class="sub">Làm và nộp trực tiếp trên website · chấm điểm ngay · thầy xem kết quả của từng bạn</p></div>
   <div class="hw">
-    <div class="card"><h3>🎙 Voice note #1 (60–90 giây)</h3>
+    <div class="card"><h3>🎧 4 parts · 24 questions</h3>
       <div class="steps">
-        <div class="step"><span class="n">1</span><div>Say the alphabet <b>by sound family</b>: A-H-J-K · B-C-D-E-G-P-T-V · F-L-M-N-S-X-Z · I-Y · O · Q-U-W · R.</div></div>
-        <div class="step"><span class="n">2</span><div>Spell your <b>full name</b> and <b>email</b> (thật hoặc tự tạo).</div></div>
-        <div class="step"><span class="n">3</span><div>Choose <b>3 English words you see every day</b> (app, brand, street sign…) — say and spell each one.</div></div>
-        <div class="step"><span class="n">4</span><div>Gửi vào nhóm lớp trước buổi học tiếp theo.</div></div>
+        <div class="step"><span class="n">1</span><div><b>People's names</b> — nghe "Mr / Mrs / Ms…" và viết họ (8 câu).</div></div>
+        <div class="step"><span class="n">2</span><div><b>Street names</b> — viết tên đường được đánh vần (6 câu).</div></div>
+        <div class="step"><span class="n">3</span><div><b>Towns &amp; cities</b> — viết tên thành phố (5 câu).</div></div>
+        <div class="step"><span class="n">4</span><div><b>Booking form</b> — nghe cuộc gọi đặt phòng, điền form (5 câu) · dạng IELTS Listening Section 1.</div></div>
       </div>
     </div>
     <div class="col">
-      <div class="card"><h3>🌍 Real-life task</h3><p style="font-size:15.5px;line-height:1.5">Spell your name in English <b>to a real person</b> (đặt món, đăng ký, gọi điện, hoặc nhờ người thân đóng vai) — hoặc điền 1 form tiếng Anh online. Ghi lại: <i>Chữ nào bị nghe nhầm?</i></p></div>
-      <div class="card"><h3>🔁 Self-study</h3><p style="font-size:15.5px;line-height:1.5">Mở lại file này → làm lại <b>Listening 1</b> và <b>Spell the names</b> đến khi đạt <b>≥ 80%</b>. Đổi tốc độ "Slow → Normal → Fast".</p></div>
+      <div class="card"><h3>🔗 Link làm bài</h3><p style="font-size:17px;line-height:1.5;word-break:break-all"><b>thanh990522.github.io/communication-foundation</b><br>→ <b>S01</b> → <b>📝 Homework</b></p><p style="font-size:15px;color:var(--muted);margin-top:6px">Đăng nhập bằng tên + email (dùng cùng email mỗi lần).</p></div>
+      <div class="card"><h3>✅ Mẹo làm bài</h3><p style="font-size:15.5px;line-height:1.5">Nghe <b>1 lần</b> trước như thi thật, viết ngay. Sau đó mới nghe lại để kiểm tra. Mục tiêu: <b>≥ 80%</b> (20/24).</p></div>
     </div>
   </div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>21</b></span></div>
-  <aside class="notes"><h4>Ghi chú</h4><ul><li>Syllabus yêu cầu 3 voice notes/tuần — đây là voice note #1 của Tuần 1.</li><li>Khi chấm voice note: tập trung A/E/I, G/J, H, R, âm cuối F/L/M/N/S/X.</li></ul></aside>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>19</b></span></div>
 </section>
 
 <!-- ================= 22. THANK YOU ================= -->
 <section class="slide cover" data-title="Thank you & next session">
   <span class="chip c-warm">See you next time!</span>
   <h1 style="font-size:76px">Thank <span>you!</span></h1>
-  <div class="vn">Great job spelling today — keep saying letters out loud!</div>
+  <div class="vn">Great job spelling today — don't forget your listening homework!</div>
   <div class="card" style="margin-top:28px;padding:18px 22px;max-width:620px;border-color:var(--blue)">
     <div style="font-weight:800;color:var(--blue);font-size:14px;letter-spacing:1px">NEXT · SESSION 02</div>
     <div style="font-size:26px;font-weight:900;color:var(--navy);margin-top:4px">Routines, Habits &amp; Real Schedules</div>
     <div style="color:var(--muted);margin-top:4px;font-size:15.5px">Mô tả lịch ngày thường và hỏi sâu về thói quen của người khác · present simple + adverbs of frequency</div>
   </div>
   <div class="cloud" id="cloud2"></div>
-  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b> · Mr. Hà Chí Thanh</span><span><b>22</b></span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b> · Mr. Hà Chí Thanh</span><span><b>20</b></span></div>
   <aside class="notes"><h4>Kết thúc</h4><ul><li>Nhắc hạn nộp voice note #1.</li></ul></aside>
 </section>
 

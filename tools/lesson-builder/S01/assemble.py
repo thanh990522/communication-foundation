@@ -32,9 +32,6 @@ h=re.sub(r'<div id="timer">.*?\n</div>\n','<div id="timer"><div class="d" id="tD
 rep("#timer{position:fixed;top:14px;right:14px;z-index:70;background:#fff;border:3px solid var(--navy);border-radius:18px;box-shadow:var(--shadow);padding:10px 12px;display:none;width:236px}",
     "#timer{position:fixed;top:14px;right:14px;z-index:70;background:#fff;border:3px solid var(--navy);border-radius:18px;box-shadow:var(--shadow);padding:6px 18px;display:none}")
 # ---- buttons using TTS -> audio ids ----
-rep("""data-seq='["capital J"]'""",'data-a="CAP_J"'); rep("""data-seq='["small J"]'""",'data-a="SMALL_J"')
-rep("""data-seq='["It is all lower case."]'""",'data-a="PH_LOWER"'); rep("""data-seq='["It is all capitals."]'""",'data-a="PH_CAPS"')
-rep("""data-seq='["Is that a capital letter?"]'""",'data-a="PH_CAPQ"')
 rep("""data-seq='["car"]'""",'data-a="W_CAR"'); rep("""data-seq='["why"]'""",'data-a="W_WHY"')
 h=re.sub(r"""data-seq='\["Hi, my name is Linh\.".*?\]'""",'data-a="MODEL"',h,count=1)
 rep('<button class="lb" data-letter="U">U</button><button class="lb" data-letter="Z">Z</button>',

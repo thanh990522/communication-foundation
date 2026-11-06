@@ -55,7 +55,10 @@ def tokens(s,doubles=True):
         out.append('at')
         for k,p in enumerate(dom.split('.')):
             if k: out.append('dot')
-            out.append(p)
+            for j,w in enumerate(p.split('-')):
+                if j: out.append('hyphen')
+                if w in ('com','net','org','edu') or len(w)>3: out.append(w)   # say as a word
+                else: out.extend(ch.upper() for ch in w)                     # spell short parts: v-n, a-b-c
     return out
 def plan(segs,v,gap=.28,rate='+0%'):
     keys=[]
@@ -97,33 +100,42 @@ for i,f in enumerate(FAMS):
 clip('FAM_ALL','Sound_families/S01_all_7_families.mp3',fa,'All 7 sound families')
 ACR=['ATM','KFC','VIP','OK','USA','UK','CEO','FAQ','DIY','ASAP','BBC','ID','VTV','HCMC']
 for i,a in enumerate(ACR): clip(f'ACR_{i}',f'Warm-up/S01_warmup_{i+1:02d}_{a}.mp3',plan([('sn',a)],SONIA,gap=.12),a)
-for cid,t,fn in [('CAP_J','capital J','capital_J'),('SMALL_J','small j','small_j'),('PH_LOWER',"It's all lower case.",'all_lower_case'),('PH_CAPS',"It's all capitals.",'all_capitals'),('PH_CAPQ','Is that a capital letter?','capital_letter_question'),('W_CAR','car','car'),('W_WHY','why','why')]:
+for cid,t,fn in [('CAP_J','capital J','capital_J'),('SMALL_J','small j','small_j'),('PH_LOWER',"It's all lower case.",'all_lower_case'),('W_CAR','car','car'),('W_WHY','why','why')]:
     clip(cid,f'Phrases/S01_{fn}.mp3',[want(SONIA,t,'-5%')],t)
-UN=[[ 'capital M',('l','A'),('l','I'),'capital A',('l','N'),('l','H'),'underscore','nine','eight'],
-    ['small j','capital T',('l','R'),('l','A'),('l','N')],
-    ['capital L',('l','I'),('l','N'),('l','H'),'capital V',('l','O')],
-    [('s','bao.ng'),'all lower case']]
-UNS=['MaiAnh_98','jTran','LinhVo','bao.ng']
-for i,u in enumerate(UN): clip(f'UN_{i}',f'Capitals/S01_username_{i+1}_{UNS[i]}.mp3',plan(u,SONIA),UNS[i])
 ODD=[['A','H','J','E'],['B','D','F','T'],['M','N','L','I'],['Q','U','W','O'],['G','P','V','K'],['S','X','R','F']]
 for i,o in enumerate(ODD):
     k=[]
     for X in o: k+=[want(SONIA,X),.55]
     clip(f'ODD_{i}',f'Odd_one_out/S01_odd_{i+1}_{"".join(o)}.mp3',k,'Odd one out '+' '.join(o))
-QUIZ=['E','G','A','V','N','J','I','R','H','Q','Y','X']
-for i,q in enumerate(QUIZ):
-    clip(f'Q_{i}',f'Listening1_Which_letter/S01_L1_item{i+1:02d}.mp3',[want(SONIA,q),.9,want(SONIA,q)],f'Item {i+1}')
+NAMES_TEST=[('Mr','Black'),('Mrs','Green'),('Ms','Hayes'),('Mr','Jarvis'),('Dr','Patel'),
+            ('Miss','Nguyen'),('Mr','Pham'),('Ms','Quinn'),('Mrs','Wood'),('Mr','Huynh')]
+NUMW=['one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve']
+TITLE_SAY={'Mr':'Mister','Mrs':'Missus','Ms':'Ms','Dr':'Doctor','Miss':'Miss'}
+for i,(t,n) in enumerate(NAMES_TEST):
+    k=[want(RYAN,f'Question {NUMW[i]}.'),.7,want(RYAN,f'{TITLE_SAY[t]} {n}.'),.45]
+    toks=tokens(n.upper())
+    for j,tk in enumerate(toks): k+=[want(RYAN,tk),.22]
+    clip(f'NT_{i}',f'Listening_Spelling_test/S01_NT_q{i+1:02d}_{t}_{n}.mp3',k,f'Question {i+1}: {t} {n}')
 SPELL=[['Tom','Nam','Anna','Linh'],['Sarah','James','Hieu','Giang'],['Phuong','Nguyen','Quynh','Jackson'],['Phillips','Wright','anh.tran@gmail.com','mai_vu@yahoo.com']]
 LVN=['Easy','Medium','Hard','Challenge']
 for L,lst in enumerate(SPELL):
     for k,n in enumerate(lst):
         clip(f'SP_{L}_{k}',f'Spell_the_names/S01_spell_{L+1}{LVN[L]}_{k+1}_{n.replace("@","_at_")}.mp3',plan([('s',n)],SONIA,gap=.3),f'{LVN[L]} {k+1}: {n}')
-ASK=['How do you spell your name?','How do you spell that?','Could you spell that again, please?','Sorry, was that M or N?','Is that double L?','Is that a capital letter?']
-for i,t in enumerate(ASK): clip(f'TKA_{i}',f'Spelling_toolkit/S01_ask_{i+1}.mp3',[want(SONIA,t,'-5%')],t)
-ANS=[["It's",('s','LINH')],["That's double S."],['B as in "boy".'],['V as in "Vietnam".'],["Yes, that's right."],['All lower case.']]
-for i,s in enumerate(ANS): clip(f'TKB_{i}',f'Spelling_toolkit/S01_answer_{i+1}.mp3',plan(s,SONIA,rate='-5%'),str(s))
-SYM=['at','dot','underscore','hyphen','dot com','double S']
-for i,t in enumerate(SYM): clip(f'TKS_{i}',f'Spelling_toolkit/S01_symbol_{i+1}_{t.replace(" ","_")}.mp3',[want(SONIA,t)],t)
+SYMB=[('at','at'),('dot','dot'),('underscore','underscore'),('hyphen','hyphen, or dash'),('dotcom','dot com'),('dotvn','dot V N'),('doubleS','double S'),('lower','all lower case')]
+for i,(fn,t) in enumerate(SYMB): clip(f'SYM_{i}',f'Email_symbols/S01_symbol_{i+1}_{fn}.mp3',[want(SONIA,t)],t)
+EMAILS=['lan.pham@gmail.com','tom_baker99@yahoo.com','info@abc-english.vn','minh.anh2002@outlook.com']
+for i,e in enumerate(EMAILS): clip(f'EM_{i}',f'Email_symbols/S01_email_{i+1}.mp3',plan([('s',e)],SONIA,gap=.26),e)
+QA=[(["What's your name?"],["My name's Linh."]),
+    (["How do you spell your first name?"],["It's",('s','LINH')]),
+    (["How do you spell your surname?"],["It's",('s','NGUYEN')]),
+    (["Sorry, could you spell that again, please?"],["Sure.",('s','NGUYEN')]),
+    (['Is that G as in "good"?'],["Yes, that's right."]),
+    (['Is that J as in "juice"?'],['No, it\'s G as in "good".']),
+    (["What's your email address?"],["It's",('s','linh.ng@gmail.com')]),
+    (["Is that all lower case?"],["Yes, it's all lower case."])]
+for i,(q,a) in enumerate(QA):
+    clip(f'QA_{i}_q',f'Questions_answers/S01_QA{i+1}_question.mp3',plan(q,RYAN,rate='-5%'),'Q: '+q[0])
+    clip(f'QA_{i}_a',f'Questions_answers/S01_QA{i+1}_answer.mp3',plan(a,LIBBY,rate='-5%'),'A: '+str(a[0]))
 DLG=[('R',["Good morning! Welcome to Bright English Centre. Can I have your name, please?"]),
  ('S',["Sure. My name's Linh. Nguyen Thuy Linh."]),
  ('R',["Nice to meet you, Linh. How do you spell your first name?"]),
@@ -146,7 +158,6 @@ for i,(w,s) in enumerate(DLG):
     clip(f'DLG_{i}',f'Dialogue/S01_dialogue_line{i+1:02d}.mp3',k,f'Line {i+1}')
     allk+=k+[.55]
 clip('DLG_ALL','Dialogue/S01_dialogue_FULL.mp3',allk,'Full dialogue')
-clip('MODEL','Fluency/S01_spell_card_model.mp3',plan(["Hi, my name is Linh.","My first name is spelled",('s','LINH'),"My surname is spelled",('s','NGUYEN'),"My email address is",('s','thuylinh_ng@gmail.com'),"That's all lower case. Thank you!"],SONIA,rate='-5%'),'Model answer')
 
 asyncio.run(fetch_all())
 manifest={}

@@ -1,356 +1,317 @@
 {
  "session": "S01",
  "title": "Alphabet & Spelling Out Loud",
- "intro": "Làm bài trong khoảng 20–25 phút. Phần A–D được chấm tự động; phần E–F thầy sẽ chấm và nhận xét.",
+ "kind": "Listening",
+ "intro": "Listening homework · dạng Spelling của IELTS Listening. Mỗi câu chỉ đọc và đánh vần 1 lần ở tốc độ tự nhiên — hãy nghe 1 lần trước như thi thật, rồi mới nghe lại để kiểm tra. Viết đúng như được đánh vần: sai 1 chữ là sai cả câu. Khoảng 20 phút · tự chấm ngay khi nộp.",
  "sections": [
   {
    "id": "A",
-   "title": "A. Listen & choose",
-   "vi": "Nghe và chọn chữ cái đúng",
+   "title": "Part 1. People's names",
+   "vi": "Nghe \"Mr / Mrs / Ms…\" rồi viết họ (surname)",
    "items": [
     {
-     "id": "A1",
-     "type": "listen_mcq",
-     "prompt": "Which letter do you hear?",
-     "audio": "lessons/S01/audio/Letters/S01_letter_G.mp3",
-     "options": [
-      "J",
-      "G",
-      "Z"
-     ],
+     "id": "P1",
+     "type": "listen_type",
+     "prompt": "Question 1 · Ms ______",
+     "audio": "homework/audio/S01/S01_HW_P1.mp3",
+     "placeholder": "SURNAME",
      "points": 1,
      "ah": [
-      "d2851cde92ffc723b273404854df6a492440edd46e27d6d23b05a0a39f607e47"
+      "ca09d286b30547e9b95ab178c2871063ccd9eb9968d95ad02a79151d63865544",
+      "a1d8529d1148b4b0d0c0145f22c3d4e49009d29cfb289ac60ac6ef309ab6f852",
+      "746b6221fb63ec479e880427abfaf5552b9ffa78573d5fd6d56445ac5522b517"
      ]
     },
     {
-     "id": "A2",
-     "type": "listen_mcq",
-     "prompt": "Which letter do you hear?",
-     "audio": "lessons/S01/audio/Letters/S01_letter_E.mp3",
-     "options": [
-      "I",
-      "A",
-      "E"
-     ],
+     "id": "P2",
+     "type": "listen_type",
+     "prompt": "Question 2 · Mr ______",
+     "audio": "homework/audio/S01/S01_HW_P2.mp3",
+     "placeholder": "SURNAME",
      "points": 1,
      "ah": [
-      "a409ee3e6416ae0d70dbe371bdec6c76cb8eb00850a3aadb8f6531c0e08f05c9"
+      "20dc35ec148b044e116b2a92c3607c46750e796afd5c12dbf12868d1a345b2e8",
+      "c71ba9b9006e4adc0bfa6305fdfd7d8bd0ff59ceab2893c009ed68ca79a7041b",
+      "bcf707370547aa7ba893af73d2166af8b244f490684488e1a8619449476c873e"
      ]
     },
     {
-     "id": "A3",
-     "type": "listen_mcq",
-     "prompt": "Which letter do you hear?",
-     "audio": "lessons/S01/audio/Letters/S01_letter_H.mp3",
-     "options": [
-      "H",
-      "A",
-      "K"
-     ],
+     "id": "P3",
+     "type": "listen_type",
+     "prompt": "Question 3 · Mrs ______",
+     "audio": "homework/audio/S01/S01_HW_P3.mp3",
+     "placeholder": "SURNAME",
      "points": 1,
      "ah": [
-      "c0e0618ec49becef95b0ad28474e01356aeefa2eabc07072d89a9fa24a76886e"
+      "c80c0de750bbcb35199c84079a77502e825db283a1950fcf47923485b128fabf",
+      "70a862865283691dfa474fe720cbc4e09168aa13de1880d10e21a94198d2c9f8",
+      "94265c517304007b80c7ce267af9cfcf5470414d51c059f233dc073a887d67b1"
      ]
     },
     {
-     "id": "A4",
-     "type": "listen_mcq",
-     "prompt": "Which letter do you hear?",
-     "audio": "lessons/S01/audio/Letters/S01_letter_R.mp3",
-     "options": [
-      "A",
-      "O",
-      "R"
-     ],
+     "id": "P4",
+     "type": "listen_type",
+     "prompt": "Question 4 · Dr ______",
+     "audio": "homework/audio/S01/S01_HW_P4.mp3",
+     "placeholder": "SURNAME",
      "points": 1,
      "ah": [
-      "8acb06bf0eab2c2cd7cbb3c57a812c940f87932d37a2942ba401743ceb7b4a03"
+      "0e0f2a65151b22623f1a3e81e5b80f4a9693f092efb7d792841da28b2b53165b",
+      "635a353fed5364433ca92dcc4a43e943b558585a43d1afda70929d604ba9c4e9",
+      "0ae11b92b2e0ec09dac53d62dc9fdd238ca048843a88b0f72452c8571f2a44eb"
      ]
     },
     {
-     "id": "A5",
-     "type": "listen_mcq",
-     "prompt": "Which letter do you hear?",
-     "audio": "lessons/S01/audio/Letters/S01_letter_Y.mp3",
-     "options": [
-      "I",
-      "Y",
-      "W"
-     ],
+     "id": "P5",
+     "type": "listen_type",
+     "prompt": "Question 5 · Miss ______",
+     "audio": "homework/audio/S01/S01_HW_P5.mp3",
+     "placeholder": "SURNAME",
      "points": 1,
      "ah": [
-      "afd64beeb285c8eb0d56366ad5c42823894e1c3b9d7c48771319ff954f570513"
+      "8807bd4cd7b4260ff9a72ebfd8f9a450a8b31fc6f9267a483d1d4e4276c4d501",
+      "95fffac3b3cc0d37d1b9b956a8f624ad94f84f03b2d7e59f725fb5a5dda8c1e2",
+      "4c70c8a70d606d70551e56e1141bee2d58a83fd59545363aed5d9d201d237076"
      ]
     },
     {
-     "id": "A6",
-     "type": "listen_mcq",
-     "prompt": "Which letter do you hear?",
-     "audio": "lessons/S01/audio/Letters/S01_letter_Q.mp3",
-     "options": [
-      "U",
-      "K",
-      "Q"
-     ],
+     "id": "P6",
+     "type": "listen_type",
+     "prompt": "Question 6 · Mr ______",
+     "audio": "homework/audio/S01/S01_HW_P6.mp3",
+     "placeholder": "SURNAME",
      "points": 1,
      "ah": [
-      "e23c55a2a8e04330b607d1d6499d9576a384b6ace1ce479a7f5b2afcf137e5bb"
+      "5b81506ca8b63c8c8226279f8366ffbdaaa6ddc9a74ddeaf98dcecb1281be050",
+      "5ffa14f16afa57fb2cdf9c9e099d0989b9393918ccea1631e4ba086473cb05b6",
+      "92d561df09a16f49e9d440b0b50ce157d5f0090d932f88b8f3b38a04653e70d3"
+     ]
+    },
+    {
+     "id": "P7",
+     "type": "listen_type",
+     "prompt": "Question 7 · Ms ______",
+     "audio": "homework/audio/S01/S01_HW_P7.mp3",
+     "placeholder": "SURNAME",
+     "points": 1,
+     "ah": [
+      "fce1f50fdfb931736f69edffd7c03fd0c8cc834a3662e050dd980f606b89e7e0",
+      "e0d6c38291969a76cf5f75c5ef5f2219cc3a25d110f78d3c9d4537cb730829c1",
+      "186e84ac64cacda9f069271d909960db58c1d69365ae03fd4f8abed01a744e64"
+     ]
+    },
+    {
+     "id": "P8",
+     "type": "listen_type",
+     "prompt": "Question 8 · Mrs ______",
+     "audio": "homework/audio/S01/S01_HW_P8.mp3",
+     "placeholder": "SURNAME",
+     "points": 1,
+     "ah": [
+      "1c996328470443b53e33f6412bd0d6fb0b18fb22fb72e7cc85a3337084fe7586",
+      "b880aaba9a19dac49ba6dd7d2e15eb1c6ca0080d8dcf9d37dac12d26c30c1c03",
+      "17cd87d0b0e34747c26335e06e1740213d4bbdf2b44016acd6b930328616ee06"
      ]
     }
    ]
   },
   {
    "id": "B",
-   "title": "B. Listen & write",
-   "vi": "Nghe đánh vần và viết lại (tên viết IN HOA, email viết thường)",
+   "title": "Part 2. Street names",
+   "vi": "Viết tên đường được đánh vần (không cần viết Road / Street)",
    "items": [
     {
-     "id": "B1",
+     "id": "R1",
      "type": "listen_type",
-     "prompt": "Write the name.",
-     "audio": "homework/audio/S01/S01_HW_B1.mp3",
-     "placeholder": "NAME",
+     "prompt": "Number 1 · ______ Road",
+     "audio": "homework/audio/S01/S01_HW_R1.mp3",
+     "placeholder": "STREET NAME",
      "points": 1,
      "ah": [
-      "c02b8007ea6fb8deb271dbbb3c10dca753daa8e61374666bca553ed5c4510b0f"
+      "7509b43863789e0b242a853c6597a7833e0cfe9d1b5ab5244369ad269d09119c",
+      "4372dfa9f4374531aa5f5307e41d3ed0120aac867aca721ba50785662f8c5a25"
      ]
     },
     {
-     "id": "B2",
+     "id": "R2",
      "type": "listen_type",
-     "prompt": "Write the name.",
-     "audio": "homework/audio/S01/S01_HW_B2.mp3",
-     "placeholder": "NAME",
+     "prompt": "Number 2 · ______ Street",
+     "audio": "homework/audio/S01/S01_HW_R2.mp3",
+     "placeholder": "STREET NAME",
      "points": 1,
      "ah": [
-      "c02fba869698f8e332ae601e08c4fc9f94ba82e42f971ed17a024773c168d3ca"
+      "4c1d5192ee0087cb5285f5a3f17e51076d8f1fea939a110fb862cf588888c2fc",
+      "082de2ccb8e512353b794c36b5b7f49b8bdf95b323e96fba5dbc7382056ff0b8"
      ]
     },
     {
-     "id": "B3",
+     "id": "R3",
      "type": "listen_type",
-     "prompt": "Write the name.",
-     "audio": "homework/audio/S01/S01_HW_B3.mp3",
-     "placeholder": "NAME",
+     "prompt": "Number 3 · ______ Avenue",
+     "audio": "homework/audio/S01/S01_HW_R3.mp3",
+     "placeholder": "STREET NAME",
      "points": 1,
      "ah": [
-      "adccc04d0f900790f8523bd421eac7f0d19874fbe60342ab082183678875846e"
+      "d8ebbf5d9dde060e67a162843ec496a2e01a49eca7df4584bd3ee32b9d11f488",
+      "5dabce5a1d89f0962edfd867821b1ceb93f724168dc338582191559c809edefb"
      ]
     },
     {
-     "id": "B4",
+     "id": "R4",
      "type": "listen_type",
-     "prompt": "Write the name.",
-     "audio": "homework/audio/S01/S01_HW_B4.mp3",
-     "placeholder": "NAME",
+     "prompt": "Number 4 · ______ Road",
+     "audio": "homework/audio/S01/S01_HW_R4.mp3",
+     "placeholder": "STREET NAME",
      "points": 1,
      "ah": [
-      "80b207faa7148f85b1d68825018167e7a679353d8c1f3787bb860e9d7df833fb"
+      "ad13bee967cb0dcf875d0a7992ab54cbe249ac39db181db841ebaff462ea0fa3",
+      "ab4d7aaf3331690287d6c936f736b719452f58fb469fe67d5d221df46a3228ec"
      ]
     },
     {
-     "id": "B5",
+     "id": "R5",
      "type": "listen_type",
-     "prompt": "Write the email address.",
-     "audio": "homework/audio/S01/S01_HW_B5.mp3",
-     "placeholder": "email…",
+     "prompt": "Number 5 · ______ Drive",
+     "audio": "homework/audio/S01/S01_HW_R5.mp3",
+     "placeholder": "STREET NAME",
      "points": 1,
      "ah": [
-      "c3d6cfa1c831d22216f460966e45b13d375e4bcbaaf2db72f2faab84c2d96cf8"
+      "d7ef43d3a1490690417b273fb321aca09100dbfc62d4854205e9a3475e667a27",
+      "5fc46feead2fe5d07e07e04f682d267c2285da346c6354beab8f06993616055e"
      ]
     },
     {
-     "id": "B6",
+     "id": "R6",
      "type": "listen_type",
-     "prompt": "Write the email address.",
-     "audio": "homework/audio/S01/S01_HW_B6.mp3",
-     "placeholder": "email…",
+     "prompt": "Number 6 · ______ Lane",
+     "audio": "homework/audio/S01/S01_HW_R6.mp3",
+     "placeholder": "STREET NAME",
      "points": 1,
      "ah": [
-      "5b9c58ec7b8ea33af76f325d7f7704ff57edd0b209dd10226bdfafa1f9819419"
+      "9c81853284d7dc5d12b4a888cb1cbb10a590a85bc48091c6f8ddc82c7d4b6805",
+      "21b296a619c727779ba853a7cc9eab24e540ae3642ca6af94b0817187f2b38b1"
      ]
     }
    ]
   },
   {
    "id": "C",
-   "title": "C. Odd one out",
-   "vi": "Chọn chữ cái có âm khác nhóm",
+   "title": "Part 3. Towns & cities",
+   "vi": "Viết tên thành phố được đánh vần",
    "items": [
     {
-     "id": "C1",
-     "type": "mcq",
-     "prompt": "Which letter has a different sound?",
-     "options": [
-      "A",
-      "J",
-      "K",
-      "E"
-     ],
+     "id": "T1",
+     "type": "listen_type",
+     "prompt": "Number 1 · town / city",
+     "audio": "homework/audio/S01/S01_HW_T1.mp3",
+     "placeholder": "TOWN",
      "points": 1,
      "ah": [
-      "932b72012a8347bc7cab5ee08c770318c8738dfc1433b795b45e8d5871793150"
+      "a35abd90854181c0deaf6b83ea89fc0b6c564062e24c4c562d0a466cbf5d6e5f"
      ]
     },
     {
-     "id": "C2",
-     "type": "mcq",
-     "prompt": "Which letter has a different sound?",
-     "options": [
-      "B",
-      "C",
-      "F",
-      "D"
-     ],
+     "id": "T2",
+     "type": "listen_type",
+     "prompt": "Number 2 · town / city",
+     "audio": "homework/audio/S01/S01_HW_T2.mp3",
+     "placeholder": "TOWN",
      "points": 1,
      "ah": [
-      "2c5de52b8907c0a37bde33463c5b74f2e8b581d0b09a60b1204f5e2b5d38b317"
+      "4366ec2d7b2a53c502cefb6f64f73ceea09aa78d9a760e85ee792f52b7d8a2b4"
      ]
     },
     {
-     "id": "C3",
-     "type": "mcq",
-     "prompt": "Which letter has a different sound?",
-     "options": [
-      "O",
-      "Q",
-      "U",
-      "W"
-     ],
+     "id": "T3",
+     "type": "listen_type",
+     "prompt": "Number 3 · town / city",
+     "audio": "homework/audio/S01/S01_HW_T3.mp3",
+     "placeholder": "TOWN",
      "points": 1,
      "ah": [
-      "b5b9e22674a7dbd1778810d65810f925c392a7a6c05afac3c37e8241d396f74e"
+      "371fed25a01ce1182fa1deb19005e7c1818c6da9601a6b5d6c1e3bd62bf16faf"
      ]
     },
     {
-     "id": "C4",
-     "type": "mcq",
-     "prompt": "Which letter has a different sound?",
-     "options": [
-      "L",
-      "M",
-      "N",
-      "P"
-     ],
+     "id": "T4",
+     "type": "listen_type",
+     "prompt": "Number 4 · town / city",
+     "audio": "homework/audio/S01/S01_HW_T4.mp3",
+     "placeholder": "TOWN",
      "points": 1,
      "ah": [
-      "633544811b8c2a9bcf611c16ec6193e83c537797e51a66b3a541c19a5ce5edb6"
+      "1be769ebe4dd5537e203c534e0d57d773690d3bb2c97b1e29876f37e48b86954"
      ]
     },
     {
-     "id": "C5",
-     "type": "mcq",
-     "prompt": "Which letter has a different sound?",
-     "options": [
-      "H",
-      "J",
-      "K",
-      "G"
-     ],
+     "id": "T5",
+     "type": "listen_type",
+     "prompt": "Number 5 · town / city",
+     "audio": "homework/audio/S01/S01_HW_T5.mp3",
+     "placeholder": "TOWN",
      "points": 1,
      "ah": [
-      "4fc16aa5f3360c717a1ece6589b8a5eeaafb045297c0961d5d2960cea55b535f"
+      "ae15b121ec159d41f9e99ad3ce2b94fc2ceea4091e1cc242b989a22df5d62a52"
      ]
     }
    ]
   },
   {
    "id": "D",
-   "title": "D. Complete the phrases",
-   "vi": "Điền 1 từ vào chỗ trống",
+   "title": "Part 4. Booking form",
+   "vi": "Nghe cuộc gọi đặt phòng khách sạn và điền form (dạng IELTS Listening Section 1)",
+   "audio": "homework/audio/S01/S01_HW_call.mp3",
+   "note": "LAKESIDE HOTEL — Booking form · Number of nights: 3 (example)",
    "items": [
     {
      "id": "D1",
      "type": "gap",
-     "prompt": "How do you ____ your surname?",
+     "prompt": "Guest name: Emma ____",
      "points": 1,
      "ah": [
-      "79acc0c985b14824d8dab943e7f239457647c134a9e9976c2d11b374fa0764d8"
+      "943a103e26065450be670327835c9d95c52a7ea8cebf4c740892ccdba207bfeb"
      ]
     },
     {
      "id": "D2",
      "type": "gap",
-     "prompt": "Could you spell that ____, please?",
+     "prompt": "Home town: ____",
      "points": 1,
      "ah": [
-      "58652202b29d595062eef5c96f2ffca35263a159fc7fe095a147598f9209ce80"
+      "910a19a5cb8cfaa5d937113e589a87dd20af3a9e15575ad3ab577f1e63a5121d"
      ]
     },
     {
      "id": "D3",
      "type": "gap",
-     "prompt": "Is that a ____ letter? (= chữ in hoa)",
+     "prompt": "Address: 14 ____ Road",
      "points": 1,
      "ah": [
-      "ea39fc15a6d670c5665f071fabdfb2e5163e08f585393a198b9ba72f7aee778f"
+      "c58b5239858a250aeb88fb2a822798f1326e35a252107da24a5f6f77efa4bf7b",
+      "2fe8f3ddca9489f4167b6cf122c9ee9f84a27df6be50dc03918206023effa238"
      ]
     },
     {
      "id": "D4",
      "type": "gap",
-     "prompt": "My email is all ____ case. (= chữ thường)",
+     "prompt": "Email: ____",
      "points": 1,
      "ah": [
-      "3d304d285169771af14e0ae5cf82793bae3febbcefa2eff06bcf4548e5358a72"
+      "ef5eac5c229cf78d57436dde123b27fd02135f527a1e7ec412c6e2b370ac058c"
      ]
     },
     {
      "id": "D5",
      "type": "gap",
-     "prompt": "In an email address, \"@\" is read as ____.",
+     "prompt": "Arrival day: ____",
      "points": 1,
      "ah": [
-      "fee666354cc48be72770859aeaef2d353e7973af431625341a976c4e5f49f2bc"
+      "85374af5be138ee91625df9699987fd9747aec5ecab3f829444272c57adc4f8b",
+      "d3c580fbe0e8164de3388de5138c71de4807563ccf16214ce7041b00c121dd98"
      ]
-    },
-    {
-     "id": "D6",
-     "type": "gap",
-     "prompt": "\"_\" is read as ____.",
-     "points": 1,
-     "ah": [
-      "8ee8dad317cd3d8e216dd68b02d3a94df084eac8830839c9f6a5a1d5a03c814a"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "E",
-   "title": "E. Writing",
-   "vi": "Viết — thầy chấm",
-   "items": [
-    {
-     "id": "E1",
-     "type": "writing",
-     "points": 10,
-     "minWords": 40,
-     "prompt": "Write a short dialogue (6–8 lines) at a hotel reception. The receptionist asks for your name and email, asks you to spell them, and uses \"Could you spell that again, please?\" once."
-    },
-    {
-     "id": "E2",
-     "type": "writing",
-     "points": 5,
-     "minWords": 6,
-     "prompt": "Write 3 English words you see every day and how you spell them. Example: KFC — K-F-C."
-    }
-   ]
-  },
-  {
-   "id": "F",
-   "title": "F. Voice note #1",
-   "vi": "Ghi âm — thầy chấm",
-   "items": [
-    {
-     "id": "F1",
-     "type": "voice",
-     "points": 10,
-     "maxSec": 180,
-     "prompt": "Record 60–90 seconds: (1) say the alphabet by sound families (A-H-J-K, B-C-D-E…), (2) spell your full name and your email, (3) say and spell 3 English words you see every day."
     }
    ]
   }
  ],
- "autoMax": 23
+ "autoMax": 24
 }

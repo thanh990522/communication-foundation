@@ -23,7 +23,6 @@ const ACRONYMS = [
   ['FAQ','frequently asked questions'],['DIY','do it yourself'],['ASAP','as soon as possible'],
   ['BBC','British Broadcasting Corporation'],['ID','identity / identification'],['VTV','Vietnam Television'],['HCMC','Ho Chi Minh City']
 ];
-const USERNAMES = ['MaiAnh_98','jTran','LinhVo','bao.ng'];
 const ODD = [
   {L:['A','H','J','E'],odd:'E',why:'E sounds like "see"; A, H, J sound like "say".'},
   {L:['B','D','F','T'],odd:'F',why:'F sounds like "pen"; B, D, T sound like "see".'},
@@ -32,7 +31,39 @@ const ODD = [
   {L:['G','P','V','K'],odd:'K',why:'K sounds like "say"; G, P, V sound like "see".'},
   {L:['S','X','R','F'],odd:'R',why:'R sounds like "car"; S, X, F sound like "pen".'}
 ];
-const QUIZ = [['E',['E','I','A']],['G',['J','G','Z']],['A',['E','A','R']],['V',['B','P','V']],['N',['M','N','L']],['J',['G','J','K']],['I',['E','Y','I']],['R',['A','O','R']],['H',['A','H','K']],['Q',['U','Q','W']],['Y',['I','W','Y']],['X',['S','X','F']]];
+const NAMES_TEST = [['Mr','Black'],['Mrs','Green'],['Ms','Hayes'],['Mr','Jarvis'],['Dr','Patel'],['Miss','Nguyen'],['Mr','Pham'],['Ms','Quinn'],['Mrs','Wood'],['Mr','Huynh']];
+const SYMB = [['@','at'],['.','dot'],['_','underscore'],['-','hyphen'],['.com','dot com'],['.vn','dot V-N'],['ss','double S'],['abc','all lower case']];
+const EMAILS = ['lan.pham@gmail.com','tom_baker99@yahoo.com','info@abc-english.vn','minh.anh2002@outlook.com'];
+const QA = [
+  ["What's your name?","My name's Linh."],
+  ["How do you spell your first name?","It's L-I-N-H."],
+  ["How do you spell your surname?","It's N-G-U-Y-E-N."],
+  ["Sorry, could you spell that again, please?","Sure. N-G-U-Y-E-N."],
+  ['Is that G as in "good"?',"Yes, that's right."],
+  ['Is that J as in "juice"?','No, it\'s G as in "good".'],
+  ["What's your email address?","It's l-i-n-h dot n-g at gmail dot com."],
+  ["Is that all lower case?","Yes, it's all lower case."]
+];
+const IDCARDS = [
+  ['Hannah Brooks','hannah.brooks@gmail.com','London, UK'],
+  ["Kevin O'Neill",'k_oneill@yahoo.com','Dublin, Ireland'],
+  ['Pham Thu Ha','ha.pham95@gmail.com','Hai Phong'],
+  ['Jessica Wright','jess.wright@outlook.com','Sydney, Australia'],
+  ['Nguyen Quoc Bao','baonq2001@gmail.com','Can Tho'],
+  ['Oliver Vaughan','oliver-v@mail.com','Bristol, UK'],
+  ['Tran Gia Huy','giahuy.tran@gmail.com','Da Nang'],
+  ['Sophie Kirkwood','sophie_k@yahoo.com','Edinburgh, UK'],
+  ['Le Minh Khoa','khoa.le@hotmail.com','Hue'],
+  ['Zoe Phillips','zoe.phillips@gmail.com','Toronto, Canada']
+];
+const SITUATIONS = [
+  ['🏨','Hotel check-in','<b>A</b> = receptionist: get the guest\'s full name, email and number of nights.','<b>B</b> = guest with a booking.'],
+  ['🏋️','Gym membership','<b>A</b> = gym staff: fill in a membership form — name, email, phone.','<b>B</b> = new member.'],
+  ['📚','English course registration','<b>A</b> = centre staff: register a new student — name, email, class time.','<b>B</b> = new student.'],
+  ['🩺','Doctor\'s appointment by phone','<b>A</b> = clinic receptionist: book an appointment — name, date of birth, phone.','<b>B</b> = patient calling.'],
+  ['🧳','Lost luggage at the airport','<b>A</b> = airline staff: write a report — name, email, hotel name in the city.','<b>B</b> = traveller who lost a bag.'],
+  ['🛵','Food delivery problem','<b>A</b> = customer service: find the order — name, email on the account, street name.','<b>B</b> = customer, order is late.']
+];
 const SPELL_LV = [
   ['⭐ Easy',['Tom','Nam','Anna','Linh']],
   ['⭐⭐ Medium',['Sarah','James','Hieu','Giang']],
@@ -48,9 +79,6 @@ function spelledText(str){
   if(at>=0) t+=' – at – '+dom.split('.').join(' dot ');
   return t;
 }
-const TK_ASK = ['How do you spell your name?','How do you spell that?','Could you spell that again, please?','Sorry, was that M or N?','Is that double L?','Is that a capital letter?'];
-const TK_ANS = ['It\'s L-I-N-H.','That\'s double S.','B as in "boy".','V as in "Vietnam".','Yes, that\'s right.','All lower case.'];
-const TK_SYM = [['@','at'],['.','dot'],['_','underscore'],['-','hyphen / dash'],['.com','dot com'],['ss','double S']];
 const DIALOGUE = [
   ['R','Good morning! Welcome to Bright English Centre. Can I have your name, please?'],
   ['S','Sure. My name\'s Linh — Nguyen Thuy Linh.'],
@@ -68,25 +96,6 @@ const DIALOGUE = [
   ['S','Yes, all lower case.'],
   ['R','Let me check: T-H-U-Y-L-I-N-H, underscore, N-G, at gmail dot com.'],
   ['S','Perfect. Thank you!']
-];
-const PEOPLE = [
-  {first:'Sarah',surname:'HUGHES',city:'LEICESTER',email:'sarah.hughes@gmail.com'},
-  {first:'Daniel',surname:'QUINN',city:'EDINBURGH',email:'dan_quinn@yahoo.com'},
-  {first:'Mai',surname:'VU',city:'DA LAT',email:'maivu.dalat@gmail.com'},
-  {first:'Oliver',surname:'WRIGHT',city:'GREENWICH',email:'o.wright@outlook.com'},
-  {first:'Phuong',surname:'TRUONG',city:'HAI PHONG',email:'phuong_truong@gmail.com'},
-  {first:'Jake',surname:'PHILLIPS',city:'CARDIFF',email:'jake-phillips@yahoo.com'}
-];
-const ROLES = [
-  {t:'Gym membership',s:'FitZone Gym · front desk',
-   staff:['Full name (first name + surname)','Email address','Street name of home address','Emergency contact\'s name'],
-   cust:'You want to join the gym. Use your <b>real</b> information (or invent it). Spell everything clearly.'},
-  {t:'Hotel booking by phone',s:'Riverside Hotel · reception',
-   staff:['Guest name','Email address','Country','Arrival day'],
-   cust:'You are <b>Kate O\'Brien</b> (apostrophe!). Email: <b>kate.obrien@gmail.com</b>. Country: <b>Ireland</b>. Arrival: <b>Wednesday</b>, 2 nights.'},
-  {t:'Food delivery app support',s:'QuickBite · customer service',
-   staff:['Customer name','Email on the account','Street name','Building name'],
-   cust:'You are <b>Duong Minh Khoa</b>. Email: <b>khoa_duong@yahoo.com</b>. Street: <b>Le Loi</b>. Building: <b>Skyview</b>. Your order is late.'}
 ];
 const HM_BANK = ['QUEUE','JUICE','ZEBRA','YELLOW','WEDNESDAY','VIETNAM','KEYBOARD','HIGHWAY','EXAMPLE','PHOTOGRAPH','BUSINESS','KNOWLEDGE','ALPHABET','SPELLING','EMAIL','PASSWORD'];
 const WHEEL_CATS = ['a name 👤','a city or country 🌍','a food or drink 🍜','an animal 🐾','a job 👩‍⚕️','a brand or app 📱','something in your room 🛏'];
@@ -230,9 +239,6 @@ function playFamilies(idx,btn){
     if(btn) btn.classList.remove('speaking');
   })();
 }
-function buildUnames(){
-  document.getElementById('unames').innerHTML = USERNAMES.map((u,i)=>`<div class="card row" style="padding:12px 16px;align-items:center"><div style="font-family:'Noto Sans',monospace;font-size:30px;font-weight:700;color:var(--navy);flex:1;letter-spacing:1px">${esc(u)}</div><button class="play" data-a="UN_${i}">${PLAY_SVG}</button>${dl('UN_'+i)}</div>`).join('');
-}
 function buildOdd(){
   document.getElementById('odd').innerHTML = ODD.map((o,i)=>`<div class="orow" id="or${i}"><span class="num">${i+1}</span>${o.L.map(L=>`<div class="L" data-letter="${L}">${L}</div>`).join('')}<div class="why" id="ow${i}"></div><div class="col" style="gap:6px"><div class="row" style="gap:6px;align-items:center"><button class="play sm" data-a="ODD_${i}">${PLAY_SVG}</button>${dl('ODD_'+i)}</div><button class="btn sm y" data-oddr="${i}">Reveal</button></div></div>`).join('');
   document.querySelectorAll('[data-oddr]').forEach(b=>b.addEventListener('click',()=>{
@@ -241,28 +247,10 @@ function buildOdd(){
     document.getElementById('ow'+i).textContent=o.why;
   }));
 }
-let qScore=0;
-function buildQuiz(){
-  qScore=0; document.getElementById('qScore').textContent='Score: 0 / '+QUIZ.length;
-  document.getElementById('quiz').innerHTML = QUIZ.map((q,i)=>`<div class="card qi"><div class="top"><button class="play" data-a="Q_${i}">${PLAY_SVG}</button>Item ${i+1}<span style="margin-left:auto">${dl('Q_'+i)}</span></div><div class="opts">${q[1].map(o=>`<button class="opt" data-qi="${i}" data-o="${o}">${o}</button>`).join('')}</div></div>`).join('');
-  document.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
-    const i=+b.dataset.qi, box=b.parentElement;
-    if(box.dataset.done) return; box.dataset.done=1;
-    const right = QUIZ[i][0];
-    box.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.o===right) x.classList.add('ok'); });
-    if(b.dataset.o===right) qScore++; else b.classList.add('no');
-    document.getElementById('qScore').textContent='Score: '+qScore+' / '+QUIZ.length;
-  }));
-}
 function normalize(s){ return String(s).toLowerCase().replace(/[\s\-–]+/g,'').trim(); }
 function buildSpell(){
   document.getElementById('spell').innerHTML = SPELL_LV.map(([lv,names],L)=>`<div class="lv"><div class="lh">${lv}<span style="font-size:13px;opacity:.8">${names.length} names</span></div><div class="items">${names.map((n,k)=>{const id='SP_'+L+'_'+k;return `<div class="sp-i${n.includes('@')?' mail':''}"><div class="nm"><b>${esc(n)}</b><button class="play sm" data-a="${id}">${PLAY_SVG}</button>${dl(id)}<button class="eye" data-rv="${L}_${k}" title="Xem cách đánh vần">👁</button></div><div class="rv" id="rv${L}_${k}"></div></div>`;}).join('')}</div></div>`).join('');
   document.querySelectorAll('[data-rv]').forEach(b=>b.addEventListener('click',()=>{ const [L,k]=b.dataset.rv.split('_').map(Number); const el=document.getElementById('rv'+b.dataset.rv); el.textContent=el.textContent?'':spelledText(SPELL_LV[L][1][k]); }));
-}
-function buildToolkit(){
-  document.getElementById('tkAsk').innerHTML = TK_ASK.map((p,i)=>`<div class="ph"><button class="play sm" data-a="TKA_${i}">${PLAY_SVG}</button><span class="grow">${esc(p)}</span>${dl('TKA_'+i)}</div>`).join('');
-  document.getElementById('tkAns').innerHTML = TK_ANS.map((p,i)=>`<div class="ph"><button class="play sm" data-a="TKB_${i}">${PLAY_SVG}</button><span class="grow">${esc(p)}</span>${dl('TKB_'+i)}</div>`).join('');
-  document.getElementById('tkSym').innerHTML = TK_SYM.map((p,i)=>`<div class="sym"><span class="s">${esc(p[0])}</span><span style="flex:1">${esc(p[1])}</span><button class="play sm y" data-a="TKS_${i}">${PLAY_SVG}</button>${dl('TKS_'+i)}</div>`).join('');
 }
 function buildDialogue(){
   const sc=document.getElementById('script');
@@ -273,38 +261,49 @@ function buildDialogue(){
 }
 function hl(i){ document.querySelectorAll('#script .ln').forEach((l,k)=>l.classList.toggle('now',k===i)); if(i>=0){const el=document.querySelector('#script .ln[data-ln="'+i+'"]'); el&&el.scrollIntoView({block:'nearest'});} }
 function playDialogue(btn){ playQueue(DIALOGUE.map((_,i)=>'DLG_'+i),hl,450,btn); }
-/* info gap */
-let gapView='A';
-function gapKnows(side,row,field){
-  if(side==='K') return true;
-  const aRow = row%2===0;
-  if(field==='surname') return side==='A'?aRow:!aRow;
-  return side==='A'?!aRow:aRow;
-}
-function buildGap(){
-  const v=gapView, B=()=>`<span class="blank">?</span>`;
-  const rows = PEOPLE.map((p,i)=>`<tr><td>${i+1}. ${p.first}</td><td>${gapKnows(v,i,'surname')?p.surname:B()}</td><td>${gapKnows(v,i,'city')?p.city:B()}</td><td style="font-family:'Noto Sans',monospace;font-size:14.5px">${gapKnows(v,i,'email')?p.email:B()}</td></tr>`).join('');
-  document.getElementById('gapTable').innerHTML = `<table class="gap"><tr><th>First name</th><th>Surname</th><th>City</th><th>Email</th></tr>${rows}</table>`;
-}
-function gapText(side){
-  let t = `SPELL & CHECK — STUDENT ${side}\nAsk your partner for the missing information (?). Ask "How do you spell it?" and write the answers.\n\n`;
-  PEOPLE.forEach((p,i)=>{ t += `${i+1}. ${p.first} | Surname: ${gapKnows(side,i,'surname')?p.surname:'?'} | City: ${gapKnows(side,i,'city')?p.city:'?'} | Email: ${gapKnows(side,i,'email')?p.email:'?'}\n`; });
-  return t;
-}
-function buildRoles(){
-  document.getElementById('rp').innerHTML = ROLES.map((r,i)=>`<div class="card"><div class="hd"><b>${i+1}. ${r.t}</b><small>${r.s}</small></div><div class="bd"><h5>👔 Staff — collect &amp; spell</h5><ul>${r.staff.map(s=>`<li>${s}</li>`).join('')}</ul><h5>🙋 Customer</h5><div>${r.cust}</div></div><div class="ft"><button class="btn sm" data-rc="${i}" data-rs="staff">📋 Staff card</button><button class="btn sm y" data-rc="${i}" data-rs="cust">📋 Customer card</button></div></div>`).join('');
-  document.querySelectorAll('[data-rc]').forEach(b=>b.addEventListener('click',()=>{
-    const r=ROLES[+b.dataset.rc];
-    const txt = b.dataset.rs==='staff'
-      ? `ROLE-PLAY ${+b.dataset.rc+1}: ${r.t} — STAFF (${r.s})\nCollect and get the spelling of:\n- ${r.staff.join('\n- ')}\nRules: ask "How do you spell…?", use "Could you spell that again, please?" at least once, and check: "Let me check: …". Type the details in the chat.`
-      : `ROLE-PLAY ${+b.dataset.rc+1}: ${r.t} — CUSTOMER\n${r.cust.replace(/<[^>]+>/g,'')}\nAnswer the staff's questions and spell everything clearly. Check what they type in the chat.`;
-    copyText(txt,b);
-  }));
-}
 function copyText(txt,btn){
   const ok=()=>{ const o=btn.innerHTML; btn.innerHTML='✓ Copied!'; setTimeout(()=>btn.innerHTML=o,1400); };
   const fallback=()=>{ const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');ok();}catch(e){alert(txt);} ta.remove(); };
   if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(txt).then(ok,fallback); } else fallback();
+}
+
+/* ---------- listening: spelling test */
+function buildNT(){
+  document.getElementById('nt').innerHTML = NAMES_TEST.map(([t,n],i)=>`<div class="nti" id="nti${i}"><span class="n">${i+1}</span><button class="play sm" data-a="NT_${i}">${PLAY_SVG}</button><span class="ntt">${t}</span><input id="nt${i}" autocomplete="off" spellcheck="false" aria-label="Question ${i+1}"><span class="ans" id="nta${i}"></span>${dl('NT_'+i)}</div>`).join('');
+}
+function ntPlayAll(btn){
+  playQueue(NAMES_TEST.map((_,i)=>'NT_'+i),i=>{ document.querySelectorAll('.nti').forEach((e,k)=>e.classList.toggle('now',k===i)); },2500,btn);
+}
+function ntCheck(){
+  let sc=0; NAMES_TEST.forEach(([t,n],i)=>{ const el=document.getElementById('nt'+i); const ok=normalize(el.value)===normalize(n); el.classList.toggle('ok',ok); el.classList.toggle('no',!ok&&el.value!==''); if(ok) sc++; });
+  document.getElementById('ntScore').textContent=sc+' / '+NAMES_TEST.length;
+}
+/* ---------- email symbols */
+function buildEmail(){
+  document.getElementById('symg').innerHTML = SYMB.map(([k,t],i)=>`<div class="sy"><span class="k">${esc(k)}</span><span>${esc(t)}</span><button class="play sm y" data-a="SYM_${i}">${PLAY_SVG}</button></div>`).join('');
+  document.getElementById('emails').innerHTML = EMAILS.map((e,i)=>`<div class="em"><b>${esc(e)}</b><button class="play" data-a="EM_${i}">${PLAY_SVG}</button>${dl('EM_'+i)}</div>`).join('');
+}
+/* ---------- questions & answers */
+function buildQA(){
+  document.getElementById('qa').innerHTML = QA.map(([q,a],i)=>`<div class="qap"><div class="qrow q"><span class="who">Q</span><span>${esc(q)}</span><button class="play sm" data-a="QA_${i}_q">${PLAY_SVG}</button></div><div class="qrow a"><span class="who">A</span><span>${esc(a)}</span><button class="play sm y" data-a="QA_${i}_a">${PLAY_SVG}</button></div></div>`).join('');
+}
+/* ---------- ID cards */
+let idCur=-1;
+function idText(c,i){ return `ID CARD ${i+1}\nName: ${c[0]}\nEmail: ${c[1]}\nFrom: ${c[2]}`; }
+function showCard(i){
+  idCur=i; const box=document.getElementById('idc');
+  if(i<0){ box.innerHTML='<div class="lab">ID card</div><div class="nm">Draw a card 🎲</div><div class="ln2"><i>Name</i><b>…</b></div><div class="ln2"><i>Email</i><b>…</b></div><div class="ln2"><i>From</i><b>…</b></div>'; return; }
+  const c=IDCARDS[i];
+  box.innerHTML=`<div class="lab">ID card</div><div class="nm">${esc(c[0])}</div><div class="ln2"><i>Email</i><b>${esc(c[1])}</b></div><div class="ln2"><i>From</i><b>${esc(c[2])}</b></div><div class="no">#${i+1} / ${IDCARDS.length}</div>`;
+}
+function drawCard(){ let i; do{ i=Math.floor(Math.random()*IDCARDS.length); }while(IDCARDS.length>1&&i===idCur); showCard(i); }
+/* ---------- free practice */
+function buildSit(){
+  document.getElementById('sit').innerHTML = SITUATIONS.map(([e,t,a,b],i)=>`<div class="st" id="st${i}"><h4><span class="e">${e}</span>${esc(t)}</h4><p>${a}</p><p>${b} Use your real or invented details.</p></div>`).join('');
+}
+function pickSit(){
+  const i=Math.floor(Math.random()*SITUATIONS.length); let n=0;
+  const cyc=setInterval(()=>{ const k=n%SITUATIONS.length; document.querySelectorAll('.st').forEach((e,j)=>e.classList.toggle('pick',j===k)); if(++n>12+i){ clearInterval(cyc); } },110);
 }
 /* hangman */
 const HM={word:'',got:new Set(),lives:7};
@@ -342,16 +341,6 @@ function startWTimer(sec){
   let t=sec; const bar=document.getElementById('wBar'), tx=document.getElementById('wTime');
   bar.style.width='100%'; tx.textContent=t+'s'; clearInterval(wTimer);
   wTimer=setInterval(()=>{ t--; bar.style.width=(t/sec*100)+'%'; tx.textContent=t+'s'; if(t<=0){clearInterval(wTimer);tx.textContent="⏰ Time's up!";beep();} },1000);
-}
-/* picker */
-let picked=[];
-function pick(){
-  const all=document.getElementById('names').value.split('\n').map(s=>s.trim()).filter(Boolean);
-  try{localStorage.setItem('s01names',document.getElementById('names').value);}catch(e){}
-  const left=all.filter(n=>!picked.includes(n)); const out=document.getElementById('picked');
-  if(!all.length){out.textContent='Nhập tên trước';return;}
-  if(!left.length){out.textContent='✓ Everyone has spoken!';return;}
-  const n=left[Math.floor(Math.random()*left.length)]; picked.push(n); out.textContent=n;
 }
 /* audio library */
 function buildLibrary(){
@@ -417,10 +406,9 @@ function fullscreen(){ try{ if(!document.fullscreenElement){ const r=document.do
    ========================================================= */
 window.addEventListener('DOMContentLoaded',()=>{
   toBlobUrls();
-  buildCloud('cloud'); buildCloud('cloud2'); buildAcr(); buildAbc(); buildUnames(); buildFam(); buildOdd();
-  buildQuiz(); buildSpell(); buildToolkit(); buildDialogue(); buildGap(); buildRoles(); buildKb(); hmNew();
-  try{const sv=localStorage.getItem('s01names'); if(sv) document.getElementById('names').value=sv;}catch(e){}
-  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(b.closest('#lib,#quiz,#spell,#odd,#unames,#tkAsk,#tkAns,#tkSym')||!AUDIO[id]) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
+  buildCloud('cloud'); buildCloud('cloud2'); buildAcr(); buildAbc(); buildFam(); buildOdd(); buildNT(); buildEmail(); buildQA(); buildSit(); showCard(-1);
+  buildSpell(); buildDialogue(); buildKb(); hmNew();
+  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(b.closest('#lib,#spell,#odd,#nt,#emails,#symg,#qa')||!AUDIO[id]) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   document.querySelectorAll('#acr .a').forEach((c,i)=>c.querySelector('.bk').insertAdjacentHTML('beforeend',dl('ACR_'+i)));
   document.getElementById('azDl').innerHTML=dl('AZ','Tải A–Z (MP3)');
   document.getElementById('famDl').innerHTML=dl('FAM_ALL','Tải 7 nhóm (MP3)');
@@ -428,7 +416,14 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('playAZ').onclick=e=>playAZ(e.currentTarget);
   document.getElementById('playAZpause').onclick=stopAll;
   document.getElementById('famAll').onclick=e=>playFamilies([0,1,2,3,4,5,6],e.currentTarget);
-  document.getElementById('qReset').onclick=buildQuiz;
+  document.getElementById('ntAll').onclick=e=>ntPlayAll(e.currentTarget);
+  document.getElementById('ntCheck').onclick=ntCheck;
+  document.getElementById('ntShow').onclick=()=>NAMES_TEST.forEach(([t,n],i)=>document.getElementById('nta'+i).textContent=n.toUpperCase());
+  document.getElementById('ntReset').onclick=()=>{ NAMES_TEST.forEach((_,i)=>{ const el=document.getElementById('nt'+i); el.value=''; el.className=''; document.getElementById('nta'+i).textContent=''; }); document.getElementById('ntScore').textContent='— / '+NAMES_TEST.length; };
+  document.getElementById('idDraw').onclick=drawCard;
+  document.getElementById('idCopy').onclick=e=>{ if(idCur<0) drawCard(); copyText(idText(IDCARDS[idCur],idCur),e.currentTarget); };
+  document.getElementById('idAll').onclick=e=>copyText(IDCARDS.map(idText).join('\n\n'),e.currentTarget);
+  document.getElementById('sitPick').onclick=pickSit;
 
 
   document.getElementById('dlgPlay').onclick=e=>playDialogue(e.currentTarget);
@@ -438,8 +433,6 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('fCheck').onclick=()=>Object.entries(FORM).forEach(([id,a])=>{const el=document.getElementById(id);const ok=normalize(el.value)===normalize(a);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok&&el.value!=='');});
   document.getElementById('fShow').onclick=()=>Object.entries(FORM).forEach(([id,a])=>{const el=document.getElementById(id);el.value=a;el.classList.add('ok');el.classList.remove('no');});
 
-  document.querySelectorAll('[data-gap]').forEach(t=>t.addEventListener('click',()=>{gapView=t.dataset.gap;document.querySelectorAll('[data-gap]').forEach(x=>x.classList.toggle('on',x===t));buildGap();document.getElementById('copyGap').style.visibility=gapView==='K'?'hidden':'visible';}));
-  document.getElementById('copyGap').onclick=e=>copyText(gapText(gapView),e.currentTarget);
 
   document.getElementById('hmNew').onclick=()=>hmNew();
   document.getElementById('hmReveal').onclick=()=>hmDraw(true);
@@ -448,9 +441,6 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('wSpin').onclick=spin;
   document.getElementById('wSay').onclick=()=>{ if(wLetter) play('L_'+wLetter); };
 
-  document.getElementById('pick').onclick=pick;
-  document.getElementById('pickReset').onclick=()=>{picked=[];document.getElementById('picked').textContent='—';};
-  document.getElementById('t30').onclick=()=>tStart(30);
 
   window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',fit); fit();
   const h=parseInt((location.hash||'').slice(1)); go(isNaN(h)?0:h-1);

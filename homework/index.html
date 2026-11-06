@@ -71,6 +71,14 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 .wc{font-size:13px;font-weight:700;color:var(--muted)}
 .wc.ok{color:var(--green)}
 
+.secaud{display:flex;align-items:center;gap:12px;margin:12px 18px 0;padding:12px 14px;border-radius:14px;background:var(--navy);color:#fff}
+.secaud b{display:block;font-size:16px}.secaud small{color:#C9D6FF;font-weight:600;font-size:13px}
+.secaud .play{background:var(--yellow);box-shadow:0 3px 0 #c99400}.secaud .play svg{fill:var(--navy)}
+.secnote{margin:10px 18px 0;padding:10px 14px;border:2px dashed var(--sky-2);border-radius:12px;font-weight:800;color:var(--navy);font-size:14.5px;background:#FBFCFF}
+.play.used{opacity:.45}
+.notice.exam{display:flex;align-items:center;gap:8px;cursor:pointer}
+.notice.exam input{width:18px;height:18px;accent-color:var(--blue);flex:none}
+.gapline input.wide{width:min(320px,70vw);text-align:left}
 /* marking */
 .it.right .qn{background:var(--green);color:#fff}
 .it.wrong .qn{background:var(--red);color:#fff}
@@ -189,10 +197,15 @@ function modal(title,html,buttons){
 
 /* ---------------- audio player (one at a time) */
 let player=null, playerBtn=null;
+const played={};
+const examMode=()=>{ const c=document.getElementById('examMode'); return !!(c&&c.checked); };
 function stopAudio(){ if(player){ player.pause(); player=null; } if(playerBtn){ playerBtn.classList.remove('on'); playerBtn.innerHTML=PLAY; playerBtn=null; } }
 function playAudio(btn,url){
-  if(playerBtn===btn){ stopAudio(); return; }
+  if(playerBtn===btn){ if(examMode()) return; stopAudio(); return; }
+  if(examMode()&&played[url]&&!submitted){ toast('Chế độ thi thật: mỗi audio chỉ nghe 1 lần. Tắt chế độ này để nghe lại.'); return; }
   stopAudio();
+  played[url]=(played[url]||0)+1;
+  if(examMode()) setTimeout(()=>btn.classList.add('used'),50);
   const a=new Audio(abs(url)); player=a; playerBtn=btn; btn.classList.add('on'); btn.innerHTML=PAUSE;
   a.onended=stopAudio; a.onerror=()=>{ stopAudio(); toast('Không phát được audio. Kiểm tra Internet rồi thử lại.'); };
   a.play().catch(()=>{ stopAudio(); toast('Trình duyệt chặn âm thanh — bấm ▶ lại.'); });
@@ -205,7 +218,7 @@ function render(){
   HW.sections.forEach(sec=>{
     const pts=sec.items.reduce((a,it)=>a+(it.points||1),0);
     const teach=teacherSection(sec);
-    html+=`<section class="sec${teach?' teacher':''}"><div class="sec-h"><div><h2>${esc(sec.title)}</h2><small>${esc(sec.vi||'')}</small></div><span class="pts">${teach?'👩‍🏫 Thầy chấm':'⚡ Tự chấm'} · ${pts} điểm</span></div><div class="items">`;
+    html+=`<section class="sec${teach?' teacher':''}"><div class="sec-h"><div><h2>${esc(sec.title)}</h2><small>${esc(sec.vi||'')}</small></div><span class="pts">${teach?'👩‍🏫 Thầy chấm':'⚡ Tự chấm'} · ${pts} điểm</span></div>${sec.audio?`<div class="secaud"><button type="button" class="play" data-audio="${esc(sec.audio)}" aria-label="Nghe">${PLAY}</button><div><b>Nghe cuộc gọi</b><small>Đọc form trước khi nghe · điền trong lúc nghe</small></div></div>`:''}${sec.note?`<div class="secnote">${esc(sec.note)}</div>`:''}<div class="items">`;
     sec.items.forEach(it=>{
       n++; it._n=n;
       html+=`<div class="it" id="it_${esc(it.id)}"><span class="qn">${n}</span><div class="body">${itemBody(it)}</div></div>`;
@@ -225,10 +238,10 @@ function itemBody(it){
     case 'mcq': case 'listen_mcq':
       return `<div class="prompt">${esc(it.prompt)}</div>${audio}<div class="opts">${it.options.map(o=>`<button type="button" class="opt${v===o?' sel':''}" data-q="${esc(it.id)}" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>${mark}`;
     case 'listen_type':
-      return `<div class="prompt">${esc(it.prompt)}</div>${audio}<input class="txt" data-q="${esc(it.id)}" value="${esc(v||'')}" placeholder="${esc(it.placeholder||'')}" autocomplete="off" autocapitalize="off" spellcheck="false">${mark}`;
+      return `<div class="prompt">${esc(it.prompt)}</div><div class="row">${it.audio?`<button type="button" class="play" data-audio="${esc(it.audio)}" aria-label="Nghe">${PLAY}</button>`:''}<input class="txt" data-q="${esc(it.id)}" value="${esc(v||'')}" placeholder="${esc(it.placeholder||'')}" autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1"></div>${mark}`;
     case 'gap': {
       const parts=String(it.prompt).split(/_{3,}/);
-      const inp=`<input data-q="${esc(it.id)}" value="${esc(v||'')}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Điền từ">`;
+      const inp=`<input${/mail/i.test(it.prompt)?' class="wide"':''} data-q="${esc(it.id)}" value="${esc(v||'')}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Điền từ">`;
       return `<div class="gapline">${parts.length>1?esc(parts[0])+inp+esc(parts.slice(1).join('____')):esc(it.prompt)+' '+inp}</div>${mark}`;
     }
     case 'writing':
@@ -395,6 +408,7 @@ function showResult(g,out){
     <div class="acts"><button class="btn blue" type="button" id="again">↻ Làm lại</button><a class="btn light" href="../#progress">📊 Tiến độ của tôi</a></div></div>`;
   r.style.display='block'; r.scrollIntoView({behavior:'smooth'});
   $('#again').onclick=()=>{
+    Object.keys(played).forEach(k=>delete played[k]);
     submitted=false; lockForm(false); r.style.display='none';
     ITEMS.forEach(it=>{ const el=document.getElementById('it_'+it.id); if(el){ el.classList.remove('right','wrong'); el.querySelector('.markbox').innerHTML=''; } });
     Object.keys(voice).forEach(k=>{ URL.revokeObjectURL(voice[k].url); delete voice[k]; });
@@ -429,7 +443,8 @@ async function boot(){
   catch(e){ $('#hw').innerHTML=`<div class="loading">Chưa có homework cho buổi ${esc(SESSION)}. <a href="../">Về trang chủ</a></div>`; return; }
   HW=data;
   document.title=`Homework ${SESSION} · ${HW.title}`;
-  $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>Homework</em>`; $('#intro').textContent=HW.intro||'';
+  $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>${esc(HW.kind||'Homework')} homework</em>`; $('#intro').textContent=HW.intro||'';
+  if(HW.sections.some(s=>s.audio||s.items.some(it=>it.audio))) $('#notices').insertAdjacentHTML('beforeend','<label class="notice info exam"><input type="checkbox" id="examMode"> 🎯 <b>Chế độ thi thật</b> — mỗi audio chỉ được nghe 1 lần (như IELTS). Tắt đi để luyện nghe lại nhiều lần.</label>');
 
   // teacher-added questions from the Google Sheet (optional)
   if(GTStudent.online()){
