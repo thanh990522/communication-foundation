@@ -137,12 +137,13 @@ window.addEventListener('DOMContentLoaded',()=>{
   toBlobUrls();
   buildCloud('cloud'); buildWarm(); buildVocab(); buildFreq(); buildColl(); buildPron(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); scLoad();
   // download links beside fixed play buttons
-  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||/^https?:/.test(AUDIO[id].src)) return; if(b.closest('#coll,#sgroups,#qa,#frames,#freq')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
+  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('#coll,#sgroups,#qa,#frames,#freq')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   const $=id=>document.getElementById(id);
   $('warmCheck').onclick=()=>warmCheck(false); $('warmShow').onclick=()=>warmCheck(true);
   $('fAll').onclick=e=>play('F_ALL',e.currentTarget);
   $('lCheck').onclick=listenCheck;
-  $('lScript').onclick=()=>window.open(DATA.LISTEN.page,'_blank','noopener');
+  $('lScript').onclick=e=>{ const p=$('lscr'), show=p.hidden; p.hidden=!show; e.currentTarget.textContent=show?'🙈 Hide script':'📜 Show script'; };
+  $('lscr').innerHTML=`<div class="sh">📜 Script <span style="font-size:13px;color:var(--muted)">Source: ${esc(DATA.LISTEN.source)}</span></div>`+DATA.LISTEN.script.map(([w,t])=>`<div class="sl ${w}"><b>${w==='J'?'John':'Sarah'}</b><span>${esc(t)}</span></div>`).join('');
   $('dlgPlay').onclick=e=>playDialogue(e.currentTarget);
   $('dlgStop').onclick=stopAll;
   $('dlgScript').onclick=e=>{ const sc=$('script'); sc.classList.toggle('blur'); e.currentTarget.textContent=sc.classList.contains('blur')?'👁 Show script':'🙈 Hide script'; };

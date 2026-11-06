@@ -83,15 +83,16 @@ S.append(slide('Listening: John & Sarah', head('Listening', 'c-listen', 'Morning
       <div class="card lsrc">
         <div class="rh">🎧 Real recording</div>
         <div class="lt">{L['title']}</div>
-        <a class="btn" href="{L['page']}" target="_blank" rel="noopener">▶ Open &amp; play on elllo.org</a>
-        <div class="lsm">{L['source']}</div>
+        <button class="btn" data-a="EL">▶ Play / ⏸ Stop</button>
+        <div class="lsm">Source: {L['source']}</div>
       </div>
       <button class="btn y" id="lCheck">✓ Check times</button>
-      <button class="btn ghost" id="lScript">📜 Script (after listening)</button>
+      <button class="btn ghost" id="lScript">📜 Show script</button>
     </div>
-    <div class="col grow" style="gap:6px;min-width:0">
+    <div class="col grow" style="gap:6px;min-width:0;position:relative">
       <div id="lgist"></div>
       <div id="ldetail" class="col" style="gap:6px"></div>
+      <div class="lscript card" id="lscr" hidden></div>
     </div>
   </div>
 '''))
@@ -235,6 +236,12 @@ CSS = '''
 .lsrc a.btn{text-decoration:none;justify-content:center}
 .lsrc .lt{font-size:19px;font-weight:900;color:var(--navy)}
 .lsrc .lsm{font-size:13px;color:var(--muted);font-weight:600}
+.lscript{position:absolute;inset:0;overflow:auto;padding:12px 16px;display:flex;flex-direction:column;gap:6px;z-index:3;box-shadow:var(--shadow)}
+.lscript[hidden]{display:none}
+.lscript .sl{display:flex;gap:10px;font-size:16px;line-height:1.45;color:var(--ink)}
+.lscript .sl b{flex:none;width:58px;font-weight:900;color:var(--blue)}
+.lscript .sl.S b{color:#B07800}
+.lscript .sh{font-weight:900;color:var(--navy);font-size:17px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:-12px;background:#fff;padding:4px 0}
 .lau{width:100%;height:36px}
 .lq{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:4px 12px;min-height:44px}
 #dq .lq{flex-wrap:wrap;padding:8px 12px}#dq .qt{flex-basis:calc(100% - 44px)}#dq .co{margin-left:40px}
@@ -292,6 +299,7 @@ def build():
     core = open(os.path.join(HERE, 'core.js'), encoding='utf-8').read()
     app = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read()
     man = json.load(open(os.path.join(HERE, 'manifest.json')))
+    man['EL'] = {'file': C.LISTEN['file'], 'label': C.LISTEN['title'], 'dur': 180}
     data = {k: getattr(C, k) for k in ['WARM', 'VOCAB', 'FREQ', 'COLL', 'S_GROUPS', 'STRESS', 'FRAMES', 'LINKERS', 'QA', 'DIALOGUE', 'DLG_Q', 'LISTEN', 'INTERVIEW', 'SITUATIONS', 'FP_LINES', 'TALK', 'SCRAMBLE']}
     app = app.replace('/*DATA_JSON*/', json.dumps(data, ensure_ascii=False))
 
@@ -306,12 +314,14 @@ def build():
     web = {k: dict(v, src='audio/' + v['file']) for k, v in man.items()}
     off = {}
     for k, v in man.items():
-        off[k] = dict(v, src='data:audio/mpeg;base64,' + base64.b64encode(open(os.path.join(HERE, 'mp3', v['file']), 'rb').read()).decode())
+        off[k] = dict(v, src='data:audio/mpeg;base64,' + base64.b64encode(open(os.path.join(HERE, 'listening' if k == 'EL' else 'mp3', os.path.basename(v['file']) if k == 'EL' else v['file']), 'rb').read()).decode())
     if os.path.isdir(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page(web, LESSON_URL, True))
     open(os.path.join(OUT, 'S02_offline.html'), 'w', encoding='utf-8').write(page(off, '', False))
     shutil.copytree(os.path.join(HERE, 'mp3'), os.path.join(OUT, 'audio'))
+    os.makedirs(os.path.join(OUT, 'audio', 'Listening'), exist_ok=True)
+    shutil.copy(os.path.join(HERE, 'listening', os.path.basename(C.LISTEN['file'])), os.path.join(OUT, 'audio', C.LISTEN['file']))
     with zipfile.ZipFile(os.path.join(OUT, 'S02_Audio_MP3.zip'), 'w', zipfile.ZIP_DEFLATED) as z:
         for root, _, files in os.walk(os.path.join(HERE, 'mp3')):
             for f in sorted(files):
