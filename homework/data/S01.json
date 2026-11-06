@@ -14,11 +14,12 @@
      "audio": "homework/audio/S01/S01_HW_P1.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "ca09d286b30547e9b95ab178c2871063ccd9eb9968d95ad02a79151d63865544",
-      "a1d8529d1148b4b0d0c0145f22c3d4e49009d29cfb289ac60ac6ef309ab6f852",
-      "746b6221fb63ec479e880427abfaf5552b9ffa78573d5fd6d56445ac5522b517"
-     ]
+     "answers": [
+      "Carter",
+      "Ms Carter",
+      "Ms. Carter"
+     ],
+     "show": "CARTER"
     },
     {
      "id": "P2",
@@ -27,11 +28,12 @@
      "audio": "homework/audio/S01/S01_HW_P2.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "20dc35ec148b044e116b2a92c3607c46750e796afd5c12dbf12868d1a345b2e8",
-      "c71ba9b9006e4adc0bfa6305fdfd7d8bd0ff59ceab2893c009ed68ca79a7041b",
-      "bcf707370547aa7ba893af73d2166af8b244f490684488e1a8619449476c873e"
-     ]
+     "answers": [
+      "Fletcher",
+      "Mr Fletcher",
+      "Mr. Fletcher"
+     ],
+     "show": "FLETCHER"
     },
     {
      "id": "P3",
@@ -40,11 +42,12 @@
      "audio": "homework/audio/S01/S01_HW_P3.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "c80c0de750bbcb35199c84079a77502e825db283a1950fcf47923485b128fabf",
-      "70a862865283691dfa474fe720cbc4e09168aa13de1880d10e21a94198d2c9f8",
-      "94265c517304007b80c7ce267af9cfcf5470414d51c059f233dc073a887d67b1"
-     ]
+     "answers": [
+      "Graham",
+      "Mrs Graham",
+      "Mrs. Graham"
+     ],
+     "show": "GRAHAM"
     },
     {
      "id": "P4",
@@ -53,11 +56,12 @@
      "audio": "homework/audio/S01/S01_HW_P4.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "0e0f2a65151b22623f1a3e81e5b80f4a9693f092efb7d792841da28b2b53165b",
-      "635a353fed5364433ca92dcc4a43e943b558585a43d1afda70929d604ba9c4e9",
-      "0ae11b92b2e0ec09dac53d62dc9fdd238ca048843a88b0f72452c8571f2a44eb"
-     ]
+     "answers": [
+      "Shaw",
+      "Dr Shaw",
+      "Dr. Shaw"
+     ],
+     "show": "SHAW"
     },
     {
      "id": "P5",
@@ -66,11 +70,12 @@
      "audio": "homework/audio/S01/S01_HW_P5.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "8807bd4cd7b4260ff9a72ebfd8f9a450a8b31fc6f9267a483d1d4e4276c4d501",
-      "95fffac3b3cc0d37d1b9b956a8f624ad94f84f03b2d7e59f725fb5a5dda8c1e2",
-      "4c70c8a70d606d70551e56e1141bee2d58a83fd59545363aed5d9d201d237076"
-     ]
+     "answers": [
+      "Kelly",
+      "Miss Kelly",
+      "Miss. Kelly"
+     ],
+     "show": "KELLY"
     },
     {
      "id": "P6",
@@ -79,11 +84,12 @@
      "audio": "homework/audio/S01/S01_HW_P6.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "5b81506ca8b63c8c8226279f8366ffbdaaa6ddc9a74ddeaf98dcecb1281be050",
-      "5ffa14f16afa57fb2cdf9c9e099d0989b9393918ccea1631e4ba086473cb05b6",
-      "92d561df09a16f49e9d440b0b50ce157d5f0090d932f88b8f3b38a04653e70d3"
-     ]
+     "answers": [
+      "Vaughan",
+      "Mr Vaughan",
+      "Mr. Vaughan"
+     ],
+     "show": "VAUGHAN"
     },
     {
      "id": "P7",
@@ -92,11 +98,12 @@
      "audio": "homework/audio/S01/S01_HW_P7.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "fce1f50fdfb931736f69edffd7c03fd0c8cc834a3662e050dd980f606b89e7e0",
-      "e0d6c38291969a76cf5f75c5ef5f2219cc3a25d110f78d3c9d4537cb730829c1",
-      "186e84ac64cacda9f069271d909960db58c1d69365ae03fd4f8abed01a744e64"
-     ]
+     "answers": [
+      "Young",
+      "Ms Young",
+      "Ms. Young"
+     ],
+     "show": "YOUNG"
     },
     {
      "id": "P8",
@@ -105,11 +112,12 @@
      "audio": "homework/audio/S01/S01_HW_P8.mp3",
      "placeholder": "SURNAME",
      "points": 1,
-     "ah": [
-      "1c996328470443b53e33f6412bd0d6fb0b18fb22fb72e7cc85a3337084fe7586",
-      "b880aaba9a19dac49ba6dd7d2e15eb1c6ca0080d8dcf9d37dac12d26c30c1c03",
-      "17cd87d0b0e34747c26335e06e1740213d4bbdf2b44016acd6b930328616ee06"
-     ]
+     "answers": [
+      "Jenkins",
+      "Mrs Jenkins",
+      "Mrs. Jenkins"
+     ],
+     "show": "JENKINS"
     }
    ]
   },
@@ -124,10 +132,11 @@
      "audio": "homework/audio/S01/S01_HW_R1.mp3",
      "placeholder": "STREET NAME",
      "points": 1,
-     "ah": [
-      "7509b43863789e0b242a853c6597a7833e0cfe9d1b5ab5244369ad269d09119c",
-      "4372dfa9f4374531aa5f5307e41d3ed0120aac867aca721ba50785662f8c5a25"
-     ]
+     "answers": [
+      "Church",
+      "Church Road"
+     ],
+     "show": "CHURCH"
     },
     {
      "id": "R2",
@@ -136,10 +145,11 @@
      "audio": "homework/audio/S01/S01_HW_R2.mp3",
      "placeholder": "STREET NAME",
      "points": 1,
-     "ah": [
-      "4c1d5192ee0087cb5285f5a3f17e51076d8f1fea939a110fb862cf588888c2fc",
-      "082de2ccb8e512353b794c36b5b7f49b8bdf95b323e96fba5dbc7382056ff0b8"
-     ]
+     "answers": [
+      "Garden",
+      "Garden Street"
+     ],
+     "show": "GARDEN"
     },
     {
      "id": "R3",
@@ -148,10 +158,11 @@
      "audio": "homework/audio/S01/S01_HW_R3.mp3",
      "placeholder": "STREET NAME",
      "points": 1,
-     "ah": [
-      "d8ebbf5d9dde060e67a162843ec496a2e01a49eca7df4584bd3ee32b9d11f488",
-      "5dabce5a1d89f0962edfd867821b1ceb93f724168dc338582191559c809edefb"
-     ]
+     "answers": [
+      "Kingsley",
+      "Kingsley Avenue"
+     ],
+     "show": "KINGSLEY"
     },
     {
      "id": "R4",
@@ -160,10 +171,11 @@
      "audio": "homework/audio/S01/S01_HW_R4.mp3",
      "placeholder": "STREET NAME",
      "points": 1,
-     "ah": [
-      "ad13bee967cb0dcf875d0a7992ab54cbe249ac39db181db841ebaff462ea0fa3",
-      "ab4d7aaf3331690287d6c936f736b719452f58fb469fe67d5d221df46a3228ec"
-     ]
+     "answers": [
+      "Wellington",
+      "Wellington Road"
+     ],
+     "show": "WELLINGTON"
     },
     {
      "id": "R5",
@@ -172,10 +184,11 @@
      "audio": "homework/audio/S01/S01_HW_R5.mp3",
      "placeholder": "STREET NAME",
      "points": 1,
-     "ah": [
-      "d7ef43d3a1490690417b273fb321aca09100dbfc62d4854205e9a3475e667a27",
-      "5fc46feead2fe5d07e07e04f682d267c2285da346c6354beab8f06993616055e"
-     ]
+     "answers": [
+      "Juniper",
+      "Juniper Drive"
+     ],
+     "show": "JUNIPER"
     },
     {
      "id": "R6",
@@ -184,10 +197,11 @@
      "audio": "homework/audio/S01/S01_HW_R6.mp3",
      "placeholder": "STREET NAME",
      "points": 1,
-     "ah": [
-      "9c81853284d7dc5d12b4a888cb1cbb10a590a85bc48091c6f8ddc82c7d4b6805",
-      "21b296a619c727779ba853a7cc9eab24e540ae3642ca6af94b0817187f2b38b1"
-     ]
+     "answers": [
+      "Hazel",
+      "Hazel Lane"
+     ],
+     "show": "HAZEL"
     }
    ]
   },
@@ -202,9 +216,10 @@
      "audio": "homework/audio/S01/S01_HW_T1.mp3",
      "placeholder": "TOWN",
      "points": 1,
-     "ah": [
-      "a35abd90854181c0deaf6b83ea89fc0b6c564062e24c4c562d0a466cbf5d6e5f"
-     ]
+     "answers": [
+      "Cambridge"
+     ],
+     "show": "CAMBRIDGE"
     },
     {
      "id": "T2",
@@ -213,9 +228,10 @@
      "audio": "homework/audio/S01/S01_HW_T2.mp3",
      "placeholder": "TOWN",
      "points": 1,
-     "ah": [
-      "4366ec2d7b2a53c502cefb6f64f73ceea09aa78d9a760e85ee792f52b7d8a2b4"
-     ]
+     "answers": [
+      "Leeds"
+     ],
+     "show": "LEEDS"
     },
     {
      "id": "T3",
@@ -224,9 +240,10 @@
      "audio": "homework/audio/S01/S01_HW_T3.mp3",
      "placeholder": "TOWN",
      "points": 1,
-     "ah": [
-      "371fed25a01ce1182fa1deb19005e7c1818c6da9601a6b5d6c1e3bd62bf16faf"
-     ]
+     "answers": [
+      "Perth"
+     ],
+     "show": "PERTH"
     },
     {
      "id": "T4",
@@ -235,9 +252,10 @@
      "audio": "homework/audio/S01/S01_HW_T4.mp3",
      "placeholder": "TOWN",
      "points": 1,
-     "ah": [
-      "1be769ebe4dd5537e203c534e0d57d773690d3bb2c97b1e29876f37e48b86954"
-     ]
+     "answers": [
+      "Phoenix"
+     ],
+     "show": "PHOENIX"
     },
     {
      "id": "T5",
@@ -246,9 +264,10 @@
      "audio": "homework/audio/S01/S01_HW_T5.mp3",
      "placeholder": "TOWN",
      "points": 1,
-     "ah": [
-      "ae15b121ec159d41f9e99ad3ce2b94fc2ceea4091e1cc242b989a22df5d62a52"
-     ]
+     "answers": [
+      "Glasgow"
+     ],
+     "show": "GLASGOW"
     }
    ]
   },
@@ -263,47 +282,52 @@
      "type": "gap",
      "prompt": "Guest name: Emma ____",
      "points": 1,
-     "ah": [
-      "943a103e26065450be670327835c9d95c52a7ea8cebf4c740892ccdba207bfeb"
-     ]
+     "answers": [
+      "Thornton"
+     ],
+     "show": "Thornton"
     },
     {
      "id": "D2",
      "type": "gap",
      "prompt": "Home town: ____",
      "points": 1,
-     "ah": [
-      "910a19a5cb8cfaa5d937113e589a87dd20af3a9e15575ad3ab577f1e63a5121d"
-     ]
+     "answers": [
+      "Norwich"
+     ],
+     "show": "Norwich"
     },
     {
      "id": "D3",
      "type": "gap",
      "prompt": "Address: 14 ____ Road",
      "points": 1,
-     "ah": [
-      "c58b5239858a250aeb88fb2a822798f1326e35a252107da24a5f6f77efa4bf7b",
-      "2fe8f3ddca9489f4167b6cf122c9ee9f84a27df6be50dc03918206023effa238"
-     ]
+     "answers": [
+      "Belmont",
+      "Belmont Road"
+     ],
+     "show": "Belmont"
     },
     {
      "id": "D4",
      "type": "gap",
      "prompt": "Email: ____",
      "points": 1,
-     "ah": [
-      "ef5eac5c229cf78d57436dde123b27fd02135f527a1e7ec412c6e2b370ac058c"
-     ]
+     "answers": [
+      "emma.t88@gmail.com"
+     ],
+     "show": "emma.t88@gmail.com"
     },
     {
      "id": "D5",
      "type": "gap",
      "prompt": "Arrival day: ____",
      "points": 1,
-     "ah": [
-      "85374af5be138ee91625df9699987fd9747aec5ecab3f829444272c57adc4f8b",
-      "d3c580fbe0e8164de3388de5138c71de4807563ccf16214ce7041b00c121dd98"
-     ]
+     "answers": [
+      "Friday",
+      "Fri"
+     ],
+     "show": "Friday"
     }
    ]
   }

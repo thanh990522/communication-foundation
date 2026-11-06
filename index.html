@@ -166,8 +166,6 @@ footer b{color:var(--yellow)}
   </div>
 </header>
 
-<section id="progress"><div class="wrap"><div class="mp" id="mp"></div></div></section>
-
 <nav class="tools">
   <div class="wrap">
     <button class="tab on" data-ph="0">Tất cả</button>
@@ -189,8 +187,6 @@ footer b{color:var(--yellow)}
   </div>
 </footer>
 
-<script src="assets/config.js"></script>
-<script src="assets/student.js"></script>
 <script src="assets/sessions.js"></script>
 <script>
 (function(){
@@ -204,14 +200,11 @@ footer b{color:var(--yellow)}
   document.getElementById('progTxt').textContent=live+' / '+SESSIONS.length+' bài đã mở';
   document.getElementById('progBar').style.width=(live/SESSIONS.length*100)+'%';
 
-  let PROG=null;
-  const passed=p=>!!p&&(p.passed||(p.bestPct!==''&&p.bestPct!=null&&+p.bestPct>=80));
-  const progOf=id=>PROG&&PROG.sessions?PROG.sessions.find(x=>x.session===id):null;
   function hwChip(s){
-    if(!s.hw||!GTStudent.get()) return '';
-    const p=progOf(s.id);
-    if(!p) return '<span class="hwst st todo">Chưa làm</span>';
-    return passed(p)?`<span class="hwst st done">✓ Đạt · ${p.bestPct}%</span>`:`<span class="hwst st redo">✗ Làm lại · ${p.bestPct}%</span>`;
+    if(!s.hw) return '';
+    let b=null; try{ b=JSON.parse(localStorage.getItem('gt_hw_best_'+s.id)||'null'); }catch(e){}
+    if(!b) return '';
+    return b.passed?`<span class="hwst st done">✓ Passed · ${b.pct}%</span>`:`<span class="hwst st redo">✗ Redo · ${b.pct}%</span>`;
   }
   function card(s){
     const ph=phaseOf(s.week), cp=/^Checkpoint/i.test(s.title), isLive=s.status==='live';
@@ -241,44 +234,6 @@ footer b{color:var(--yellow)}
     }
     document.getElementById('list').innerHTML=html||'<div class="empty">Không tìm thấy bài phù hợp.</div>';
   }
-  /* ---------- my progress */
-  const HWS=SESSIONS.filter(s=>s.status==='live'&&s.hw);
-  function renderMP(){
-    const me=GTStudent.get(), box=document.getElementById('mp');
-    if(!me){
-      box.innerHTML=`<div class="mp-empty"><div style="font-size:40px">📊</div><p><b>Tiến độ của tôi</b></p><button class="loginbtn" id="mpLogin">Đăng nhập học viên</button></div>`;
-      document.getElementById('mpLogin').onclick=doLogin; return;
-    }
-    const rows=HWS.map(s=>({s,p:progOf(s.id)}));
-    const sent=rows.filter(r=>passed(r.p)).length, graded=rows.filter(r=>r.p).reduce((a,r)=>a+(+r.p.attempts||0),0);
-    const pcts=rows.filter(r=>r.p&&r.p.bestPct!==''&&r.p.bestPct!=null).map(r=>+r.p.bestPct);
-    const avg=pcts.length?Math.round(pcts.reduce((a,b)=>a+b,0)/pcts.length)+'%':'—';
-    const next=rows.find(r=>!passed(r.p));
-    const initials=me.name.split(' ').filter(Boolean).slice(-2).map(w=>w[0]).join('').toUpperCase();
-    const stCell=p=>!p?'<span class="st todo">Chưa làm</span>':passed(p)?'<span class="st done">Đạt</span>':'<span class="st redo">Làm lại</span>';
-    box.innerHTML=`<div class="mp-h"><div class="av">${esc(initials)}</div><div><h2>Tiến độ của ${esc(me.name)}</h2><small>${esc(me.email)}${PROG?'':' · đang tải…'}</small></div><span class="sp"></span><button id="mpRefresh">↻ Cập nhật</button><button id="mpOut">Không phải bạn?</button></div>
-      <div class="mp-b">
-        <div class="kpis">
-          <div class="kpi"><b>${sent}/${HWS.length}</b><span>homework đạt (≥ 80%)</span></div>
-          <div class="kpi"><b>${avg}</b><span>điểm trung bình</span></div>
-          <div class="kpi"><b>${graded}</b><span>lần nộp</span></div>
-        </div>
-        ${next?`<div class="next">🎯 ${next.p?'Cần làm lại':'Bài tiếp theo'}: <span>${esc(next.s.id)} · ${esc(next.s.title)}</span><a class="hwbtn" href="${esc(next.s.hw)}">Làm ngay →</a></div>`:(HWS.length?'<div class="next">🏆 Bạn đã đạt tất cả homework đang mở!</div>':'')}
-        ${HWS.length?`<table class="hwt"><tr><th>Buổi</th><th>Trạng thái</th><th>Điểm cao nhất</th><th class="hide-m">Số lần</th><th>Nhận xét</th></tr>${rows.map(({s,p})=>`<tr><td><b>${esc(s.id)}</b><br><a href="${esc(s.hw)}">${esc(s.title)}</a></td><td>${stCell(p)}</td><td>${p&&p.bestPct!==''&&p.bestPct!=null?'<b>'+p.bestPct+'%</b>':'—'}</td><td class="hide-m">${p?p.attempts:0}</td><td>${p&&p.teacherScore?'<b>'+esc(p.teacherScore)+'</b>':'—'}${p&&p.feedback?`<div class="fbk">💬 ${esc(p.feedback)}</div>`:''}</td></tr>`).join('')}</table>`:''}
-        ${GTStudent.online()?'':'<p style="margin-top:12px;color:#8A5300;font-weight:700">⚠️ Hệ thống nộp bài chưa được kết nối — tiến độ sẽ hiện khi thầy bật hệ thống.</p>'}
-      </div>`;
-    document.getElementById('mpRefresh').onclick=loadProgress;
-    document.getElementById('mpOut').onclick=()=>{ GTStudent.clear(); PROG=null; renderMP(); render(); };
-  }
-  async function doLogin(){ const s=await GTStudent.loginDialog(); if(s){ PROG=GTStudent.cachedProgress(); renderMP(); render(); loadProgress(); } }
-  async function loadProgress(){
-    if(!GTStudent.get()) return;
-    PROG=GTStudent.cachedProgress()||PROG; renderMP(); render();
-    if(!GTStudent.online()) return;
-    try{ PROG=await GTStudent.progress(); }catch(e){}
-    renderMP(); render();
-  }
-  loadProgress(); renderMP();
 
   document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{state.ph=+t.dataset.ph;render();}));
   document.getElementById('onlyLive').addEventListener('change',e=>{state.only=e.target.checked;render();});

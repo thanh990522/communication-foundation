@@ -79,6 +79,8 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 .notice.exam{display:flex;align-items:center;gap:8px;cursor:pointer}
 .notice.exam input{width:18px;height:18px;accent-color:var(--blue);flex:none}
 .gapline input.wide{width:min(320px,70vw);text-align:left}
+.key{font-size:14px;font-weight:600;color:var(--muted);margin-left:6px}
+.key b{color:var(--navy);font-weight:900;letter-spacing:.3px}
 /* marking */
 .it.right .qn{background:var(--green);color:#fff}
 .it.wrong .qn{background:var(--red);color:#fff}
@@ -147,7 +149,7 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 </head>
 <body>
 <header><div class="wrap">
-  <div class="topline"><a class="back" href="../">← Tất cả bài học</a><div class="me" id="me" hidden><span id="meName"></span><button id="meSwitch" type="button">Đổi</button></div></div>
+  <div class="topline"><a class="back" href="../">← Tất cả bài học</a></div>
   <span class="kick" id="kick">Homework</span>
   <h1 id="title">Homework</h1>
   <p class="intro" id="intro"></p>
@@ -167,8 +169,6 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 <div id="modal"><div class="box"><h3 id="mTitle"></h3><div id="mBody"></div><div class="acts" id="mActs"></div></div></div>
 <div class="toast" id="toast"></div>
 
-<script src="../assets/config.js"></script>
-<script src="../assets/student.js"></script>
 <script>
 (function(){
 const ROOT='../';
@@ -185,10 +185,9 @@ let HW=null, ITEMS=[], answers={}, voice={}, student=null, submitted=false, last
 /* ---------------- utils */
 function toast(m,ms){ const t=$('#toast'); t.textContent=m; t.style.display='block'; clearTimeout(toast.t); toast.t=setTimeout(()=>t.style.display='none',ms||3500); }
 function norm(s){ return String(s==null?'':s).toLowerCase().replace(/[\s\-–—]+/g,''); }
-async function sha(s){ const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
 const abs=u=>/^(https?:|data:|blob:)/.test(u)?u:ROOT+u;
 const words=s=>(String(s).trim().match(/\S+/g)||[]).length;
-const draftKey=()=>'gt_hw_'+SESSION+'_'+(student?student.email:'anon');
+const draftKey=()=>'gt_hw_draft_'+SESSION;
 function saveDraft(){ try{ localStorage.setItem(draftKey(),JSON.stringify(answers)); }catch(e){} }
 function loadDraft(){ try{ answers=JSON.parse(localStorage.getItem(draftKey())||'{}')||{}; }catch(e){ answers={}; } }
 function modal(title,html,buttons){
@@ -344,13 +343,13 @@ function setupRecorder(box){
 }
 
 /* ---------------- grading + submit */
-async function grade(){
+function grade(){
   let score=0,max=0; const details={};
   for(const it of ITEMS){
-    if(!AUTO.includes(it.type)||!it.ah) continue;
+    if(!AUTO.includes(it.type)||!it.answers) continue;
     const pts=it.points||1; max+=pts;
     const v=String(answers[it.id]||'');
-    const ok=v.trim()!=='' && it.ah.includes(await sha(SESSION+'|'+it.id+'|'+norm(v)));
+    const ok=v.trim()!=='' && it.answers.map(norm).includes(norm(v));
     if(ok) score+=pts;
     details[it.id]={v,ok};
   }
@@ -360,55 +359,41 @@ function showMarks(details){
   ITEMS.forEach(it=>{
     const el=document.getElementById('it_'+it.id); if(!el) return;
     const box=el.querySelector('.markbox'); el.classList.remove('right','wrong');
-    if(details[it.id]){ const ok=details[it.id].ok; el.classList.add(ok?'right':'wrong'); box.innerHTML=`<span class="mark ${ok?'right':'wrong'}">${ok?'✓ Correct':'✗ Wrong'}</span>`; }
+    if(details[it.id]){ const ok=details[it.id].ok; el.classList.add(ok?'right':'wrong'); box.innerHTML=`<span class="mark ${ok?'right':'wrong'}">${ok?'✓ Correct':'✗ Wrong'}</span> <span class="key">Answer: <b>${esc(it.show||it.answers[0])}</b></span>`; }
     else if(!AUTO.includes(it.type)) box.innerHTML=(it.type==='voice'?voice[it.id]:String(answers[it.id]||'').trim())?'<span class="mark wait">⏳ Chờ thầy chấm</span>':'';
   });
 }
 const toB64=blob=>new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(',')[1]); r.onerror=rej; r.readAsDataURL(blob); });
 async function submit(){
   if(submitted) return;
-  if(!student){ student=await GTStudent.loginDialog({required:false}); if(!student) return; setMe(); }
   const missing=ITEMS.filter(it=>!isDone(it));
   if(missing.length){
-    const go=await modal('Còn câu chưa làm',`<p>Bạn còn <b>${missing.length}</b> câu chưa làm:</p><ul>${missing.slice(0,8).map(it=>`<li>Câu ${it._n}: ${esc(String(it.prompt).slice(0,60))}${String(it.prompt).length>60?'…':''}</li>`).join('')}</ul><p>Vẫn nộp bài?</p>`,[{label:'Làm tiếp',value:false},{label:'Vẫn nộp',value:true,cls:'blue'}]);
+    const go=await modal('Còn câu chưa làm',`<p>Bạn còn <b>${missing.length}</b> câu chưa làm. Vẫn nộp bài?</p>`,[{label:'Làm tiếp',value:false},{label:'Vẫn nộp',value:true,cls:'blue'}]);
     if(!go){ const first=document.getElementById('it_'+missing[0].id); first&&first.scrollIntoView({behavior:'smooth',block:'center'}); return; }
   }
-  const btn=$('#send'); btn.disabled=true; btn.textContent='Đang chấm…';
-  const g=await grade();
-  if(!GTStudent.online()){
-    showMarks(g.details); btn.disabled=false; btn.textContent='Nộp bài';
-    submitted=true; lockForm(true); showResult(g,{attempt:0});
-    return;
-  }
-  btn.textContent='Đang nộp…';
-  try{
-    const vlist=[];
-    for(const it of ITEMS.filter(x=>x.type==='voice'&&voice[x.id])){ const v=voice[it.id]; vlist.push({qid:it.id,mime:v.type,ext:v.ext,b64:await toB64(v.blob)}); }
-    const written=ITEMS.filter(x=>x.type==='writing').map(it=>({qid:it.id,prompt:it.prompt,text:String(answers[it.id]||'')}));
-    const out=await GTStudent.call('submit',{name:student.name,email:student.email,session:SESSION,autoScore:g.score,autoMax:g.max,written,voice:vlist,
-      details:{answers:g.details,ua:navigator.userAgent.slice(0,120)}},120000);
-    submitted=true; lastResult={g,out};
-    try{ localStorage.removeItem(draftKey()); }catch(e){}
-    showMarks(g.details); lockForm(true); showResult(g,out);
-    GTStudent.progress().catch(()=>{});
-  }catch(e){
-    btn.disabled=false; btn.textContent='Nộp bài';
-    await modal('Chưa nộp được',`<p>${esc(e.message)}</p><p>Bài làm của bạn vẫn được giữ trên máy này — hãy thử nộp lại.</p>`,[{label:'OK',value:1,cls:'blue'}]);
-  }
+  stopAudio();
+  const g=grade(), pct=g.max?Math.round(g.score/g.max*100):0;
+  submitted=true;
+  try{ localStorage.removeItem(draftKey());
+    const k='gt_hw_best_'+SESSION, prev=JSON.parse(localStorage.getItem(k)||'null');
+    if(!prev||pct>prev.pct) localStorage.setItem(k,JSON.stringify({pct,passed:pct>=PASS,at:Date.now()}));
+  }catch(e){}
+  showMarks(g.details); lockForm(true); showResult(g);
 }
 function lockForm(on){
   $('#hw').querySelectorAll('input,textarea,.opt,.recbtn').forEach(el=>{ el.disabled=on; });
   $('#bar').hidden=on;
 }
-function showResult(g,out){
+function showResult(g){
   const pct=g.max?Math.round(g.score/g.max*100):0, pass=pct>=PASS;
   const r=$('#result');
   r.innerHTML=`<div class="res ${pass?'pass':'fail'}"><div class="score">${pct}<small>%</small></div><div class="sub2">${g.score} / ${g.max}</div>
     <h2>${pass?'✅ Passed':'❌ Not passed — please do it again'}</h2>
-    <p>${pass?'Great job!':`You need at least <b>${PASS}%</b>.`}</p>
-    <div class="acts">${pass?`<a class="btn blue" href="../#progress">📊 My progress</a><button class="btn light" type="button" id="again">↻ Try again</button>`:`<button class="btn blue" type="button" id="again">↻ Do it again</button>`}</div></div>`;
+    <p>${pass?'Great job! Check the answers below.':`You need at least <b>${PASS}%</b>. Check the answers below, then do it again.`}</p>
+    <div class="acts">${pass?`<a class="btn blue" href="../">← All lessons</a><button class="btn light" type="button" id="again">↻ Try again</button>`:`<button class="btn blue" type="button" id="again">↻ Do it again</button>`}</div></div>`;
   r.style.display='block'; r.scrollIntoView({behavior:'smooth'});
   $('#again').onclick=()=>{
+    showBest();
     submitted=false; answers={}; try{ localStorage.removeItem(draftKey()); }catch(e){}
     lockForm(false); r.style.display='none';
     const sb=$('#send'); sb.disabled=false; sb.textContent='Nộp bài';
@@ -417,59 +402,26 @@ function showResult(g,out){
   };
 }
 
-/* ---------------- student + status */
-function setMe(){
-  const me=$('#me');
-  if(student){ me.hidden=false; $('#meName').textContent='👤 '+student.name; } else me.hidden=true;
-}
+/* ---------------- status */
 function notice(html,cls){ $('#notices').insertAdjacentHTML('beforeend',`<div class="notice ${cls}">${html}</div>`); }
-function showStatus(pr){
-  const s=pr&&pr.sessions&&pr.sessions.find(x=>x.session===SESSION);
+function showBest(){
+  let b=null; try{ b=JSON.parse(localStorage.getItem('gt_hw_best_'+SESSION)||'null'); }catch(e){}
   document.querySelectorAll('#notices .notice.status').forEach(n=>n.remove());
-  if(!s||s.bestPct==null||s.bestPct==='') return;
-  const pass=+s.bestPct>=PASS;
-  let h=pass?`✅ <b>Passed</b> · best score <b>${s.bestPct}%</b>`:`❌ <b>Not passed yet</b> · best score <b>${s.bestPct}%</b> · need ${PASS}%`;
-  if(s.feedback) h+=`<div class="fb">💬 ${esc(s.feedback)}</div>`;
-  notice(h,(pass?'good':'warn')+' status');
+  if(!b) return;
+  notice(b.passed?`✅ <b>Passed</b> · best score <b>${b.pct}%</b>`:`❌ <b>Not passed yet</b> · best score <b>${b.pct}%</b> · need ${PASS}%`,(b.passed?'good':'warn')+' status');
 }
 
 /* ---------------- boot */
 async function boot(){
-  student=GTStudent.get(); setMe();
-  $('#meSwitch').onclick=async()=>{ const s=await GTStudent.loginDialog({title:'Đổi tài khoản học viên'}); if(s){ student=s; setMe(); loadDraft(); render(); refreshStatus(); } };
   $('#send').onclick=submit;
-  if(!GTStudent.online()) notice('⚠️ Hệ thống nộp bài chưa được kết nối — kết quả chưa được gửi cho thầy.','warn');
-
   let data;
   try{ const r=await fetch('data/'+SESSION+'.json',{cache:'no-cache'}); if(!r.ok) throw 0; data=await r.json(); }
   catch(e){ $('#hw').innerHTML=`<div class="loading">Chưa có homework cho buổi ${esc(SESSION)}. <a href="../">Về trang chủ</a></div>`; return; }
   HW=data;
   document.title=`Homework ${SESSION} · ${HW.title}`;
   $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>${esc(HW.kind||'Homework')} homework</em>`; $('#intro').textContent='';
-
-  // teacher-added questions from the Google Sheet (optional)
-  if(GTStudent.online()){
-    try{
-      const extra=await GTStudent.call('homework',{session:SESSION},12000);
-      (extra.items||[]).forEach(q=>{
-        let replaced=false;
-        HW.sections.forEach(sec=>sec.items.forEach((it,i)=>{ if(it.id===q.id){ sec.items[i]=Object.assign({},it,q); replaced=true; } }));
-        if(replaced) return;
-        let sec=HW.sections.find(s=>s.title===q.section);
-        if(!sec){ sec={id:'X'+HW.sections.length,title:q.section,vi:'Câu hỏi thầy bổ sung',items:[]}; const at=HW.sections.findIndex(s=>teacherSection(s)); HW.sections.splice(at<0?HW.sections.length:at,0,sec); }
-        sec.items.push(q);
-      });
-    }catch(e){ /* sheet questions are optional */ }
-  }
   ITEMS=HW.sections.flatMap(s=>s.items);
-  if(!student){ student=await GTStudent.loginDialog({required:false,title:'Nhập tên & email để làm bài'}); setMe(); }
-  loadDraft(); render(); refreshStatus();
-  window.addEventListener('beforeunload',e=>{ if(!submitted&&Object.keys(voice).length){ e.preventDefault(); e.returnValue=''; } });
-}
-async function refreshStatus(){
-  if(!student) return;
-  showStatus(GTStudent.cachedProgress());
-  if(GTStudent.online()) try{ showStatus(await GTStudent.progress()); }catch(e){}
+  loadDraft(); render(); showBest();
 }
 boot();
 })();

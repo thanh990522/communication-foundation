@@ -5,7 +5,7 @@ town/city names, Section-1 form completion): each item is said once and spelled 
 speed — "Number one. Church Road. C-H-U-R-C-H." All names, streets, towns and the phone call are
 ORIGINAL content recorded with Microsoft neural voices (edge-tts); no third-party audio is reused.
 
-Writes  homework/data/S01.json   (answers stored only as SHA-256 hashes)
+Writes  homework/data/S01.json   (questions + answers; answers are shown to students after they submit)
         homework/audio/S01/*.mp3
 Run:    SSL_CA_BUNDLE=... python3 build.py      (needs ffmpeg, numpy, edge-tts)
 """
@@ -200,7 +200,8 @@ def build_json():
         for it in sec['items']:
             it.setdefault('points', 1)
             if 'answer' in it:
-                it['ah'] = [h(SESSION, it['id'], a) for a in it.pop('answer')]
+                it['answers'] = it.pop('answer')
+                it['show'] = it['answers'][0].upper() if it['type'] == 'listen_type' and '@' not in it['answers'][0] else it['answers'][0]
                 auto_max += it['points']
     hw['autoMax'] = auto_max
     out = os.path.join(ROOT, 'homework', 'data', f'{SESSION}.json')
