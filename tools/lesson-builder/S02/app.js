@@ -9,9 +9,9 @@ function hl(i){ document.querySelectorAll('#script .ln').forEach((l,k)=>l.classL
 
 
 /* ---------- cover cloud */
-function buildCloud(id){
+function buildCloud(id,words){
   const el=document.getElementById(id); if(!el) return;
-  const words=[['⏰','7:00'],['☕','coffee'],['🚌','commute'],['💼','work'],['⏸','break'],['🌙','shift'],['📅','weekdays'],['🎉','weekends']];
+  words=words||[['⏰','7:00'],['☕','coffee'],['🚌','commute'],['💼','work'],['⏸','break'],['🌙','shift'],['📅','weekdays'],['🎉','weekends']];
   const pos=[[20,10,-6],[230,0,5],[110,120,8],[300,140,-6],[10,250,4],[200,270,-8],[60,380,-4],[260,390,6]];
   el.innerHTML=words.map((w,i)=>`<div class="wtag" style="left:${pos[i][0]}px;top:${pos[i][1]}px;transform:rotate(${pos[i][2]}deg);background:${i%3===0?'var(--yellow)':i%3===1?'var(--blue)':'var(--navy)'};color:${i%3===0?'var(--navy)':i%3===1?'#fff':'var(--yellow)'}"><span>${w[0]}</span>${w[1]}</div>`).join('');
 }
@@ -27,29 +27,61 @@ function warmCheck(show){
   document.getElementById('warmScore').textContent=sc+' / '+DATA.WARM.length;
 }
 
-/* ---------- vocabulary */
-function buildVocab(){
-  document.getElementById('vocab').innerHTML=DATA.VOCAB.map(([w,vi,col,ex],i)=>`<div class="vc"><div class="vh"><b>${esc(w)}</b><small>${esc(vi)}</small>${pbtn('V_'+i)}</div><div class="col">${esc(col)}</div><div class="ex">${esc(ex)}</div></div>`).join('');
-}
-/* ---------- frequency */
-function buildFreq(){
-  document.getElementById('freq').innerHTML=DATA.FREQ.map(([a,pc,ex],i)=>`<div class="fq"><div class="fbar"><i style="width:${Math.max(pc,4)}%"></i><span>${pc}%</span></div><div class="fw"><b>${esc(a)}</b>${pbtn('F_'+i)}</div><div class="fx">${esc(ex)}</div></div>`).join('');
-}
+/* ---------- flip cards */
+document.addEventListener('click',e=>{
+  if(e.target.closest('button,a,input')) return;
+  const f=e.target.closest('[data-flip]'); if(f) f.classList.toggle('on');
+});
+function flipAll(btn,on){ btn.closest('.slide').querySelectorAll('[data-flip]').forEach(f=>f.classList.toggle('on',on)); }
 /* ---------- collocation check */
+let collN=0;
+function collScore(){ document.getElementById('collScore').textContent=`✓ ${collN} / ${DATA.COLL.length}`; }
 function buildColl(){
-  document.getElementById('coll').innerHTML=DATA.COLL.map(([s,opts,ans],i)=>`<div class="cq" id="cq${i}"><span class="n">${i+1}</span><div class="cs">${esc(s).replace('___','<span class="gap">___</span>')}</div><div class="co">${opts.map(o=>`<button class="opt" data-ci="${i}" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>${pbtn('CO_'+i,'y')}</div>`).join('');
   document.querySelectorAll('[data-ci]').forEach(b=>b.onclick=()=>{
     const i=+b.dataset.ci, box=b.parentElement; if(box.dataset.done) return; box.dataset.done=1;
     const ans=DATA.COLL[i][2];
     box.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.o===ans) x.classList.add('ok'); });
-    if(b.dataset.o!==ans) b.classList.add('no');
-    document.querySelector('#cq'+i+' .gap').textContent=ans;
+    if(b.dataset.o!==ans) b.classList.add('no'); else collN++;
+    document.querySelector('#cq'+i+' .gap').textContent=ans; collScore(); play('CO_'+i);
   });
 }
-/* ---------- pronunciation */
-function buildPron(){
-  document.getElementById('sgroups').innerHTML=DATA.S_GROUPS.map(([snd,words],g)=>`<div class="sg"><div class="sgh"><b class="ipa">${esc(snd)}</b>${pbtn('PSG_'+g,'y')}</div><div class="sgw">${words.map((w,j)=>`<button class="lb2" data-a="PS_${g}_${j}">${esc(w).replace(/(e?s)(\b| up)/,'<u>$1</u>$2')}</button>`).join('')}</div></div>`).join('');
-  document.getElementById('stress').innerHTML=DATA.STRESS.map((t,i)=>`<div class="stl">${pbtn('ST_'+i)}<span>${esc(t).replace(/\b([A-Z]{2,}(?: [A-Z]{2,})?)\b/g,'<b>$1</b>')}</span></div>`).join('');
+function collReset(){ collN=0; collScore(); document.querySelectorAll('#coll2 .co, .coll2 .co').forEach(c=>{ delete c.dataset.done; c.querySelectorAll('.opt').forEach(o=>o.classList.remove('ok','no')); }); document.querySelectorAll('.coll2 .gap').forEach(g=>g.textContent='___'); }
+/* ---------- sort it: /s/ /z/ /ɪz/ */
+let sortSel=null, sortChecked=false;
+function sortChip(i){ const [w]=DATA.SORT[i]; return `<span class="sw" draggable="true" data-sw="${i}">${esc(w)}<span class="ear" data-a="SW_${i}">🔊</span></span>`; }
+function sortLoad(){
+  sortSel=null; sortChecked=false;
+  document.getElementById('pool').innerHTML=shuffle(DATA.SORT.map((_,i)=>i)).map(sortChip).join('');
+  [0,1,2].forEach(g=>document.getElementById('bz'+g).innerHTML='');
+  document.getElementById('sortScore').textContent=`— / ${DATA.SORT.length}`;
+}
+function sortPut(chip,g){ if(sortChecked) return; chip.classList.remove('sel','ok','no'); document.getElementById('bz'+g).appendChild(chip); sortSel=null; document.querySelectorAll('.bucket').forEach(b=>b.classList.remove('hot')); }
+function sortInit(){
+  const slide=document.getElementById('pool').closest('.slide');
+  slide.addEventListener('click',e=>{
+    if(e.target.closest('[data-a]')) return;
+    const chip=e.target.closest('.sw');
+    if(chip){ if(sortChecked) return;
+      if(chip.parentElement.id==='pool'){ document.querySelectorAll('.sw.sel').forEach(c=>c!==chip&&c.classList.remove('sel')); chip.classList.toggle('sel'); sortSel=chip.classList.contains('sel')?chip:null; document.querySelectorAll('.bucket').forEach(b=>b.classList.toggle('hot',!!sortSel)); }
+      else { document.getElementById('pool').appendChild(chip); }
+      return; }
+    const b=e.target.closest('.bucket'); if(b&&sortSel) sortPut(sortSel,+b.dataset.b);
+  });
+  slide.addEventListener('dragstart',e=>{ const c=e.target.closest&&e.target.closest('.sw'); if(c){ e.dataTransfer.setData('text/plain',c.dataset.sw); } });
+  slide.querySelectorAll('.bucket').forEach(b=>{ b.addEventListener('dragover',e=>{ e.preventDefault(); b.classList.add('hot'); }); b.addEventListener('dragleave',()=>b.classList.remove('hot'));
+    b.addEventListener('drop',e=>{ e.preventDefault(); const c=slide.querySelector(`.sw[data-sw="${e.dataTransfer.getData('text/plain')}"]`); if(c) sortPut(c,+b.dataset.b); }); });
+}
+function sortCheck(){
+  let ok=0; document.querySelectorAll('#pool .sw').forEach(c=>c.classList.remove('ok','no'));
+  [0,1,2].forEach(g=>document.querySelectorAll('#bz'+g+' .sw').forEach(c=>{ const good=DATA.SORT[+c.dataset.sw][1]===g; c.classList.toggle('ok',good); c.classList.toggle('no',!good); if(good) ok++; }));
+  document.getElementById('sortScore').textContent=`✓ ${ok} / ${DATA.SORT.length}`;
+}
+function sortShow(){ document.querySelectorAll('.sw').forEach(c=>{ const g=DATA.SORT[+c.dataset.sw][1]; document.getElementById('bz'+g).appendChild(c); c.classList.remove('sel','no'); c.classList.add('ok'); }); sortChecked=true; document.getElementById('sortScore').textContent=`✓ ${DATA.SORT.length} / ${DATA.SORT.length}`; }
+/* ---------- listen & repeat (gap for students to repeat) */
+function repeatQueue(btn){
+  const ids=btn.dataset.rep.split(','), slide=btn.closest('.slide');
+  const mark=k=>{ slide.querySelectorAll('.now').forEach(x=>x.classList.remove('now')); if(k>=0){ const el=slide.querySelector(`[data-a="${ids[k]}"]`); el&&el.classList.add('now'); } };
+  playQueue(ids,mark,1900,btn).then(()=>mark(-1));
 }
 /* ---------- listening (real recording) */
 function buildListen(){
@@ -116,6 +148,7 @@ function scLoad(){
   while(mixed.join(' ')===words.join(' ')&&guard++<10) mixed=shuffle(words);
   scPicked=[];
   document.getElementById('scN').textContent=`${scI+1} / ${DATA.SCRAMBLE.length}`;
+  document.getElementById('scDots').innerHTML=DATA.SCRAMBLE.map((_,k)=>`<i class="${k===scI?'cur':k<scI?'done':''}"></i>`).join('');
   document.getElementById('scOut').innerHTML=''; document.getElementById('scMsg').textContent='';
   document.getElementById('scPool').innerHTML=mixed.map((w,k)=>`<button class="chipw" data-k="${k}">${esc(w)}</button>`).join('');
   document.querySelectorAll('#scPool .chipw').forEach(b=>b.onclick=()=>{ if(b.disabled) return; b.disabled=true; scPicked.push(b.textContent); scDraw(); });
@@ -135,12 +168,17 @@ function scCheck(){
    ========================================================= */
 window.addEventListener('DOMContentLoaded',()=>{
   toBlobUrls();
-  buildCloud('cloud'); buildWarm(); buildVocab(); buildFreq(); buildColl(); buildPron(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); scLoad();
+  buildCloud('cloud'); buildCloud('cloud2',[['☕','coffee'],['📊','usually'],['🚌','commute'],['👄','/ɪz/'],['⏸','break'],['🌙','shift'],['📅','weekdays'],['🎉','weekends']]); buildWarm(); buildColl(); sortInit(); sortLoad(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); scLoad();
   // download links beside fixed play buttons
-  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('#coll,#sgroups,#qa,#frames,#freq')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
+  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('.coll2,.sgroups2,#qa,#frames,.freq2,.fgrid,.ladder,.chal,.pool,.buckets,.stressbox')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   const $=id=>document.getElementById(id);
   $('warmCheck').onclick=()=>warmCheck(false); $('warmShow').onclick=()=>warmCheck(true);
   $('fAll').onclick=e=>play('F_ALL',e.currentTarget);
+  document.querySelectorAll('[data-flipall]').forEach(b=>b.onclick=()=>flipAll(b,true));
+  document.querySelectorAll('[data-flipreset]').forEach(b=>b.onclick=()=>flipAll(b,false));
+  document.querySelectorAll('[data-rep]').forEach(b=>b.onclick=()=>repeatQueue(b));
+  $('collReset').onclick=collReset;
+  $('sortCheck').onclick=sortCheck; $('sortShow').onclick=sortShow; $('sortReset').onclick=sortLoad;
   $('lCheck').onclick=listenCheck;
   $('lScript').onclick=e=>{ const p=$('lscr'), show=p.hidden; p.hidden=!show; e.currentTarget.textContent=show?'🙈 Hide script':'📜 Show script'; };
   $('lscr').innerHTML=`<div class="sh">📜 Script <span style="font-size:13px;color:var(--muted)">Source: ${esc(DATA.LISTEN.source)}</span></div>`+DATA.LISTEN.script.map(([w,t])=>`<div class="sl ${w}"><b>${w==='J'?'John':'Sarah'}</b><span>${esc(t)}</span></div>`).join('');

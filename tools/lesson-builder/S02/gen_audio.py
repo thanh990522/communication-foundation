@@ -92,20 +92,21 @@ for i,w in enumerate(C.WARM):
     k=[want(RYAN,f'Number {NUMW[i]}.'),.6]
     for t in tokens(w): k+=[want(RYAN,t),.24]
     clip(f'W_{i}',f'Warm-up/S02_warmup_{i+1}_{w}.mp3',k,f'Warm-up {i+1}')
-# vocabulary: word → collocation → example
-for i,(w,vi,col,ex) in enumerate(C.VOCAB):
-    clip(f'V_{i}',f'Vocabulary/S02_vocab_{i+1}_{slug(w)}.mp3',[want(SONIA,w),.5,want(SONIA,col),.6,want(SONIA,ex,'-5%')],w)
+# vocabulary: word card (word ×2) · phrase card (collocation → example)
+for i,v in enumerate(C.VOCAB):
+    clip(f'VW_{i}',f'Vocabulary/S02_word_{i+1}_{slug(v["w"])}.mp3',[want(SONIA,v['w']),.7,want(SONIA,v['w'],'-15%')],v['w'])
+    clip(f'VC_{i}',f'Vocabulary/S02_phrase_{i+1}_{slug(v["col"])}.mp3',[want(SONIA,v['col']),.6,want(SONIA,v['ex'],'-5%')],v['col'])
 # adverbs of frequency
-for i,(a,pc,ex) in enumerate(C.FREQ):
+for i,(a,pc,ex,vi,d) in enumerate(C.FREQ):
     clip(f'F_{i}',f'Frequency/S02_freq_{i+1}_{slug(a)}.mp3',[want(SONIA,a),.5,want(SONIA,ex,'-5%')],a)
 fa=[]
-for a,pc,ex in C.FREQ: fa+=[want(SONIA,a),.45]
+for a,pc,ex,vi,d in C.FREQ: fa+=[want(SONIA,a),.45]
 clip('F_ALL','Frequency/S02_freq_all.mp3',fa,'always → never')
 # collocation check sentences (answer filled in)
-for i,(s,opts,ans) in enumerate(C.COLL):
+for i,(s,opts,ans,k_) in enumerate(C.COLL):
     clip(f'CO_{i}',f'Collocations/S02_coll_{i+1}.mp3',[want(SONIA,s.replace('___',ans),'-5%')],s.replace('___',ans))
 # pronunciation
-for g,(snd,words) in enumerate(C.S_GROUPS):
+for g,(snd,rule,tag,words,bases) in enumerate(C.S_GROUPS):
     k=[]
     for j,w in enumerate(words):
         clip(f'PS_{g}_{j}',f'Pronunciation/S02_s_{g+1}_{slug(w)}.mp3',[want(SONIA,w)],w)
@@ -113,6 +114,13 @@ for g,(snd,words) in enumerate(C.S_GROUPS):
     clip(f'PSG_{g}',f'Pronunciation/S02_s_group{g+1}.mp3',k,snd)
 for i,t in enumerate(C.STRESS):
     clip(f'ST_{i}',f'Pronunciation/S02_stress_{i+1}.mp3',[want(SONIA,t.capitalize() if False else t.lower().capitalize().replace(' i ',' I '),'-8%')],t)
+# sorting words + reading ladder (word → phrase → sentence) + challenge
+plain=lambda t:t.replace('*','')
+for i,(w,k_) in enumerate(C.SORT): clip(f'SW_{i}',f'Pronunciation/Sort/S02_sort_{i+1}_{slug(w)}.mp3',[want(SONIA,w)],w)
+for g,L in enumerate(C.LADDER):
+    for j,t in enumerate(L['phrases']): clip(f'LP_{g}_{j}',f'Pronunciation/Read_aloud/S02_{g+1}_phrase_{j+1}.mp3',[want(SONIA,plain(t).replace(' · ','. '),'-8%')],plain(t))
+    for j,t in enumerate(L['sents']): clip(f'LS_{g}_{j}',f'Pronunciation/Read_aloud/S02_{g+1}_sentence_{j+1}.mp3',[want(SONIA,plain(t),'-6%')],plain(t))
+for i,t in enumerate(C.CHALLENGE): clip(f'LC_{i}',f'Pronunciation/Read_aloud/S02_challenge_{i+1}.mp3',[want(SONIA,plain(t),'-4%')],plain(t))
 # frames
 for i,(f,exs) in enumerate(C.FRAMES):
     for j,e in enumerate(exs): clip(f'FR_{i}_{j}',f'Sentence_frames/S02_frame{i+1}_{j+1}.mp3',[want(SONIA,e,'-5%')],e)

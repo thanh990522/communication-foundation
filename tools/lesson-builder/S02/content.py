@@ -14,44 +14,78 @@ Language is limited to the syllabus items for S02 (plus A1 routine verbs and clo
 WARM = ['SHIFT', 'BREAK', 'COMMUTE', 'WEEKDAYS', 'WEEKENDS', 'USUALLY', 'PRODUCTIVE', 'HARDLY']
 
 # ---------------------------------------------------------------- core words -> collocations
-VOCAB = [  # word, vi, collocation, example
-    ('productive', 'hiệu quả', 'have a productive morning', 'I always have a productive morning.'),
-    ('commute', 'đi lại giữa nhà và nơi làm việc', 'make a daily commute', 'I make a daily commute to the city.'),
-    ('shift', 'ca làm việc', 'work the evening shift', 'Minh works the evening shift.'),
-    ('break', 'giờ nghỉ', 'take a short break', 'I take a short break at eleven.'),
-    ('usually', 'thường xuyên', 'usually start work', 'I usually start work at nine.'),
-    ('hardly ever', 'hầu như không bao giờ', 'hardly ever miss breakfast', 'I hardly ever miss breakfast.'),
-    ('on weekdays', 'vào ngày trong tuần', 'on weekdays', 'On weekdays, I get up at six.'),
-    ('at weekends', 'vào cuối tuần', 'at weekends', 'At weekends, I get up late.'),
+VOCAB = [  # key (illustration), word, part of speech, IPA, meaning; collocation, keyword, collocation meaning, example
+    dict(k='productive', w='productive', pos='adjective', ipa='/prəˈdʌktɪv/', vi='hiệu quả, năng suất',
+         col='have a productive morning', kw='productive', col_vi='có một buổi sáng làm việc hiệu quả', ex='I always have a productive morning.'),
+    dict(k='commute', w='commute', pos='noun', ipa='/kəˈmjuːt/', vi='quãng đường đi làm hằng ngày',
+         col='make a daily commute', kw='commute', col_vi='đi làm (di chuyển) hằng ngày', ex='I make a daily commute to the city.'),
+    dict(k='shift', w='shift', pos='noun', ipa='/ʃɪft/', vi='ca làm việc',
+         col='work the evening shift', kw='shift', col_vi='làm ca tối', ex='Minh works the evening shift.'),
+    dict(k='break', w='break', pos='noun', ipa='/breɪk/', vi='giờ nghỉ, giải lao',
+         col='take a short break', kw='break', col_vi='nghỉ giải lao một chút', ex='I take a short break at eleven.'),
+    dict(k='usually', w='usually', pos='adverb', ipa='/ˈjuːʒuəli/', vi='thường thường',
+         col='usually start work', kw='usually', col_vi='thường bắt đầu làm việc', ex='I usually start work at nine.'),
+    dict(k='hardly ever', w='hardly ever', pos='adverb', ipa='/ˌhɑːdli ˈevə/', vi='hầu như không bao giờ',
+         col='hardly ever miss breakfast', kw='hardly ever', col_vi='hầu như không bao giờ bỏ bữa sáng', ex='I hardly ever miss breakfast.'),
+    dict(k='weekday', w='weekday', pos='noun', ipa='/ˈwiːkdeɪ/', vi='ngày trong tuần (thứ Hai – thứ Sáu)',
+         col='on weekdays', kw='weekdays', col_vi='vào các ngày trong tuần', ex='On weekdays, I get up at six.'),
+    dict(k='weekend', w='weekend', pos='noun', ipa='/ˌwiːkˈend/', vi='cuối tuần (thứ Bảy – Chủ nhật)',
+         col='at weekends', kw='weekends', col_vi='vào cuối tuần', ex='At weekends, I get up late.'),
 ]
 
 # ---------------------------------------------------------------- adverbs of frequency
-FREQ = [  # adverb, percent, example
-    ('always', 100, 'I always take a short break at eleven.'),
-    ('usually', 80, 'I usually start work at nine.'),
-    ('often', 60, 'Lucy often has a productive morning.'),
-    ('sometimes', 40, 'Minh sometimes works at weekends.'),
-    ('hardly ever', 10, 'I hardly ever miss breakfast.'),
-    ('never', 0, 'Minh never works at weekends.'),
+FREQ = [  # adverb, percent, example, Vietnamese, days out of 7
+    ('always', 100, 'I always take a short break at eleven.', 'luôn luôn', 7),
+    ('usually', 80, 'I usually start work at nine.', 'thường thường', 6),
+    ('often', 60, 'Lucy often has a productive morning.', 'thường, hay', 4),
+    ('sometimes', 40, 'Minh sometimes works at weekends.', 'thỉnh thoảng', 3),
+    ('hardly ever', 10, 'I hardly ever miss breakfast.', 'hầu như không bao giờ', 1),
+    ('never', 0, 'Minh never works at weekends.', 'không bao giờ', 0),
 ]
 
 # ---------------------------------------------------------------- collocation check (choose the word)
-COLL = [  # sentence with ___, options, answer
-    ('I have a ___ morning.', ['productive', 'short', 'daily'], 'productive'),
-    ('I make a ___ commute.', ['daily', 'evening', 'short'], 'daily'),
-    ('She works the evening ___.', ['shift', 'break', 'commute'], 'shift'),
-    ('We take a short ___ at eleven.', ['break', 'shift', 'morning'], 'break'),
-    ('I hardly ever ___ breakfast.', ['miss', 'take', 'make'], 'miss'),
-    ('I usually ___ work at nine.', ['start', 'make', 'take'], 'start'),
-    ('___ weekdays, I get up at six.', ['On', 'At', 'In'], 'On'),
-    ('___ weekends, I get up late.', ['At', 'On', 'In'], 'At'),
+COLL = [  # sentence with ___, options, answer, illustration key
+    ('I have a ___ morning.', ['productive', 'short', 'daily'], 'productive', 'productive'),
+    ('I make a ___ commute.', ['daily', 'evening', 'short'], 'daily', 'commute'),
+    ('She works the evening ___.', ['shift', 'break', 'commute'], 'shift', 'shift'),
+    ('We take a short ___ at eleven.', ['break', 'shift', 'morning'], 'break', 'break'),
+    ('I hardly ever ___ breakfast.', ['miss', 'take', 'make'], 'miss', 'hardly ever'),
+    ('I usually ___ work at nine.', ['start', 'make', 'take'], 'start', 'usually'),
+    ('___ weekdays, I get up at six.', ['On', 'At', 'In'], 'On', 'weekday'),
+    ('___ weekends, I get up late.', ['At', 'On', 'In'], 'At', 'weekend'),
 ]
 
 # ---------------------------------------------------------------- pronunciation
-S_GROUPS = [  # sound, words
-    ('/s/', ['starts', 'takes', 'works', 'makes', 'commutes']),
-    ('/z/', ['has', 'goes', 'does']),
-    ('/ɪz/', ['misses', 'finishes']),
+S_GROUPS = [  # sound, rule, tag, -s forms, base forms
+    ('/s/', 'after /p/ /t/ /k/ /f/', 'voiceless · 1 syllable',
+     ['starts', 'takes', 'works', 'makes', 'commutes', 'gets up'], ['start', 'take', 'work', 'make', 'commute', 'get up']),
+    ('/z/', 'after vowels and /n/ /d/ /v/ …', 'voiced · 1 syllable',
+     ['has', 'goes', 'does', 'mornings', 'weekdays', 'weekends'], ['have', 'go', 'do', 'morning', 'weekday', 'weekend']),
+    ('/ɪz/', 'after /s/ /z/ /ʃ/ /tʃ/', '+1 syllable',
+     ['misses', 'finishes'], ['miss', 'finish']),
+]
+SORT = [  # word, sound index 0=/s/ 1=/z/ 2=/ɪz/   (all from today's lesson)
+    ('starts', 0), ('takes', 0), ('works', 0), ('makes', 0), ('commutes', 0), ('gets up', 0), ('wakes up', 0),
+    ('minutes', 0), ('breaks', 0), ('shifts', 0),
+    ('has', 1), ('goes', 1), ('does', 1), ('mornings', 1), ('weekdays', 1), ('weekends', 1),
+    ('misses', 2), ('finishes', 2),
+]
+# reading ladder: *word* marks the -s ending to practise
+LADDER = [
+    {'snd': '/s/',
+     'phrases': ['*starts* work', '*takes* a short break', '*makes* a daily commute', '*works* the evening shift'],
+     'sents': ['She usually *starts* work at nine.', 'It *takes* me twenty *minutes* to get to work.', 'Minh *works* the evening shift.']},
+    {'snd': '/z/',
+     'phrases': ['*has* breakfast', '*has* a productive morning', '*goes* to work', 'on *weekdays* · at *weekends*'],
+     'sents': ['Lucy *has* a productive morning.', 'He *goes* to work at four.', 'On *weekdays* I get up at six.']},
+    {'snd': '/ɪz/',
+     'phrases': ['*misses* breakfast', '*finishes* work', 'hardly ever *misses* breakfast', '*finishes* the evening shift'],
+     'sents': ['She hardly ever *misses* breakfast.', 'He usually *finishes* work at five.', 'Minh *finishes* the evening shift at twelve.']},
+]
+CHALLENGE = [
+    'She *gets* up at six, *has* breakfast and *starts* work at eight.',
+    'He always *takes* a short break at eleven and *finishes* work at five.',
+    'Minh hardly ever *misses* breakfast, and he never *works* at *weekends*.',
 ]
 STRESS = [
     'I USUALLY start work at nine, but I HARDLY EVER finish at five.',
