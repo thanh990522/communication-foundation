@@ -81,6 +81,8 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 .gapline input.wide{width:min(320px,70vw);text-align:left}
 .key{font-size:14px;font-weight:600;color:var(--muted);margin-left:6px}
 .key b{color:var(--navy);font-weight:900;letter-spacing:.3px}
+.passage{margin:14px 18px 4px;padding:16px 18px;border-radius:14px;background:#FFFDF5;border:2px solid var(--yellow-soft);font-size:17px;line-height:1.7;color:var(--ink)}
+.passage p+p{margin-top:10px}
 /* marking */
 .it.right .qn{background:var(--green);color:#fff}
 .it.wrong .qn{background:var(--red);color:#fff}
@@ -219,7 +221,7 @@ function render(){
   HW.sections.forEach(sec=>{
     const pts=sec.items.reduce((a,it)=>a+(it.points||1),0);
     const teach=teacherSection(sec);
-    html+=`<section class="sec${teach?' teacher':''}"><div class="sec-h"><div><h2>${esc(sec.title)}</h2></div><span class="pts">${pts} ${pts>1?'points':'point'}</span></div>${sec.audio?`<div class="secaud"><button type="button" class="play" data-audio="${esc(sec.audio)}" aria-label="Nghe">${PLAY}</button><div><b>Listen to the call</b></div></div>`:''}${sec.note?`<div class="secnote">${esc(sec.note)}</div>`:''}<div class="items">`;
+    html+=`<section class="sec${teach?' teacher':''}"><div class="sec-h"><div><h2>${esc(sec.title)}</h2></div><span class="pts">${pts} ${pts>1?'points':'point'}</span></div>${sec.audio?`<div class="secaud"><button type="button" class="play" data-audio="${esc(sec.audio)}" aria-label="Nghe">${PLAY}</button><div><b>Listen to the call</b></div></div>`:''}${sec.note?`<div class="secnote">${esc(sec.note)}</div>`:''}${sec.passage?`<div class="passage">${String(sec.passage).split(/\n\s*\n/).map(p=>`<p>${esc(p)}</p>`).join('')}</div>`:''}<div class="items">`;
     sec.items.forEach(it=>{
       n++; it._n=n;
       html+=`<div class="it" id="it_${esc(it.id)}"><span class="qn">${n}</span><div class="body">${itemBody(it)}</div></div>`;

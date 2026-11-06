@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S02 · Routines, Habits &amp; Real Schedules</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1D4ED8; --blue-2:#2563EB; --navy:#0B1F5C; --sky:#EAF1FF; --sky-2:#D6E4FF;
+  --yellow:#FFC72C; --yellow-2:#FFB000; --yellow-soft:#FFF6D6;
+  --ink:#0F172A; --muted:#5B6B8C; --line:#E3E8F4; --white:#fff;
+  --green:#16A34A; --green-soft:#DCFCE7; --red:#DC2626; --red-soft:#FEE2E2;
+  --f1:#1D4ED8; --f2:#0EA5E9; --f3:#FFB000; --f4:#7C3AED; --f5:#0D9488; --f6:#E8590C; --f7:#0B1F5C;
+  --shadow:0 10px 30px rgba(11,31,92,.10); --shadow-s:0 4px 14px rgba(11,31,92,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#fff;font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);overflow:hidden}
+.ipa{font-family:'Noto Sans','Charis SIL','Doulos SIL','Segoe UI',sans-serif}
+button{font-family:inherit;cursor:pointer;border:none}
+input,textarea,select{font-family:inherit}
+
+/* ---------- stage ---------- */
+#viewport{position:fixed;inset:0;overflow:hidden;background:#fff}
+#deck{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0;background:#fff;overflow:hidden}
+.slide{position:absolute;inset:0;padding:calc(36px + var(--oy,0px)) calc(56px + var(--ox,0px)) calc(56px + var(--oy,0px));display:none;flex-direction:column;background:#fff;overflow:hidden}
+.slide.active{display:flex;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slide::before{content:"";position:absolute;right:-70px;top:-70px;width:200px;height:200px;border-radius:50%;background:var(--yellow);opacity:.9;z-index:0}
+.slide::after{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(var(--blue),var(--navy))}
+.slide>*{position:relative;z-index:1}
+.s-foot{position:absolute;left:calc(56px + var(--ox,0px));right:calc(56px + var(--ox,0px));bottom:calc(16px + var(--oy,0px));display:flex;justify-content:space-between;font-size:16px;color:var(--muted);font-weight:500;z-index:1}
+.s-foot b{color:var(--blue)}
+.s-head{margin-bottom:18px;padding-right:150px}
+.s-head h2{font-size:38px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1.15}
+.s-head h2 em{font-style:normal;color:var(--blue);background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+.s-head .sub{font-size:20px;color:var(--muted);margin-top:4px;font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:10px}
+.c-warm{background:var(--yellow);color:var(--navy)}
+.c-input{background:var(--blue);color:#fff}
+.c-prac{background:var(--sky-2);color:var(--navy)}
+.c-listen{background:#FFE9B3;color:#8A5300}
+.c-speak{background:var(--navy);color:var(--yellow)}
+.c-wrap{background:#E2E8F0;color:var(--navy)}
+.badges{position:absolute;top:calc(40px + var(--oy,0px));right:calc(56px + var(--ox,0px));display:flex;flex-direction:column;gap:6px;align-items:flex-end;z-index:2}
+.badge{background:#fff;border:2px solid var(--navy);color:var(--navy);font-weight:700;font-size:16px;padding:5px 11px;border-radius:10px;box-shadow:var(--shadow-s)}
+.badge.y{background:var(--navy);color:var(--yellow);border-color:var(--navy)}
+.notes{display:none}
+
+/* ---------- common UI ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;font-weight:700;font-size:18px;background:var(--blue);color:#fff;box-shadow:0 4px 0 #163a9e;transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #163a9e}
+.btn.y{background:var(--yellow);color:var(--navy);box-shadow:0 4px 0 #c99400}
+.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--line);box-shadow:none}
+.btn.sm{padding:6px 11px;font-size:16px;border-radius:9px}
+.play{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 0 #163a9e}
+.play svg{width:16px;height:16px;fill:#fff;margin-left:2px}
+.play.y{background:var(--yellow);box-shadow:0 3px 0 #c99400}.play.y svg{fill:var(--navy)}
+.play.sm{width:32px;height:32px}.play.sm svg{width:13px;height:13px}
+.speaking{animation:pulse .8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,199,44,.8)}50%{box-shadow:0 0 0 10px rgba(255,199,44,0)}}
+.card{background:#fff;border:2px solid var(--line);border-radius:18px;box-shadow:var(--shadow-s)}
+.row{display:flex;gap:16px}.col{display:flex;flex-direction:column;gap:12px}
+.grow{flex:1}
+.tip{background:var(--yellow-soft);border-left:6px solid var(--yellow);border-radius:12px;padding:12px 16px;font-size:18px;line-height:1.45}
+.tip b{color:var(--navy)}
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:12px;align-items:flex-start;font-size:19px;line-height:1.4}
+.step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:17px}
+.kbd{font-family:'Noto Sans',monospace;background:var(--sky);border:1.5px solid var(--sky-2);border-radius:7px;padding:1px 7px;font-weight:700;color:var(--navy)}
+.hidden{display:none!important}
+
+/* ---------- cover ---------- */
+.cover{background:radial-gradient(circle at 85% 20%,#FFF3C4 0,#fff 40%)}
+.cover::before{width:340px;height:340px;right:-120px;top:-120px}
+.cover h1{font-size:68px;font-weight:900;color:var(--navy);line-height:1.02;letter-spacing:-1.5px}
+.cover h1 span{color:var(--blue)}
+.cover .vn{font-size:22px;color:var(--muted);margin-top:14px;font-weight:600}
+.meta{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.meta div{background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;font-size:18px}
+.meta div:nth-child(2){background:var(--yellow);color:var(--navy)}
+.meta div:nth-child(3){background:var(--sky);color:var(--navy)}
+.cloud{position:absolute;right:calc(50px + var(--ox,0px));top:calc(110px + var(--oy,0px));width:460px;height:480px}
+.cloud .t{position:absolute;width:96px;height:96px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:900;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s}
+.cloud .t:hover{transform:scale(1.08) rotate(0)!important}
+.teacher{margin-top:auto;display:flex;align-items:center;gap:14px}
+.teacher .av{width:54px;height:54px;border-radius:50%;background:var(--blue);color:var(--yellow);font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center}
+.teacher b{display:block;font-size:21px;color:var(--navy)}.teacher span{color:var(--muted);font-size:17px}
+
+/* ---------- agenda ---------- */
+.agenda{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(6,auto);grid-auto-flow:column;gap:8px 22px}
+.ag{display:flex;align-items:center;gap:12px;padding:6px 14px;border-radius:14px;background:#fff;border:2px solid var(--line)}
+.ag .m{flex:none;width:52px;height:36px;border-radius:10px;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px}
+.ag b{font-size:18px;color:var(--navy)}.ag small{display:block;color:var(--muted);font-size:15px;font-weight:500}
+.ag.input .m{background:var(--blue);color:#fff}.ag.speak .m{background:var(--navy);color:var(--yellow)}
+.ag.prac .m{background:var(--sky-2);color:var(--navy)}.ag.listen .m{background:#FFE9B3;color:#8A5300}
+.ag.warm .m{background:var(--yellow);color:var(--navy)}.ag.wrap .m{background:#E2E8F0;color:var(--navy)}
+.ratio{display:flex;height:16px;border-radius:999px;overflow:hidden;margin-top:6px}
+
+/* ---------- objectives ---------- */
+.obj{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.obj .card{padding:18px 16px;display:flex;flex-direction:column;gap:10px}
+.obj .ic{width:52px;height:52px;border-radius:14px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:26px}
+.obj .card:nth-child(even) .ic{background:var(--yellow-soft)}
+.obj b{font-size:19px;color:var(--navy);line-height:1.3}
+.obj p{font-size:16px;color:var(--muted);line-height:1.4}
+
+/* ---------- warm-up acronyms ---------- */
+.acr{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.acr .a{height:118px;perspective:600px;cursor:pointer}
+.acr .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.acr .a.flip .in{transform:rotateY(180deg)}
+.acr .fr,.acr .bk{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px}
+.acr .fr{background:var(--navy);color:var(--yellow);font-size:34px;font-weight:900;letter-spacing:1px}
+.acr .a:nth-child(even) .fr{background:var(--blue);color:#fff}
+.acr .bk{background:var(--yellow-soft);border:2px solid var(--yellow);transform:rotateY(180deg);font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
+
+/* ---------- alphabet grid ---------- */
+.abc{display:grid;grid-template-columns:repeat(9,1fr);gap:10px}
+.tile{position:relative;height:118px;border-radius:16px;background:#fff;border:2px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s,box-shadow .15s;overflow:hidden}
+.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tile .U{font-size:46px;font-weight:900;line-height:1;color:var(--navy)}
+.tile .U small{font-size:30px;color:var(--blue);font-weight:700;margin-left:2px}
+.tile .p{font-size:17px;color:var(--muted);margin-top:6px}
+.tile .bar{position:absolute;left:0;right:0;bottom:0;height:7px}
+.tile.lit{background:var(--yellow);border-color:var(--yellow-2);transform:scale(1.06)}
+.tile.vowel::after{content:"vowel";position:absolute;top:6px;right:7px;font-size:15px;font-weight:800;color:var(--blue);text-transform:uppercase}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:16px;font-weight:700}
+.legend span{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:#F4F7FD}
+.legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+
+/* ---------- families ---------- */
+.fam{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;flex:1}
+.fcol{border-radius:18px;background:#fff;border:2px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
+.fcol .fh{padding:12px 8px;color:#fff;text-align:center}
+.fcol .fh .ipa{font-size:28px;font-weight:700;display:block}
+.fcol .fh small{font-size:15px;font-weight:600;opacity:.95}
+.fcol .fl{flex:1;display:flex;flex-wrap:wrap;gap:8px;padding:12px 8px;justify-content:center;align-content:flex-start}
+.fl .L{width:58px;height:52px;border-radius:12px;background:#F4F7FD;font-size:30px;font-weight:900;color:var(--navy);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.fl .L:hover{background:var(--yellow-soft)}
+.fl .L.lit{background:var(--yellow)}
+.fcol .ff{padding:10px;border-top:2px dashed var(--line);display:flex;justify-content:center}
+
+/* ---------- odd one out ---------- */
+.odd{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.orow{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:#fff;border:2px solid var(--line)}
+.orow .num{width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:800;display:flex;align-items:center;justify-content:center}
+.orow .L{width:58px;height:58px;border-radius:14px;background:var(--sky);font-size:30px;font-weight:900;color:var(--navy);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.orow .L.odd-yes{background:var(--yellow);transform:scale(1.08);box-shadow:0 0 0 3px var(--navy)}
+.orow .why{font-size:16px;color:var(--muted);flex:1;font-weight:600}
+
+/* ---------- clinic ---------- */
+.clinic{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cl{padding:14px;display:flex;flex-direction:column;gap:8px}
+.cl h4{font-size:20px;color:var(--navy);display:flex;gap:8px;align-items:center}
+.cl h4 .tag{font-size:15px;background:var(--red-soft);color:var(--red);padding:2px 8px;border-radius:999px;font-weight:800}
+.cl p{font-size:16px;line-height:1.42;color:#334155}
+.cl .ls{display:flex;gap:6px;margin-top:auto;flex-wrap:wrap}
+.lb{min-width:44px;height:40px;padding:0 10px;border-radius:10px;background:var(--navy);color:var(--yellow);font-size:20px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.lb .ipa{font-size:15px;color:#fff;font-weight:600}
+.lb:nth-child(even){background:var(--blue);color:#fff}
+
+/* ---------- quiz ---------- */
+.quiz{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.qi{padding:12px;display:flex;flex-direction:column;gap:10px}
+.qi .top{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy)}
+.qi .opts{display:flex;gap:8px}
+.opt{flex:1;height:46px;border-radius:12px;background:#F4F7FD;border:2px solid var(--line);font-size:24px;font-weight:900;color:var(--navy)}
+.opt:hover{border-color:var(--blue)}
+.opt.ok{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.opt.no{background:var(--red-soft);border-color:var(--red);color:var(--red)}
+.score{font-size:21px;font-weight:800;color:var(--navy);background:var(--yellow);padding:8px 16px;border-radius:12px}
+
+/* ---------- spell it ---------- */
+.spell{display:grid;grid-template-columns:1fr 1fr 1.1fr 1.5fr;gap:14px;flex:1;min-height:0}
+.lv{border-radius:18px;border:2px solid var(--line);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.lv .lh{padding:10px 14px;font-weight:900;font-size:21px;display:flex;justify-content:space-between;align-items:center}
+.lv:nth-child(1) .lh{background:var(--sky);color:var(--navy)}
+.lv:nth-child(2) .lh{background:var(--blue);color:#fff}
+.lv:nth-child(3) .lh{background:var(--navy);color:var(--yellow)}
+.lv:nth-child(4) .lh{background:var(--yellow);color:var(--navy)}
+.lv .items{padding:10px;display:flex;flex-direction:column;gap:8px;flex:1;overflow:auto;min-height:0}
+.sp-i{border:2px solid var(--line);border-radius:14px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;background:#FBFCFF}
+.sp-i .nm{display:flex;align-items:center;gap:6px}
+.sp-i .nm b{flex:1;font-size:24px;font-weight:900;color:var(--navy);letter-spacing:.3px;white-space:nowrap;line-height:1.1;min-width:0}
+.sp-i.multi .nm b{white-space:normal;font-size:21px;line-height:1.15}
+.sp-i.mail .nm b{font-size:19px;font-family:'Noto Sans',monospace;letter-spacing:0;word-break:normal;white-space:nowrap}
+.sp-i .rv{font-size:17px;line-height:1.3;font-weight:700;color:var(--blue);min-height:0}
+.sp-i .rv:empty{display:none}
+.eye{width:32px;height:32px;border-radius:9px;background:var(--yellow-soft);border:2px solid var(--yellow);font-size:18px;flex:none}
+/* ---------- dictation ---------- */
+.dict{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.di{display:flex;align-items:center;gap:10px;padding:10px 14px}
+.di .n{width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.di input{flex:1;height:44px;border-radius:10px;border:2px solid var(--line);padding:0 12px;font-size:21px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px}
+.di input.lower{text-transform:none}
+.di input.ok{border-color:var(--green);background:var(--green-soft)}
+.di input.no{border-color:var(--red);background:var(--red-soft)}
+.di .ans{font-size:16px;font-weight:800;color:var(--green);min-width:0}
+.slowb{font-size:15px;font-weight:800;background:var(--yellow-soft);color:#8A5300;border:2px solid var(--yellow);border-radius:9px;padding:5px 8px}
+
+/* ---------- toolkit ---------- */
+.tk{display:grid;grid-template-columns:1.1fr 1.1fr .9fr;gap:16px}
+.tk .card{padding:14px 16px}
+.tk h3{font-size:20px;color:#fff;background:var(--navy);margin:-14px -16px 12px;padding:10px 16px;border-radius:16px 16px 0 0}
+.tk .card:nth-child(2) h3{background:var(--blue)}
+.tk .card:nth-child(3) h3{background:var(--yellow);color:var(--navy)}
+.ph{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1.5px dashed var(--line);font-size:18px;font-weight:600}
+.ph:last-child{border-bottom:none}
+.sym{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:18px;font-weight:600;border-bottom:1.5px dashed var(--line)}
+.sym .s{width:48px;height:38px;border-radius:9px;background:var(--navy);color:var(--yellow);font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans',monospace}
+
+/* ---------- dialogue ---------- */
+.dlg{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px;flex:1;min-height:0}
+.form{padding:18px;display:flex;flex-direction:column;gap:10px}
+.form .fhd{display:flex;align-items:center;gap:10px;background:var(--navy);color:#fff;margin:-18px -18px 6px;padding:12px 18px;border-radius:16px 16px 0 0;font-weight:800}
+.form .fhd span{background:var(--yellow);color:var(--navy);padding:2px 8px;border-radius:6px;font-size:15px}
+.fld label{font-size:15px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.fld input{width:100%;height:42px;border:2px solid var(--line);border-radius:10px;padding:0 12px;font-size:20px;font-weight:700;color:var(--navy)}
+.fld input.ok{border-color:var(--green);background:var(--green-soft)}.fld input.no{border-color:var(--red);background:var(--red-soft)}
+.script{padding:12px 14px;overflow:auto;display:flex;flex-direction:column;gap:5px}
+.ln{display:flex;gap:8px;align-items:flex-start;padding:5px 8px;border-radius:10px;font-size:17px;line-height:1.38;cursor:pointer}
+.ln:hover{background:#F4F7FD}
+.ln.now{background:var(--yellow-soft);box-shadow:inset 4px 0 0 var(--yellow)}
+.ln .who{flex:none;width:28px;height:28px;border-radius:8px;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.ln .who.R{background:var(--blue);color:#fff}.ln .who.S{background:var(--yellow);color:var(--navy)}
+.blur .ln span.tx{filter:blur(5px);user-select:none}
+
+/* ---------- info gap / roleplay ---------- */
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+.tab{padding:8px 14px;border-radius:10px;font-weight:800;font-size:17px;background:#F1F5FB;color:var(--navy);border:2px solid var(--line)}
+.tab.on{background:var(--navy);color:var(--yellow);border-color:var(--navy)}
+table.gap{width:100%;border-collapse:separate;border-spacing:0;font-size:18px;border-radius:14px;overflow:hidden;border:2px solid var(--line)}
+table.gap th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-size:17px}
+table.gap td{padding:8px 12px;border-top:1.5px solid var(--line);font-weight:700;color:var(--navy)}
+table.gap tr:nth-child(even) td{background:#F8FAFF}
+.blank{display:inline-block;min-width:150px;border-bottom:2.5px dashed var(--blue);color:var(--blue);font-weight:800}
+.rp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rp .card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.rp .hd{padding:12px 14px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.rp .hd b{font-size:20px;display:block}.rp .hd small{color:var(--yellow);font-weight:700;font-size:15px}
+.rp .bd{padding:12px 14px;font-size:16px;line-height:1.45;flex:1}
+.rp .bd h5{font-size:15px;text-transform:uppercase;letter-spacing:.8px;color:var(--blue);margin:6px 0 4px}
+.rp .bd ul{padding-left:18px}
+.rp .ft{padding:10px 14px;border-top:2px dashed var(--line);display:flex;gap:6px}
+
+/* ---------- games ---------- */
+.hm-word{display:flex;gap:10px;justify-content:center;margin:6px 0 16px;flex-wrap:wrap}
+.hm-word div{width:58px;height:72px;border-radius:12px;background:var(--sky);border-bottom:6px solid var(--blue);font-size:40px;font-weight:900;color:var(--navy);display:flex;align-items:center;justify-content:center}
+.hm-word div.sp{background:transparent;border:none;width:20px}
+.kb{display:grid;grid-template-columns:repeat(13,1fr);gap:7px}
+.kb button{height:50px;border-radius:10px;background:#fff;border:2px solid var(--line);font-size:22px;font-weight:900;color:var(--navy)}
+.kb button:hover{border-color:var(--blue)}
+.kb button.hit{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.kb button.miss{background:var(--red-soft);border-color:var(--red);color:var(--red);opacity:.6}
+.lives{display:flex;gap:6px}
+.lives i{width:22px;height:22px;border-radius:50%;background:var(--yellow);border:2px solid var(--yellow-2);display:inline-block}
+.lives i.off{background:#E2E8F0;border-color:#CBD5E1}
+.wheel{display:flex;gap:26px;align-items:center;justify-content:center;flex:1}
+.wl{width:250px;height:250px;border-radius:50%;background:conic-gradient(var(--blue) 0 25%,var(--yellow) 0 50%,var(--navy) 0 75%,var(--sky-2) 0);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.wl div{width:170px;height:170px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:110px;font-weight:900;color:var(--navy)}
+.cat{font-size:30px;font-weight:900;color:var(--navy);background:var(--yellow-soft);border:3px solid var(--yellow);padding:16px 24px;border-radius:18px;text-align:center;min-width:330px}
+.tbar{height:14px;border-radius:999px;background:#E2E8F0;overflow:hidden;margin-top:12px}
+.tbar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--yellow),var(--blue));transition:width .25s linear}
+
+/* ---------- final round ---------- */
+.frame{padding:22px 26px;font-size:22px;line-height:1.8;font-weight:600;color:var(--navy)}
+.frame .g{display:inline-block;min-width:120px;border-bottom:3px solid var(--yellow);color:var(--blue)}
+.picked{font-size:40px;font-weight:900;color:var(--navy);text-align:center;padding:10px;background:var(--yellow);border-radius:16px;min-height:72px}
+textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radius:12px;padding:10px;font-size:17px;resize:none}
+
+/* ---------- wrap ---------- */
+.chk{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;background:#fff;border:2px solid var(--line);font-size:19px;font-weight:600;cursor:pointer}
+.chk input{width:24px;height:24px;accent-color:var(--blue)}
+.hw{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+.hw .card{padding:18px}
+.hw h3{font-size:19px;color:var(--navy);margin-bottom:10px;display:flex;gap:8px;align-items:center}
+
+
+
+#timer{position:fixed;top:14px;right:14px;z-index:70;background:#fff;border:3px solid var(--navy);border-radius:18px;box-shadow:var(--shadow);padding:6px 18px;display:none}
+#timer.show{display:block}
+#timer .d{font-size:46px;font-weight:900;color:var(--navy);text-align:center;font-variant-numeric:tabular-nums}
+#timer.end .d{color:var(--red);animation:blink .5s 6}
+@keyframes blink{50%{opacity:.2}}
+
+/* ---------- spelling test ---------- */
+.nt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
+.nti{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 12px}
+.nti .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:17px}
+.ntt{flex:none;min-width:46px;font-weight:900;color:var(--blue);font-size:21px}
+.nti input{flex:1;min-width:0;width:100%;height:42px;border:2px solid var(--line);border-radius:10px;padding:0 10px;font-size:19px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px}
+.nti input.ok{border-color:var(--green);background:var(--green-soft)}
+.nti input.no{border-color:var(--red);background:var(--red-soft)}
+.nti .ans{flex:none;font-weight:900;color:var(--green);font-size:18px;min-width:0}
+.nti.now{border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
+.ntex{display:flex;align-items:center;gap:10px;font-size:22px;color:var(--navy)}
+/* ---------- email symbols ---------- */
+.symg{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:500px;flex:none;align-content:start}
+.sy{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 10px}
+.sy .k{flex:none;min-width:58px;height:46px;padding:0 8px;border-radius:10px;background:var(--navy);color:var(--yellow);font-size:22px;font-weight:900;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans',monospace}
+.sy span{flex:1;font-weight:800;color:var(--navy);font-size:19px;line-height:1.2;white-space:nowrap}
+.em{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px}
+.em b{flex:1;min-width:0;font-family:'Noto Sans',monospace;font-size:22px;color:var(--navy);letter-spacing:.3px}
+.em .rv{font-size:17px;font-weight:700;color:var(--blue)}
+/* ---------- questions & answers ---------- */
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;flex:1;align-content:start}
+.qap{display:flex;flex-direction:column;gap:3px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:6px 12px}
+.qrow{display:flex;align-items:center;gap:10px}
+.qrow .who{flex:none;width:26px;height:26px;border-radius:8px;font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qrow.q .who{background:var(--blue);color:#fff}.qrow.a .who{background:var(--yellow);color:var(--navy)}
+.qrow span{flex:1;font-size:18px;font-weight:700;color:var(--navy);line-height:1.25}
+.qrow.a span{color:#7A5200}
+.qap .play.sm{width:28px;height:28px}
+/* ---------- ID cards ---------- */
+.idc{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:20px;padding:18px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden;min-height:210px}
+.idc::after{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:var(--yellow);opacity:.9}
+.idc .lab{font-size:15px;font-weight:800;letter-spacing:1.4px;color:var(--yellow);text-transform:uppercase}
+.idc .nm{font-size:30px;font-weight:900;margin:6px 0 10px;line-height:1.1;position:relative;z-index:1}
+.idc .ln2{display:flex;gap:8px;font-size:19px;margin-top:4px}
+.idc .ln2 i{font-style:normal;color:#C9D6FF;min-width:62px;font-weight:700}
+.idc .ln2 b{font-family:'Noto Sans',monospace;font-weight:700}
+.idc .no{position:absolute;right:18px;bottom:14px;font-weight:900;color:var(--yellow);font-size:17px}
+/* ---------- free practice ---------- */
+/* free practice */
+.sit2{border:2px solid var(--line);border-radius:18px;background:#fff;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:.15s}
+.sit2:hover{border-color:var(--blue)}
+.sit2.on{border-color:var(--yellow);box-shadow:0 0 0 4px var(--yellow-soft)}
+.sit2 h4{font-size:19px;color:var(--navy);display:flex;align-items:center;gap:8px}
+.sit2 .rl{display:flex;gap:8px;font-size:17px;line-height:1.35;color:#334155}
+.sit2 .rl b{flex:none;width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;color:#fff;background:var(--blue)}
+.sit2 .rl.b b{background:var(--yellow);color:var(--navy)}
+.sit2 .card2{margin-top:2px;background:var(--sky);border-radius:10px;padding:6px 10px;font-size:17px;color:var(--navy)}
+.sit2 .card2 i{font-style:normal;color:var(--muted);font-weight:700;margin-right:6px}
+.fpd{padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto repeat(8,auto);grid-auto-flow:column;column-gap:18px;row-gap:6px;font-size:18px;line-height:1.35;align-content:start}
+.fpd .hd{grid-column:1/-1;grid-row:1}
+.fpd .ln2{display:flex;gap:8px;align-items:baseline}
+.fpd .who{flex:none;width:24px;height:24px;border-radius:7px;font-weight:900;font-size:16px;display:inline-flex;align-items:center;justify-content:center;color:#fff;background:var(--blue)}
+.fpd .ln2.b .who{background:var(--yellow);color:var(--navy)}
+.fpd .slot{display:inline-block;background:var(--yellow-soft);border:2px dashed var(--yellow-2);color:#7A5200;font-weight:800;border-radius:8px;padding:0 7px;margin:0 2px;font-size:18px}
+.fpd .fx{font-weight:800;color:var(--blue)}
+.fpd .hd{font-weight:900;color:var(--navy);font-size:18px;margin-bottom:4px}
+.sit{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;flex:1;align-content:start}
+.st{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;transition:.2s}
+.st h4{font-size:20px;color:var(--navy);display:flex;gap:8px;align-items:center}
+.st h4 .e{font-size:22px}
+.st p{font-size:17px;line-height:1.4;color:#334155}
+.st p b{color:var(--blue)}
+.st.pick{border-color:var(--yellow);box-shadow:0 0 0 4px var(--yellow-soft);transform:scale(1.02)}
+
+.dl{display:inline-flex;align-items:center;gap:4px;font-size:15px;font-weight:800;color:var(--blue);text-decoration:none;background:var(--sky);border:1.5px solid var(--sky-2);padding:4px 8px;border-radius:8px;white-space:nowrap}
+.dl:hover{background:var(--yellow-soft);border-color:var(--yellow)}
+.fcol .ff{gap:6px;align-items:center}
+.lib{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start;padding-right:6px}
+.lg{background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 12px}.lg.wide{grid-column:1/-1}.lg.wide .lgl{display:grid;grid-template-columns:repeat(4,1fr);column-gap:18px}
+.lg h4{font-size:17px;color:var(--navy);margin-bottom:6px;display:flex;justify-content:space-between}
+.lg h4 small{color:var(--muted);font-weight:600}
+.li{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:16px;font-weight:600}
+.li:last-child{border-bottom:none}.li span{flex:1}.li small{color:var(--muted);font-size:15px}
+.li .play.sm{width:26px;height:26px}.li .play.sm svg{width:10px;height:10px}
+
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;font-weight:700;font-size:16px;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%)}
+.tile .tdl{position:absolute;top:6px;left:6px;padding:1px 6px;font-size:13px;opacity:.75}
+.tile:hover .tdl{opacity:1}
+.ln .dl{margin-left:auto;flex:none;padding:2px 7px}
+.ph .dl,.sym .dl{flex:none;padding:3px 7px}
+.acr .bk{flex-direction:column;gap:6px}
+.acr .bk .dl{font-size:13px;padding:2px 8px}
+.lb+.dl,.play+.dl,.btn+.dl{padding:3px 7px}
+
+/* ===== S02 ===== */
+.cover .cloud .wtag{position:absolute;display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:18px;font-size:24px;font-weight:900;box-shadow:var(--shadow)}
+.cover .cloud .wtag span{font-size:26px}
+.wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.wu{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:10px 14px}
+.wu .n,.cq .n,.lq .n,.frm .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+.wu input{flex:1;min-width:0;height:44px;border:2px solid var(--line);border-radius:10px;padding:0 12px;font-size:21px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1px}
+.wu input.ok,.tin.ok{border-color:var(--green);background:var(--green-soft)}.wu input.no,.tin.no{border-color:var(--red);background:var(--red-soft)}
+.wu .ans{font-weight:900;color:var(--green);font-size:17px}
+.vocab{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;flex:1;align-content:start}
+.vc{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.vc .vh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vc .vh b{font-size:21px;color:var(--navy);font-weight:900}
+.vc .vh b{flex:1}
+.vc .vh small{order:3;flex-basis:100%;font-size:15px;color:var(--muted);font-weight:600;margin-top:-4px}
+.vc .col{font-size:18px;font-weight:800;color:var(--blue);background:var(--sky);border-radius:10px;padding:5px 9px}
+.vc .ex{font-size:16px;color:#334155;line-height:1.35}
+.freq{display:flex;flex-direction:column;gap:10px;align-content:start}
+.fq{display:grid;grid-template-columns:200px 200px 1fr;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 14px}
+.fbar{height:16px;border-radius:999px;background:var(--sky);position:relative}
+.fbar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--yellow))}
+.fbar span{position:absolute;right:-2px;top:-22px;font-size:15px;font-weight:800;color:var(--muted)}
+.fw{display:flex;align-items:center;gap:8px}.fw b{font-size:22px;color:var(--navy);font-weight:900}
+.fx{font-size:17px;color:#334155}
+.rule{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.rh{font-weight:900;color:var(--navy);font-size:17px;margin-bottom:2px}
+.rr{font-size:18px;color:var(--ink)}.rr .adv{color:var(--blue)}.rr u{text-decoration-color:var(--yellow);text-decoration-thickness:4px}
+.coll{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;align-content:start}
+.cq{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 12px}
+.cq .cs{flex:1;font-size:18px;font-weight:700;color:var(--navy)}
+.gap{display:inline-block;min-width:38px;text-align:center;color:var(--blue);font-weight:900;border-bottom:3px solid var(--yellow)}
+.co{display:flex;gap:6px;flex-wrap:wrap}
+.co .opt{height:36px;white-space:nowrap;padding:0 11px;border-radius:10px;border:2px solid var(--line);background:#F8FAFF;font-size:16px;font-weight:800;color:var(--navy)}
+.co .opt.ok{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.co .opt.no{background:var(--red-soft);border-color:var(--red);color:var(--red)}
+.sgroups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.sg{background:#fff;border:2px solid var(--line);border-radius:16px;overflow:hidden}
+.sgh{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--navy);color:var(--yellow)}
+.sgh b{font-size:28px}
+.sgw{display:flex;flex-wrap:wrap;gap:8px;padding:12px}
+.lb2{height:44px;padding:0 14px;border-radius:12px;background:var(--sky);border:2px solid var(--sky-2);font-size:19px;font-weight:800;color:var(--navy)}
+.lb2 u{text-decoration:none;color:var(--red)}
+.stressbox{margin-top:14px;padding:14px 18px}
+.stl{display:flex;align-items:center;gap:10px;font-size:20px;color:var(--ink);padding:5px 0}
+.stl b{color:var(--blue);font-weight:900}
+.lsrc{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lsrc a.btn{text-decoration:none;justify-content:center}
+.lsrc .lt{font-size:19px;font-weight:900;color:var(--navy)}
+.lsrc .lsm{font-size:13px;color:var(--muted);font-weight:600}
+.lau{width:100%;height:36px}
+.lq{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:4px 12px;min-height:44px}
+#dq .lq{flex-wrap:wrap;padding:8px 12px}#dq .qt{flex-basis:calc(100% - 44px)}#dq .co{margin-left:40px}
+.lq .qt{flex:1;font-size:16.5px;font-weight:700;color:var(--navy)}
+.tin{width:130px;height:36px;border:2px solid var(--line);border-radius:9px;padding:0 8px;font-size:17px;font-weight:800;color:var(--navy);text-align:center}
+.tans{font-weight:900;color:var(--green);font-size:16px;min-width:50px}
+.frames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;flex:1;align-content:start}
+.frm{background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.frm .fh{display:flex;align-items:center;gap:10px}.frm .fh b{font-size:20px;color:var(--navy)}
+.fe{display:flex;align-items:center;gap:8px;font-size:17px;color:#334155}
+.linkers{margin-top:12px;font-size:19px;color:var(--navy);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lk{background:var(--yellow);color:var(--navy);font-weight:900;padding:5px 12px;border-radius:999px}.arr{color:var(--muted)}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;flex:1;align-content:start}
+.qap{display:flex;flex-direction:column;gap:3px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:6px 12px}
+.qrow{display:flex;align-items:center;gap:10px}
+.qrow .who{flex:none;width:24px;height:24px;border-radius:8px;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.qrow.q .who{background:var(--blue);color:#fff}.qrow.a .who{background:var(--yellow);color:var(--navy)}
+.qrow span{flex:1;font-size:16px;font-weight:700;color:var(--navy);line-height:1.25}
+.qrow.a span{color:#7A5200}
+.qap .play.sm{width:28px;height:28px}
+.ivt{width:100%;border-collapse:separate;border-spacing:0;border:2px solid var(--line);border-radius:16px;overflow:hidden;font-size:18px}
+.ivt th{background:var(--navy);color:#fff;text-align:left;padding:10px 14px;font-size:16px}
+.ivt th:nth-child(1){width:34%}.ivt th:nth-child(2){width:20%}
+.ivt td{padding:9px 14px;border-top:1.5px solid var(--line);color:var(--navy)}
+.ivt td.rpt{color:#7A5200;font-weight:700}
+.ivn{width:100%;height:38px;border:2px dashed var(--sky-2);border-radius:9px;padding:0 10px;font-size:17px;color:var(--navy)}
+.sit2{border:2px solid var(--line);border-radius:18px;background:#fff;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.sit2.on{border-color:var(--yellow);box-shadow:0 0 0 4px var(--yellow-soft)}
+.sit2 h4{font-size:20px;color:var(--navy);display:flex;align-items:center;gap:8px}
+.sit2 .rl{display:flex;gap:8px;font-size:16px;line-height:1.35;color:#334155}
+.sit2 .rl b{flex:none;width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;color:#fff;background:var(--blue)}
+.sit2 .rl.b b{background:var(--yellow);color:var(--navy)}
+.sit2 .card2{background:var(--sky);border-radius:10px;padding:6px 10px;font-size:15.5px;color:var(--navy);font-weight:700}
+.fpd{padding:14px 18px;display:flex;flex-direction:column;gap:6px;font-size:18px;line-height:1.35}
+.fpd .ln2{display:flex;gap:8px;align-items:baseline}
+.fpd .who{flex:none;width:24px;height:24px;border-radius:7px;font-weight:900;font-size:13px;display:inline-flex;align-items:center;justify-content:center;color:#fff;background:var(--blue)}
+.fpd .ln2.b .who{background:var(--yellow);color:var(--navy)}
+.fpd .slot{display:inline-block;background:var(--yellow-soft);border:2px dashed var(--yellow-2);color:#7A5200;font-weight:800;border-radius:8px;padding:0 7px;margin:0 2px;font-size:17px}
+.fpd .hd{font-weight:900;color:var(--navy);font-size:17px;margin-bottom:4px}
+.tk2{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 16px;font-size:21px;color:var(--navy);font-weight:600}
+.tkk{flex:none;width:118px;background:var(--navy);color:var(--yellow);font-weight:900;font-size:16px;border-radius:10px;padding:5px 8px;text-align:center}
+.tkc{padding:16px;text-align:center}.tkt{font-size:64px;font-weight:900;color:var(--navy);font-variant-numeric:tabular-nums}
+.scout{min-height:76px;border:3px dashed var(--sky-2);border-radius:16px;padding:12px;display:flex;flex-wrap:wrap;gap:10px;margin:14px 0;background:#FBFCFF}
+.scpool{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;min-height:60px}
+.chipw{height:52px;padding:0 18px;border-radius:14px;border:2px solid var(--line);background:#fff;font-size:24px;font-weight:800;color:var(--navy);box-shadow:var(--shadow-s)}
+.chipw.on{background:var(--navy);color:var(--yellow);border-color:var(--navy)}
+.chipw:disabled{opacity:.25}
+.scmsg{text-align:center;font-size:22px;font-weight:800;min-height:34px;margin:10px 0}
+.scmsg.good{color:var(--green)}.scmsg.bad{color:var(--red)}
+</style>
+</head>
+<body>
+
+<div id="viewport"><div id="deck"><section class="slide cover" data-title="Cover">
+  <span class="chip c-input">Week 01 · Session 02</span>
+  <div style="font-weight:800;color:var(--blue);font-size:19px;letter-spacing:.5px;margin-bottom:8px">A1 → A2 COMMUNICATION ACCELERATOR</div>
+  <h1>Routines,<br><span>Habits</span> &amp;<br>Real Schedules</h1>
+  <div class="meta"><div>⏱ 90 minutes</div><div>💻 Online class</div><div>🗣 Speaking</div></div>
+  <div class="teacher"><div class="av">HT</div><div><b>Mr. Hà Chí Thanh</b><span>Lexical Communication Syllabus</span></div></div>
+  <div class="cloud" id="cloud"></div>
+  <div class="s-foot"><span><a href="../../" style="color:var(--blue);font-weight:800;text-decoration:none">← Tất cả bài học</a> · A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>01</b></span></div>
+</section>
+
+<section class="slide" data-title="Lesson map">
+  <div class="s-head"><span class="chip c-wrap">Lesson map</span><h2>Today's <em>journey</em></h2></div>
+  <div class="agenda">
+    <div class="ag warm"><div class="m">1</div><div><b>Warm-up · Spell it!</b><small>Today's words</small></div></div>
+    <div class="ag input"><div class="m">2</div><div><b>Words &amp; collocations</b><small>commute · shift · break…</small></div></div>
+    <div class="ag input"><div class="m">3</div><div><b>How often?</b><small>always → never</small></div></div>
+    <div class="ag prac"><div class="m">4</div><div><b>Collocation check</b><small>Choose the word</small></div></div>
+    <div class="ag listen"><div class="m">5</div><div><b>Pronunciation</b><small>-s endings · stress</small></div></div>
+    <div class="ag listen"><div class="m">6</div><div><b>Listening</b><small>John &amp; Sarah's mornings</small></div></div>
+    <div class="ag input"><div class="m">7</div><div><b>Sentence frames</b><small>My day usually starts with…</small></div></div>
+    <div class="ag input"><div class="m">8</div><div><b>Ask &amp; answer</b><small>How often do you…?</small></div></div>
+    <div class="ag listen"><div class="m">9</div><div><b>Model dialogue</b><small>Lucy &amp; Minh</small></div></div>
+    <div class="ag speak"><div class="m">10</div><div><b>Interview &amp; report</b><small>She usually starts…</small></div></div>
+    <div class="ag speak"><div class="m">11</div><div><b>Free practice</b><small>Two situations</small></div></div>
+    <div class="ag speak"><div class="m">12</div><div><b>90-second talk · Game</b><small>Sentence scramble</small></div></div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>02</b></span></div>
+</section>
+
+<section class="slide" data-title="Objectives">
+  <div class="s-head"><span class="chip c-wrap">Can-do goals</span><h2>By the end of today, <em>you can…</em></h2></div>
+  <div class="obj">
+    <div class="card"><div class="ic">🗓</div><b>Describe your routine</b><p>On weekdays… whereas at weekends…</p></div>
+    <div class="card"><div class="ic">📊</div><b>Say how often</b><p>always · usually · often · sometimes · hardly ever · never</p></div>
+    <div class="card"><div class="ic">🙋</div><b>Ask about routines</b><p>How often do you…? What time do you…?</p></div>
+    <div class="card"><div class="ic">🔁</div><b>Report a routine</b><p>She usually starts work at eight.</p></div>
+    <div class="card"><div class="ic">⏱</div><b>Talk for 90 seconds</b><p>first · then · after that · because</p></div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>03</b></span></div>
+</section>
+
+<section class="slide" data-title="Warm-up: Spell it!">
+  <div class="s-head"><span class="chip c-warm">Warm-up</span><h2>Spell it! — <em>today's words</em></h2></div>
+  <div class="wgrid" id="warm"></div>
+  <div class="row" style="margin-top:14px;align-items:center"><button class="btn y" id="warmCheck">✓ Check</button><button class="btn ghost" id="warmShow">👁 Answers</button><span class="score" id="warmScore">— / 8</span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>04</b></span></div>
+</section>
+
+<section class="slide" data-title="Words & collocations">
+  <div class="s-head"><span class="chip c-input">Input · Words</span><h2>Core words → <em>collocations</em></h2></div>
+  <div class="vocab" id="vocab"></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>05</b></span></div>
+</section>
+
+<section class="slide" data-title="How often?">
+  <div class="s-head"><span class="chip c-input">Input · Frequency</span><h2>How often? — <em>always → never</em></h2></div>
+  <div class="row" style="gap:20px;flex:1;min-height:0">
+    <div class="freq grow" id="freq"></div>
+    <div class="col" style="width:360px;flex:none">
+      <div class="card rule"><div class="rh">Where?</div>
+        <div class="rr">I <b class="adv">usually</b> <u>start</u> work at nine.</div>
+        <div class="rr">She <b class="adv">hardly ever</b> <u>misses</u> breakfast.</div>
+        <div class="rr">Do you <b class="adv">ever</b> <u>miss</u> breakfast?</div>
+        <div class="rr">How <b class="adv">often</b> do you <u>take</u> a break?</div>
+      </div>
+      <button class="btn" id="fAll">▶ always → never</button>
+    </div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>06</b></span></div>
+</section>
+
+<section class="slide" data-title="Collocation check">
+  <div class="s-head"><span class="chip c-prac">Practice</span><h2>Choose the <em>right word</em></h2></div>
+  <div class="coll" id="coll"></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>07</b></span></div>
+</section>
+
+<section class="slide" data-title="Pronunciation">
+  <div class="s-head"><span class="chip c-listen">Pronunciation</span><h2>He start<em>s</em> · she miss<em>es</em> — <em>-s endings</em></h2></div>
+  <div class="sgroups" id="sgroups"></div>
+  <div class="card stressbox"><div class="rh">Stress the frequency word</div><div id="stress"></div></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>08</b></span></div>
+</section>
+
+<section class="slide" data-title="Listening: John & Sarah">
+  <div class="s-head"><span class="chip c-listen">Listening</span><h2>Morning routines — <em>John &amp; Sarah</em></h2></div>
+  <div class="row" style="gap:18px;flex:1;min-height:0">
+    <div class="col" style="width:330px;flex:none">
+      <div class="card lsrc">
+        <div class="rh">🎧 Real recording</div>
+        <div class="lt">Morning Routine — John & Sarah</div>
+        <a class="btn" href="https://elllo.org/english/grammar/A1-20-Adverbs-of-Frequency-Routines.htm" target="_blank" rel="noopener">▶ Open &amp; play on elllo.org</a>
+        <div class="lsm">elllo.org · A1 Lesson 20 · Adverbs of Frequency (Todd Beuckens)</div>
+      </div>
+      <button class="btn y" id="lCheck">✓ Check times</button>
+      <button class="btn ghost" id="lScript">📜 Script (after listening)</button>
+    </div>
+    <div class="col grow" style="gap:6px;min-width:0">
+      <div id="lgist"></div>
+      <div id="ldetail" class="col" style="gap:6px"></div>
+    </div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>09</b></span></div>
+</section>
+
+<section class="slide" data-title="Sentence frames">
+  <div class="s-head"><span class="chip c-input">Input · Sentence frames</span><h2>Talk about <em>your day</em></h2></div>
+  <div class="frames" id="frames"></div>
+  <div class="linkers"><b>Linkers:</b> <span id="linkers"></span></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>10</b></span></div>
+</section>
+
+<section class="slide" data-title="Questions & answers">
+  <div class="s-head"><span class="chip c-input">Input · Questions</span><h2>Ask &amp; <em>answer</em> — routines</h2></div>
+  <div class="qa" id="qa"></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>11</b></span></div>
+</section>
+
+<section class="slide" data-title="Model dialogue: Lucy & Minh">
+  <div class="s-head"><span class="chip c-listen">Model dialogue</span><h2>Lucy &amp; Minh — <em>two different days</em></h2></div>
+  <div class="dlg">
+    <div class="col">
+      <div class="card form">
+        <div class="fhd">❓ Listen &amp; answer</div>
+        <div id="dq" class="col" style="gap:8px"></div>
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;min-height:0">
+      <div class="row" style="padding:12px 14px 4px;align-items:center;flex-wrap:wrap;gap:8px">
+        <button class="btn sm" id="dlgPlay">▶ Play dialogue</button>
+        <button class="btn sm ghost" id="dlgStop">⏹ Stop</button>
+        <button class="btn sm y" id="dlgScript">👁 Show script</button>
+        <span id="dlgDl"></span>
+      </div>
+      <div style="padding:0 14px;font-size:15px;color:var(--muted);font-weight:600">L = Lucy · M = Minh</div>
+      <div class="script blur" id="script"></div>
+    </div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>12</b></span></div>
+</section>
+
+<section class="slide" data-title="Interview & report">
+  <div class="s-head"><span class="chip c-speak">Speaking · Pairs</span><h2>Interview your partner — <em>then report</em></h2></div>
+  <table class="ivt" id="iv"></table>
+  <div class="tip" style="margin-top:12px;font-size:17px">🔁 <b>Report:</b> Lan usually start<b>s</b> work at eight. It takes <b>her</b> thirty minutes to get to work. She hardly ever miss<b>es</b> breakfast.</div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>13</b></span></div>
+</section>
+
+<section class="slide" data-title="Free practice: two situations">
+  <div class="s-head"><span class="chip c-speak">Free practice</span><h2>Two real situations — <em>change the dialogue</em></h2></div>
+  <div class="row" style="gap:18px;flex:1;min-height:0">
+    <div class="col" style="width:380px;flex:none;gap:12px" id="sit"></div>
+    <div class="card fpd grow" id="fpd"></div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>14</b></span></div>
+</section>
+
+<section class="slide" data-title="90-second routine talk">
+  <div class="s-head"><span class="chip c-speak">Fluency</span><h2>Your day in <em>90 seconds</em></h2></div>
+  <div class="row" style="gap:20px;flex:1;min-height:0">
+    <div class="col grow" id="talk"></div>
+    <div class="col" style="width:330px;flex:none;align-items:stretch">
+      <div class="card tkc"><div id="tkTime" class="tkt">1:30</div><div class="tbar"><i id="tkBar"></i></div></div>
+      <button class="btn y" id="tkStart">⏱ Start 90 seconds</button>
+      <button class="btn" id="tkModel">▶ Model talk</button>
+    </div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>15</b></span></div>
+</section>
+
+<section class="slide" data-title="Game: Sentence scramble">
+  <div class="s-head"><span class="chip c-prac">Game</span><h2>Sentence scramble — <em>put the words in order</em></h2></div>
+  <div class="row" style="align-items:center;justify-content:space-between"><span class="score" id="scN">1 / 8</span><span class="score" id="scScore">Score: 0</span></div>
+  <div class="scout" id="scOut"></div>
+  <div class="scpool" id="scPool"></div>
+  <div id="scMsg" class="scmsg"></div>
+  <div class="row" style="justify-content:center"><button class="btn y" id="scCheck">✓ Check</button><button class="btn ghost" id="scReset">↺ Reset</button><button class="btn" id="scNext">Next →</button></div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>16</b></span></div>
+</section>
+
+<section class="slide" data-title="Wrap-up">
+  <div class="s-head"><span class="chip c-wrap">Wrap-up</span><h2>What can you <em>do now</em>?</h2></div>
+  <div class="col grow">
+    <label class="chk"><input type="checkbox"> I can describe my routine on weekdays and at weekends.</label>
+    <label class="chk"><input type="checkbox"> I can say how often: always, usually, often, sometimes, hardly ever, never.</label>
+    <label class="chk"><input type="checkbox"> I can ask: How often do you…? What time do you…?</label>
+    <label class="chk"><input type="checkbox"> I can report a routine: She usually starts work at eight.</label>
+    <label class="chk"><input type="checkbox"> I can talk about my day for 90 seconds.</label>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>17</b></span></div>
+</section>
+
+<section class="slide" data-title="Homework: Reading">
+  <div class="s-head"><span class="chip c-listen">Homework</span><h2>After class</h2></div>
+  <div class="hw">
+    <div class="card"><h3>📖 Review today's lesson</h3>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><div>Words &amp; collocations · always → never</div></div>
+        <div class="step"><span class="n">2</span><div>My day usually starts with… · It takes me… minutes to…</div></div>
+        <div class="step"><span class="n">3</span><div>On weekdays…, whereas at weekends…</div></div>
+      </div>
+    </div>
+    <div class="card"><h3>📚 Homework · Reading</h3><p style="font-size:19px;line-height:1.6;word-break:break-all"><b>thanh990522.github.io/<br>communication-foundation</b><br>→ <b>S02</b> → <b>📝 Homework</b></p><p style="font-size:17px;margin-top:8px"><b>Pass mark: 80%</b></p></div>
+  </div>
+  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>18</b></span></div>
+</section>
+
+<section class="slide cover" data-title="Thank you">
+  <span class="chip c-warm">See you next time!</span>
+  <h1 style="font-size:76px">Thank <span>you!</span></h1>
+  <div class="card" style="margin-top:28px;padding:18px 22px;max-width:620px;border-color:var(--blue)">
+    <div style="font-weight:800;color:var(--blue);font-size:16px;letter-spacing:1px">NEXT · SESSION 03</div>
+    <div style="font-size:26px;font-weight:900;color:var(--navy);margin-top:4px">People, Homes &amp; Neighbourhoods</div>
+  </div>
+  <div class="s-foot"><span><a href="../../" style="color:var(--blue);font-weight:800;text-decoration:none">← Tất cả bài học</a> · A1 → A2 Communication Accelerator · <b>S02</b></span><span><b>19</b></span></div>
+</section>
+
+</div></div>
+
+<div id="toast"></div>
+<div id="timer"><div class="d" id="tD">00:30</div></div>
+
+<script>
+const AUDIO = {"W_0": {"file": "Warm-up/S02_warmup_1_SHIFT.mp3", "label": "Warm-up 1", "dur": 4.64, "src": "audio/Warm-up/S02_warmup_1_SHIFT.mp3"}, "W_1": {"file": "Warm-up/S02_warmup_2_BREAK.mp3", "label": "Warm-up 2", "dur": 4.66, "src": "audio/Warm-up/S02_warmup_2_BREAK.mp3"}, "W_2": {"file": "Warm-up/S02_warmup_3_COMMUTE.mp3", "label": "Warm-up 3", "dur": 5.51, "src": "audio/Warm-up/S02_warmup_3_COMMUTE.mp3"}, "W_3": {"file": "Warm-up/S02_warmup_4_WEEKDAYS.mp3", "label": "Warm-up 4", "dur": 6.73, "src": "audio/Warm-up/S02_warmup_4_WEEKDAYS.mp3"}, "W_4": {"file": "Warm-up/S02_warmup_5_WEEKENDS.mp3", "label": "Warm-up 5", "dur": 6.59, "src": "audio/Warm-up/S02_warmup_5_WEEKENDS.mp3"}, "W_5": {"file": "Warm-up/S02_warmup_6_USUALLY.mp3", "label": "Warm-up 6", "dur": 5.85, "src": "audio/Warm-up/S02_warmup_6_USUALLY.mp3"}, "W_6": {"file": "Warm-up/S02_warmup_7_PRODUCTIVE.mp3", "label": "Warm-up 7", "dur": 7.84, "src": "audio/Warm-up/S02_warmup_7_PRODUCTIVE.mp3"}, "W_7": {"file": "Warm-up/S02_warmup_8_HARDLY.mp3", "label": "Warm-up 8", "dur": 5.51, "src": "audio/Warm-up/S02_warmup_8_HARDLY.mp3"}, "V_0": {"file": "Vocabulary/S02_vocab_1_productive.mp3", "label": "productive", "dur": 5.83, "src": "audio/Vocabulary/S02_vocab_1_productive.mp3"}, "V_1": {"file": "Vocabulary/S02_vocab_2_commute.mp3", "label": "commute", "dur": 5.78, "src": "audio/Vocabulary/S02_vocab_2_commute.mp3"}, "V_2": {"file": "Vocabulary/S02_vocab_3_shift.mp3", "label": "shift", "dur": 5.46, "src": "audio/Vocabulary/S02_vocab_3_shift.mp3"}, "V_3": {"file": "Vocabulary/S02_vocab_4_break.mp3", "label": "break", "dur": 5.1, "src": "audio/Vocabulary/S02_vocab_4_break.mp3"}, "V_4": {"file": "Vocabulary/S02_vocab_5_usually.mp3", "label": "usually", "dur": 5.7, "src": "audio/Vocabulary/S02_vocab_5_usually.mp3"}, "V_5": {"file": "Vocabulary/S02_vocab_6_hardly_ever.mp3", "label": "hardly ever", "dur": 6.3, "src": "audio/Vocabulary/S02_vocab_6_hardly_ever.mp3"}, "V_6": {"file": "Vocabulary/S02_vocab_7_on_weekdays.mp3", "label": "on weekdays", "dur": 5.94, "src": "audio/Vocabulary/S02_vocab_7_on_weekdays.mp3"}, "V_7": {"file": "Vocabulary/S02_vocab_8_at_weekends.mp3", "label": "at weekends", "dur": 5.76, "src": "audio/Vocabulary/S02_vocab_8_at_weekends.mp3"}, "F_0": {"file": "Frequency/S02_freq_1_always.mp3", "label": "always", "dur": 3.94, "src": "audio/Frequency/S02_freq_1_always.mp3"}, "F_1": {"file": "Frequency/S02_freq_2_usually.mp3", "label": "usually", "dur": 3.65, "src": "audio/Frequency/S02_freq_2_usually.mp3"}, "F_2": {"file": "Frequency/S02_freq_3_often.mp3", "label": "often", "dur": 3.97, "src": "audio/Frequency/S02_freq_3_often.mp3"}, "F_3": {"file": "Frequency/S02_freq_4_sometimes.mp3", "label": "sometimes", "dur": 4.11, "src": "audio/Frequency/S02_freq_4_sometimes.mp3"}, "F_4": {"file": "Frequency/S02_freq_5_hardly_ever.mp3", "label": "hardly ever", "dur": 3.88, "src": "audio/Frequency/S02_freq_5_hardly_ever.mp3"}, "F_5": {"file": "Frequency/S02_freq_6_never.mp3", "label": "never", "dur": 3.46, "src": "audio/Frequency/S02_freq_6_never.mp3"}, "F_ALL": {"file": "Frequency/S02_freq_all.mp3", "label": "always → never", "dur": 7.13, "src": "audio/Frequency/S02_freq_all.mp3"}, "CO_0": {"file": "Collocations/S02_coll_1.mp3", "label": "I have a productive morning.", "dur": 2.02, "src": "audio/Collocations/S02_coll_1.mp3"}, "CO_1": {"file": "Collocations/S02_coll_2.mp3", "label": "I make a daily commute.", "dur": 1.98, "src": "audio/Collocations/S02_coll_2.mp3"}, "CO_2": {"file": "Collocations/S02_coll_3.mp3", "label": "She works the evening shift.", "dur": 2.25, "src": "audio/Collocations/S02_coll_3.mp3"}, "CO_3": {"file": "Collocations/S02_coll_4.mp3", "label": "We take a short break at eleven.", "dur": 2.36, "src": "audio/Collocations/S02_coll_4.mp3"}, "CO_4": {"file": "Collocations/S02_coll_5.mp3", "label": "I hardly ever miss breakfast.", "dur": 2.39, "src": "audio/Collocations/S02_coll_5.mp3"}, "CO_5": {"file": "Collocations/S02_coll_6.mp3", "label": "I usually start work at nine.", "dur": 2.41, "src": "audio/Collocations/S02_coll_6.mp3"}, "CO_6": {"file": "Collocations/S02_coll_7.mp3", "label": "On weekdays, I get up at six.", "dur": 2.8, "src": "audio/Collocations/S02_coll_7.mp3"}, "CO_7": {"file": "Collocations/S02_coll_8.mp3", "label": "At weekends, I get up late.", "dur": 2.59, "src": "audio/Collocations/S02_coll_8.mp3"}, "PS_0_0": {"file": "Pronunciation/S02_s_1_starts.mp3", "label": "starts", "dur": 1.13, "src": "audio/Pronunciation/S02_s_1_starts.mp3"}, "PS_0_1": {"file": "Pronunciation/S02_s_1_takes.mp3", "label": "takes", "dur": 0.98, "src": "audio/Pronunciation/S02_s_1_takes.mp3"}, "PS_0_2": {"file": "Pronunciation/S02_s_1_works.mp3", "label": "works", "dur": 1.02, "src": "audio/Pronunciation/S02_s_1_works.mp3"}, "PS_0_3": {"file": "Pronunciation/S02_s_1_makes.mp3", "label": "makes", "dur": 0.97, "src": "audio/Pronunciation/S02_s_1_makes.mp3"}, "PS_0_4": {"file": "Pronunciation/S02_s_1_commutes.mp3", "label": "commutes", "dur": 1.11, "src": "audio/Pronunciation/S02_s_1_commutes.mp3"}, "PSG_0": {"file": "Pronunciation/S02_s_group1.mp3", "label": "/s/", "dur": 5.52, "src": "audio/Pronunciation/S02_s_group1.mp3"}, "PS_1_0": {"file": "Pronunciation/S02_s_2_has.mp3", "label": "has", "dur": 0.9, "src": "audio/Pronunciation/S02_s_2_has.mp3"}, "PS_1_1": {"file": "Pronunciation/S02_s_2_goes.mp3", "label": "goes", "dur": 0.95, "src": "audio/Pronunciation/S02_s_2_goes.mp3"}, "PS_1_2": {"file": "Pronunciation/S02_s_2_does.mp3", "label": "does", "dur": 0.89, "src": "audio/Pronunciation/S02_s_2_does.mp3"}, "PSG_1": {"file": "Pronunciation/S02_s_group2.mp3", "label": "/z/", "dur": 2.9, "src": "audio/Pronunciation/S02_s_group2.mp3"}, "PS_2_0": {"file": "Pronunciation/S02_s_3_misses.mp3", "label": "misses", "dur": 1.03, "src": "audio/Pronunciation/S02_s_3_misses.mp3"}, "PS_2_1": {"file": "Pronunciation/S02_s_3_finishes.mp3", "label": "finishes", "dur": 1.21, "src": "audio/Pronunciation/S02_s_3_finishes.mp3"}, "PSG_2": {"file": "Pronunciation/S02_s_group3.mp3", "label": "/ɪz/", "dur": 2.33, "src": "audio/Pronunciation/S02_s_group3.mp3"}, "ST_0": {"file": "Pronunciation/S02_stress_1.mp3", "label": "I USUALLY start work at nine, but I HARDLY EVER finish at five.", "dur": 4.64, "src": "audio/Pronunciation/S02_stress_1.mp3"}, "ST_1": {"file": "Pronunciation/S02_stress_2.mp3", "label": "She ALWAYS takes a short break, but she NEVER misses breakfast.", "dur": 4.38, "src": "audio/Pronunciation/S02_stress_2.mp3"}, "FR_0_0": {"file": "Sentence_frames/S02_frame1_1.mp3", "label": "My day usually starts with a cup of coffee.", "dur": 3.13, "src": "audio/Sentence_frames/S02_frame1_1.mp3"}, "FR_0_1": {"file": "Sentence_frames/S02_frame1_2.mp3", "label": "My day usually starts with breakfast.", "dur": 2.92, "src": "audio/Sentence_frames/S02_frame1_2.mp3"}, "FR_1_0": {"file": "Sentence_frames/S02_frame2_1.mp3", "label": "It takes me twenty minutes to get to work.", "dur": 2.97, "src": "audio/Sentence_frames/S02_frame2_1.mp3"}, "FR_1_1": {"file": "Sentence_frames/S02_frame2_2.mp3", "label": "It takes me ten minutes to have breakfast.", "dur": 2.98, "src": "audio/Sentence_frames/S02_frame2_2.mp3"}, "FR_2_0": {"file": "Sentence_frames/S02_frame3_1.mp3", "label": "I usually start work at nine, but I hardly ever finish at five.", "dur": 4.52, "src": "audio/Sentence_frames/S02_frame3_1.mp3"}, "FR_2_1": {"file": "Sentence_frames/S02_frame3_2.mp3", "label": "I usually get up early, but I hardly ever miss breakfast.", "dur": 4.13, "src": "audio/Sentence_frames/S02_frame3_2.mp3"}, "FR_3_0": {"file": "Sentence_frames/S02_frame4_1.mp3", "label": "On weekdays I get up at six, whereas at weekends I get up late.", "dur": 4.8, "src": "audio/Sentence_frames/S02_frame4_1.mp3"}, "FR_3_1": {"file": "Sentence_frames/S02_frame4_2.mp3", "label": "On weekdays I work, whereas at weekends I never work.", "dur": 4.08, "src": "audio/Sentence_frames/S02_frame4_2.mp3"}, "QA_0_q": {"file": "Questions_answers/S02_QA1_question.mp3", "label": "Q: What time do you usually start work?", "dur": 2.29, "src": "audio/Questions_answers/S02_QA1_question.mp3"}, "QA_0_a0": {"file": "Questions_answers/S02_QA1_answer_a.mp3", "label": "A: I usually start work at nine.", "dur": 2.61, "src": "audio/Questions_answers/S02_QA1_answer_a.mp3"}, "QA_0_a1": {"file": "Questions_answers/S02_QA1_answer_b.mp3", "label": "A: At about eight.", "dur": 1.47, "src": "audio/Questions_answers/S02_QA1_answer_b.mp3"}, "QA_0_a2": {"file": "Questions_answers/S02_QA1_answer_c.mp3", "label": "A: I work the evening shift, so I start at four.", "dur": 3.71, "src": "audio/Questions_answers/S02_QA1_answer_c.mp3"}, "QA_1_q": {"file": "Questions_answers/S02_QA2_question.mp3", "label": "Q: How long does it take you to get to work?", "dur": 2.43, "src": "audio/Questions_answers/S02_QA2_question.mp3"}, "QA_1_a0": {"file": "Questions_answers/S02_QA2_answer_a.mp3", "label": "A: It takes me twenty minutes to get to work.", "dur": 2.83, "src": "audio/Questions_answers/S02_QA2_answer_a.mp3"}, "QA_1_a1": {"file": "Questions_answers/S02_QA2_answer_b.mp3", "label": "A: About forty-five minutes. I make a daily commute to the city.", "dur": 5.16, "src": "audio/Questions_answers/S02_QA2_answer_b.mp3"}, "QA_2_q": {"file": "Questions_answers/S02_QA3_question.mp3", "label": "Q: How often do you take a break?", "dur": 1.94, "src": "audio/Questions_answers/S02_QA3_question.mp3"}, "QA_2_a0": {"file": "Questions_answers/S02_QA3_answer_a.mp3", "label": "A: I always take a short break at eleven.", "dur": 2.75, "src": "audio/Questions_answers/S02_QA3_answer_a.mp3"}, "QA_2_a1": {"file": "Questions_answers/S02_QA3_answer_b.mp3", "label": "A: Sometimes.", "dur": 1.37, "src": "audio/Questions_answers/S02_QA3_answer_b.mp3"}, "QA_2_a2": {"file": "Questions_answers/S02_QA3_answer_c.mp3", "label": "A: I hardly ever take a break.", "dur": 2.15, "src": "audio/Questions_answers/S02_QA3_answer_c.mp3"}, "QA_3_q": {"file": "Questions_answers/S02_QA4_question.mp3", "label": "Q: Do you ever miss breakfast?", "dur": 1.76, "src": "audio/Questions_answers/S02_QA4_question.mp3"}, "QA_3_a0": {"file": "Questions_answers/S02_QA4_answer_a.mp3", "label": "A: No, I never miss breakfast.", "dur": 2.43, "src": "audio/Questions_answers/S02_QA4_answer_a.mp3"}, "QA_3_a1": {"file": "Questions_answers/S02_QA4_answer_b.mp3", "label": "A: Yes, sometimes.", "dur": 1.97, "src": "audio/Questions_answers/S02_QA4_answer_b.mp3"}, "QA_3_a2": {"file": "Questions_answers/S02_QA4_answer_c.mp3", "label": "A: I hardly ever miss breakfast.", "dur": 2.38, "src": "audio/Questions_answers/S02_QA4_answer_c.mp3"}, "QA_4_q": {"file": "Questions_answers/S02_QA5_question.mp3", "label": "Q: What does your day usually start with?", "dur": 2.16, "src": "audio/Questions_answers/S02_QA5_question.mp3"}, "QA_4_a0": {"file": "Questions_answers/S02_QA5_answer_a.mp3", "label": "A: My day usually starts with a cup of coffee.", "dur": 3.25, "src": "audio/Questions_answers/S02_QA5_answer_a.mp3"}, "QA_4_a1": {"file": "Questions_answers/S02_QA5_answer_b.mp3", "label": "A: It usually starts with breakfast.", "dur": 2.55, "src": "audio/Questions_answers/S02_QA5_answer_b.mp3"}, "QA_5_q": {"file": "Questions_answers/S02_QA6_question.mp3", "label": "Q: Do you work at weekends?", "dur": 1.73, "src": "audio/Questions_answers/S02_QA6_question.mp3"}, "QA_5_a0": {"file": "Questions_answers/S02_QA6_answer_a.mp3", "label": "A: No, I never work at weekends.", "dur": 2.79, "src": "audio/Questions_answers/S02_QA6_answer_a.mp3"}, "QA_5_a1": {"file": "Questions_answers/S02_QA6_answer_b.mp3", "label": "A: Yes, I sometimes work the evening shift at weekends.", "dur": 4.28, "src": "audio/Questions_answers/S02_QA6_answer_b.mp3"}, "QA_6_q": {"file": "Questions_answers/S02_QA7_question.mp3", "label": "Q: Does she usually start work early?", "dur": 2.12, "src": "audio/Questions_answers/S02_QA7_question.mp3"}, "QA_6_a0": {"file": "Questions_answers/S02_QA7_answer_a.mp3", "label": "A: Yes, she usually starts work at seven.", "dur": 3.48, "src": "audio/Questions_answers/S02_QA7_answer_a.mp3"}, "QA_6_a1": {"file": "Questions_answers/S02_QA7_answer_b.mp3", "label": "A: No, she works the evening shift.", "dur": 2.83, "src": "audio/Questions_answers/S02_QA7_answer_b.mp3"}, "QA_7_q": {"file": "Questions_answers/S02_QA8_question.mp3", "label": "Q: What do you do at weekends?", "dur": 1.77, "src": "audio/Questions_answers/S02_QA8_question.mp3"}, "QA_7_a0": {"file": "Questions_answers/S02_QA8_answer_a.mp3", "label": "A: At weekends I usually get up late.", "dur": 2.79, "src": "audio/Questions_answers/S02_QA8_answer_a.mp3"}, "QA_7_a1": {"file": "Questions_answers/S02_QA8_answer_b.mp3", "label": "A: On weekdays I work, whereas at weekends I never work.", "dur": 4.25, "src": "audio/Questions_answers/S02_QA8_answer_b.mp3"}, "DLG_0": {"file": "Dialogue/S02_dialogue_line01.mp3", "label": "Line 1", "dur": 4.44, "src": "audio/Dialogue/S02_dialogue_line01.mp3"}, "DLG_1": {"file": "Dialogue/S02_dialogue_line02.mp3", "label": "Line 2", "dur": 7.57, "src": "audio/Dialogue/S02_dialogue_line02.mp3"}, "DLG_2": {"file": "Dialogue/S02_dialogue_line03.mp3", "label": "Line 3", "dur": 3.24, "src": "audio/Dialogue/S02_dialogue_line03.mp3"}, "DLG_3": {"file": "Dialogue/S02_dialogue_line04.mp3", "label": "Line 4", "dur": 4.85, "src": "audio/Dialogue/S02_dialogue_line04.mp3"}, "DLG_4": {"file": "Dialogue/S02_dialogue_line05.mp3", "label": "Line 5", "dur": 2.62, "src": "audio/Dialogue/S02_dialogue_line05.mp3"}, "DLG_5": {"file": "Dialogue/S02_dialogue_line06.mp3", "label": "Line 6", "dur": 4.34, "src": "audio/Dialogue/S02_dialogue_line06.mp3"}, "DLG_6": {"file": "Dialogue/S02_dialogue_line07.mp3", "label": "Line 7", "dur": 5.34, "src": "audio/Dialogue/S02_dialogue_line07.mp3"}, "DLG_7": {"file": "Dialogue/S02_dialogue_line08.mp3", "label": "Line 8", "dur": 1.9, "src": "audio/Dialogue/S02_dialogue_line08.mp3"}, "DLG_8": {"file": "Dialogue/S02_dialogue_line09.mp3", "label": "Line 9", "dur": 6.26, "src": "audio/Dialogue/S02_dialogue_line09.mp3"}, "DLG_9": {"file": "Dialogue/S02_dialogue_line10.mp3", "label": "Line 10", "dur": 1.95, "src": "audio/Dialogue/S02_dialogue_line10.mp3"}, "DLG_10": {"file": "Dialogue/S02_dialogue_line11.mp3", "label": "Line 11", "dur": 2.78, "src": "audio/Dialogue/S02_dialogue_line11.mp3"}, "DLG_11": {"file": "Dialogue/S02_dialogue_line12.mp3", "label": "Line 12", "dur": 1.72, "src": "audio/Dialogue/S02_dialogue_line12.mp3"}, "DLG_12": {"file": "Dialogue/S02_dialogue_line13.mp3", "label": "Line 13", "dur": 5.29, "src": "audio/Dialogue/S02_dialogue_line13.mp3"}, "DLG_13": {"file": "Dialogue/S02_dialogue_line14.mp3", "label": "Line 14", "dur": 4.39, "src": "audio/Dialogue/S02_dialogue_line14.mp3"}, "DLG_ALL": {"file": "Dialogue/S02_dialogue_FULL.mp3", "label": "Full dialogue", "dur": 59.02, "src": "audio/Dialogue/S02_dialogue_FULL.mp3"}, "TALK": {"file": "Fluency/S02_routine_talk_model.mp3", "label": "Model routine talk", "dur": 27.01, "src": "audio/Fluency/S02_routine_talk_model.mp3"}, "SC_0": {"file": "Game/S02_sentence_1.mp3", "label": "I usually start work at nine.", "dur": 2.41, "src": "audio/Game/S02_sentence_1.mp3"}, "SC_1": {"file": "Game/S02_sentence_2.mp3", "label": "She hardly ever misses breakfast.", "dur": 2.63, "src": "audio/Game/S02_sentence_2.mp3"}, "SC_2": {"file": "Game/S02_sentence_3.mp3", "label": "It takes me twenty minutes to get to work.", "dur": 2.97, "src": "audio/Game/S02_sentence_3.mp3"}, "SC_3": {"file": "Game/S02_sentence_4.mp3", "label": "My day usually starts with a cup of coffee.", "dur": 3.13, "src": "audio/Game/S02_sentence_4.mp3"}, "SC_4": {"file": "Game/S02_sentence_5.mp3", "label": "Minh works the evening shift.", "dur": 2.28, "src": "audio/Game/S02_sentence_5.mp3"}, "SC_5": {"file": "Game/S02_sentence_6.mp3", "label": "We always take a short break at eleven.", "dur": 2.73, "src": "audio/Game/S02_sentence_6.mp3"}, "SC_6": {"file": "Game/S02_sentence_7.mp3", "label": "Do you ever miss breakfast?", "dur": 2.06, "src": "audio/Game/S02_sentence_7.mp3"}, "SC_7": {"file": "Game/S02_sentence_8.mp3", "label": "How often does he take a break?", "dur": 2.3, "src": "audio/Game/S02_sentence_8.mp3"}};
+const ONLINE_BASE = "https://thanh990522.github.io/communication-foundation/lessons/S02/";
+
+/* =========================================================
+   AUDIO PLAYER
+   ========================================================= */
+const pause = ms => new Promise(r=>setTimeout(r,ms));
+function toBlobUrls(){
+  for(const id in AUDIO){
+    const a=AUDIO[id];
+    if(!String(a.src).startsWith('data:')){ a.blob=null; continue; }
+    try{
+      const b64=a.src.split(',')[1], bin=atob(b64), u=new Uint8Array(bin.length);
+      for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i);
+      a.blob=URL.createObjectURL(new Blob([u],{type:'audio/mpeg'}));
+    }catch(e){ a.blob=null; }
+  }
+}
+const srcOf = id => AUDIO[id].blob || AUDIO[id].src;
+let toastT=null;
+function toast(msg){ const t=document.getElementById('toast'); if(!t) return; t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),4500); }
+let curAudio=null, curResolve=null, qid=0;
+function haltCurrent(){ if(curAudio){ curAudio.pause(); curAudio=null; } if(curResolve){ const r=curResolve; curResolve=null; r(); } }
+const isRel = u => !/^(data:|blob:|https?:)/.test(u);
+function candidates(id){
+  const a=AUDIO[id], list=[];
+  if(a.blob) list.push(a.blob);
+  if(location.protocol!=='file:' || !isRel(a.src)) list.push(a.src);
+  if(ONLINE_BASE && isRel(a.src)) list.push(ONLINE_BASE+a.src);
+  return [...new Set(list)];
+}
+function playOne(id){
+  return new Promise(res=>{
+    const a=AUDIO[id]; if(!a){ res(); return; }
+    const srcs=candidates(id); let k=0;
+    const el=new Audio(); el.preload='auto'; curAudio=el; curResolve=res;
+    const done=()=>{ if(curResolve===res){curResolve=null;curAudio=null;} res(); };
+    const next=()=>{
+      if(curAudio!==el) return done();
+      if(k>=srcs.length){ toast('Không phát được audio. Kiểm tra kết nối Internet rồi bấm ▶ lại.'); return done(); }
+      el.src=srcs[k++];
+      el.play().catch(err=>{
+        if(err&&err.name==='NotAllowedError'){ toast('Trình duyệt đang chặn âm thanh — bấm lại nút ▶ một lần nữa.'); return done(); }
+        if(err&&err.name==='AbortError') return;
+        next();
+      });
+    };
+    el.onended=done;
+    el.onerror=()=>next();
+    next();
+  });
+}
+/* warm the audio of the current slide so the first ▶ starts instantly */
+const warmed=new Set();
+function warmSlide(slide){
+  if(location.protocol==='file:' && !ONLINE_BASE) return;
+  const ids=new Set();
+  slide.querySelectorAll('[data-a]').forEach(e=>ids.add(e.dataset.a));
+  slide.querySelectorAll('[data-letter]').forEach(e=>ids.add('L_'+e.dataset.letter));
+  ids.forEach(id=>{
+    const a=AUDIO[id]; if(!a||a.blob||warmed.has(id)) return; warmed.add(id);
+    const u=candidates(id)[0]; if(u) fetch(u).catch(()=>{});
+  });
+}
+async function playQueue(ids,onEach,gap=0,btn){
+  const my=++qid; haltCurrent(); clearSpeaking();
+  if(btn) btn.classList.add('speaking');
+  for(let i=0;i<ids.length;i++){
+    if(my!==qid) return false;
+    onEach&&onEach(i);
+    await playOne(ids[i]);
+    if(my!==qid) return false;
+    if(gap) await pause(gap);
+  }
+  onEach&&onEach(-1);
+  if(btn) btn.classList.remove('speaking');
+  return true;
+}
+const play = (id,btn) => playQueue([id],null,0,btn);
+function clearSpeaking(){ document.querySelectorAll('.speaking').forEach(e=>e.classList.remove('speaking')); }
+function stopAll(){ qid++; haltCurrent(); clearSpeaking(); document.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit')); hl(-1); }
+
+document.addEventListener('click',e=>{
+  if(e.target.closest('a')) return;
+  const el = e.target.closest('[data-letter],[data-a]');
+  if(!el) return;
+  if(el.dataset.letter) play('L_'+el.dataset.letter,el);
+  else play(el.dataset.a,el);
+});
+const PLAY_SVG='<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const fname = id => AUDIO[id].file.split('/').pop();
+const dlHref = id => { const c=candidates(id); return c[0]||srcOf(id); };
+const dl = (id,label) => `<a class="dl" href="${dlHref(id)}" download="${esc(fname(id))}" title="Download ${esc(fname(id))}">⬇${label?' '+label:''}</a>`;
+
+function copyText(txt,btn){
+  const ok=()=>{ const o=btn.innerHTML; btn.innerHTML='✓ Copied!'; setTimeout(()=>btn.innerHTML=o,1400); };
+  const fallback=()=>{ const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');ok();}catch(e){alert(txt);} ta.remove(); };
+  if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(txt).then(ok,fallback); } else fallback();
+}
+
+/* beep */
+function beep(){
+  try{ const C=new (window.AudioContext||window.webkitAudioContext)();
+    [0,.35,.7].forEach(t=>{const o=C.createOscillator(),g=C.createGain();o.frequency.value=880;o.connect(g);g.connect(C.destination);g.gain.setValueAtTime(.25,C.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,C.currentTime+t+.3);o.start(C.currentTime+t);o.stop(C.currentTime+t+.3);});
+  }catch(e){}
+}
+/* 30s timer (shown only when used) */
+const TM={total:30,left:30,run:null};
+function tDraw(){ const m=Math.floor(TM.left/60),s=TM.left%60; document.getElementById('tD').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
+function tStart(sec){
+  const box=document.getElementById('timer'); box.classList.add('show'); box.classList.remove('end');
+  clearInterval(TM.run); TM.total=TM.left=sec; tDraw();
+  TM.run=setInterval(()=>{TM.left--;tDraw();if(TM.left<=0){clearInterval(TM.run);box.classList.add('end');beep();setTimeout(()=>box.classList.remove('show'),4000);}},1000);
+}
+
+/* =========================================================
+   DECK — fills the whole screen, no on-screen controls
+   ========================================================= */
+const slides=[...document.querySelectorAll('.slide')]; let cur=0;
+function fit(){
+  const W=window.innerWidth, H=window.innerHeight, deck=document.getElementById('deck');
+  const s=Math.min(W/1280,H/720);
+  const dw=W/s, dh=H/s;
+  const ox=Math.max(0,(dw-Math.min(dw,1480))/2), oy=Math.max(0,(dh-720)/2);
+  deck.style.width=dw+'px'; deck.style.height=dh+'px';
+  deck.style.setProperty('--ox',ox+'px'); deck.style.setProperty('--oy',oy+'px');
+  deck.style.transform=`scale(${s})`;
+}
+function go(i){
+  i=Math.max(0,Math.min(slides.length-1,i));
+  slides[cur].classList.remove('active'); cur=i; slides[cur].classList.add('active');
+  try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
+  warmSlide(slides[cur]);
+  stopAll();
+}
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)||e.target.isContentEditable) return;
+  const k=e.key;
+  if(k==='ArrowRight'||k==='PageDown'||k===' '||k==='ArrowDown'){e.preventDefault();go(cur+1);}
+  else if(k==='ArrowLeft'||k==='PageUp'||k==='ArrowUp'){e.preventDefault();go(cur-1);}
+  else if(k==='Home') go(0); else if(k==='End') go(slides.length-1);
+  else if(k==='f'||k==='F') fullscreen();
+  else if(k==='Escape') stopAll();
+});
+/* swipe on touch screens */
+let tx0=null;
+document.addEventListener('touchstart',e=>{tx0=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',e=>{ if(tx0==null) return; const dx=e.changedTouches[0].clientX-tx0; if(Math.abs(dx)>70) go(cur+(dx<0?1:-1)); tx0=null; });
+function fullscreen(){ try{ if(!document.fullscreenElement){ const r=document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); r&&r.catch&&r.catch(()=>toast('Trình duyệt chặn toàn màn hình ở chế độ xem trước — hãy tải file về và mở bằng Chrome/Edge.')); } else document.exitFullscreen(); }catch(e){ toast('Không bật được toàn màn hình ở chế độ này.'); } }
+
+
+/* =========================================================
+   S02 · Routines, Habits & Real Schedules — lesson activities
+   (DATA is injected by build.py from content.py)
+   ========================================================= */
+const DATA = {"WARM": ["SHIFT", "BREAK", "COMMUTE", "WEEKDAYS", "WEEKENDS", "USUALLY", "PRODUCTIVE", "HARDLY"], "VOCAB": [["productive", "hiệu quả", "have a productive morning", "I always have a productive morning."], ["commute", "đi lại giữa nhà và nơi làm việc", "make a daily commute", "I make a daily commute to the city."], ["shift", "ca làm việc", "work the evening shift", "Minh works the evening shift."], ["break", "giờ nghỉ", "take a short break", "I take a short break at eleven."], ["usually", "thường xuyên", "usually start work", "I usually start work at nine."], ["hardly ever", "hầu như không bao giờ", "hardly ever miss breakfast", "I hardly ever miss breakfast."], ["on weekdays", "vào ngày trong tuần", "on weekdays", "On weekdays, I get up at six."], ["at weekends", "vào cuối tuần", "at weekends", "At weekends, I get up late."]], "FREQ": [["always", 100, "I always take a short break at eleven."], ["usually", 80, "I usually start work at nine."], ["often", 60, "Lucy often has a productive morning."], ["sometimes", 40, "Minh sometimes works at weekends."], ["hardly ever", 10, "I hardly ever miss breakfast."], ["never", 0, "Minh never works at weekends."]], "COLL": [["I have a ___ morning.", ["productive", "short", "daily"], "productive"], ["I make a ___ commute.", ["daily", "evening", "short"], "daily"], ["She works the evening ___.", ["shift", "break", "commute"], "shift"], ["We take a short ___ at eleven.", ["break", "shift", "morning"], "break"], ["I hardly ever ___ breakfast.", ["miss", "take", "make"], "miss"], ["I usually ___ work at nine.", ["start", "make", "take"], "start"], ["___ weekdays, I get up at six.", ["On", "At", "In"], "On"], ["___ weekends, I get up late.", ["At", "On", "In"], "At"]], "S_GROUPS": [["/s/", ["starts", "takes", "works", "makes", "commutes"]], ["/z/", ["has", "goes", "does"]], ["/ɪz/", ["misses", "finishes"]]], "STRESS": ["I USUALLY start work at nine, but I HARDLY EVER finish at five.", "She ALWAYS takes a short break, but she NEVER misses breakfast."], "FRAMES": [["My day usually starts with ___.", ["My day usually starts with a cup of coffee.", "My day usually starts with breakfast."]], ["It takes me ___ minutes to ___.", ["It takes me twenty minutes to get to work.", "It takes me ten minutes to have breakfast."]], ["I usually ___, but I hardly ever ___.", ["I usually start work at nine, but I hardly ever finish at five.", "I usually get up early, but I hardly ever miss breakfast."]], ["On weekdays ___, whereas at weekends ___.", ["On weekdays I get up at six, whereas at weekends I get up late.", "On weekdays I work, whereas at weekends I never work."]]], "LINKERS": ["first", "then", "after that", "but", "whereas", "because"], "QA": [["What time do you usually start work?", ["I usually start work at nine.", "At about eight.", "I work the evening shift, so I start at four."]], ["How long does it take you to get to work?", ["It takes me twenty minutes to get to work.", "About forty-five minutes. I make a daily commute to the city."]], ["How often do you take a break?", ["I always take a short break at eleven.", "Sometimes.", "I hardly ever take a break."]], ["Do you ever miss breakfast?", ["No, I never miss breakfast.", "Yes, sometimes.", "I hardly ever miss breakfast."]], ["What does your day usually start with?", ["My day usually starts with a cup of coffee.", "It usually starts with breakfast."]], ["Do you work at weekends?", ["No, I never work at weekends.", "Yes, I sometimes work the evening shift at weekends."]], ["Does she usually start work early?", ["Yes, she usually starts work at seven.", "No, she works the evening shift."]], ["What do you do at weekends?", ["At weekends I usually get up late.", "On weekdays I work, whereas at weekends I never work."]]], "DIALOGUE": [["L", "Hi Minh. Do you usually start work at nine?"], ["M", "No, I don't. I work the evening shift on weekdays. I usually start work at four."], ["L", "Really? What time do you get up?"], ["M", "At about nine. My day usually starts with a cup of coffee."], ["L", "How long does it take you to get to work?"], ["M", "It takes me twenty minutes. What about you, Lucy?"], ["L", "I make a daily commute to the city. It takes me forty-five minutes."], ["M", "Do you have a productive morning?"], ["L", "Yes, usually. I get up at six, and I hardly ever miss breakfast."], ["M", "How often do you take a break?"], ["L", "I always take a short break at eleven."], ["M", "And what about weekends?"], ["L", "On weekdays I get up at six, whereas at weekends I usually get up late."], ["M", "I never work at weekends, because I work every evening on weekdays."]], "DLG_Q": [["What time does Minh usually start work?", ["at nine", "at four", "at six"], "at four"], ["How long does it take Lucy to get to work?", ["20 minutes", "45 minutes", "11 minutes"], "45 minutes"], ["When does Lucy take a short break?", ["at eleven", "at six", "at nine"], "at eleven"], ["Does Minh work at weekends?", ["Yes, always", "Yes, sometimes", "No, never"], "No, never"]], "LISTEN": {"title": "Morning Routine — John & Sarah", "source": "elllo.org · A1 Lesson 20 · Adverbs of Frequency (Todd Beuckens)", "page": "https://elllo.org/english/grammar/A1-20-Adverbs-of-Frequency-Routines.htm", "audio": "https://elllo.org/Audio/AGTK/A1-20-JohnSarah-Adverbs-Frequency-Routines.mp3", "gist": ["Who gets up at the same time every day?", ["John", "Sarah"], "Sarah"], "detail": [["John ___ wakes up at six.", ["always", "sometimes", "never"], "sometimes"], ["Sarah ___ gets up at eight.", ["always", "hardly ever", "sometimes"], "always"], ["Sarah ___ has breakfast.", ["never", "always", "hardly ever"], "always"], ["John ___ misses breakfast.", ["often", "never", "always"], "often"], ["John ___ has lunch at 12:30.", ["sometimes", "always", "hardly ever"], "always"]], "times": [["Sarah wakes up at ___ every day.", ["8", "eight", "8 o'clock", "eight o'clock", "8:00"]], ["Sarah and her kids have breakfast at about ___.", ["8:30", "8.30", "eight thirty", "half past eight"]], ["John has lunch at ___.", ["12:30", "12.30", "twelve thirty", "half past twelve"]]]}, "INTERVIEW": [["What time do you usually start work?", "___ usually starts work at ___."], ["How long does it take you to get to work?", "It takes ___ ___ minutes to get to work."], ["How often do you take a break?", "___ ___ takes a short break."], ["Do you ever miss breakfast?", "___ ___ misses breakfast."], ["What do you do at weekends?", "On weekdays ___, whereas at weekends ___."]], "SITUATIONS": [{"e": "☕", "t": "A new colleague", "a": "You", "b": "New colleague", "goal": "Ask about start time, commute, breaks and weekends.", "card": ["Starts work at 8:30", "Commute: 30 minutes", "Break: always at 10:30", "Weekends: never works"]}, {"e": "🌙", "t": "A friend on the evening shift", "a": "You", "b": "Friend", "goal": "Ask about the evening shift, mornings and weekends.", "card": ["Works the evening shift", "Starts work at 5:00", "Gets up at 10:00", "Weekends: sometimes works"]}], "FP_LINES": [["A", "Do you usually start work at {time}?"], ["B", "{Yes / No}. I usually start work at {time}."], ["A", "What time do you get up?"], ["B", "At {time}. My day usually starts with {activity}."], ["A", "How long does it take you to get to work?"], ["B", "It takes me {number} minutes to get to work."], ["A", "How often do you take a break?"], ["B", "I {always / usually / sometimes} take a short break at {time}."], ["A", "And what about weekends?"], ["B", "On weekdays I {…}, whereas at weekends I {…}."]], "TALK": [["My day", "My day usually starts with ___."], ["First", "First, I ___ at ___."], ["Then", "Then I ___. It takes me ___ minutes to ___."], ["After that", "After that, I usually ___, but I hardly ever ___."], ["Weekends", "On weekdays ___, whereas at weekends ___ because ___."]], "SCRAMBLE": ["I usually start work at nine.", "She hardly ever misses breakfast.", "It takes me twenty minutes to get to work.", "My day usually starts with a cup of coffee.", "Minh works the evening shift.", "We always take a short break at eleven.", "Do you ever miss breakfast?", "How often does he take a break?"]};
+const pbtn = (id,cls) => `<button class="play sm${cls?' '+cls:''}" data-a="${id}">${PLAY_SVG}</button>`;
+const norm = s => String(s).toLowerCase().replace(/[\s\-–.,!?'’]+/g,'').trim();
+function hl(i){ document.querySelectorAll('#script .ln').forEach((l,k)=>l.classList.toggle('now',k===i)); }
+
+
+/* ---------- cover cloud */
+function buildCloud(id){
+  const el=document.getElementById(id); if(!el) return;
+  const words=[['⏰','7:00'],['☕','coffee'],['🚌','commute'],['💼','work'],['⏸','break'],['🌙','shift'],['📅','weekdays'],['🎉','weekends']];
+  const pos=[[20,10,-6],[230,0,5],[110,120,8],[300,140,-6],[10,250,4],[200,270,-8],[60,380,-4],[260,390,6]];
+  el.innerHTML=words.map((w,i)=>`<div class="wtag" style="left:${pos[i][0]}px;top:${pos[i][1]}px;transform:rotate(${pos[i][2]}deg);background:${i%3===0?'var(--yellow)':i%3===1?'var(--blue)':'var(--navy)'};color:${i%3===0?'var(--navy)':i%3===1?'#fff':'var(--yellow)'}"><span>${w[0]}</span>${w[1]}</div>`).join('');
+}
+
+/* ---------- warm-up: spell today's words */
+function buildWarm(){
+  document.getElementById('warm').innerHTML=DATA.WARM.map((w,i)=>`<div class="wu" id="wu${i}"><span class="n">${i+1}</span>${pbtn('W_'+i)}<input id="wui${i}" autocomplete="off" spellcheck="false" aria-label="Word ${i+1}"><span class="ans"></span></div>`).join('');
+}
+function warmCheck(show){
+  let sc=0; DATA.WARM.forEach((w,i)=>{ const el=document.getElementById('wui'+i), ok=norm(el.value)===norm(w);
+    el.classList.toggle('ok',ok); el.classList.toggle('no',!ok&&el.value!==''); if(ok) sc++;
+    if(show) document.querySelector('#wu'+i+' .ans').textContent=w; });
+  document.getElementById('warmScore').textContent=sc+' / '+DATA.WARM.length;
+}
+
+/* ---------- vocabulary */
+function buildVocab(){
+  document.getElementById('vocab').innerHTML=DATA.VOCAB.map(([w,vi,col,ex],i)=>`<div class="vc"><div class="vh"><b>${esc(w)}</b><small>${esc(vi)}</small>${pbtn('V_'+i)}</div><div class="col">${esc(col)}</div><div class="ex">${esc(ex)}</div></div>`).join('');
+}
+/* ---------- frequency */
+function buildFreq(){
+  document.getElementById('freq').innerHTML=DATA.FREQ.map(([a,pc,ex],i)=>`<div class="fq"><div class="fbar"><i style="width:${Math.max(pc,4)}%"></i><span>${pc}%</span></div><div class="fw"><b>${esc(a)}</b>${pbtn('F_'+i)}</div><div class="fx">${esc(ex)}</div></div>`).join('');
+}
+/* ---------- collocation check */
+function buildColl(){
+  document.getElementById('coll').innerHTML=DATA.COLL.map(([s,opts,ans],i)=>`<div class="cq" id="cq${i}"><span class="n">${i+1}</span><div class="cs">${esc(s).replace('___','<span class="gap">___</span>')}</div><div class="co">${opts.map(o=>`<button class="opt" data-ci="${i}" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>${pbtn('CO_'+i,'y')}</div>`).join('');
+  document.querySelectorAll('[data-ci]').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.ci, box=b.parentElement; if(box.dataset.done) return; box.dataset.done=1;
+    const ans=DATA.COLL[i][2];
+    box.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.o===ans) x.classList.add('ok'); });
+    if(b.dataset.o!==ans) b.classList.add('no');
+    document.querySelector('#cq'+i+' .gap').textContent=ans;
+  });
+}
+/* ---------- pronunciation */
+function buildPron(){
+  document.getElementById('sgroups').innerHTML=DATA.S_GROUPS.map(([snd,words],g)=>`<div class="sg"><div class="sgh"><b class="ipa">${esc(snd)}</b>${pbtn('PSG_'+g,'y')}</div><div class="sgw">${words.map((w,j)=>`<button class="lb2" data-a="PS_${g}_${j}">${esc(w).replace(/(e?s)(\b| up)/,'<u>$1</u>$2')}</button>`).join('')}</div></div>`).join('');
+  document.getElementById('stress').innerHTML=DATA.STRESS.map((t,i)=>`<div class="stl">${pbtn('ST_'+i)}<span>${esc(t).replace(/\b([A-Z]{2,}(?: [A-Z]{2,})?)\b/g,'<b>$1</b>')}</span></div>`).join('');
+}
+/* ---------- listening (real recording) */
+function buildListen(){
+  const L=DATA.LISTEN;
+  document.getElementById('lgist').innerHTML=`<div class="lq"><span class="n">1</span><span class="qt">${esc(L.gist[0])}</span><div class="co">${L.gist[1].map(o=>`<button class="opt" data-lg="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`;
+  document.getElementById('ldetail').innerHTML=L.detail.map(([s,opts,ans],i)=>`<div class="lq" id="ld${i}"><span class="n">${i+2}</span><span class="qt">${esc(s).replace('___','<span class="gap">___</span>')}</span><div class="co">${opts.map(o=>`<button class="opt" data-ld="${i}" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`).join('')
+    + L.times.map(([s,ans],i)=>`<div class="lq"><span class="n">${i+2+L.detail.length}</span><span class="qt">${esc(s).replace('___',`<input class="tin" id="lt${i}" autocomplete="off" spellcheck="false">`)}</span><span class="tans" id="lta${i}"></span></div>`).join('');
+  document.querySelectorAll('[data-lg]').forEach(b=>b.onclick=()=>{ const box=b.parentElement; if(box.dataset.done) return; box.dataset.done=1; box.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.lg===L.gist[2]) x.classList.add('ok'); }); if(b.dataset.lg!==L.gist[2]) b.classList.add('no'); });
+  document.querySelectorAll('[data-ld]').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.ld, box=b.parentElement; if(box.dataset.done) return; box.dataset.done=1;
+    const ans=L.detail[i][2]; box.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.o===ans) x.classList.add('ok'); });
+    if(b.dataset.o!==ans) b.classList.add('no'); document.querySelector('#ld'+i+' .gap').textContent=ans;
+  });
+}
+function listenCheck(){ DATA.LISTEN.times.forEach(([s,ans],i)=>{ const el=document.getElementById('lt'+i), ok=ans.map(norm).includes(norm(el.value)); el.classList.toggle('ok',ok); el.classList.toggle('no',!ok&&el.value!==''); document.getElementById('lta'+i).textContent=ans[0]; }); }
+/* ---------- frames */
+function buildFrames(){
+  document.getElementById('frames').innerHTML=DATA.FRAMES.map(([f,exs],i)=>`<div class="frm"><div class="fh"><span class="n">${i+1}</span><b>${esc(f).replace(/___/g,'<span class="gap">___</span>')}</b></div>${exs.map((e,j)=>`<div class="fe">${pbtn(`FR_${i}_${j}`,'y')}<span>${esc(e)}</span></div>`).join('')}</div>`).join('');
+  document.getElementById('linkers').innerHTML=DATA.LINKERS.map(l=>`<span class="lk">${esc(l)}</span>`).join('<span class="arr">→</span>');
+}
+/* ---------- questions & answers */
+function buildQA(){
+  document.getElementById('qa').innerHTML=DATA.QA.map(([q,as],i)=>`<div class="qap"><div class="qrow q"><span class="who">Q</span><span>${esc(q)}</span>${pbtn(`QA_${i}_q`)}</div>${as.map((a,j)=>`<div class="qrow a"><span class="who">${as.length>1?String.fromCharCode(97+j):'A'}</span><span>${esc(a)}</span>${pbtn(`QA_${i}_a${j}`,'y')}</div>`).join('')}</div>`).join('');
+}
+/* ---------- model dialogue */
+function buildDialogue(){
+  const sc=document.getElementById('script');
+  sc.innerHTML=DATA.DIALOGUE.map(([w,t],i)=>`<div class="ln" data-ln="${i}"><span class="who ${w==='L'?'R':'S'}">${w}</span><span class="tx">${esc(t)}</span>${dl('DLG_'+i)}</div>`).join('');
+  sc.querySelectorAll('.ln').forEach(l=>l.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; const i=+l.dataset.ln; playQueue(['DLG_'+i],k=>hl(k<0?-1:i)); }));
+  document.getElementById('dlgDl').innerHTML=dl('DLG_ALL','Full dialogue (MP3)');
+  document.getElementById('dq').innerHTML=DATA.DLG_Q.map(([q,opts,ans],i)=>`<div class="lq"><span class="n">${i+1}</span><span class="qt">${esc(q)}</span><div class="co">${opts.map(o=>`<button class="opt" data-dq="${i}" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`).join('');
+  document.querySelectorAll('[data-dq]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.dq, box=b.parentElement; if(box.dataset.done) return; box.dataset.done=1; const ans=DATA.DLG_Q[i][2]; box.querySelectorAll('.opt').forEach(x=>{ if(x.dataset.o===ans) x.classList.add('ok'); }); if(b.dataset.o!==ans) b.classList.add('no'); });
+}
+function playDialogue(btn){ playQueue(DATA.DIALOGUE.map((_,i)=>'DLG_'+i),i=>{ hl(i); if(i>=0){ const el=document.querySelector('#script .ln[data-ln="'+i+'"]'); el&&el.scrollIntoView({block:'nearest'}); } },450,btn); }
+/* ---------- interview */
+function buildInterview(){
+  document.getElementById('iv').innerHTML=`<tr><th>Ask your partner</th><th>Notes</th><th>Report</th></tr>`+DATA.INTERVIEW.map(([q,r],i)=>`<tr><td><b>${esc(q)}</b></td><td><input class="ivn" aria-label="Notes ${i+1}"></td><td class="rpt">${esc(r).replace(/___/g,'<span class="gap">___</span>')}</td></tr>`).join('');
+}
+/* ---------- free practice */
+let sitCur=0;
+function buildSit(){
+  document.getElementById('sit').innerHTML=DATA.SITUATIONS.map((x,i)=>`<div class="sit2${i===sitCur?' on':''}" data-sit="${i}"><h4><span>${x.e}</span>${i+1}. ${esc(x.t)}</h4><div class="rl"><b>A</b><span>${esc(x.a)} — ${esc(x.goal)}</span></div><div class="rl b"><b>B</b><span>${esc(x.b)} — use your own routine or this card:</span></div><div class="card2">${x.card.map(c=>`<div>• ${esc(c)}</div>`).join('')}</div></div>`).join('');
+  document.querySelectorAll('[data-sit]').forEach(c=>c.onclick=()=>{ sitCur=+c.dataset.sit; buildSit(); });
+  const x=DATA.SITUATIONS[sitCur];
+  const fill=t=>esc(t).replace(/\{([^}]+)\}/g,(m,k)=>`<span class="slot">${k}</span>`);
+  document.getElementById('fpd').innerHTML=`<div class="hd">${x.e} ${esc(x.t)} · A = ${esc(x.a)} · B = ${esc(x.b)}</div>`+DATA.FP_LINES.map(([w,t])=>`<div class="ln2 ${w.toLowerCase()}"><span class="who">${w}</span><span>${fill(t)}</span></div>`).join('');
+}
+/* ---------- fluency */
+function buildTalk(){
+  document.getElementById('talk').innerHTML=DATA.TALK.map(([k,t],i)=>`<div class="tk2"><span class="tkk">${esc(k)}</span><span>${esc(t).replace(/___/g,'<span class="gap">___</span>')}</span></div>`).join('');
+}
+let tkRun=null;
+function talkTimer(){
+  const el=document.getElementById('tkTime'), bar=document.getElementById('tkBar'); let t=90; clearInterval(tkRun);
+  const draw=()=>{ el.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); bar.style.width=(t/90*100)+'%'; }; draw();
+  tkRun=setInterval(()=>{ t--; draw(); if(t<=0){ clearInterval(tkRun); el.textContent="Time's up!"; beep(); } },1000);
+}
+/* ---------- game: sentence scramble */
+let scI=0, scPicked=[], scScore=0;
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function scWords(s){ return s.replace(/[.?]$/,'').split(' '); }
+function scLoad(){
+  const s=DATA.SCRAMBLE[scI], words=scWords(s); let mixed=shuffle(words); let guard=0;
+  while(mixed.join(' ')===words.join(' ')&&guard++<10) mixed=shuffle(words);
+  scPicked=[];
+  document.getElementById('scN').textContent=`${scI+1} / ${DATA.SCRAMBLE.length}`;
+  document.getElementById('scOut').innerHTML=''; document.getElementById('scMsg').textContent='';
+  document.getElementById('scPool').innerHTML=mixed.map((w,k)=>`<button class="chipw" data-k="${k}">${esc(w)}</button>`).join('');
+  document.querySelectorAll('#scPool .chipw').forEach(b=>b.onclick=()=>{ if(b.disabled) return; b.disabled=true; scPicked.push(b.textContent); scDraw(); });
+}
+function scDraw(){ document.getElementById('scOut').innerHTML=scPicked.map((w,k)=>`<button class="chipw on" data-u="${k}">${esc(w)}</button>`).join('');
+  document.querySelectorAll('#scOut .chipw').forEach(b=>b.onclick=()=>{ const w=scPicked.splice(+b.dataset.u,1)[0]; const src=[...document.querySelectorAll('#scPool .chipw')].find(x=>x.disabled&&x.textContent===w); if(src) src.disabled=false; scDraw(); }); }
+function scCheck(){
+  const s=DATA.SCRAMBLE[scI], ok=scPicked.join(' ')===scWords(s).join(' ');
+  const m=document.getElementById('scMsg');
+  m.innerHTML=ok?`✅ ${esc(s)}`:`❌ ${esc(s)}`; m.className='scmsg '+(ok?'good':'bad');
+  if(ok) scScore++; document.getElementById('scScore').textContent='Score: '+scScore;
+  play('SC_'+scI);
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+window.addEventListener('DOMContentLoaded',()=>{
+  toBlobUrls();
+  buildCloud('cloud'); buildWarm(); buildVocab(); buildFreq(); buildColl(); buildPron(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); scLoad();
+  // download links beside fixed play buttons
+  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||/^https?:/.test(AUDIO[id].src)) return; if(b.closest('#coll,#sgroups,#qa,#frames,#freq')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
+  const $=id=>document.getElementById(id);
+  $('warmCheck').onclick=()=>warmCheck(false); $('warmShow').onclick=()=>warmCheck(true);
+  $('fAll').onclick=e=>play('F_ALL',e.currentTarget);
+  $('lCheck').onclick=listenCheck;
+  $('lScript').onclick=()=>window.open(DATA.LISTEN.page,'_blank','noopener');
+  $('dlgPlay').onclick=e=>playDialogue(e.currentTarget);
+  $('dlgStop').onclick=stopAll;
+  $('dlgScript').onclick=e=>{ const sc=$('script'); sc.classList.toggle('blur'); e.currentTarget.textContent=sc.classList.contains('blur')?'👁 Show script':'🙈 Hide script'; };
+  $('tkStart').onclick=talkTimer; $('tkModel').onclick=e=>play('TALK',e.currentTarget);
+  $('scCheck').onclick=scCheck; $('scNext').onclick=()=>{ scI=(scI+1)%DATA.SCRAMBLE.length; scLoad(); }; $('scReset').onclick=()=>{ scPicked=[]; scLoad(); };
+  window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',fit); fit();
+  const h=parseInt((location.hash||'').slice(1)); go(isNaN(h)?0:h-1);
+});
+
+</script>
+</body>
+</html>

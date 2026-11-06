@@ -25,7 +25,11 @@ window.SESSIONS = [
   "week": 1,
   "title": "Routines, Habits & Real Schedules",
   "goal": "Mô tả lịch ngày thường và hỏi sâu về thói quen của người khác.",
-  "status": "soon"
+  "status": "live",
+  "url": "lessons/S02/",
+  "zip": "lessons/S02/S02_Audio_MP3.zip",
+  "offline": "lessons/S02/S02_offline.html",
+  "hw": "homework/?s=S02"
  },
  {
   "id": "S03",
