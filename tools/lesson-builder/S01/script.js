@@ -56,12 +56,29 @@ const IDCARDS = [
   ['Zoe Phillips','zoe.phillips@gmail.com','Toronto, Canada']
 ];
 const SITUATIONS = [
-  ['🏨','Hotel check-in','<b>A</b> = receptionist: get the guest\'s full name, email and number of nights.','<b>B</b> = guest with a booking.'],
-  ['🏋️','Gym membership','<b>A</b> = gym staff: fill in a membership form — name, email, phone.','<b>B</b> = new member.'],
-  ['📚','English course registration','<b>A</b> = centre staff: register a new student — name, email, class time.','<b>B</b> = new student.'],
-  ['🩺','Doctor\'s appointment by phone','<b>A</b> = clinic receptionist: book an appointment — name, date of birth, phone.','<b>B</b> = patient calling.'],
-  ['🧳','Lost luggage at the airport','<b>A</b> = airline staff: write a report — name, email, hotel name in the city.','<b>B</b> = traveller who lost a bag.'],
-  ['🛵','Food delivery problem','<b>A</b> = customer service: find the order — name, email on the account, street name.','<b>B</b> = customer, order is late.']
+  {e:'🏨', t:'Hotel check-in', place:'Riverside Hotel', a:'Receptionist', b:'Guest',
+   card:['Kate Osborne','kate.osborne@gmail.com']},
+  {e:'📚', t:'English course registration', place:'Bright English Centre', a:'Staff', b:'New student',
+   card:['Pham Gia Huy','huy.pham@yahoo.com']}
+];
+// model dialogue with slots ({...}) that students change
+const FP_LINES = [
+  ['A',"Good morning! Welcome to {place}. Can I have your name, please?"],
+  ['B',"Sure. My name's {full name}."],
+  ['A',"How do you spell your first name?"],
+  ['B',"It's {spell first name}."],
+  ['A',"And how do you spell your surname?"],
+  ['B',"{spell surname}."],
+  ['A',"Sorry, could you spell that again, please?"],
+  ['B',"Of course. {spell surname}."],
+  ['A',"Is that {letter} as in \"{word}\"?"],
+  ['B',"Yes, that's right. / No, it's {letter} as in \"{word}\"."],
+  ['A',"And what's your email address?"],
+  ['B',"It's {email}."],
+  ['A',"Is that all lower case?"],
+  ['B',"Yes, all lower case."],
+  ['A',"Let me check: {email}."],
+  ['B',"Perfect. Thank you!"]
 ];
 const SPELL_LV = [
   ['⭐ Easy',['Tom','Nam','Anna','Linh']],
@@ -297,12 +314,16 @@ function showCard(i){
 }
 function drawCard(){ let i; do{ i=Math.floor(Math.random()*IDCARDS.length); }while(IDCARDS.length>1&&i===idCur); showCard(i); }
 /* ---------- free practice */
+let sitCur=0;
 function buildSit(){
-  document.getElementById('sit').innerHTML = SITUATIONS.map(([e,t,a,b],i)=>`<div class="st" id="st${i}"><h4><span class="e">${e}</span>${esc(t)}</h4><p>${a}</p><p>${b} Use your real or invented details.</p></div>`).join('');
-}
-function pickSit(){
-  const i=Math.floor(Math.random()*SITUATIONS.length); let n=0;
-  const cyc=setInterval(()=>{ const k=n%SITUATIONS.length; document.querySelectorAll('.st').forEach((e,j)=>e.classList.toggle('pick',j===k)); if(++n>12+i){ clearInterval(cyc); } },110);
+  document.getElementById('sit').innerHTML = SITUATIONS.map((x,i)=>`<div class="sit2${i===sitCur?' on':''}" data-sit="${i}"><h4><span>${x.e}</span>${i+1}. ${esc(x.t)}</h4>
+    <div class="rl"><b>A</b><span><b style="all:unset;font-weight:800">${esc(x.a)}</b> — ask for the name, spelling and email · check the spelling</span></div>
+    <div class="rl b"><b>B</b><span><b style="all:unset;font-weight:800">${esc(x.b)}</b> — answer with your info or this card:</span></div>
+    <div class="card2"><div><i>Name</i><b>${esc(x.card[0])}</b></div><div><i>Email</i><b>${esc(x.card[1])}</b></div></div></div>`).join('');
+  document.querySelectorAll('[data-sit]').forEach(c=>c.onclick=()=>{ sitCur=+c.dataset.sit; buildSit(); });
+  const x=SITUATIONS[sitCur];
+  const fill=t=>esc(t).replace(/\{([^}]+)\}/g,(m,k)=>k==='place'?`<span class="fx">${esc(x.place)}</span>`:`<span class="slot">${k}</span>`);
+  document.getElementById('fpd').innerHTML=`<div class="hd">${x.e} ${esc(x.t)} · A = ${esc(x.a)} · B = ${esc(x.b)}</div>`+FP_LINES.map(([w,t])=>`<div class="ln2 ${w.toLowerCase()}"><span class="who">${w}</span><span>${fill(t)}</span></div>`).join('');
 }
 /* hangman */
 const HM={word:'',got:new Set(),lives:7};
@@ -422,7 +443,6 @@ window.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('idDraw').onclick=drawCard;
   document.getElementById('idCopy').onclick=e=>{ if(idCur<0) drawCard(); copyText(idText(IDCARDS[idCur],idCur),e.currentTarget); };
   document.getElementById('idAll').onclick=e=>copyText(IDCARDS.map(idText).join('\n\n'),e.currentTarget);
-  document.getElementById('sitPick').onclick=pickSit;
 
 
   document.getElementById('dlgPlay').onclick=e=>playDialogue(e.currentTarget);
