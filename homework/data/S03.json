@@ -1,0 +1,178 @@
+{
+ "session": "S03",
+ "title": "Shadowing: Linh’s neighbourhood",
+ "kind": "Speaking · Shadowing",
+ "pass": 80,
+ "speakers": {
+  "L": "Linh",
+  "B": "Ben"
+ },
+ "free": [
+  "Mai"
+ ],
+ "full": "audio/S03/S03_shadow_FULL.mp3",
+ "fullDur": 114.24,
+ "lines": [
+  {
+   "who": "B",
+   "text": "Hi Linh! Is this your neighbourhood?",
+   "audio": "audio/S03/S03_shadow_line01.mp3",
+   "dur": 3.18,
+   "start": 0.12
+  },
+  {
+   "who": "L",
+   "text": "Yes, it is. Welcome! It's a peaceful neighbourhood, and it's centrally located.",
+   "audio": "audio/S03/S03_shadow_line02.mp3",
+   "dur": 7.4,
+   "start": 3.76
+  },
+  {
+   "who": "B",
+   "text": "It's really peaceful. Do you live in an apartment or a house?",
+   "audio": "audio/S03/S03_shadow_line03.mp3",
+   "dur": 4.5,
+   "start": 11.63
+  },
+  {
+   "who": "L",
+   "text": "I live in a spacious apartment near the park.",
+   "audio": "audio/S03/S03_shadow_line04.mp3",
+   "dur": 3.01,
+   "start": 16.59
+  },
+  {
+   "who": "B",
+   "text": "That's great. Is there a supermarket near your apartment?",
+   "audio": "audio/S03/S03_shadow_line05.mp3",
+   "dur": 4.3,
+   "start": 20.05
+  },
+  {
+   "who": "L",
+   "text": "Yes, there is. There's a big supermarket near the bus stop.",
+   "audio": "audio/S03/S03_shadow_line06.mp3",
+   "dur": 5.11,
+   "start": 24.81
+  },
+  {
+   "who": "B",
+   "text": "Are there any nearby facilities, like a gym?",
+   "audio": "audio/S03/S03_shadow_line07.mp3",
+   "dur": 2.89,
+   "start": 30.38
+  },
+  {
+   "who": "L",
+   "text": "Yes, there are lots of nearby facilities. There's a gym with modern facilities, and there are two cafés.",
+   "audio": "audio/S03/S03_shadow_line08.mp3",
+   "dur": 7.99,
+   "start": 33.73
+  },
+  {
+   "who": "B",
+   "text": "So it's a convenient location.",
+   "audio": "audio/S03/S03_shadow_line09.mp3",
+   "dur": 2.07,
+   "start": 42.17
+  },
+  {
+   "who": "L",
+   "text": "Yes, it is. It's convenient because there are two bus stops near my home.",
+   "audio": "audio/S03/S03_shadow_line10.mp3",
+   "dur": 6.31,
+   "start": 44.7
+  },
+  {
+   "who": "B",
+   "text": "What do you like about the area?",
+   "audio": "audio/S03/S03_shadow_line11.mp3",
+   "dur": 1.78,
+   "start": 51.47
+  },
+  {
+   "who": "L",
+   "text": "One thing I like is the park. It's peaceful because there are lots of trees.",
+   "audio": "audio/S03/S03_shadow_line12.mp3",
+   "dur": 5.83,
+   "start": 53.71
+  },
+  {
+   "who": "B",
+   "text": "And what are your neighbours like?",
+   "audio": "audio/S03/S03_shadow_line13.mp3",
+   "dur": 1.83,
+   "start": 59.99
+  },
+  {
+   "who": "L",
+   "text": "I have a friendly neighbour. Her name is Mai, and she's very nice.",
+   "audio": "audio/S03/S03_shadow_line14.mp3",
+   "dur": 5.56,
+   "start": 62.28
+  },
+  {
+   "who": "B",
+   "text": "Is there a hospital near here?",
+   "audio": "audio/S03/S03_shadow_line15.mp3",
+   "dur": 1.93,
+   "start": 68.3
+  },
+  {
+   "who": "L",
+   "text": "No, there isn't. However, there's a school and a market.",
+   "audio": "audio/S03/S03_shadow_line16.mp3",
+   "dur": 5.02,
+   "start": 70.7
+  },
+  {
+   "who": "B",
+   "text": "Is there anything you don't like?",
+   "audio": "audio/S03/S03_shadow_line17.mp3",
+   "dur": 1.67,
+   "start": 76.17
+  },
+  {
+   "who": "L",
+   "text": "The only problem is the market. It's a crowded area at weekends.",
+   "audio": "audio/S03/S03_shadow_line18.mp3",
+   "dur": 5.79,
+   "start": 78.3
+  },
+  {
+   "who": "B",
+   "text": "I see. My neighbourhood is very different. It's a crowded area, and there aren't any parks.",
+   "audio": "audio/S03/S03_shadow_line19.mp3",
+   "dur": 7.77,
+   "start": 84.55
+  },
+  {
+   "who": "L",
+   "text": "Oh no! So what do you like about it?",
+   "audio": "audio/S03/S03_shadow_line20.mp3",
+   "dur": 3.59,
+   "start": 92.78
+  },
+  {
+   "who": "B",
+   "text": "One thing I like is my apartment. It's small, but it's centrally located, so it's convenient.",
+   "audio": "audio/S03/S03_shadow_line21.mp3",
+   "dur": 6.93,
+   "start": 96.82
+  },
+  {
+   "who": "L",
+   "text": "Then come to my neighbourhood at weekends. The park is very peaceful!",
+   "audio": "audio/S03/S03_shadow_line22.mp3",
+   "dur": 5.62,
+   "start": 104.21
+  },
+  {
+   "who": "B",
+   "text": "Great idea. Thanks, Linh!",
+   "audio": "audio/S03/S03_shadow_line23.mp3",
+   "dur": 3.49,
+   "start": 110.29
+  }
+ ]
+}
