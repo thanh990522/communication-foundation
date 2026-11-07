@@ -10,4 +10,5 @@ cd "$(dirname "$0")"
 python3 gen_audio.py
 python3 assemble.py
 python3 patch2.py
+python3 patch3.py
 python3 build_web.py

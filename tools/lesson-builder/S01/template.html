@@ -391,18 +391,18 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 
 <!-- ================= Lesson map ================= -->
 <section class="slide" data-title="Lesson map">
-  <div class="s-head"><span class="chip c-wrap">Lesson map</span><h2>Today's <em>journey</em></h2><p class="sub">Warm-up → Alphabet → Names → Listening → Email → Questions → Dialogue → Practice → Free practice → Game</p></div>
-  <div class="agenda">
-    <div class="ag warm"><div class="m">1</div><div><b>Warm-up · Say the letters!</b><small>ATM, KFC, VIP…</small></div></div>
-    <div class="ag input"><div class="m">2</div><div><b>The alphabet</b><small>26 letters · 7 sound families</small></div></div>
-    <div class="ag speak"><div class="m">3</div><div><b>Read the names</b><small>Easy → hard</small></div></div>
-    <div class="ag listen"><div class="m">4</div><div><b>Listening · Spelling test</b><small>Listen &amp; write the names</small></div></div>
-    <div class="ag input"><div class="m">5</div><div><b>Email symbols</b><small>@ at · . dot · _ underscore</small></div></div>
-    <div class="ag input"><div class="m">6</div><div><b>Ask &amp; answer</b><small>How do you spell…?</small></div></div>
-    <div class="ag listen"><div class="m">7</div><div><b>Model dialogue</b><small>At the reception desk</small></div></div>
-    <div class="ag speak"><div class="m">8</div><div><b>Pair practice</b><small>Your info or an ID card</small></div></div>
-    <div class="ag speak"><div class="m">9</div><div><b>Free practice</b><small>Real situations</small></div></div>
-    <div class="ag prac"><div class="m">10</div><div><b>Spelling games</b><small>Mystery word · Letter wheel</small></div></div>
+  <div class="s-head"><span class="chip c-wrap">Lesson map</span><h2>Today's <em>journey</em></h2></div>
+  <div class="agenda ag2">
+    <div class="ag warm"><div class="m">1</div><span class="agi">🔤</span><div><b>Warm-up · Say the letters!</b><small>ATM, KFC, VIP…</small></div></div>
+    <div class="ag input"><div class="m">2</div><span class="agi">🅰️</span><div><b>The alphabet</b><small>26 letters · 7 sound families</small></div></div>
+    <div class="ag speak"><div class="m">3</div><span class="agi">📛</span><div><b>Read the names</b><small>Easy → hard</small></div></div>
+    <div class="ag listen"><div class="m">4</div><span class="agi">🎧</span><div><b>Listening · Spelling test</b><small>Listen &amp; write the names</small></div></div>
+    <div class="ag input"><div class="m">5</div><span class="agi">📧</span><div><b>Email symbols</b><small>@ at · . dot · _ underscore</small></div></div>
+    <div class="ag input"><div class="m">6</div><span class="agi">🙋</span><div><b>Ask &amp; answer</b><small>How do you spell…?</small></div></div>
+    <div class="ag listen"><div class="m">7</div><span class="agi">💬</span><div><b>Model dialogue</b><small>At the reception desk</small></div></div>
+    <div class="ag speak"><div class="m">8</div><span class="agi">🆔</span><div><b>Pair practice</b><small>Your info or an ID card</small></div></div>
+    <div class="ag speak"><div class="m">9</div><span class="agi">🏨</span><div><b>Free practice</b><small>Real situations</small></div></div>
+    <div class="ag prac"><div class="m">10</div><span class="agi">🎮</span><div><b>Spelling games</b><small>Mystery word · Letter wheel</small></div></div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>02</b></span></div>
 </section>
@@ -410,7 +410,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= Objectives ================= -->
 <section class="slide" data-title="Objectives">
   <div class="s-head"><span class="chip c-wrap">Can-do goals</span><h2>By the end of today, <em>you can…</em></h2></div>
-  <div class="obj">
+  <div class="obj obj2">
     <div class="card"><div class="ic">🔤</div><b>Say all 26 letters clearly</b><p>A–Z by 7 sound families.</p></div>
     <div class="card"><div class="ic">🗣</div><b>Spell names aloud</b><p>Even long names and "double L".</p></div>
     <div class="card"><div class="ic">👂</div><b>Catch spelled names</b><p>Listen once and write the name.</p></div>
@@ -424,9 +424,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <section class="slide" data-title="Warm-up: Say the letters">
   <div class="s-head"><span class="chip c-warm">Warm-up</span><h2>Say the letters! <em>ATM, KFC, VIP…</em></h2></div>
   <div class="acr" id="acr"></div>
-  <div class="row" style="margin-top:18px">
-    <button class="btn y" onclick="document.querySelectorAll('#acr .a').forEach(a=>a.classList.remove('flip'))">↺ Reset cards</button>
-  </div>
+  <div class="ftools"><span>↻ Click a card to flip</span><button class="btn sm ghost" onclick="document.querySelectorAll('#acr .a').forEach(a=>a.classList.add('flip'))">🔄 Flip all</button><button class="btn sm ghost" onclick="document.querySelectorAll('#acr .a').forEach(a=>a.classList.remove('flip'))">↺ Reset</button></div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>04</b></span></div>
 </section>
 
@@ -434,7 +432,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <section class="slide" data-title="Input 1: 26 letters">
   <div class="s-head"><span class="chip c-input">Alphabet · 1</span><h2>The <em>26 letters</em> of English</h2></div>
   <div class="abc" id="abc"></div>
-  <div class="row" style="margin-top:14px;align-items:center">
+  <div class="row abcbar" style="margin-top:12px;align-items:center">
     <button class="btn" id="playAZ">▶ Play A–Z</button>
     <button class="btn ghost" id="playAZpause">⏹ Stop</button>
   </div>
@@ -489,8 +487,9 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
       <div class="row" style="align-items:center;flex-wrap:wrap"><button class="btn" id="ntAll">▶ Play all</button><button class="btn y" id="ntCheck">✓ Check</button><button class="btn ghost" id="ntShow">👁 Answers</button><button class="btn ghost" id="ntReset">↺ Reset</button><span class="score" id="ntScore">— / 10</span></div>
       <div class="tip" style="font-size:16px;padding:10px 14px;background:var(--sky);border-color:var(--blue)">✍ <b>Your turn:</b> write <b>your full name</b> in CAPITALS in the chat — then spell it for the class.</div>
     </div>
-    <div class="col" style="width:310px;flex:none">
-      <div class="card" style="padding:12px 14px">
+    <div class="col" style="width:310px;flex:none;gap:12px">
+      <div class="lart"><!--ART:LISTEN--></div>
+      <div class="card ntexc" style="padding:12px 14px">
         <div style="font-weight:900;color:var(--navy);margin-bottom:4px">Example</div>
         <div class="ntex"><span class="ntt">Mr</span><b>BLACK</b></div>
         <div style="font-size:14px;color:var(--muted);margin-top:4px">🔊 "Question one. Mister Black. B-L-A-C-K."</div>
@@ -537,6 +536,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
         <div class="fld"><label>Surname</label><input id="fSur"></div>
         <div class="fld"><label>Email address</label><input id="fMail"></div>
         <div class="row"><button class="btn sm" id="fCheck">✓ Check</button><button class="btn sm y" id="fShow">👁 Answers</button></div>
+        <div class="fart"><!--ART:DESK--></div>
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;min-height:0">
@@ -556,7 +556,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <section class="slide" data-title="Pair practice: your info or ID card">
   <div class="s-head"><span class="chip c-speak">Speaking · Pair practice</span><h2>Your info <em>or an ID card</em></h2></div>
   <div class="row" style="gap:20px;flex:1;min-height:0">
-    <div class="card grow" style="padding:16px 20px;font-size:18px;line-height:1.85">
+    <div class="card grow pairdlg" style="padding:16px 20px;font-size:18px;line-height:1.85">
       <div><b style="color:var(--blue)">A:</b> Hello! What's your name, please?</div>
       <div><b style="color:#B07800">B:</b> My name's <span class="blank">&nbsp;</span>.</div>
       <div><b style="color:var(--blue)">A:</b> How do you spell your first name / surname?</div>
@@ -570,6 +570,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
     <div class="col" style="width:400px">
       <div class="idc" id="idc"></div>
       <div class="row" style="flex-wrap:wrap"><button class="btn y" id="idDraw">🎲 Draw a card</button><button class="btn sm" id="idCopy">📋 Copy card</button><button class="btn sm ghost" id="idAll">📋 Copy all 10 cards</button></div>
+      <div class="lart grow"><!--ART:PAIR--></div>
     </div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>14</b></span></div>
@@ -597,9 +598,9 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
       <button class="btn sm y" id="hmReveal">👁 Reveal</button>
     </div>
   </div>
-  <div class="hm-word" id="hmWord"></div>
+  <div class="hmwrap"><div class="hm-word" id="hmWord"></div>
   <div id="hmMsg" style="text-align:center;font-weight:800;font-size:20px;color:var(--navy);min-height:30px;margin-bottom:10px"></div>
-  <div class="kb" id="kb"></div>
+  <div class="kb" id="kb"></div></div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>16</b></span></div>
 </section>
 
@@ -622,14 +623,15 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= Wrap-up & exit ticket ================= -->
 <section class="slide" data-title="Wrap-up & exit ticket">
   <div class="s-head"><span class="chip c-wrap">Wrap-up</span><h2>What can you <em>do now</em>?</h2></div>
-  <div class="row" style="gap:20px;flex:1">
-    <div class="col grow">
-      <label class="chk"><input type="checkbox"> I can say all 26 letters clearly (A-E-I, G-J, H, R…).</label>
-      <label class="chk"><input type="checkbox"> I can spell names aloud — even "double L".</label>
-      <label class="chk"><input type="checkbox"> I can listen and write a spelled name.</label>
-      <label class="chk"><input type="checkbox"> I can read an email address: at · dot · underscore.</label>
-      <label class="chk"><input type="checkbox"> I can ask "How do you spell…?" &amp; "Could you spell that again, please?"</label>
+  <div class="row" style="gap:18px;flex:1;min-height:0">
+    <div class="col grow wrap2">
+      <label class="chk"><span class="wi">🔤</span><span class="grow">I can say all 26 letters clearly (A-E-I, G-J, H, R…).</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">🗣</span><span class="grow">I can spell names aloud — even "double L".</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">🎧</span><span class="grow">I can listen and write a spelled name.</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">📧</span><span class="grow">I can read an email address: at · dot · underscore.</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">🙋</span><span class="grow">I can ask "How do you spell…?" &amp; "Could you spell that again, please?"</span><input type="checkbox"></label>
     </div>
+    <div class="card keys"><div class="rh">🔑 Key language</div><div class="kchips"><span>A-E-I · G-J · H · R</span><span>double L</span><span>@ at</span><span>. dot</span><span>_ underscore</span><span>- hyphen</span><span>all lower case</span><span>capital J</span><span>What's your name?</span><span>How do you spell your surname?</span><span>Could you spell that again, please?</span><span>Is that G as in "good"?</span><span>What's your email address?</span></div></div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>18</b></span></div>
 </section>
@@ -637,15 +639,18 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= Homework: Listening ================= -->
 <section class="slide" data-title="Homework: Listening">
   <div class="s-head"><span class="chip c-listen">Homework</span><h2>After class</h2></div>
-  <div class="hw">
+  <div class="hw hw2">
     <div class="card"><h3>📖 Review today's lesson</h3>
       <div class="steps">
-        <div class="step"><span class="n">1</span><div>The alphabet · 7 sound families</div></div>
-        <div class="step"><span class="n">2</span><div>Spelling names &amp; email addresses</div></div>
-        <div class="step"><span class="n">3</span><div>How do you spell…? · Could you spell that again, please?</div></div>
+        <div class="step"><span class="n">1</span><div>Say A–Z by the 7 sound families: <b>say · see · pen · my · go · you · car</b></div></div>
+        <div class="step"><span class="n">2</span><div>Danger zone: <b>A-E-I · G-J · H · R · W-Y</b></div></div>
+        <div class="step"><span class="n">3</span><div>Spell your full name and a friend's name aloud</div></div>
+        <div class="step"><span class="n">4</span><div>Read your email: <b>at · dot · underscore · all lower case</b></div></div>
+        <div class="step"><span class="n">5</span><div>How do you spell…? · Could you spell that again, please?</div></div>
       </div>
     </div>
-    <div class="card"><h3>🎧 Homework · Listening</h3><p style="font-size:19px;line-height:1.6;word-break:break-all"><b>thanh990522.github.io/<br>communication-foundation</b><br>→ <b>S01</b> → <b>📝 Homework</b></p><p style="font-size:16px;margin-top:8px"><b>Pass mark: 80%</b></p></div>
+    <div class="card qrcard"><h3>🎧 Homework · Listening</h3><!--QR-->
+      <p><b>thanh990522.github.io/communication-foundation</b><br>→ S01 → 📝 Homework</p><span class="pass">Pass mark: 80%</span></div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>19</b></span></div>
 </section>

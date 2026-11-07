@@ -369,6 +369,118 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 .acr .bk{flex-direction:column;gap:6px}
 .acr .bk .dl{font-size:13px;padding:2px 8px}
 .lb+.dl,.play+.dl,.btn+.dl{padding:3px 7px}
+
+/* ===== S01 v2 · same visual system as S02 ===== */
+.slide>.s-head{flex:none}
+/* lesson map */
+.ag2{flex:1;grid-template-rows:repeat(5,1fr);gap:12px 22px;min-height:0}
+.ag2 .agi{font-size:28px;flex:none;width:36px;text-align:center}
+.ag2 .ag b{font-size:21px}.ag2 .ag small{font-size:16px}
+/* objectives */
+.obj2{flex:1;min-height:0;align-items:stretch}
+.obj2 .card{padding:26px 18px;align-items:center;text-align:center;justify-content:center;gap:16px}
+.obj2 .ic{width:96px;height:96px;border-radius:50%;font-size:48px}
+.obj2 b{font-size:22px}.obj2 p{font-size:18px;color:var(--navy);background:var(--sky);border-radius:12px;padding:10px 12px;line-height:1.45}
+.obj2 .card:nth-child(even) p{background:var(--yellow-soft)}
+/* warm-up acronym flip cards */
+#acr{flex:1;min-height:0;grid-template-rows:1fr 1fr;gap:14px}
+#acr .a{height:auto}
+#acr .fr{flex-direction:column;gap:10px;border-radius:18px;box-shadow:var(--shadow-s)}
+#acr .fr .aic{width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:42px}
+#acr .fr b{font-size:38px;font-weight:900;letter-spacing:1px}
+#acr .bk{flex-direction:column;gap:8px;background:#fff;border:3px solid var(--yellow);border-radius:18px}
+#acr .bk b{font-size:24px;font-weight:900;color:var(--blue)}
+#acr .bk .full{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
+#acr .bk .vi{font-size:17px;font-weight:800;color:#8A5300;background:var(--yellow-soft);border-radius:10px;padding:4px 8px;line-height:1.25}
+.turn{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--blue);font-weight:900;display:flex;align-items:center;justify-content:center;font-size:16px}
+.ftools{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:12px;flex:none}
+.ftools>span:first-child{margin-right:auto;font-size:16px;color:var(--muted);font-weight:700}
+/* alphabet flip tiles */
+#abc{flex:1;min-height:0;grid-template-rows:repeat(3,1fr);gap:12px}
+#abc .tile.ft{height:auto;perspective:900px;background:transparent;border:none;overflow:visible;display:block}
+#abc .tile.ft:hover{transform:none;box-shadow:none}
+.tin{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
+.tile.flip .tin{transform:rotateY(180deg)}
+.tfr,.tbk{position:absolute;inset:0;border-radius:16px;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tfr{background:#fff;border:2px solid var(--line);box-shadow:var(--shadow-s)}
+.tile.lit .tfr{background:var(--yellow);border-color:var(--yellow-2)}
+.tfr .U{font-size:62px}.tfr .U small{font-size:40px}
+.tfr .bar{height:9px}
+.tbk{transform:rotateY(180deg);gap:2px}
+.tbk b{font-size:30px;font-weight:900;line-height:1}
+.tbk .ipa{font-size:24px;font-weight:700;font-family:'Noto Sans',sans-serif}
+.tbk .lk{font-size:16px;font-weight:700;opacity:.92}.tbk .lk i{font-weight:900;font-style:normal;background:rgba(255,255,255,.22);padding:0 6px;border-radius:6px}
+#abc .tile.vowel::after{z-index:2;font-size:12px;top:8px;right:9px}
+#abc .tile.flip.vowel::after{display:none}
+/* sound families */
+.fam .fl,.fam .lt{font-size:28px}
+/* danger zone */
+.clinic{flex:1;min-height:0;grid-template-rows:1fr 1fr}
+.cl{padding:16px 18px;gap:10px}
+.cl h4{font-size:23px}
+.cl p{font-size:18px;line-height:1.5}
+.cl .ls .lb{height:52px;min-width:52px;font-size:25px;border-radius:12px}
+/* odd one out */
+.odd{flex:1;min-height:0;grid-template-rows:repeat(3,1fr)}
+.orow{gap:14px;padding:12px 16px}
+.orow .L{width:78px;height:78px;font-size:40px;border-radius:16px}
+.orow .num{width:40px;height:40px;font-size:18px}
+.orow .why{font-size:16px}
+/* read the names */
+.lv .items{justify-content:space-evenly}
+.sp-i{padding:12px 12px}
+.sp-i .nm b{font-size:27px}.sp-i.multi .nm b{font-size:22px}
+/* listening spelling test */
+#nt{flex:1;min-height:0;grid-auto-rows:1fr}
+#nt .nti input{height:46px;font-size:21px}
+.lart{flex:none;height:190px;border-radius:18px;overflow:hidden}
+.lart.grow{flex:1;height:auto;min-height:0}
+.lart svg,.fart svg{width:100%;height:100%;display:block}
+.ntexc{flex:1;display:flex;flex-direction:column;justify-content:center}
+.ntexc .ntex b{font-size:30px}
+/* dialogue form */
+.dlg>.col{min-height:0}
+.dlg>.col>.form{flex:1;min-height:0}
+.fart{flex:1 1 0;min-height:0;border-radius:14px;overflow:hidden}
+/* pair practice */
+.pairdlg{font-size:21px!important;line-height:2.05!important;display:flex;flex-direction:column;justify-content:center}
+/* games */
+.hmwrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.hm-word .slot,.hm-word>div{min-width:68px;height:82px;font-size:44px}
+.kb{gap:10px}.kb button{height:62px;font-size:28px;border-radius:14px}
+.wheel{flex:1}
+.wheel{gap:44px}
+.wl{width:430px!important;height:430px!important}
+.wl div{width:290px!important;height:290px!important;font-size:180px!important}
+.wheel>.col{width:540px!important;gap:16px}
+.cat{font-size:40px!important;padding:28px!important}
+#wTime{font-size:30px!important}
+.wheel .tbar{height:16px}
+.wheel .btn{font-size:21px;padding:13px 20px}
+.wheel .tip{font-size:19px!important}
+/* wrap-up */
+.wrap2{gap:10px}.wrap2 .chk{flex:1;font-size:21px;gap:14px;max-height:92px}
+.wrap2 .wi{flex:none;width:52px;height:52px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:26px}
+.wrap2 .chk:nth-child(even) .wi{background:var(--yellow-soft)}
+.wrap2 .chk input{width:30px;height:30px}
+.keys{width:390px;flex:none;padding:16px 18px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(170deg,#fff,var(--sky))}
+.keys .rh{font-weight:900;color:var(--navy);font-size:19px}
+.kchips{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.kchips span{background:#fff;border:2px solid var(--sky-2);border-radius:999px;padding:6px 12px;font-size:16.5px;font-weight:800;color:var(--navy)}
+.kchips span:nth-child(3n+2){background:var(--yellow-soft);border-color:#FFE7A0}
+/* homework */
+.hw2{flex:1;min-height:0;grid-template-columns:1.25fr 1fr}
+.hw2 .card{padding:20px 22px;display:flex;flex-direction:column}
+.hw2 h3{font-size:23px}
+.hw2 .steps{flex:1;justify-content:space-around}.hw2 .step{font-size:20px;align-items:center}
+.hw2 .step .n{width:38px;height:38px;font-size:18px}
+.qrcard{align-items:center;text-align:center;gap:10px;justify-content:space-between;background:linear-gradient(170deg,#fff,var(--sky))}
+.qrcard h3{align-self:flex-start}
+.qr{width:250px;height:250px;background:#fff;padding:10px;border-radius:16px;border:3px solid var(--navy)}
+.qr path{fill:var(--navy)}
+.qrcard p{font-size:18px;color:var(--navy);line-height:1.45}
+.qrcard .pass{background:var(--yellow);color:var(--navy);font-weight:900;font-size:19px;border-radius:999px;padding:7px 18px}
+.tbk .ipa{white-space:nowrap}.tbk .ipa.long{font-size:17px}
 </style>
 </head>
 <body>
@@ -386,18 +498,18 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 
 <!-- ================= Lesson map ================= -->
 <section class="slide" data-title="Lesson map">
-  <div class="s-head"><span class="chip c-wrap">Lesson map</span><h2>Today's <em>journey</em></h2><p class="sub">Warm-up → Alphabet → Names → Listening → Email → Questions → Dialogue → Practice → Free practice → Game</p></div>
-  <div class="agenda">
-    <div class="ag warm"><div class="m">1</div><div><b>Warm-up · Say the letters!</b><small>ATM, KFC, VIP…</small></div></div>
-    <div class="ag input"><div class="m">2</div><div><b>The alphabet</b><small>26 letters · 7 sound families</small></div></div>
-    <div class="ag speak"><div class="m">3</div><div><b>Read the names</b><small>Easy → hard</small></div></div>
-    <div class="ag listen"><div class="m">4</div><div><b>Listening · Spelling test</b><small>Listen &amp; write the names</small></div></div>
-    <div class="ag input"><div class="m">5</div><div><b>Email symbols</b><small>@ at · . dot · _ underscore</small></div></div>
-    <div class="ag input"><div class="m">6</div><div><b>Ask &amp; answer</b><small>How do you spell…?</small></div></div>
-    <div class="ag listen"><div class="m">7</div><div><b>Model dialogue</b><small>At the reception desk</small></div></div>
-    <div class="ag speak"><div class="m">8</div><div><b>Pair practice</b><small>Your info or an ID card</small></div></div>
-    <div class="ag speak"><div class="m">9</div><div><b>Free practice</b><small>Real situations</small></div></div>
-    <div class="ag prac"><div class="m">10</div><div><b>Spelling games</b><small>Mystery word · Letter wheel</small></div></div>
+  <div class="s-head"><span class="chip c-wrap">Lesson map</span><h2>Today's <em>journey</em></h2></div>
+  <div class="agenda ag2">
+    <div class="ag warm"><div class="m">1</div><span class="agi">🔤</span><div><b>Warm-up · Say the letters!</b><small>ATM, KFC, VIP…</small></div></div>
+    <div class="ag input"><div class="m">2</div><span class="agi">🅰️</span><div><b>The alphabet</b><small>26 letters · 7 sound families</small></div></div>
+    <div class="ag speak"><div class="m">3</div><span class="agi">📛</span><div><b>Read the names</b><small>Easy → hard</small></div></div>
+    <div class="ag listen"><div class="m">4</div><span class="agi">🎧</span><div><b>Listening · Spelling test</b><small>Listen &amp; write the names</small></div></div>
+    <div class="ag input"><div class="m">5</div><span class="agi">📧</span><div><b>Email symbols</b><small>@ at · . dot · _ underscore</small></div></div>
+    <div class="ag input"><div class="m">6</div><span class="agi">🙋</span><div><b>Ask &amp; answer</b><small>How do you spell…?</small></div></div>
+    <div class="ag listen"><div class="m">7</div><span class="agi">💬</span><div><b>Model dialogue</b><small>At the reception desk</small></div></div>
+    <div class="ag speak"><div class="m">8</div><span class="agi">🆔</span><div><b>Pair practice</b><small>Your info or an ID card</small></div></div>
+    <div class="ag speak"><div class="m">9</div><span class="agi">🏨</span><div><b>Free practice</b><small>Real situations</small></div></div>
+    <div class="ag prac"><div class="m">10</div><span class="agi">🎮</span><div><b>Spelling games</b><small>Mystery word · Letter wheel</small></div></div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>02</b></span></div>
 </section>
@@ -405,7 +517,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= Objectives ================= -->
 <section class="slide" data-title="Objectives">
   <div class="s-head"><span class="chip c-wrap">Can-do goals</span><h2>By the end of today, <em>you can…</em></h2></div>
-  <div class="obj">
+  <div class="obj obj2">
     <div class="card"><div class="ic">🔤</div><b>Say all 26 letters clearly</b><p>A–Z by 7 sound families.</p></div>
     <div class="card"><div class="ic">🗣</div><b>Spell names aloud</b><p>Even long names and "double L".</p></div>
     <div class="card"><div class="ic">👂</div><b>Catch spelled names</b><p>Listen once and write the name.</p></div>
@@ -419,9 +531,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <section class="slide" data-title="Warm-up: Say the letters">
   <div class="s-head"><span class="chip c-warm">Warm-up</span><h2>Say the letters! <em>ATM, KFC, VIP…</em></h2></div>
   <div class="acr" id="acr"></div>
-  <div class="row" style="margin-top:18px">
-    <button class="btn y" onclick="document.querySelectorAll('#acr .a').forEach(a=>a.classList.remove('flip'))">↺ Reset cards</button>
-  </div>
+  <div class="ftools"><span>↻ Click a card to flip</span><button class="btn sm ghost" onclick="document.querySelectorAll('#acr .a').forEach(a=>a.classList.add('flip'))">🔄 Flip all</button><button class="btn sm ghost" onclick="document.querySelectorAll('#acr .a').forEach(a=>a.classList.remove('flip'))">↺ Reset</button></div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>04</b></span></div>
 </section>
 
@@ -429,7 +539,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <section class="slide" data-title="Input 1: 26 letters">
   <div class="s-head"><span class="chip c-input">Alphabet · 1</span><h2>The <em>26 letters</em> of English</h2></div>
   <div class="abc" id="abc"></div>
-  <div class="row" style="margin-top:14px;align-items:center">
+  <div class="row abcbar" style="margin-top:12px;align-items:center">
     <button class="btn" id="playAZ">▶ Play A–Z</button>
     <button class="btn ghost" id="playAZpause">⏹ Stop</button><span id="azDl"></span>
   </div>
@@ -484,8 +594,9 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
       <div class="row" style="align-items:center;flex-wrap:wrap"><button class="btn" id="ntAll">▶ Play all</button><button class="btn y" id="ntCheck">✓ Check</button><button class="btn ghost" id="ntShow">👁 Answers</button><button class="btn ghost" id="ntReset">↺ Reset</button><span class="score" id="ntScore">— / 10</span></div>
       <div class="tip" style="font-size:19px;padding:10px 14px;background:var(--sky);border-color:var(--blue)">✍ <b>Your turn:</b> write <b>your full name</b> in CAPITALS in the chat — then spell it for the class.</div>
     </div>
-    <div class="col" style="width:310px;flex:none">
-      <div class="card" style="padding:12px 14px">
+    <div class="col" style="width:310px;flex:none;gap:12px">
+      <div class="lart"><svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="200" height="140" rx="18" fill="#EAF1FF"/><path d="M30 78v-14q0 -36 36 -36q36 0 36 36v14" fill="none" stroke="#0B1F5C" stroke-width="8" stroke-linecap="round"/><rect x="20" y="70" width="22" height="36" rx="9" fill="#1D4ED8"/><rect x="90" y="70" width="22" height="36" rx="9" fill="#1D4ED8"/><path d="M50 88q8 -8 0 -16M58 94q14 -14 0 -28" fill="none" stroke="#FFB000" stroke-width="4" stroke-linecap="round"/><rect x="122" y="22" width="64" height="98" rx="8" fill="#FFFFFF" stroke="#0B1F5C" stroke-width="3"/><rect x="140" y="16" width="28" height="12" rx="4" fill="#FFC72C"/><text x="130" y="48" font-size="11" font-weight="900" fill="#1D4ED8" font-family="Be Vietnam Pro,sans-serif">Mr</text><text x="129" y="68" font-size="12" font-weight="900" fill="#0B1F5C" font-family="Be Vietnam Pro,sans-serif">B</text><text x="139" y="68" font-size="12" font-weight="900" fill="#0B1F5C" font-family="Be Vietnam Pro,sans-serif">L</text><text x="149" y="68" font-size="12" font-weight="900" fill="#0B1F5C" font-family="Be Vietnam Pro,sans-serif">A</text><text x="159" y="68" font-size="12" font-weight="900" fill="#0B1F5C" font-family="Be Vietnam Pro,sans-serif">C</text><text x="169" y="68" font-size="12" font-weight="900" fill="#0B1F5C" font-family="Be Vietnam Pro,sans-serif">K</text><rect x="130" y="74" width="48" height="3" rx="1.5" fill="#FFC72C"/><rect x="130" y="90" width="40" height="5" rx="2.5" fill="#D6E4FF"/><rect x="130" y="102" width="30" height="5" rx="2.5" fill="#D6E4FF"/></svg></div>
+      <div class="card ntexc" style="padding:12px 14px">
         <div style="font-weight:900;color:var(--navy);margin-bottom:4px">Example</div>
         <div class="ntex"><span class="ntt">Mr</span><b>BLACK</b></div>
         <div style="font-size:17px;color:var(--muted);margin-top:4px">🔊 "Question one. Mister Black. B-L-A-C-K."</div>
@@ -532,6 +643,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
         <div class="fld"><label>Surname</label><input id="fSur"></div>
         <div class="fld"><label>Email address</label><input id="fMail"></div>
         <div class="row"><button class="btn sm" id="fCheck">✓ Check</button><button class="btn sm y" id="fShow">👁 Answers</button></div>
+        <div class="fart"><svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="200" height="140" rx="18" fill="#FFF6D6"/><path d="M34 102q0 -32 30 -32q30 0 30 32z" fill="#1D4ED8"/><circle cx="64" cy="46" r="15" fill="#F6C9A0"/><path d="M49 42q2 -22 15 -20q13 -2 15 20q-2 -10 -15 -10q-13 0 -15 10z" fill="#0B1F5C"/><rect x="10" y="78" width="180" height="50" rx="8" fill="#0B1F5C"/><rect x="10" y="78" width="180" height="10" rx="5" fill="#2563EB"/><text x="100" y="114" font-size="15" font-weight="900" fill="#FFC72C" text-anchor="middle" letter-spacing="2" font-family="Be Vietnam Pro,sans-serif">RECEPTION</text><path d="M136 74q0 -16 14 -16q14 0 14 16z" fill="#FFC72C"/><rect x="132" y="73" width="36" height="5" rx="2.5" fill="#FFB000"/><circle cx="150" cy="56" r="3" fill="#FFB000"/><g transform="rotate(-8 112 66)"><rect x="96" y="50" width="30" height="26" rx="3" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/><rect x="100" y="56" width="20" height="3" rx="1.5" fill="#D6E4FF"/><rect x="100" y="63" width="16" height="3" rx="1.5" fill="#D6E4FF"/></g><path d="M176 17L177.5 20.5L181 22L177.5 23.5L176 27L174.5 23.5L171 22L174.5 20.5Z" fill="#FFC72C"/><path d="M24 16L25.2 18.8L28 20L25.2 21.2L24 24L22.8 21.2L20 20L22.8 18.8Z" fill="#FFC72C"/></svg></div>
       </div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;min-height:0">
@@ -551,7 +663,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <section class="slide" data-title="Pair practice: your info or ID card">
   <div class="s-head"><span class="chip c-speak">Speaking · Pair practice</span><h2>Your info <em>or an ID card</em></h2></div>
   <div class="row" style="gap:20px;flex:1;min-height:0">
-    <div class="card grow" style="padding:16px 20px;font-size:21px;line-height:1.85">
+    <div class="card grow pairdlg" style="padding:16px 20px;font-size:21px;line-height:1.85">
       <div><b style="color:var(--blue)">A:</b> Hello! What's your name, please?</div>
       <div><b style="color:#B07800">B:</b> My name's <span class="blank">&nbsp;</span>.</div>
       <div><b style="color:var(--blue)">A:</b> How do you spell your first name / surname?</div>
@@ -565,6 +677,7 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
     <div class="col" style="width:400px">
       <div class="idc" id="idc"></div>
       <div class="row" style="flex-wrap:wrap"><button class="btn y" id="idDraw">🎲 Draw a card</button><button class="btn sm" id="idCopy">📋 Copy card</button><button class="btn sm ghost" id="idAll">📋 Copy all 10 cards</button></div>
+      <div class="lart grow"><svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="200" height="140" rx="18" fill="#EAF1FF"/><path d="M16 138q0 -32 30 -32q30 0 30 32z" fill="#1D4ED8"/><circle cx="46" cy="82" r="15" fill="#F6C9A0"/><path d="M31 78q2 -22 15 -20q13 -2 15 20q-2 -10 -15 -10q-13 0 -15 10z" fill="#0B1F5C"/><path d="M124 138q0 -32 30 -32q30 0 30 32z" fill="#FFC72C"/><circle cx="154" cy="82" r="15" fill="#F6C9A0"/><path d="M138 92q-3 -32 16 -32q19 0 16 32l-5 -2q2 -18 -11 -18q-13 0 -11 18z" fill="#8B4513"/><rect x="8" y="10" width="92" height="40" rx="12" fill="#1D4ED8"/><path d="M36 50l-4 12l16 -12z" fill="#1D4ED8"/><text x="54" y="27" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif">How do you</text><text x="54" y="41" font-size="10.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif">spell that?</text><rect x="102" y="14" width="92" height="34" rx="12" fill="#FFFFFF" stroke="#FFB000" stroke-width="3"/><path d="M160 48l6 12l-16 -12z" fill="#FFB000"/><rect x="110" y="20" width="17" height="17" rx="5" fill="#1D4ED8"/><text x="118.5" y="32.58" font-size="11" font-weight="900" fill="#FFFFFF" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif">L</text><rect x="130" y="20" width="17" height="17" rx="5" fill="#FFC72C"/><text x="138.5" y="32.58" font-size="11" font-weight="900" fill="#0B1F5C" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif">I</text><rect x="150" y="20" width="17" height="17" rx="5" fill="#1D4ED8"/><text x="158.5" y="32.58" font-size="11" font-weight="900" fill="#FFFFFF" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif">N</text><rect x="170" y="20" width="17" height="17" rx="5" fill="#FFC72C"/><text x="178.5" y="32.58" font-size="11" font-weight="900" fill="#0B1F5C" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif">H</text></svg></div>
     </div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>14</b></span></div>
@@ -592,9 +705,9 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
       <button class="btn sm y" id="hmReveal">👁 Reveal</button>
     </div>
   </div>
-  <div class="hm-word" id="hmWord"></div>
+  <div class="hmwrap"><div class="hm-word" id="hmWord"></div>
   <div id="hmMsg" style="text-align:center;font-weight:800;font-size:20px;color:var(--navy);min-height:30px;margin-bottom:10px"></div>
-  <div class="kb" id="kb"></div>
+  <div class="kb" id="kb"></div></div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>16</b></span></div>
 </section>
 
@@ -617,14 +730,15 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= Wrap-up & exit ticket ================= -->
 <section class="slide" data-title="Wrap-up & exit ticket">
   <div class="s-head"><span class="chip c-wrap">Wrap-up</span><h2>What can you <em>do now</em>?</h2></div>
-  <div class="row" style="gap:20px;flex:1">
-    <div class="col grow">
-      <label class="chk"><input type="checkbox"> I can say all 26 letters clearly (A-E-I, G-J, H, R…).</label>
-      <label class="chk"><input type="checkbox"> I can spell names aloud — even "double L".</label>
-      <label class="chk"><input type="checkbox"> I can listen and write a spelled name.</label>
-      <label class="chk"><input type="checkbox"> I can read an email address: at · dot · underscore.</label>
-      <label class="chk"><input type="checkbox"> I can ask "How do you spell…?" &amp; "Could you spell that again, please?"</label>
+  <div class="row" style="gap:18px;flex:1;min-height:0">
+    <div class="col grow wrap2">
+      <label class="chk"><span class="wi">🔤</span><span class="grow">I can say all 26 letters clearly (A-E-I, G-J, H, R…).</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">🗣</span><span class="grow">I can spell names aloud — even "double L".</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">🎧</span><span class="grow">I can listen and write a spelled name.</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">📧</span><span class="grow">I can read an email address: at · dot · underscore.</span><input type="checkbox"></label>
+      <label class="chk"><span class="wi">🙋</span><span class="grow">I can ask "How do you spell…?" &amp; "Could you spell that again, please?"</span><input type="checkbox"></label>
     </div>
+    <div class="card keys"><div class="rh">🔑 Key language</div><div class="kchips"><span>A-E-I · G-J · H · R</span><span>double L</span><span>@ at</span><span>. dot</span><span>_ underscore</span><span>- hyphen</span><span>all lower case</span><span>capital J</span><span>What's your name?</span><span>How do you spell your surname?</span><span>Could you spell that again, please?</span><span>Is that G as in "good"?</span><span>What's your email address?</span></div></div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>18</b></span></div>
 </section>
@@ -632,15 +746,18 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
 <!-- ================= Homework: Listening ================= -->
 <section class="slide" data-title="Homework: Listening">
   <div class="s-head"><span class="chip c-listen">Homework</span><h2>After class</h2></div>
-  <div class="hw">
+  <div class="hw hw2">
     <div class="card"><h3>📖 Review today's lesson</h3>
       <div class="steps">
-        <div class="step"><span class="n">1</span><div>The alphabet · 7 sound families</div></div>
-        <div class="step"><span class="n">2</span><div>Spelling names &amp; email addresses</div></div>
-        <div class="step"><span class="n">3</span><div>How do you spell…? · Could you spell that again, please?</div></div>
+        <div class="step"><span class="n">1</span><div>Say A–Z by the 7 sound families: <b>say · see · pen · my · go · you · car</b></div></div>
+        <div class="step"><span class="n">2</span><div>Danger zone: <b>A-E-I · G-J · H · R · W-Y</b></div></div>
+        <div class="step"><span class="n">3</span><div>Spell your full name and a friend's name aloud</div></div>
+        <div class="step"><span class="n">4</span><div>Read your email: <b>at · dot · underscore · all lower case</b></div></div>
+        <div class="step"><span class="n">5</span><div>How do you spell…? · Could you spell that again, please?</div></div>
       </div>
     </div>
-    <div class="card"><h3>🎧 Homework · Listening</h3><p style="font-size:19px;line-height:1.6;word-break:break-all"><b>thanh990522.github.io/<br>communication-foundation</b><br>→ <b>S01</b> → <b>📝 Homework</b></p><p style="font-size:19px;margin-top:8px"><b>Pass mark: 80%</b></p></div>
+    <div class="card qrcard"><h3>🎧 Homework · Listening</h3><svg class="qr" version="1.1" viewBox="0 0 39 39" xmlns="http://www.w3.org/2000/svg"><path d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM9,1H10V2H9zM10,1H11V2H10zM14,1H15V2H14zM15,1H16V2H15zM17,1H18V2H17zM20,1H21V2H20zM21,1H22V2H21zM22,1H23V2H22zM24,1H25V2H24zM26,1H27V2H26zM27,1H28V2H27zM31,1H32V2H31zM32,1H33V2H32zM33,1H34V2H33zM34,1H35V2H34zM35,1H36V2H35zM36,1H37V2H36zM37,1H38V2H37zM1,2H2V3H1zM7,2H8V3H7zM9,2H10V3H9zM10,2H11V3H10zM11,2H12V3H11zM14,2H15V3H14zM15,2H16V3H15zM16,2H17V3H16zM17,2H18V3H17zM20,2H21V3H20zM23,2H24V3H23zM26,2H27V3H26zM27,2H28V3H27zM29,2H30V3H29zM31,2H32V3H31zM37,2H38V3H37zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM10,3H11V4H10zM11,3H12V4H11zM14,3H15V4H14zM16,3H17V4H16zM17,3H18V4H17zM20,3H21V4H20zM22,3H23V4H22zM26,3H27V4H26zM28,3H29V4H28zM31,3H32V4H31zM33,3H34V4H33zM34,3H35V4H34zM35,3H36V4H35zM37,3H38V4H37zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM11,4H12V5H11zM12,4H13V5H12zM15,4H16V5H15zM16,4H17V5H16zM18,4H19V5H18zM21,4H22V5H21zM22,4H23V5H22zM24,4H25V5H24zM26,4H27V5H26zM27,4H28V5H27zM28,4H29V5H28zM31,4H32V5H31zM33,4H34V5H33zM34,4H35V5H34zM35,4H36V5H35zM37,4H38V5H37zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM9,5H10V6H9zM10,5H11V6H10zM12,5H13V6H12zM13,5H14V6H13zM15,5H16V6H15zM17,5H18V6H17zM20,5H21V6H20zM22,5H23V6H22zM31,5H32V6H31zM33,5H34V6H33zM34,5H35V6H34zM35,5H36V6H35zM37,5H38V6H37zM1,6H2V7H1zM7,6H8V7H7zM11,6H12V7H11zM12,6H13V7H12zM13,6H14V7H13zM17,6H18V7H17zM21,6H22V7H21zM22,6H23V7H22zM23,6H24V7H23zM24,6H25V7H24zM25,6H26V7H25zM27,6H28V7H27zM31,6H32V7H31zM37,6H38V7H37zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM27,7H28V8H27zM29,7H30V8H29zM31,7H32V8H31zM32,7H33V8H32zM33,7H34V8H33zM34,7H35V8H34zM35,7H36V8H35zM36,7H37V8H36zM37,7H38V8H37zM10,8H11V9H10zM13,8H14V9H13zM15,8H16V9H15zM18,8H19V9H18zM19,8H20V9H19zM20,8H21V9H20zM23,8H24V9H23zM25,8H26V9H25zM26,8H27V9H26zM1,9H2V10H1zM4,9H5V10H4zM5,9H6V10H5zM6,9H7V10H6zM7,9H8V10H7zM8,9H9V10H8zM9,9H10V10H9zM10,9H11V10H10zM11,9H12V10H11zM12,9H13V10H12zM14,9H15V10H14zM15,9H16V10H15zM23,9H24V10H23zM24,9H25V10H24zM27,9H28V10H27zM29,9H30V10H29zM30,9H31V10H30zM33,9H34V10H33zM35,9H36V10H35zM36,9H37V10H36zM37,9H38V10H37zM3,10H4V11H3zM5,10H6V11H5zM9,10H10V11H9zM12,10H13V11H12zM14,10H15V11H14zM15,10H16V11H15zM17,10H18V11H17zM19,10H20V11H19zM24,10H25V11H24zM25,10H26V11H25zM28,10H29V11H28zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM35,10H36V11H35zM36,10H37V11H36zM5,11H6V12H5zM7,11H8V12H7zM8,11H9V12H8zM9,11H10V12H9zM10,11H11V12H10zM12,11H13V12H12zM14,11H15V12H14zM16,11H17V12H16zM17,11H18V12H17zM18,11H19V12H18zM20,11H21V12H20zM21,11H22V12H21zM24,11H25V12H24zM28,11H29V12H28zM29,11H30V12H29zM31,11H32V12H31zM33,11H34V12H33zM34,11H35V12H34zM35,11H36V12H35zM37,11H38V12H37zM1,12H2V13H1zM2,12H3V13H2zM3,12H4V13H3zM6,12H7V13H6zM8,12H9V13H8zM9,12H10V13H9zM10,12H11V13H10zM11,12H12V13H11zM12,12H13V13H12zM13,12H14V13H13zM17,12H18V13H17zM18,12H19V13H18zM20,12H21V13H20zM21,12H22V13H21zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM34,12H35V13H34zM35,12H36V13H35zM36,12H37V13H36zM37,12H38V13H37zM1,13H2V14H1zM2,13H3V14H2zM4,13H5V14H4zM5,13H6V14H5zM7,13H8V14H7zM10,13H11V14H10zM16,13H17V14H16zM17,13H18V14H17zM21,13H22V14H21zM23,13H24V14H23zM24,13H25V14H24zM25,13H26V14H25zM27,13H28V14H27zM31,13H32V14H31zM34,13H35V14H34zM37,13H38V14H37zM1,14H2V15H1zM3,14H4V15H3zM5,14H6V15H5zM12,14H13V15H12zM13,14H14V15H13zM16,14H17V15H16zM17,14H18V15H17zM19,14H20V15H19zM24,14H25V15H24zM26,14H27V15H26zM28,14H29V15H28zM33,14H34V15H33zM34,14H35V15H34zM1,15H2V16H1zM3,15H4V16H3zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM10,15H11V16H10zM12,15H13V16H12zM13,15H14V16H13zM14,15H15V16H14zM16,15H17V16H16zM19,15H20V16H19zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM23,15H24V16H23zM25,15H26V16H25zM27,15H28V16H27zM28,15H29V16H28zM33,15H34V16H33zM34,15H35V16H34zM35,15H36V16H35zM36,15H37V16H36zM37,15H38V16H37zM1,16H2V17H1zM2,16H3V17H2zM5,16H6V17H5zM8,16H9V17H8zM9,16H10V17H9zM10,16H11V17H10zM11,16H12V17H11zM13,16H14V17H13zM14,16H15V17H14zM15,16H16V17H15zM17,16H18V17H17zM20,16H21V17H20zM23,16H24V17H23zM29,16H30V17H29zM30,16H31V17H30zM31,16H32V17H31zM32,16H33V17H32zM34,16H35V17H34zM35,16H36V17H35zM36,16H37V17H36zM37,16H38V17H37zM1,17H2V18H1zM2,17H3V18H2zM5,17H6V18H5zM7,17H8V18H7zM8,17H9V18H8zM9,17H10V18H9zM12,17H13V18H12zM13,17H14V18H13zM15,17H16V18H15zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM24,17H25V18H24zM26,17H27V18H26zM31,17H32V18H31zM32,17H33V18H32zM35,17H36V18H35zM1,18H2V19H1zM3,18H4V19H3zM6,18H7V19H6zM11,18H12V19H11zM15,18H16V19H15zM22,18H23V19H22zM28,18H29V19H28zM30,18H31V19H30zM32,18H33V19H32zM34,18H35V19H34zM4,19H5V20H4zM5,19H6V20H5zM7,19H8V20H7zM8,19H9V20H8zM10,19H11V20H10zM14,19H15V20H14zM17,19H18V20H17zM20,19H21V20H20zM24,19H25V20H24zM27,19H28V20H27zM28,19H29V20H28zM29,19H30V20H29zM30,19H31V20H30zM33,19H34V20H33zM37,19H38V20H37zM1,20H2V21H1zM3,20H4V21H3zM10,20H11V21H10zM11,20H12V21H11zM13,20H14V21H13zM15,20H16V21H15zM16,20H17V21H16zM17,20H18V21H17zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM24,20H25V21H24zM26,20H27V21H26zM27,20H28V21H27zM31,20H32V21H31zM32,20H33V21H32zM33,20H34V21H33zM34,20H35V21H34zM37,20H38V21H37zM2,21H3V22H2zM5,21H6V22H5zM7,21H8V22H7zM9,21H10V22H9zM10,21H11V22H10zM11,21H12V22H11zM12,21H13V22H12zM15,21H16V22H15zM17,21H18V22H17zM18,21H19V22H18zM20,21H21V22H20zM24,21H25V22H24zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM33,21H34V22H33zM1,22H2V23H1zM2,22H3V23H2zM4,22H5V23H4zM6,22H7V23H6zM9,22H10V23H9zM11,22H12V23H11zM12,22H13V23H12zM14,22H15V23H14zM16,22H17V23H16zM18,22H19V23H18zM19,22H20V23H19zM20,22H21V23H20zM23,22H24V23H23zM24,22H25V23H24zM26,22H27V23H26zM28,22H29V23H28zM29,22H30V23H29zM33,22H34V23H33zM35,22H36V23H35zM1,23H2V24H1zM2,23H3V24H2zM4,23H5V24H4zM7,23H8V24H7zM9,23H10V24H9zM11,23H12V24H11zM14,23H15V24H14zM15,23H16V24H15zM16,23H17V24H16zM22,23H23V24H22zM24,23H25V24H24zM26,23H27V24H26zM28,23H29V24H28zM32,23H33V24H32zM34,23H35V24H34zM36,23H37V24H36zM37,23H38V24H37zM1,24H2V25H1zM2,24H3V25H2zM4,24H5V25H4zM5,24H6V25H5zM9,24H10V25H9zM11,24H12V25H11zM12,24H13V25H12zM19,24H20V25H19zM20,24H21V25H20zM24,24H25V25H24zM25,24H26V25H25zM27,24H28V25H27zM29,24H30V25H29zM32,24H33V25H32zM33,24H34V25H33zM34,24H35V25H34zM35,24H36V25H35zM36,24H37V25H36zM2,25H3V26H2zM4,25H5V26H4zM6,25H7V26H6zM7,25H8V26H7zM8,25H9V26H8zM10,25H11V26H10zM12,25H13V26H12zM13,25H14V26H13zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM20,25H21V26H20zM21,25H22V26H21zM22,25H23V26H22zM23,25H24V26H23zM29,25H30V26H29zM31,25H32V26H31zM32,25H33V26H32zM1,26H2V27H1zM3,26H4V27H3zM4,26H5V27H4zM6,26H7V27H6zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM14,26H15V27H14zM18,26H19V27H18zM19,26H20V27H19zM20,26H21V27H20zM22,26H23V27H22zM24,26H25V27H24zM25,26H26V27H25zM26,26H27V27H26zM28,26H29V27H28zM29,26H30V27H29zM33,26H34V27H33zM34,26H35V27H34zM1,27H2V28H1zM2,27H3V28H2zM5,27H6V28H5zM6,27H7V28H6zM7,27H8V28H7zM12,27H13V28H12zM13,27H14V28H13zM15,27H16V28H15zM16,27H17V28H16zM19,27H20V28H19zM22,27H23V28H22zM23,27H24V28H23zM28,27H29V28H28zM31,27H32V28H31zM32,27H33V28H32zM35,27H36V28H35zM36,27H37V28H36zM37,27H38V28H37zM1,28H2V29H1zM4,28H5V29H4zM6,28H7V29H6zM9,28H10V29H9zM10,28H11V29H10zM12,28H13V29H12zM13,28H14V29H13zM14,28H15V29H14zM17,28H18V29H17zM20,28H21V29H20zM24,28H25V29H24zM27,28H28V29H27zM28,28H29V29H28zM30,28H31V29H30zM31,28H32V29H31zM32,28H33V29H32zM33,28H34V29H33zM34,28H35V29H34zM35,28H36V29H35zM1,29H2V30H1zM3,29H4V30H3zM6,29H7V30H6zM7,29H8V30H7zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM12,29H13V30H12zM14,29H15V30H14zM16,29H17V30H16zM17,29H18V30H17zM20,29H21V30H20zM21,29H22V30H21zM23,29H24V30H23zM25,29H26V30H25zM26,29H27V30H26zM27,29H28V30H27zM29,29H30V30H29zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM34,29H35V30H34zM35,29H36V30H35zM37,29H38V30H37zM9,30H10V31H9zM10,30H11V31H10zM13,30H14V31H13zM16,30H17V31H16zM18,30H19V31H18zM19,30H20V31H19zM20,30H21V31H20zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM29,30H30V31H29zM33,30H34V31H33zM35,30H36V31H35zM36,30H37V31H36zM1,31H2V32H1zM2,31H3V32H2zM3,31H4V32H3zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM7,31H8V32H7zM9,31H10V32H9zM13,31H14V32H13zM14,31H15V32H14zM16,31H17V32H16zM18,31H19V32H18zM19,31H20V32H19zM20,31H21V32H20zM24,31H25V32H24zM27,31H28V32H27zM29,31H30V32H29zM31,31H32V32H31zM33,31H34V32H33zM37,31H38V32H37zM1,32H2V33H1zM7,32H8V33H7zM9,32H10V33H9zM10,32H11V33H10zM12,32H13V33H12zM22,32H23V33H22zM24,32H25V33H24zM26,32H27V33H26zM27,32H28V33H27zM28,32H29V33H28zM29,32H30V33H29zM33,32H34V33H33zM36,32H37V33H36zM1,33H2V34H1zM3,33H4V34H3zM4,33H5V34H4zM5,33H6V34H5zM7,33H8V34H7zM9,33H10V34H9zM10,33H11V34H10zM11,33H12V34H11zM12,33H13V34H12zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM19,33H20V34H19zM21,33H22V34H21zM22,33H23V34H22zM25,33H26V34H25zM27,33H28V34H27zM28,33H29V34H28zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM33,33H34V34H33zM36,33H37V34H36zM1,34H2V35H1zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM7,34H8V35H7zM9,34H10V35H9zM10,34H11V35H10zM13,34H14V35H13zM14,34H15V35H14zM15,34H16V35H15zM21,34H22V35H21zM22,34H23V35H22zM23,34H24V35H23zM24,34H25V35H24zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM30,34H31V35H30zM31,34H32V35H31zM34,34H35V35H34zM37,34H38V35H37zM1,35H2V36H1zM3,35H4V36H3zM4,35H5V36H4zM5,35H6V36H5zM7,35H8V36H7zM10,35H11V36H10zM12,35H13V36H12zM13,35H14V36H13zM15,35H16V36H15zM19,35H20V36H19zM23,35H24V36H23zM24,35H25V36H24zM26,35H27V36H26zM29,35H30V36H29zM30,35H31V36H30zM33,35H34V36H33zM34,35H35V36H34zM35,35H36V36H35zM37,35H38V36H37zM1,36H2V37H1zM7,36H8V37H7zM12,36H13V37H12zM14,36H15V37H14zM15,36H16V37H15zM16,36H17V37H16zM18,36H19V37H18zM25,36H26V37H25zM33,36H34V37H33zM34,36H35V37H34zM35,36H36V37H35zM36,36H37V37H36zM37,36H38V37H37zM1,37H2V38H1zM2,37H3V38H2zM3,37H4V38H3zM4,37H5V38H4zM5,37H6V38H5zM6,37H7V38H6zM7,37H8V38H7zM9,37H10V38H9zM10,37H11V38H10zM13,37H14V38H13zM14,37H15V38H14zM15,37H16V38H15zM17,37H18V38H17zM20,37H21V38H20zM21,37H22V38H21zM23,37H24V38H23zM25,37H26V38H25zM28,37H29V38H28zM29,37H30V38H29zM30,37H31V38H30zM32,37H33V38H32zM34,37H35V38H34zM37,37H38V38H37z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg>
+      <p><b>thanh990522.github.io/communication-foundation</b><br>→ S01 → 📝 Homework</p><span class="pass">Pass mark: 80%</span></div>
   </div>
   <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>S01</b></span><span><b>19</b></span></div>
 </section>
@@ -683,11 +800,11 @@ const FAMS = [
   {ipa:'/uː/',key:'you',letters:['Q','U','W'],color:'var(--f6)'},
   {ipa:'/ɑː/',key:'car',letters:['R'],color:'var(--f7)'}
 ];
-const ACRONYMS = [
-  ['ATM','automated teller machine (cây rút tiền)'],['KFC','Kentucky Fried Chicken'],['VIP','very important person'],
-  ['OK','okay'],['USA','United States of America'],['UK','United Kingdom'],['CEO','chief executive officer'],
-  ['FAQ','frequently asked questions'],['DIY','do it yourself'],['ASAP','as soon as possible'],
-  ['BBC','British Broadcasting Corporation'],['ID','identity / identification'],['VTV','Vietnam Television'],['HCMC','Ho Chi Minh City']
+const ACRONYMS = [  // acronym, full form, Vietnamese, icon
+  ['ATM','automated teller machine','cây rút tiền','🏧'],['KFC','Kentucky Fried Chicken','chuỗi gà rán','🍗'],['VIP','very important person','khách quan trọng','⭐'],
+  ['OK','okay','được, đồng ý','👌'],['USA','United States of America','Hoa Kỳ','🗽'],['UK','United Kingdom','Vương quốc Anh','💂'],['CEO','chief executive officer','giám đốc điều hành','👔'],
+  ['FAQ','frequently asked questions','câu hỏi thường gặp','❓'],['DIY','do it yourself','tự làm','🔨'],['ASAP','as soon as possible','càng sớm càng tốt','⏰'],
+  ['BBC','British Broadcasting Corporation','đài BBC (Anh)','📻'],['ID','identity / identification','giấy tờ tùy thân','🆔'],['VTV','Vietnam Television','Đài Truyền hình Việt Nam','📺'],['HCMC','Ho Chi Minh City','TP. Hồ Chí Minh','🏙']
 ];
 const ODD = [
   {L:['A','H','J','E'],odd:'E',why:'E sounds like "see"; A, H, J sound like "say".'},
@@ -889,12 +1006,16 @@ function buildCloud(id){
   el.innerHTML = pos.map((p,i)=>`<div class="t" data-letter="${p[3]}" style="left:${p[0]}px;top:${p[1]}px;transform:rotate(${p[2]}deg);background:${i%3===0?'var(--yellow)':i%3===1?'var(--blue)':'var(--navy)'};color:${i%3===0?'var(--navy)':i%3===1?'#fff':'var(--yellow)'}">${p[3]}</div>`).join('');
 }
 function buildAcr(){
-  document.getElementById('acr').innerHTML = ACRONYMS.map(([a,m])=>`<div class="a"><div class="in"><div class="fr">${a}</div><div class="bk"><div>${a}<br>= ${m}</div></div></div></div>`).join('');
-  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; c.classList.add('flip'); play('ACR_'+i); }));
+  document.getElementById('acr').innerHTML = ACRONYMS.map(([a,m,vi,ic])=>`<div class="a"><div class="in"><div class="fr"><span class="aic">${ic}</span><b>${a}</b><span class="turn">↻</span></div><div class="bk"><b>${a}</b><span class="full">${esc(m)}</span><span class="vi">${esc(vi)}</span></div></div></div>`).join('');
+  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; const on=c.classList.toggle('flip'); if(on) play('ACR_'+i); }));
 }
 function buildAbc(){
   document.getElementById('abc').innerHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(L=>
-    `<div class="tile ${'AEIOU'.includes(L)?'vowel':''}" data-letter="${L}" id="t${L}"><div class="U">${L}<small>${L.toLowerCase()}</small></div><div class="p ipa">/${IPA[L]}/</div><div class="bar" style="background:${famColorOf(L)}"></div>${dl('L_'+L).replace('class="dl"','class="dl tdl"')}</div>`).join('');
+    { const f=FAMS.find(x=>x.letters.includes(L)); return `<div class="tile ft ${'AEIOU'.includes(L)?'vowel':''}" data-letter="${L}" id="t${L}"><div class="tin"><div class="tfr"><div class="U">${L}<small>${L.toLowerCase()}</small></div><div class="bar" style="background:${famColorOf(L)}"></div>${dl('L_'+L).replace('class="dl"','class="dl tdl"')}</div><div class="tbk" style="background:${f.color};color:${f.color==='var(--f3)'?'var(--navy)':'#fff'}"><b>${L}</b><span class="ipa${IPA[L].length>5?' long':''}">/${IPA[L]}/</span><span class="lk">like <i>${f.key}</i></span></div></div></div>`; }).join('');
+  document.querySelectorAll('#abc .tile').forEach(t=>t.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; t.classList.toggle('flip'); }));
+  const bar=document.querySelector('.abcbar'); if(bar) bar.insertAdjacentHTML('beforeend','<span style="margin-left:auto;font-size:19px;color:var(--muted);font-weight:700">↻ Say it, then click to check</span><button class="btn sm ghost" id="abcFlip">🔄 Flip all</button><button class="btn sm ghost" id="abcReset">↺ Reset</button>');
+  document.getElementById('abcFlip').onclick=()=>document.querySelectorAll('#abc .tile').forEach(t=>t.classList.add('flip'));
+  document.getElementById('abcReset').onclick=()=>document.querySelectorAll('#abc .tile').forEach(t=>t.classList.remove('flip'));
 }
 function playAZ(btn){
   const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');

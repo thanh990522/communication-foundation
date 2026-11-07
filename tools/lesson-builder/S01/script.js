@@ -17,11 +17,11 @@ const FAMS = [
   {ipa:'/uː/',key:'you',letters:['Q','U','W'],color:'var(--f6)'},
   {ipa:'/ɑː/',key:'car',letters:['R'],color:'var(--f7)'}
 ];
-const ACRONYMS = [
-  ['ATM','automated teller machine (cây rút tiền)'],['KFC','Kentucky Fried Chicken'],['VIP','very important person'],
-  ['OK','okay'],['USA','United States of America'],['UK','United Kingdom'],['CEO','chief executive officer'],
-  ['FAQ','frequently asked questions'],['DIY','do it yourself'],['ASAP','as soon as possible'],
-  ['BBC','British Broadcasting Corporation'],['ID','identity / identification'],['VTV','Vietnam Television'],['HCMC','Ho Chi Minh City']
+const ACRONYMS = [  // acronym, full form, Vietnamese, icon
+  ['ATM','automated teller machine','cây rút tiền','🏧'],['KFC','Kentucky Fried Chicken','chuỗi gà rán','🍗'],['VIP','very important person','khách quan trọng','⭐'],
+  ['OK','okay','được, đồng ý','👌'],['USA','United States of America','Hoa Kỳ','🗽'],['UK','United Kingdom','Vương quốc Anh','💂'],['CEO','chief executive officer','giám đốc điều hành','👔'],
+  ['FAQ','frequently asked questions','câu hỏi thường gặp','❓'],['DIY','do it yourself','tự làm','🔨'],['ASAP','as soon as possible','càng sớm càng tốt','⏰'],
+  ['BBC','British Broadcasting Corporation','đài BBC (Anh)','📻'],['ID','identity / identification','giấy tờ tùy thân','🆔'],['VTV','Vietnam Television','Đài Truyền hình Việt Nam','📺'],['HCMC','Ho Chi Minh City','TP. Hồ Chí Minh','🏙']
 ];
 const ODD = [
   {L:['A','H','J','E'],odd:'E',why:'E sounds like "see"; A, H, J sound like "say".'},
@@ -223,12 +223,16 @@ function buildCloud(id){
   el.innerHTML = pos.map((p,i)=>`<div class="t" data-letter="${p[3]}" style="left:${p[0]}px;top:${p[1]}px;transform:rotate(${p[2]}deg);background:${i%3===0?'var(--yellow)':i%3===1?'var(--blue)':'var(--navy)'};color:${i%3===0?'var(--navy)':i%3===1?'#fff':'var(--yellow)'}">${p[3]}</div>`).join('');
 }
 function buildAcr(){
-  document.getElementById('acr').innerHTML = ACRONYMS.map(([a,m])=>`<div class="a"><div class="in"><div class="fr">${a}</div><div class="bk"><div>${a}<br>= ${m}</div></div></div></div>`).join('');
-  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; c.classList.add('flip'); play('ACR_'+i); }));
+  document.getElementById('acr').innerHTML = ACRONYMS.map(([a,m,vi,ic])=>`<div class="a"><div class="in"><div class="fr"><span class="aic">${ic}</span><b>${a}</b><span class="turn">↻</span></div><div class="bk"><b>${a}</b><span class="full">${esc(m)}</span><span class="vi">${esc(vi)}</span></div></div></div>`).join('');
+  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; const on=c.classList.toggle('flip'); if(on) play('ACR_'+i); }));
 }
 function buildAbc(){
   document.getElementById('abc').innerHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(L=>
-    `<div class="tile ${'AEIOU'.includes(L)?'vowel':''}" data-letter="${L}" id="t${L}"><div class="U">${L}<small>${L.toLowerCase()}</small></div><div class="p ipa">/${IPA[L]}/</div><div class="bar" style="background:${famColorOf(L)}"></div>${dl('L_'+L).replace('class="dl"','class="dl tdl"')}</div>`).join('');
+    { const f=FAMS.find(x=>x.letters.includes(L)); return `<div class="tile ft ${'AEIOU'.includes(L)?'vowel':''}" data-letter="${L}" id="t${L}"><div class="tin"><div class="tfr"><div class="U">${L}<small>${L.toLowerCase()}</small></div><div class="bar" style="background:${famColorOf(L)}"></div>${dl('L_'+L).replace('class="dl"','class="dl tdl"')}</div><div class="tbk" style="background:${f.color};color:${f.color==='var(--f3)'?'var(--navy)':'#fff'}"><b>${L}</b><span class="ipa${IPA[L].length>5?' long':''}">/${IPA[L]}/</span><span class="lk">like <i>${f.key}</i></span></div></div></div>`; }).join('');
+  document.querySelectorAll('#abc .tile').forEach(t=>t.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; t.classList.toggle('flip'); }));
+  const bar=document.querySelector('.abcbar'); if(bar) bar.insertAdjacentHTML('beforeend','<span style="margin-left:auto;font-size:16px;color:var(--muted);font-weight:700">↻ Say it, then click to check</span><button class="btn sm ghost" id="abcFlip">🔄 Flip all</button><button class="btn sm ghost" id="abcReset">↺ Reset</button>');
+  document.getElementById('abcFlip').onclick=()=>document.querySelectorAll('#abc .tile').forEach(t=>t.classList.add('flip'));
+  document.getElementById('abcReset').onclick=()=>document.querySelectorAll('#abc .tile').forEach(t=>t.classList.remove('flip'));
 }
 function playAZ(btn){
   const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
