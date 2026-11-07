@@ -1,0 +1,407 @@
+{
+ "session": "S04",
+ "title": "Appointments: numbers, dates & messages",
+ "kind": "Listening",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "Part 1. 13 or 30? Listen and choose",
+   "items": [
+    {
+     "id": "A1",
+     "type": "listen_mcq",
+     "prompt": "Number 1 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_1.mp3",
+     "options": [
+      "13th",
+      "30th"
+     ],
+     "answers": [
+      "13th"
+     ],
+     "points": 1,
+     "show": "13th"
+    },
+    {
+     "id": "A2",
+     "type": "listen_mcq",
+     "prompt": "Number 2 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_2.mp3",
+     "options": [
+      "4:14",
+      "4:40"
+     ],
+     "answers": [
+      "4:40"
+     ],
+     "points": 1,
+     "show": "4:40"
+    },
+    {
+     "id": "A3",
+     "type": "listen_mcq",
+     "prompt": "Number 3 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_3.mp3",
+     "options": [
+      "15th",
+      "50th"
+     ],
+     "answers": [
+      "15th"
+     ],
+     "points": 1,
+     "show": "15th"
+    },
+    {
+     "id": "A4",
+     "type": "listen_mcq",
+     "prompt": "Number 4 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_4.mp3",
+     "options": [
+      "2:15",
+      "2:50"
+     ],
+     "answers": [
+      "2:50"
+     ],
+     "points": 1,
+     "show": "2:50"
+    },
+    {
+     "id": "A5",
+     "type": "listen_mcq",
+     "prompt": "Number 5 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_5.mp3",
+     "options": [
+      "16",
+      "60"
+     ],
+     "answers": [
+      "16"
+     ],
+     "points": 1,
+     "show": "16"
+    },
+    {
+     "id": "A6",
+     "type": "listen_mcq",
+     "prompt": "Number 6 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_6.mp3",
+     "options": [
+      "17",
+      "70"
+     ],
+     "answers": [
+      "70"
+     ],
+     "points": 1,
+     "show": "70"
+    },
+    {
+     "id": "A7",
+     "type": "listen_mcq",
+     "prompt": "Number 7 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_7.mp3",
+     "options": [
+      "18th",
+      "80th"
+     ],
+     "answers": [
+      "18th"
+     ],
+     "points": 1,
+     "show": "18th"
+    },
+    {
+     "id": "A8",
+     "type": "listen_mcq",
+     "prompt": "Number 8 · Which one do you hear?",
+     "audio": "homework/audio/S04/S04_HW_num_8.mp3",
+     "options": [
+      "19",
+      "90"
+     ],
+     "answers": [
+      "90"
+     ],
+     "points": 1,
+     "show": "90"
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "Part 2. Message 1 · Smile Dental Clinic",
+   "audio": "homework/audio/S04/S04_HW_message_1.mp3",
+   "note": "APPOINTMENT — Linh Pham",
+   "items": [
+    {
+     "id": "B1",
+     "type": "gap",
+     "prompt": "Day: ____",
+     "answers": [
+      "Thursday",
+      "Thu"
+     ],
+     "points": 1,
+     "show": "Thursday"
+    },
+    {
+     "id": "B2",
+     "type": "gap",
+     "prompt": "Date: the ____",
+     "answers": [
+      "14th",
+      "14",
+      "fourteenth",
+      "the14th"
+     ],
+     "points": 1,
+     "show": "14th"
+    },
+    {
+     "id": "B3",
+     "type": "gap",
+     "prompt": "Time: ____",
+     "answers": [
+      "3:45",
+      "3.45",
+      "345",
+      "3:45pm",
+      "3.45pm",
+      "3:45p.m.",
+      "quartertofour",
+      "15:45"
+     ],
+     "points": 1,
+     "show": "3:45"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "Part 3. Message 2 · Hoa (team meeting)",
+   "audio": "homework/audio/S04/S04_HW_message_2.mp3",
+   "items": [
+    {
+     "id": "C1",
+     "type": "mcq",
+     "prompt": "Why is Hoa postponing the meeting?",
+     "options": [
+      "She's meeting a client.",
+      "She's at the dentist.",
+      "She has a deadline."
+     ],
+     "answers": [
+      "She's meeting a client."
+     ],
+     "points": 1,
+     "show": "She's meeting a client."
+    },
+    {
+     "id": "C2",
+     "type": "gap",
+     "prompt": "Old day: ____ morning",
+     "answers": [
+      "Monday",
+      "Mon"
+     ],
+     "points": 1,
+     "show": "Monday"
+    },
+    {
+     "id": "C3",
+     "type": "gap",
+     "prompt": "New day: ____",
+     "answers": [
+      "Tuesday",
+      "Tue",
+      "Tues"
+     ],
+     "points": 1,
+     "show": "Tuesday"
+    },
+    {
+     "id": "C4",
+     "type": "gap",
+     "prompt": "New date: the ____",
+     "answers": [
+      "30th",
+      "30",
+      "thirtieth",
+      "the30th"
+     ],
+     "points": 1,
+     "show": "30th"
+    },
+    {
+     "id": "C5",
+     "type": "gap",
+     "prompt": "New time: ____",
+     "answers": [
+      "10:30",
+      "10.30",
+      "1030",
+      "halfpastten",
+      "10:30am",
+      "10.30am",
+      "10:30a.m."
+     ],
+     "points": 1,
+     "show": "10:30"
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "Part 4. Message 3 · Tom (study call)",
+   "audio": "homework/audio/S04/S04_HW_message_3.mp3",
+   "items": [
+    {
+     "id": "D1",
+     "type": "gap",
+     "prompt": "Tom has a deadline on ____.",
+     "answers": [
+      "Friday",
+      "Fri"
+     ],
+     "points": 1,
+     "show": "Friday"
+    },
+    {
+     "id": "D2",
+     "type": "gap",
+     "prompt": "He is working late on ____.",
+     "answers": [
+      "Thursday",
+      "Thu"
+     ],
+     "points": 1,
+     "show": "Thursday"
+    },
+    {
+     "id": "D3",
+     "type": "mcq",
+     "prompt": "New day for the study call:",
+     "options": [
+      "Saturday morning",
+      "Saturday evening",
+      "Sunday morning"
+     ],
+     "answers": [
+      "Saturday morning"
+     ],
+     "points": 1,
+     "show": "Saturday morning"
+    },
+    {
+     "id": "D4",
+     "type": "gap",
+     "prompt": "New time: ____",
+     "answers": [
+      "9:15",
+      "9.15",
+      "915",
+      "quarterpastnine",
+      "9:15am",
+      "9.15am",
+      "9:15a.m."
+     ],
+     "points": 1,
+     "show": "9:15"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "Part 5. Phone call · City Gym",
+   "audio": "homework/audio/S04/S04_HW_call.mp3",
+   "note": "BOOKING — yoga class",
+   "items": [
+    {
+     "id": "E1",
+     "type": "mcq",
+     "prompt": "Why is the 7 p.m. class no good?",
+     "options": [
+      "It is full.",
+      "It is late.",
+      "It is postponed."
+     ],
+     "answers": [
+      "It is full."
+     ],
+     "points": 1,
+     "show": "It is full."
+    },
+    {
+     "id": "E2",
+     "type": "mcq",
+     "prompt": "Why doesn't 8:15 work for Ken?",
+     "options": [
+      "He's having dinner with his family.",
+      "He's working late.",
+      "He's meeting a client."
+     ],
+     "answers": [
+      "He's having dinner with his family."
+     ],
+     "points": 1,
+     "show": "He's having dinner with his family."
+    },
+    {
+     "id": "E3",
+     "type": "gap",
+     "prompt": "Day: ____",
+     "answers": [
+      "Thursday",
+      "Thu"
+     ],
+     "points": 1,
+     "show": "Thursday"
+    },
+    {
+     "id": "E4",
+     "type": "gap",
+     "prompt": "Date: the ____",
+     "answers": [
+      "19th",
+      "19",
+      "nineteenth",
+      "the19th"
+     ],
+     "points": 1,
+     "show": "19th"
+    },
+    {
+     "id": "E5",
+     "type": "gap",
+     "prompt": "Time: ____",
+     "answers": [
+      "6:30",
+      "6.30",
+      "630",
+      "halfpastsix",
+      "6:30pm",
+      "6.30pm",
+      "6:30p.m.",
+      "18:30"
+     ],
+     "points": 1,
+     "show": "6:30"
+    },
+    {
+     "id": "E6",
+     "type": "gap",
+     "prompt": "Surname: Ken ____",
+     "answers": [
+      "Lee"
+     ],
+     "points": 1,
+     "show": "Lee"
+    }
+   ]
+  }
+ ],
+ "autoMax": 26
+}
