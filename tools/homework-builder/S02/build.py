@@ -3,7 +3,7 @@ Texts and questions use only the language of lesson S02 (routines, collocations,
 present simple, first/then/after that/but/whereas/because) plus A1 routine verbs and clock times.
 Writes homework/data/S02.json.  Run: python3 build.py
 """
-import json, os
+import json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
@@ -67,6 +67,8 @@ HOMEWORK = {
 
 def build():
     hw = json.loads(json.dumps(HOMEWORK))
+    sys.path.insert(0, os.path.join(ROOT, 'tools', 'lesson-builder')); from mcshuffle import shuffle_items
+    for _sec in hw['sections']: shuffle_items(_sec['items'], f"{SESSION}-{_sec['id']}")
     hw['autoMax'] = sum(it['points'] for s in hw['sections'] for it in s['items'])
     out = os.path.join(ROOT, 'homework', 'data', f'{SESSION}.json')
     json.dump(hw, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

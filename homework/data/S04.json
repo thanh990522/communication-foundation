@@ -14,8 +14,8 @@
      "prompt": "Number 1 · Which one do you hear?",
      "audio": "homework/audio/S04/S04_HW_num_1.mp3",
      "options": [
-      "13th",
-      "30th"
+      "30th",
+      "13th"
      ],
      "answers": [
       "13th"
@@ -29,8 +29,8 @@
      "prompt": "Number 2 · Which one do you hear?",
      "audio": "homework/audio/S04/S04_HW_num_2.mp3",
      "options": [
-      "4:14",
-      "4:40"
+      "4:40",
+      "4:14"
      ],
      "answers": [
       "4:40"
@@ -74,8 +74,8 @@
      "prompt": "Number 5 · Which one do you hear?",
      "audio": "homework/audio/S04/S04_HW_num_5.mp3",
      "options": [
-      "16",
-      "60"
+      "60",
+      "16"
      ],
      "answers": [
       "16"
@@ -89,8 +89,8 @@
      "prompt": "Number 6 · Which one do you hear?",
      "audio": "homework/audio/S04/S04_HW_num_6.mp3",
      "options": [
-      "17",
-      "70"
+      "70",
+      "17"
      ],
      "answers": [
       "70"
@@ -104,8 +104,8 @@
      "prompt": "Number 7 · Which one do you hear?",
      "audio": "homework/audio/S04/S04_HW_num_7.mp3",
      "options": [
-      "18th",
-      "80th"
+      "80th",
+      "18th"
      ],
      "answers": [
       "18th"
@@ -119,8 +119,8 @@
      "prompt": "Number 8 · Which one do you hear?",
      "audio": "homework/audio/S04/S04_HW_num_8.mp3",
      "options": [
-      "19",
-      "90"
+      "90",
+      "19"
      ],
      "answers": [
       "90"
@@ -189,9 +189,9 @@
      "type": "mcq",
      "prompt": "Why is Hoa postponing the meeting?",
      "options": [
-      "She's meeting a client.",
       "She's at the dentist.",
-      "She has a deadline."
+      "She has a deadline.",
+      "She's meeting a client."
      ],
      "answers": [
       "She's meeting a client."
@@ -324,9 +324,9 @@
      "type": "mcq",
      "prompt": "Why is the 7 p.m. class no good?",
      "options": [
+      "It is postponed.",
       "It is full.",
-      "It is late.",
-      "It is postponed."
+      "It is late."
      ],
      "answers": [
       "It is full."
@@ -339,9 +339,9 @@
      "type": "mcq",
      "prompt": "Why doesn't 8:15 work for Ken?",
      "options": [
+      "He's meeting a client.",
       "He's having dinner with his family.",
-      "He's working late.",
-      "He's meeting a client."
+      "He's working late."
      ],
      "answers": [
       "He's having dinner with his family."

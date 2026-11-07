@@ -2,6 +2,8 @@
 Run after gen_audio.py.  Same page shell and architecture as S02."""
 import base64, html, io, json, os, re, shutil, zipfile
 import content as C
+import sys as _s; _s.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from mcshuffle import shuffle_content; shuffle_content(C, 'S03')
 import illus03 as I
 
 HERE = os.path.dirname(os.path.abspath(__file__))

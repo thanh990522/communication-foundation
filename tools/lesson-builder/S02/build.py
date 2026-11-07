@@ -2,6 +2,8 @@
 Run after gen_audio.py.  Uses the lesson-1 page shell (shell_head.html / shell_tail.html / core.js)."""
 import base64, html, io, json, os, re, shutil, zipfile
 import content as C
+import sys as _s; _s.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from mcshuffle import shuffle_content; shuffle_content(C, 'S02')
 import illus as I
 
 HERE = os.path.dirname(os.path.abspath(__file__))

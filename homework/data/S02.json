@@ -119,9 +119,9 @@
      "type": "mcq",
      "prompt": "What time does Minh usually start work?",
      "options": [
+      "at midnight",
       "at four",
-      "at ten",
-      "at midnight"
+      "at ten"
      ],
      "answers": [
       "at four"
@@ -149,9 +149,9 @@
      "type": "mcq",
      "prompt": "How often does Minh get up before nine?",
      "options": [
+      "hardly ever",
       "always",
-      "usually",
-      "hardly ever"
+      "usually"
      ],
      "answers": [
       "hardly ever"
@@ -165,8 +165,8 @@
      "prompt": "Minh's day usually starts with…",
      "options": [
       "a cup of coffee",
-      "breakfast at ten",
-      "a short break"
+      "a short break",
+      "breakfast at ten"
      ],
      "answers": [
       "breakfast at ten"
@@ -179,9 +179,9 @@
      "type": "mcq",
      "prompt": "When does he take a short break?",
      "options": [
-      "at four",
       "at eight",
-      "at ten"
+      "at ten",
+      "at four"
      ],
      "answers": [
       "at eight"
@@ -194,9 +194,9 @@
      "type": "mcq",
      "prompt": "Does Minh work at weekends?",
      "options": [
-      "Yes, always",
       "Yes, sometimes",
-      "No, never"
+      "No, never",
+      "Yes, always"
      ],
      "answers": [
       "No, never"
@@ -215,9 +215,9 @@
      "type": "mcq",
      "prompt": "Minh ____ the evening shift.",
      "options": [
-      "work",
       "works",
-      "working"
+      "working",
+      "work"
      ],
      "answers": [
       "works"
@@ -245,9 +245,9 @@
      "type": "mcq",
      "prompt": "I make a ____ commute to the city.",
      "options": [
-      "daily",
+      "evening",
       "short",
-      "evening"
+      "daily"
      ],
      "answers": [
       "daily"
@@ -260,9 +260,9 @@
      "type": "mcq",
      "prompt": "____ weekends, I usually get up late.",
      "options": [
-      "On",
+      "In",
       "At",
-      "In"
+      "On"
      ],
      "answers": [
       "At"
@@ -291,8 +291,8 @@
      "prompt": "He hardly ever gets up before nine ____ he finishes work late.",
      "options": [
       "because",
-      "whereas",
-      "first"
+      "first",
+      "whereas"
      ],
      "answers": [
       "because"

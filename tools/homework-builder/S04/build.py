@@ -140,7 +140,9 @@ def build():
     parts = []
     for v, t in CALL: parts += [load(ck(v, t, '-6%')), sil(.55)]
     save(np.concatenate(parts), 'S04_HW_call.mp3')
-    hw = json.loads(json.dumps(HOMEWORK)); mx = 0
+    hw = json.loads(json.dumps(HOMEWORK))
+    sys.path.insert(0, os.path.join(ROOT, 'tools', 'lesson-builder')); from mcshuffle import shuffle_items
+    for _sec in hw['sections']: shuffle_items(_sec['items'], f"{SESSION}-{_sec['id']}"); mx = 0
     for sec in hw['sections']:
         for it in sec['items']:
             it.setdefault('points', 1); it['show'] = it['answers'][0]; mx += it['points']
