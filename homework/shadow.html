@@ -110,7 +110,7 @@ main{padding-top:20px}
 </head>
 <body>
 <header><div class="wrap">
-  <a class="back" href="../">← Tất cả bài học</a>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><a class="back" href="../">← Tất cả bài học</a><span id="gtMe"></span></div>
   <div><span class="kick" id="kick">Speaking homework</span></div>
   <h1 id="title">Shadowing</h1>
   <div class="steps3"><span>① Listen</span><span>② Shadow</span><span>③ Record &amp; check</span><span>④ Role-play</span><span>⑤ Nộp bài · 80%</span></div>
@@ -154,6 +154,9 @@ main{padding-top:20px}
 </div></div>
 <div id="toast"></div>
 
+<script src="../assets/config.js"></script>
+<script>document.write('<script src="../assets/sessions.js?t='+Date.now()+'"><\/script>')</script>
+<script src="../assets/student.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 const SESSION=(new URLSearchParams(location.search).get('s')||'S03').toUpperCase().replace(/[^A-Z0-9]/g,'');
@@ -288,11 +291,13 @@ function avg(){ const n=D.lines.length; let s=0; for(let i=0;i<n;i++) s+=(scores
 function updateStat(){ const n=D.lines.length, done=Object.keys(scores).length; $('#statTxt').textContent=`${done} / ${n} lines checked`; $('#statSub').textContent=`Average so far: ${avg()}% · need ${PASS}%`; $('#statBar').style.width=(done/n*100)+'%'; }
 function saveDraft(){ try{ localStorage.setItem(draftKey,JSON.stringify(scores)); }catch(e){} }
 function showBest(){ let b=null; try{ b=JSON.parse(localStorage.getItem(bestKey)||'null'); }catch(e){} const el=$('#best'); if(!b){ el.hidden=true; return; } el.hidden=false; el.className='notice best '+(b.passed?'good':'warn'); el.innerHTML=b.passed?`✅ Best result: <b>${b.pct}%</b> — passed.`:`Best result: <b>${b.pct}%</b> — not passed yet.`; }
-function submit(){
+async function submit(){
+  if(!GT.get()){ const st=await GT.requireName(); if(!st) return; }
   const n=D.lines.length, done=Object.keys(scores).length;
   if(done<n && !confirmMissing(n-done)) return;
   stopAudio(); if(full) full.pause();
   const pct=avg(), pass=pct>=PASS; submitted=true;
+  GT.log({kind:'homework',sid:SESSION,pct,passed:pass});
   try{ const prev=JSON.parse(localStorage.getItem(bestKey)||'null'); if(!prev||pct>prev.pct) localStorage.setItem(bestKey,JSON.stringify({pct,passed:pass,at:Date.now()})); }catch(e){}
   const low=D.lines.map((l,i)=>i).filter(i=>(scores[i]||0)<PASS);
   const r=$('#result');
@@ -310,7 +315,7 @@ let missingOk=false;
 function confirmMissing(k){ if(missingOk) return true; toast(`${k} line(s) not recorded yet — they count as 0%. Press Nộp bài again to submit anyway.`,5000); missingOk=true; setTimeout(()=>missingOk=false,8000); return false; }
 
 /* ---------- init ---------- */
-fetch(`data/${SESSION}.json`).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(d=>{
+(GT.renderMe(), GT.guard(SESSION,'../') ? Promise.reject('closed') : fetch(`data/${SESSION}.json`)).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(d=>{
   D=d; PASS=d.pass||80; FREE=new Set(Object.values(d.speakers).concat(d.free||[]).flatMap(normWord));
   document.title=`${SESSION} · ${d.title}`; $('#kick').textContent=`${SESSION} · ${d.kind}`;
   $('#title').innerHTML=esc(d.title).replace(/:\s*(.+)$/,': <em>$1</em>');

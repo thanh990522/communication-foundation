@@ -151,7 +151,7 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 </head>
 <body>
 <header><div class="wrap">
-  <div class="topline"><a class="back" href="../">← Tất cả bài học</a></div>
+  <div class="topline"><a class="back" href="../">← Tất cả bài học</a><span id="gtMe"></span></div>
   <span class="kick" id="kick">Homework</span>
   <h1 id="title">Homework</h1>
   <p class="intro" id="intro"></p>
@@ -171,6 +171,9 @@ textarea{width:100%;min-height:150px;border:2px solid var(--line);border-radius:
 <div id="modal"><div class="box"><h3 id="mTitle"></h3><div id="mBody"></div><div class="acts" id="mActs"></div></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="../assets/config.js"></script>
+<script>document.write('<script src="../assets/sessions.js?t='+Date.now()+'"><\/script>')</script>
+<script src="../assets/student.js"></script>
 <script>
 (function(){
 const ROOT='../';
@@ -368,6 +371,7 @@ function showMarks(details){
 const toB64=blob=>new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(',')[1]); r.onerror=rej; r.readAsDataURL(blob); });
 async function submit(){
   if(submitted) return;
+  if(!GT.get()){ const st=await GT.requireName(); if(!st) return; }
   const missing=ITEMS.filter(it=>!isDone(it));
   if(missing.length){
     const go=await modal('Còn câu chưa làm',`<p>Bạn còn <b>${missing.length}</b> câu chưa làm. Vẫn nộp bài?</p>`,[{label:'Làm tiếp',value:false},{label:'Vẫn nộp',value:true,cls:'blue'}]);
@@ -380,6 +384,7 @@ async function submit(){
     const k='gt_hw_best_'+SESSION, prev=JSON.parse(localStorage.getItem(k)||'null');
     if(!prev||pct>prev.pct) localStorage.setItem(k,JSON.stringify({pct,passed:pct>=PASS,at:Date.now()}));
   }catch(e){}
+  GT.log({kind:'homework',sid:SESSION,pct,passed:pct>=PASS});
   showMarks(g.details); lockForm(true); showResult(g);
 }
 function lockForm(on){
@@ -417,6 +422,7 @@ function showBest(){
 async function boot(){
   $('#send').onclick=submit;
   let data;
+  GT.renderMe(); if(GT.guard(SESSION,'../')) return;
   try{ const r=await fetch('data/'+SESSION+'.json',{cache:'no-cache'}); if(!r.ok) throw 0; data=await r.json(); }
   catch(e){ $('#hw').innerHTML=`<div class="loading">Chưa có homework cho buổi ${esc(SESSION)}. <a href="../">Về trang chủ</a></div>`; return; }
   HW=data;

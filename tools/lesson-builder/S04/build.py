@@ -57,6 +57,12 @@ home = '<a href="../../" style="color:var(--blue);font-weight:800;text-decoratio
 CSS = open(os.path.join(HERE, 'style.css'), encoding='utf-8').read()
 
 
+TRACK = lambda sid: ('<script src="../../assets/config.js"></script>'
+    '<script>document.write(\'<script src="../../assets/sessions.js?t=\'+Date.now()+\'"><\\/script>\')</script>'
+    '<script src="../../assets/student.js"></script>'
+    f'<script>GT.guard("{sid}","../../")||GT.lessonOpened("{sid}")</script>\n</body>')
+
+
 def build():
     head_ = open(os.path.join(HERE, 'shell_head.html'), encoding='utf-8').read().replace('</style>', CSS + '</style>', 1)
     tail_ = open(os.path.join(HERE, 'shell_tail.html'), encoding='utf-8').read()
@@ -87,7 +93,7 @@ def build():
     off = {k: dict(v, src='data:audio/mpeg;base64,' + base64.b64encode(open(src_path(k, v), 'rb').read()).decode()) for k, v in man.items()}
     if os.path.isdir(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
-    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page(web, LESSON_URL, True))
+    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page(web, LESSON_URL, True).replace('</body>', TRACK('S04'), 1))
     open(os.path.join(OUT, f'{SID}_offline.html'), 'w', encoding='utf-8').write(page(off, '', False))
     shutil.copytree(os.path.join(HERE, 'mp3'), os.path.join(OUT, 'audio'))
     os.makedirs(os.path.join(OUT, 'audio', 'Listening'), exist_ok=True)

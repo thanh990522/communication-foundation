@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Quản lý lớp · Tiếng Anh Giao Tiếp Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1D4ED8;--navy:#0B1F5C;--sky:#EAF1FF;--sky-2:#D6E4FF;--yellow:#FFC72C;--yellow-soft:#FFF6D6;--ink:#0F172A;--muted:#5B6B8C;--line:#E3E8F4;--bg:#F6F8FD;
+--green:#16A34A;--green-soft:#DCFCE7;--red:#DC2626;--red-soft:#FEE2E2;--amber-soft:#FEF3C7;--shadow-s:0 4px 14px rgba(11,31,92,.07)}
+*{box-sizing:border-box;margin:0;padding:0}[hidden]{display:none!important}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding-bottom:60px}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+header{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+header::before{content:"";position:absolute;right:-80px;top:-100px;width:240px;height:240px;border-radius:50%;background:var(--yellow)}
+header .wrap{position:relative;padding:20px 18px 0}
+header a{color:#C9D6FF;font-weight:700;text-decoration:none;font-size:14px}
+h1{font-size:30px;font-weight:900;margin:8px 0 4px}h1 em{font-style:normal;color:var(--yellow)}
+.dev{font-size:13.5px;color:#C9D6FF;margin-bottom:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:none;background:transparent;color:#C9D6FF;font-weight:800;font-size:15px;padding:12px 16px;border-radius:12px 12px 0 0;cursor:pointer}
+.tab.on{background:var(--bg);color:var(--navy)}
+main{padding-top:22px}
+.card{background:#fff;border:2px solid var(--line);border-radius:18px;box-shadow:var(--shadow-s);padding:18px;margin-bottom:16px}
+.card h2{font-size:19px;font-weight:900;color:var(--navy);margin-bottom:4px}
+.card p.sub{color:var(--muted);font-size:14.5px;margin-bottom:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:none;border-radius:12px;padding:10px 16px;font-weight:800;font-size:15px;cursor:pointer;background:var(--blue);color:#fff;box-shadow:0 3px 0 #163a9e}
+.btn.y{background:var(--yellow);color:var(--navy);box-shadow:0 3px 0 #c99400}
+.btn.ghost{background:var(--sky);color:var(--blue);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:default}
+input.f,select.f{height:44px;border:2px solid var(--line);border-radius:11px;padding:0 12px;font-weight:700;color:var(--navy);min-width:0}
+input.f:focus{outline:none;border-color:var(--blue)}
+.msg{font-weight:700;font-size:14.5px;border-radius:12px;padding:10px 14px;margin-top:10px}
+.msg.ok{background:var(--green-soft);color:#14532D}.msg.err{background:var(--red-soft);color:#991B1B}.msg.info{background:var(--sky);color:var(--navy)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px 16px}
+.kpi b{display:block;font-size:30px;font-weight:900;color:var(--navy);line-height:1.1}.kpi span{color:var(--muted);font-weight:700;font-size:13.5px}
+.tbl{overflow:auto;border:2px solid var(--line);border-radius:16px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+th{background:var(--navy);color:#fff;font-weight:800;position:sticky;top:0}
+td.nm,th.nm{text-align:left}td.nm b{color:var(--navy)}td.nm small{display:block;color:var(--muted)}
+.pill{display:inline-block;min-width:54px;border-radius:999px;padding:2px 8px;font-weight:900;font-size:13px}
+.pill.pass{background:var(--green-soft);color:var(--green)}.pill.fail{background:var(--red-soft);color:var(--red)}
+.pill.open{background:var(--sky);color:var(--blue)}.pill.none{color:#CBD5E1}
+.ss{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.si{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:14px;padding:10px 12px;background:#fff}
+.si .id{flex:none;background:var(--navy);color:var(--yellow);font-weight:900;border-radius:8px;padding:3px 8px;font-size:13px}
+.si .t{flex:1;min-width:0;font-weight:700;font-size:14px;color:var(--navy);line-height:1.3}
+.si .t small{display:block;color:var(--muted);font-weight:600}
+.si.dirty{border-color:var(--yellow);background:var(--yellow-soft)}
+.sw{position:relative;width:52px;height:30px;flex:none}
+.sw input{opacity:0;width:0;height:0}
+.sw span{position:absolute;inset:0;background:#CBD5E1;border-radius:999px;cursor:pointer;transition:.2s}
+.sw span::before{content:"";position:absolute;left:4px;top:4px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.2s}
+.sw input:checked+span{background:var(--green)}.sw input:checked+span::before{transform:translateX(22px)}
+.na{font-size:12.5px;font-weight:800;color:#94A3B8;flex:none}
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.steps li{list-style:none;counter-increment:s;display:flex;gap:10px;font-size:15px}
+.steps li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--yellow);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+pre{background:#0F172A;color:#E2E8F0;border-radius:14px;padding:14px;font-size:12.5px;overflow:auto;max-height:300px}
+code{background:var(--sky);border-radius:6px;padding:1px 6px;font-size:13.5px}
+.lbl{font-weight:800;font-size:13px;color:var(--navy);margin:10px 0 4px}
+@media (max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="../">← Trang học viên</a>
+  <h1>Quản lý lớp · <em>Giao Tiếp 246</em></h1>
+  <div class="dev" id="dev"></div>
+  <div class="tabs"><button class="tab on" data-t="prog">📊 Tiến độ học viên</button><button class="tab" data-t="open">🔓 Đóng / mở bài</button><button class="tab" data-t="set">⚙️ Cài đặt</button></div>
+</div></header>
+
+<main class="wrap">
+  <!-- ============ PROGRESS ============ -->
+  <section id="t-prog">
+    <div class="card"><div class="row" style="justify-content:space-between">
+      <div><h2>Tiến độ học viên</h2><p class="sub" style="margin:0">Học viên nhập tên ở trang chủ → mỗi lần mở bài học / nộp homework sẽ được ghi vào Google Sheet của bạn.</p></div>
+      <div class="row"><select class="f" id="fCls"><option value="">Tất cả lớp</option></select><input class="f" id="fQ" placeholder="🔍 Tìm tên…" style="width:180px"><button class="btn" id="load">↻ Tải dữ liệu</button><button class="btn ghost" id="csv">⬇ CSV</button></div>
+    </div><div id="pMsg"></div></div>
+    <div class="kpis" id="kpis" hidden></div>
+    <div class="tbl" id="tbl" hidden></div>
+  </section>
+
+  <!-- ============ OPEN / CLOSE ============ -->
+  <section id="t-open" hidden>
+    <div class="card"><div class="row" style="justify-content:space-between">
+      <div><h2>Đóng / mở bài học</h2><p class="sub" style="margin:0">Bật = học viên thấy và vào học được. Tắt = bài bị khoá (kể cả khi có link trực tiếp). Lưu xong khoảng <b>1 phút</b> trang học viên cập nhật.</p></div>
+      <div class="row"><button class="btn ghost" id="oReload">↻ Tải lại</button><button class="btn y" id="oSave" disabled>💾 Lưu thay đổi</button></div>
+    </div><div id="oMsg"></div></div>
+    <div class="ss" id="ss"></div>
+  </section>
+
+  <!-- ============ SETTINGS ============ -->
+  <section id="t-set" hidden>
+    <div class="card">
+      <h2>1 · GitHub key (để đóng / mở bài)</h2>
+      <p class="sub">Key chỉ lưu trên trình duyệt này, không gửi đi đâu ngoài GitHub.</p>
+      <ol class="steps">
+        <li><span>Mở <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com → Settings → Developer settings → Fine-grained tokens → Generate new token</a>.</span></li>
+        <li><span>Token name: <code>giao-tiep-admin</code> · Expiration: chọn thời hạn bạn muốn.</span></li>
+        <li><span>Repository access: <b>Only select repositories</b> → <code>communication-foundation</code>.</span></li>
+        <li><span>Permissions → Repository permissions → <b>Contents: Read and write</b> → Generate token → copy.</span></li>
+      </ol>
+      <div class="row"><input class="f" id="ghTok" type="password" placeholder="github_pat_…" style="flex:1"><button class="btn" id="ghSave">Lưu &amp; kiểm tra</button><button class="btn ghost" id="ghDel">Xoá</button></div>
+      <div id="ghMsg"></div>
+    </div>
+    <div class="card">
+      <h2>2 · Google Sheet (để theo dõi tiến độ)</h2>
+      <ol class="steps">
+        <li><span>Tạo một Google Sheet mới (vd. <i>GT246 Progress</i>) → menu <b>Extensions → Apps Script</b>.</span></li>
+        <li><span>Xoá code mẫu, dán toàn bộ code bên dưới. Đổi dòng <code>ADMIN_KEY</code> thành mật khẩu riêng của bạn → 💾 Save.</span></li>
+        <li><span><b>Deploy → New deployment</b> → chọn loại <b>Web app</b> · Execute as: <b>Me</b> · Who has access: <b>Anyone</b> → Deploy → cho phép quyền truy cập.</span></li>
+        <li><span>Copy <b>Web app URL</b> (dạng <code>https://script.google.com/macros/s/…/exec</code>) → dán vào ô dưới → Lưu.</span></li>
+      </ol>
+      <div class="row" style="margin-bottom:8px"><button class="btn ghost" id="copyGs">📋 Copy code Apps Script</button></div>
+      <pre id="gs">Đang tải…</pre>
+      <div class="lbl">Web app URL (lưu lên website để học viên gửi tiến độ)</div>
+      <div class="row"><input class="f" id="pUrl" placeholder="https://script.google.com/macros/s/…/exec" style="flex:1"><button class="btn" id="pUrlSave">Lưu lên website</button></div>
+      <div class="lbl">Mật khẩu ADMIN_KEY (chỉ lưu trên trình duyệt này)</div>
+      <div class="row"><input class="f" id="aKey" type="password" placeholder="mật khẩu bạn đặt trong Apps Script" style="flex:1"><button class="btn" id="aKeySave">Lưu</button></div>
+      <div id="setMsg"></div>
+    </div>
+    <div class="card">
+      <h2>3 · Thiết bị giáo viên</h2>
+      <p class="sub">Thiết bị được đánh dấu là giáo viên sẽ <b>luôn xem được</b> bài đã đóng và không bị hỏi tên.</p>
+      <div class="row"><button class="btn ghost" id="tOff">Bỏ đánh dấu thiết bị này</button></div>
+    </div>
+  </section>
+</main>
+
+<script src="../assets/config.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const OWNER='thanh990522', REPO='communication-foundation', BR='main';
+const LS={get:k=>{ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } }, set:(k,v)=>{ try{ v?localStorage.setItem(k,v):localStorage.removeItem(k); }catch(e){} }};
+const msg=(el,cls,t)=>{ $(el).innerHTML=t?`<div class="msg ${cls}">${t}</div>`:''; };
+function devInfo(){ $('#dev').textContent=(LS.get('gt_teacher')?'✅ Thiết bị này là của giáo viên — bài đã đóng vẫn xem được.':'Thiết bị chưa xác nhận giáo viên')+(LS.get('gt_gh')?' · 🔑 Đã có GitHub key':' · ⚠ Chưa có GitHub key')+(window.GT_CONFIG&&GT_CONFIG.progressUrl?' · 📊 Đã nối Google Sheet':' · ⚠ Chưa nối Google Sheet'); }
+devInfo();
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{ document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t)); ['prog','open','set'].forEach(k=>$('#t-'+k).hidden=k!==t.dataset.t); if(t.dataset.t==='open'&&!SS) loadSessions(); });
+
+/* ---------------- GitHub API ---------------- */
+const b64dec=c=>new TextDecoder().decode(Uint8Array.from(atob(c.replace(/\n/g,'')),ch=>ch.charCodeAt(0)));
+const b64enc=s=>{ const b=new TextEncoder().encode(s); let r=''; for(let i=0;i<b.length;i+=0x8000) r+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000)); return btoa(r); };
+async function gh(path,opt={}){
+  const tok=LS.get('gt_gh'); if(!tok) throw new Error('Chưa có GitHub key — vào tab ⚙️ Cài đặt.');
+  const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/${path}`,Object.assign({headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}},opt));
+  if(!r.ok){ const t=await r.text(); throw new Error(r.status===401?'GitHub key sai hoặc đã hết hạn.':r.status===403||r.status===404?'Key không có quyền Contents: Read and write cho repo này.':'GitHub lỗi '+r.status+': '+t.slice(0,120)); }
+  return r.json();
+}
+async function getFile(p){ const j=await gh(`contents/${p}?ref=${BR}&t=${Date.now()}`); return {text:b64dec(j.content),sha:j.sha}; }
+async function putFile(p,text,sha,message){
+  return gh(`contents/${p}`,{method:'PUT',headers:{Authorization:'Bearer '+LS.get('gt_gh'),Accept:'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify({message,content:b64enc(text),sha,branch:BR})});
+}
+
+/* ---------------- open / close ---------------- */
+let SS=null, SSfile=null, orig={};
+function parseSessions(text){ const i=text.indexOf('window.SESSIONS = '), j=text.lastIndexOf(']'); return JSON.parse(text.slice(i+18,j+1)); }
+function swap(text,arr){ const i=text.indexOf('window.SESSIONS = '), j=text.lastIndexOf(']'); return text.slice(0,i+18)+JSON.stringify(arr,null,1)+text.slice(j+1); }
+async function loadSessions(){
+  msg('#oMsg','info','Đang tải danh sách bài…');
+  try{ SSfile=await getFile('assets/sessions.js'); SS=parseSessions(SSfile.text); LS.set('gt_teacher','1'); devInfo(); orig={}; SS.forEach(s=>orig[s.id]=s.status); renderSessions(); msg('#oMsg','',''); }
+  catch(e){ msg('#oMsg','err','⚠ '+esc(e.message)); }
+}
+function renderSessions(){
+  $('#ss').innerHTML=SS.map((s,i)=>{ const built=!!s.url, on=s.status==='live';
+    return `<div class="si${s.status!==orig[s.id]?' dirty':''}"><span class="id">${s.id}</span><div class="t">${esc(s.title)}<small>Tuần ${s.week} · ${built?(on?'Đang mở':'Đang đóng'):'Chưa soạn'}</small></div>${built?`<label class="sw"><input type="checkbox" data-i="${i}" ${on?'checked':''}><span></span></label>`:'<span class="na">—</span>'}</div>`; }).join('');
+  document.querySelectorAll('#ss input').forEach(c=>c.onchange=()=>{ SS[+c.dataset.i].status=c.checked?'live':'closed'; renderSessions(); });
+  $('#oSave').disabled=!SS.some(s=>s.status!==orig[s.id]);
+}
+$('#oReload').onclick=loadSessions;
+$('#oSave').onclick=async()=>{
+  const ch=SS.filter(s=>s.status!==orig[s.id]); if(!ch.length) return;
+  $('#oSave').disabled=true; msg('#oMsg','info','Đang lưu…');
+  try{ const fresh=await getFile('assets/sessions.js'); const arr=parseSessions(fresh.text);
+    ch.forEach(c=>{ const s=arr.find(x=>x.id===c.id); if(s) s.status=c.status; });
+    await putFile('assets/sessions.js',swap(fresh.text,arr),fresh.sha,'Admin: '+ch.map(c=>`${c.status==='live'?'open':'close'} ${c.id}`).join(', '));
+    msg('#oMsg','ok','✅ Đã lưu: '+ch.map(c=>`${c.id} ${c.status==='live'?'mở':'đóng'}`).join(' · ')+'. Trang học viên cập nhật sau khoảng 1 phút.');
+    await loadSessions(); msg('#oMsg','ok','✅ Đã lưu. Trang học viên cập nhật sau khoảng 1 phút.');
+  }catch(e){ msg('#oMsg','err','⚠ '+esc(e.message)); $('#oSave').disabled=false; }
+};
+
+/* ---------------- progress ---------------- */
+let ROWS=[];
+async function loadProgress(){
+  const url=(window.GT_CONFIG||{}).progressUrl, key=LS.get('gt_akey');
+  if(!url){ msg('#pMsg','info','Chưa nối Google Sheet — làm theo hướng dẫn ở tab ⚙️ Cài đặt (mục 2).'); return; }
+  if(!key){ msg('#pMsg','info','Nhập mật khẩu ADMIN_KEY ở tab ⚙️ Cài đặt.'); return; }
+  msg('#pMsg','info','Đang tải dữ liệu…');
+  try{ const r=await fetch(url+'?key='+encodeURIComponent(key)+'&t='+Date.now()); const j=await r.json();
+    if(!j.ok) throw new Error(j.error==='wrong key'?'Sai mật khẩu ADMIN_KEY.':j.error||'Lỗi');
+    ROWS=j.rows; LS.set('gt_teacher','1'); devInfo(); msg('#pMsg','',''); renderProgress(); }
+  catch(e){ msg('#pMsg','err','⚠ Không tải được: '+esc(e.message)); }
+}
+function aggregate(){
+  const st={};
+  ROWS.forEach(r=>{ const k=r.id||r.name; const s=st[k]||(st[k]={name:r.name,cls:r.cls,last:0,ses:{}});
+    s.name=r.name; if(r.cls) s.cls=r.cls; const t=new Date(r.t).getTime(); if(t>s.last) s.last=t;
+    if(!r.sid) return; const x=s.ses[r.sid]||(s.ses[r.sid]={open:0,best:null,tries:0,passed:false});
+    if(r.kind==='lesson') x.open++;
+    if(r.kind==='homework'){ x.tries++; const p=Number(r.pct); if(x.best==null||p>x.best) x.best=p; if(r.passed==='yes'||r.passed===true) x.passed=true; } });
+  return Object.values(st);
+}
+function sessionsShown(){ const ids=new Set(); ROWS.forEach(r=>r.sid&&ids.add(r.sid)); return [...ids].sort(); }
+function renderProgress(){
+  const all=aggregate(), cls=[...new Set(all.map(s=>s.cls).filter(Boolean))].sort();
+  const fc=$('#fCls'), cur=fc.value; fc.innerHTML='<option value="">Tất cả lớp</option>'+cls.map(c=>`<option ${c===cur?'selected':''}>${esc(c)}</option>`).join('');
+  const q=$('#fQ').value.trim().toLowerCase();
+  const list=all.filter(s=>(!fc.value||s.cls===fc.value)&&(!q||s.name.toLowerCase().includes(q))).sort((a,b)=>a.name.localeCompare(b.name,'vi'));
+  const sids=sessionsShown();
+  const hw=ROWS.filter(r=>r.kind==='homework'&&list.some(s=>s.name===r.name)), passN=list.reduce((n,s)=>n+Object.values(s.ses).filter(x=>x.passed).length,0);
+  const hwStud=list.reduce((n,s)=>n+Object.values(s.ses).filter(x=>x.tries).length,0);
+  $('#kpis').hidden=false; $('#kpis').innerHTML=`<div class="kpi"><b>${list.length}</b><span>học viên</span></div><div class="kpi"><b>${hw.length}</b><span>lượt nộp homework</span></div><div class="kpi"><b>${hwStud?Math.round(passN/hwStud*100):0}%</b><span>bài homework đã đạt ≥80%</span></div><div class="kpi"><b>${list.filter(s=>Date.now()-s.last<7*864e5).length}</b><span>học viên hoạt động 7 ngày qua</span></div>`;
+  $('#tbl').hidden=false;
+  $('#tbl').innerHTML=`<table><tr><th class="nm">Học viên</th><th>Hoạt động gần nhất</th>${sids.map(s=>`<th>${s}<br><small style="font-weight:600">bài · homework</small></th>`).join('')}</tr>`+
+    list.map(s=>`<tr><td class="nm"><b>${esc(s.name)}</b>${s.cls?`<small>${esc(s.cls)}</small>`:''}</td><td>${s.last?new Date(s.last).toLocaleString('vi-VN',{dateStyle:'short',timeStyle:'short'}):''}</td>`+
+      sids.map(id=>{ const x=s.ses[id]; if(!x) return '<td><span class="pill none">—</span></td>';
+        const o=x.open?'<span class="pill open">✓ học</span>':'<span class="pill none">·</span>';
+        const h=x.best==null?'':` <span class="pill ${x.passed?'pass':'fail'}" title="${x.tries} lượt nộp">${x.best}% ×${x.tries}</span>`;
+        return `<td>${o}${h}</td>`; }).join('')+'</tr>').join('')+'</table>'+(list.length?'':'<p style="padding:16px;color:var(--muted)">Chưa có dữ liệu.</p>');
+}
+$('#load').onclick=loadProgress; $('#fCls').onchange=renderProgress; $('#fQ').oninput=renderProgress;
+$('#csv').onclick=()=>{ if(!ROWS.length) return; const sids=sessionsShown(), all=aggregate();
+  const lines=[['Name','Class','Last active',...sids.flatMap(s=>[s+' lesson',s+' homework best %',s+' tries'])]].concat(all.map(s=>[s.name,s.cls||'',s.last?new Date(s.last).toISOString():'',...sids.flatMap(id=>{ const x=s.ses[id]||{}; return [x.open?'yes':'',x.best==null?'':x.best,x.tries||'']; })]));
+  const csv='﻿'+lines.map(l=>l.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='GT246_progress.csv'; a.click(); };
+
+/* ---------------- settings ---------------- */
+$('#ghTok').value=LS.get('gt_gh')?'••••••••••••':'';
+$('#ghSave').onclick=async()=>{ const v=$('#ghTok').value.trim(); if(!v||v.startsWith('•')){ msg('#ghMsg','err','Dán GitHub key vào ô.'); return; }
+  LS.set('gt_gh',v); msg('#ghMsg','info','Đang kiểm tra…');
+  try{ await getFile('assets/sessions.js'); LS.set('gt_teacher','1'); msg('#ghMsg','ok','✅ Key hoạt động. Vào tab 🔓 Đóng / mở bài.'); $('#ghTok').value='••••••••••••'; devInfo(); }
+  catch(e){ LS.set('gt_gh',''); msg('#ghMsg','err','⚠ '+esc(e.message)); devInfo(); } };
+$('#ghDel').onclick=()=>{ LS.set('gt_gh',''); $('#ghTok').value=''; msg('#ghMsg','info','Đã xoá key khỏi trình duyệt này.'); devInfo(); };
+$('#pUrl').value=(window.GT_CONFIG||{}).progressUrl||'';
+$('#aKey').value=LS.get('gt_akey')?'••••••••':'';
+$('#aKeySave').onclick=()=>{ const v=$('#aKey').value.trim(); if(!v||v.startsWith('•')) return; LS.set('gt_akey',v); $('#aKey').value='••••••••'; msg('#setMsg','ok','✅ Đã lưu mật khẩu trên trình duyệt này. Vào tab 📊 Tiến độ → Tải dữ liệu.'); };
+$('#pUrlSave').onclick=async()=>{ const u=$('#pUrl').value.trim();
+  if(u&&!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(u)){ msg('#setMsg','err','URL phải có dạng https://script.google.com/macros/s/…/exec'); return; }
+  msg('#setMsg','info','Đang kiểm tra URL & lưu lên website…');
+  try{ if(u){ const r=await fetch(u+'?ping=1'); const j=await r.json(); if(!j.ok) throw new Error('Apps Script không phản hồi đúng — kiểm tra lại bước Deploy.'); }
+    const f=await getFile('assets/config.js'); const cfg=Object.assign({},window.GT_CONFIG||{},{progressUrl:u});
+    const text=f.text.replace(/window\.GT_CONFIG = .*;/,'window.GT_CONFIG = '+JSON.stringify(cfg)+';');
+    await putFile('assets/config.js',text,f.sha,'Admin: set progress URL'); window.GT_CONFIG=cfg; devInfo();
+    msg('#setMsg','ok','✅ Đã lưu. Khoảng 1 phút sau, tiến độ học viên bắt đầu được ghi vào Google Sheet.'); }
+  catch(e){ msg('#setMsg','err','⚠ '+esc(e.message)); } };
+fetch('apps-script.gs',{cache:'no-cache'}).then(r=>r.text()).then(t=>{ $('#gs').textContent=t; $('#copyGs').onclick=()=>navigator.clipboard.writeText(t).then(()=>msg('#setMsg','ok','📋 Đã copy code Apps Script.')); });
+$('#tOff').onclick=()=>{ LS.set('gt_teacher',''); devInfo(); msg('#setMsg','info','Đã bỏ đánh dấu. Nhập lại key/mật khẩu sẽ đánh dấu lại.'); };
+if((window.GT_CONFIG||{}).progressUrl&&LS.get('gt_akey')) loadProgress(); else msg('#pMsg','info','Chưa có dữ liệu — làm 2 bước ở tab ⚙️ Cài đặt trước.');
+</script>
+</body>
+</html>

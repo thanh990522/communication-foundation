@@ -34,7 +34,11 @@ h = h[:last] + h[last:].replace('<div class="s-foot"><span>', '<div class="s-foo
 if os.path.isdir(OUT):
     shutil.rmtree(OUT)
 os.makedirs(OUT)
-open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h)
+track = ('<script src="../../assets/config.js"></script>'
+         '<script>document.write(\'<script src="../../assets/sessions.js?t=\'+Date.now()+\'"><\\/script>\')</script>'
+         '<script src="../../assets/student.js"></script>'
+         '<script>GT.guard("S01","../../")||GT.lessonOpened("S01")</script>\n</body>')
+open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(h.replace('</body>', track, 1))
 open(os.path.join(OUT, 'S01_offline.html'), 'w', encoding='utf-8').write(offline)
 shutil.copytree(MP3, os.path.join(OUT, 'audio'))
 with zipfile.ZipFile(os.path.join(OUT, 'S01_Audio_MP3.zip'), 'w', zipfile.ZIP_DEFLATED) as z:

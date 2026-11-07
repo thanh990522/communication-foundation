@@ -149,6 +149,7 @@ footer b{color:var(--yellow)}
 <header class="hero">
   <div class="wrap">
     <div>
+      <div id="gtMe" style="margin-bottom:12px"></div>
       <span class="kicker">A1 → A2 Communication Accelerator</span>
       <h1>Tiếng Anh <span>Giao Tiếp</span><br>Foundation</h1>
       <p class="lead">Lộ trình tăng tốc 3 tháng: học theo chuỗi <b>từ cốt lõi → collocation → cụm cố định → khung câu → phản xạ nói</b>. Mỗi buổi dẫn đến một nhiệm vụ giao tiếp thực tế.</p>
@@ -187,7 +188,9 @@ footer b{color:var(--yellow)}
   </div>
 </footer>
 
-<script src="assets/sessions.js"></script>
+<script src="assets/config.js"></script>
+<script>document.write('<script src="assets/sessions.js?t='+Date.now()+'"><\/script>')</script>
+<script src="assets/student.js"></script>
 <script>
 (function(){
   const COLORS={1:'var(--p1)',2:'var(--p2)',3:'var(--p3)',4:'var(--p4)'};
@@ -196,6 +199,8 @@ footer b{color:var(--yellow)}
   const state={ph:0,q:'',only:false};
   try{ const s=JSON.parse(localStorage.getItem('gt246_filters')||'{}'); Object.assign(state,s); }catch(e){}
 
+  GT.renderMe();
+  try{ if(!GT.get() && !GT.isTeacher() && !sessionStorage.getItem('gt_skip')) setTimeout(()=>GT.ask(),400); }catch(e){}
   const live=SESSIONS.filter(s=>s.status==='live').length;
   document.getElementById('progTxt').textContent=live+' / '+SESSIONS.length+' bài đã mở';
   document.getElementById('progBar').style.width=(live/SESSIONS.length*100)+'%';
