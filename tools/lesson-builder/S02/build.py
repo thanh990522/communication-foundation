@@ -65,8 +65,8 @@ S.append(slide('Cover', '''  <span class="chip c-input">Week 01 · Session 02</s
 
 # 2 lesson map ---------------------------------------------------------------------------------
 AG = [('warm', '🔤', 'Warm-up · Spell it!', "Today's words"),
-      ('input', '🃏', 'Word cards', 'Flip to learn the meaning'),
-      ('input', '🧩', 'Collocation cards', 'have a productive morning…'),
+      ('input', '🃏', 'Words → collocations 1', 'productive · commute · shift · break'),
+      ('input', '🧩', 'Words → collocations 2', 'usually · hardly ever · weekday · weekend'),
       ('input', '📊', 'How often?', 'always → never'),
       ('prac', '✅', 'Collocation check', 'Choose the word'),
       ('listen', '👄', '-s endings', '/s/ · /z/ · /ɪz/ · sort it!'),
@@ -113,11 +113,13 @@ def phrase_card(i, v):
 
 
 TOOLS = '  <div class="ftools"><span>↻ Click a card to flip</span><button class="btn sm ghost" data-flipall>🔄 Flip all</button><button class="btn sm ghost" data-flipreset>↺ Reset</button></div>\n'
-S.append(slide('Word cards', head('Input · Words', 'c-input', 'Core words — <em>flip to learn</em>') +
-               '  <div class="fgrid">' + ''.join(word_card(i, v) for i, v in enumerate(C.VOCAB)) + '</div>\n' + TOOLS))
+for part, idx in ((1, range(0, 4)), (2, range(4, 8))):
+    # top row: the word · bottom row: its collocation, directly underneath
+    S.append(slide(f'Words → collocations {part}', head(f'Input · Words &amp; collocations {part}/2', 'c-input', 'Word → <em>collocation</em>') +
+                   '  <div class="fgrid wcgrid">' + ''.join(word_card(i, C.VOCAB[i]) for i in idx) +
+                   ''.join(phrase_card(i, C.VOCAB[i]) for i in idx) + '</div>\n' + TOOLS))
 # 6 collocation flip cards ---------------------------------------------------------------------
-S.append(slide('Collocation cards', head('Input · Collocations', 'c-input', 'Words that go together — <em>collocations</em>') +
-               '  <div class="fgrid">' + ''.join(phrase_card(i, v) for i, v in enumerate(C.VOCAB)) + '</div>\n' + TOOLS))
+
 
 # 7 frequency ----------------------------------------------------------------------------------
 def week(d):
