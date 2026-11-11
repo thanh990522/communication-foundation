@@ -140,8 +140,11 @@ sents=[x.strip()+'.' for x in C.TALK_MODEL.split('.') if x.strip()]
 k=[]
 for s_ in sents: k+=[want(SONIA,s_,'-5%'),.35]
 clip('TALK','Fluency/S02_routine_talk_model.mp3',k,'Model routine talk')
-# scramble answers
-for i,s_ in enumerate(C.SCRAMBLE): clip(f'SC_{i}',f'Game/S02_sentence_{i+1}.mp3',[want(SONIA,s_,'-5%')],s_)
+# spin & translate: Vietnamese prompt (HoaiMy) + English model answer (Sonia)
+HOAIMY='vi-VN-HoaiMyNeural'
+for i,(vi,en,hint) in enumerate(C.SPIN):
+    clip(f'SV_{i}',f'Game/S02_spin_{i+1:02d}_vietnamese.mp3',[want(HOAIMY,vi,'-5%')],vi)
+    clip(f'SP_{i}',f'Game/S02_spin_{i+1:02d}_english.mp3',[want(SONIA,en,'-5%')],en)
 
 
 asyncio.run(fetch_all())

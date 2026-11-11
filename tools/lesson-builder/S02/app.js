@@ -139,7 +139,36 @@ function talkTimer(){
   const draw=()=>{ el.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); bar.style.width=(t/90*100)+'%'; }; draw();
   tkRun=setInterval(()=>{ t--; draw(); if(t<=0){ clearInterval(tkRun); el.textContent="Time's up!"; beep(); } },1000);
 }
-/* ---------- game: sentence scramble */
+/* ---------- game: spin & translate */
+let spRot=0, spUsed=[], spCur=-1, spScore=0, spTimer=null, spBusy=false;
+function spInit(){
+  const $=id=>document.getElementById(id), N=DATA.SPIN.length;
+  const upd=()=>{ $('spN').textContent=`${spUsed.length} / ${N}`; $('spScore').textContent='Score: '+spScore; };
+  const timer=()=>{ clearInterval(spTimer); let t=20; const bar=$('spBar'); bar.style.width='100%';
+    spTimer=setInterval(()=>{ t-=.1; bar.style.width=Math.max(0,t/20*100)+'%'; if(t<=0){ clearInterval(spTimer); beep(); } },100); };
+  $('spGo').onclick=()=>{
+    if(spBusy) return; stopAll();
+    const left=[...Array(N).keys()].filter(i=>!spUsed.includes(i));
+    if(!left.length){ $('spCard').innerHTML='<div class="sph">🎉 All done!</div><div class="spvi">Score: '+spScore+' / '+N+'</div>'; return; }
+    const i=left[Math.floor(Math.random()*left.length)], seg=360/N;
+    const target=360-(i*seg+seg/2), cur=((spRot%360)+360)%360;
+    spRot+= 360*5 + ((target-cur+360)%360);
+    spBusy=true; ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=true);
+    const g=document.getElementById('whRot'); g.style.transform=`rotate(${spRot}deg)`;
+    $('spCard').innerHTML='<div class="sph">🎡 …</div>';
+    setTimeout(()=>{ spBusy=false; spCur=i; spUsed.push(i); document.getElementById('wseg'+i).classList.add('used'); upd();
+      const [vi,en,hint]=DATA.SPIN[i];
+      $('spCard').innerHTML=`<div class="sph"><span class="spn">${i+1}</span> Translate into English</div><div class="spvi">${esc(vi)}</div><div class="sphint">💡 ${esc(hint)}</div><div class="spen" id="spEn" hidden>${esc(en)}</div>`;
+      ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=false); timer(); play('SV_'+i); },3300);
+  };
+  $('spVi').onclick=e=>{ if(spCur>=0) play('SV_'+spCur,e.currentTarget); };
+  $('spAns').onclick=e=>{ if(spCur<0) return; clearInterval(spTimer); const el=document.getElementById('spEn'); if(el) el.hidden=false; play('SP_'+spCur,e.currentTarget); };
+  $('spOk').onclick=()=>{ if(spCur<0) return; spScore++; spCur=-1; $('spOk').disabled=true; upd(); };
+  $('spReset').onclick=()=>{ stopAll(); clearInterval(spTimer); spUsed=[]; spCur=-1; spScore=0; document.querySelectorAll('.whsvg .used').forEach(x=>x.classList.remove('used'));
+    $('spCard').innerHTML='<div class="sph">🎡 Spin the wheel!</div><div class="spvi">Translate the Vietnamese sentence into English — use today\'s words &amp; structures.</div>'; $('spBar').style.width='0'; ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=true); upd(); };
+  upd();
+}
+/* ---------- game: sentence scramble (unused) */
 let scI=0, scPicked=[], scScore=0;
 function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function scWords(s){ return s.replace(/[.?]$/,'').split(' '); }
@@ -168,7 +197,7 @@ function scCheck(){
    ========================================================= */
 window.addEventListener('DOMContentLoaded',()=>{
   toBlobUrls();
-  buildCloud('cloud'); buildCloud('cloud2',[['☕','coffee'],['📊','usually'],['🚌','commute'],['👄','/ɪz/'],['⏸','break'],['🌙','shift'],['📅','weekdays'],['🎉','weekends']]); buildWarm(); buildColl(); sortInit(); sortLoad(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); scLoad();
+  buildCloud('cloud'); buildCloud('cloud2',[['☕','coffee'],['📊','usually'],['🚌','commute'],['👄','/ɪz/'],['⏸','break'],['🌙','shift'],['📅','weekdays'],['🎉','weekends']]); buildWarm(); buildColl(); sortInit(); sortLoad(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); spInit();
   // download links beside fixed play buttons
   document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('.coll2,.sgroups2,#qa,#frames,.freq2,.fgrid,.ladder,.chal,.pool,.buckets,.stressbox')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   const $=id=>document.getElementById(id);
@@ -186,7 +215,6 @@ window.addEventListener('DOMContentLoaded',()=>{
   $('dlgStop').onclick=stopAll;
   $('dlgScript').onclick=e=>{ const sc=$('script'); sc.classList.toggle('blur'); e.currentTarget.textContent=sc.classList.contains('blur')?'👁 Show script':'🙈 Hide script'; };
   $('tkStart').onclick=talkTimer; $('tkModel').onclick=e=>play('TALK',e.currentTarget);
-  $('scCheck').onclick=scCheck; $('scNext').onclick=()=>{ scI=(scI+1)%DATA.SCRAMBLE.length; scLoad(); }; $('scReset').onclick=()=>{ scPicked=[]; scLoad(); };
   window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',fit); fit();
   const h=parseInt((location.hash||'').slice(1)); go(isNaN(h)?0:h-1);
 });

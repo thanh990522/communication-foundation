@@ -77,7 +77,7 @@ AG = [('warm', '🔤', 'Warm-up · Spell it!', "Today's words"),
       ('input', '🧱', 'Frames · Ask &amp; answer', 'How often do you…?'),
       ('listen', '💬', 'Model dialogue', 'Lucy &amp; Minh'),
       ('speak', '🗣', 'Interview · Free practice', 'Report · two situations'),
-      ('speak', '⏱', '90-second talk · Game', 'Sentence scramble')]
+      ('speak', '⏱', '90-second talk · Game', 'Spin &amp; translate')]
 S.append(slide('Lesson map', head('Lesson map', 'c-wrap', "Today's <em>journey</em>") + '  <div class="agenda ag2">\n' +
                ''.join(f'    <div class="ag {c}"><div class="m">{i + 1}</div><span class="agi">{ic}</span><div><b>{t}</b><small>{s}</small></div></div>\n'
                        for i, (c, ic, t, s) in enumerate(AG)) + '  </div>\n'))
@@ -276,13 +276,26 @@ S.append(slide('90-second routine talk', head('Fluency', 'c-speak', 'Your day in
     </div>
   </div>
 '''))
-# 20 game
-S.append(slide('Game: Sentence scramble', head('Game', 'c-prac', 'Sentence scramble — <em>put the words in order</em>') + '''  <div class="game2">
-    <div class="row" style="align-items:center;justify-content:space-between"><span class="score" id="scN">1 / 8</span><div class="dots" id="scDots"></div><span class="score" id="scScore">Score: 0</span></div>
-    <div class="scout" id="scOut"></div>
-    <div class="scpool" id="scPool"></div>
-    <div id="scMsg" class="scmsg"></div>
-    <div class="row" style="justify-content:center"><button class="btn y" id="scCheck">✓ Check</button><button class="btn ghost" id="scReset">↺ Reset</button><button class="btn" id="scNext">Next →</button></div>
+# 20 game: spin & translate
+import math as _m
+def _wheel(n):
+    cols = ['#1D4ED8', '#FFC72C', '#0B1F5C']; out = ['<svg viewBox="-110 -110 220 220" class="whsvg"><g id="whRot">']
+    for i in range(n):
+        a0, a1 = _m.radians(i * 360 / n - 90), _m.radians((i + 1) * 360 / n - 90)
+        x0, y0, x1, y1 = 100 * _m.cos(a0), 100 * _m.sin(a0), 100 * _m.cos(a1), 100 * _m.sin(a1)
+        am = _m.radians((i + .5) * 360 / n - 90); c = cols[i % 3]
+        out.append(f'<path id="wseg{i}" d="M0 0L{x0:.2f} {y0:.2f}A100 100 0 0 1 {x1:.2f} {y1:.2f}Z" fill="{c}" stroke="#fff" stroke-width="2"/>')
+        out.append(f'<text x="{74 * _m.cos(am):.2f}" y="{74 * _m.sin(am):.2f}" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="900" fill="{"#0B1F5C" if c == "#FFC72C" else "#fff"}" font-family="Be Vietnam Pro,sans-serif" transform="rotate({(i + .5) * 360 / n:.1f} {74 * _m.cos(am):.2f} {74 * _m.sin(am):.2f})"{" text-decoration=\"underline\"" if i + 1 in (6, 9) else ""}>{i + 1}</text>')
+    out.append('</g><circle r="24" fill="#fff" stroke="#0B1F5C" stroke-width="4"/><text y="1" text-anchor="middle" dominant-baseline="central" font-size="20">🇻🇳</text></svg>')
+    return ''.join(out)
+S.append(slide('Game: Spin & translate', head('Game', 'c-prac', 'Spin &amp; translate — <em>Vietnamese → English</em>') + f'''  <div class="spin">
+    <div class="wheelbox"><div class="pointer">▼</div>{_wheel(len(C.SPIN))}</div>
+    <div class="col grow spcol">
+      <div class="row" style="justify-content:space-between;align-items:center"><span class="score" id="spN">0 / {len(C.SPIN)}</span><span class="score" id="spScore">Score: 0</span></div>
+      <div class="spcard" id="spCard"><div class="sph">🎡 Spin the wheel!</div><div class="spvi">Translate the Vietnamese sentence into English — use today's words &amp; structures.</div></div>
+      <div class="tbar"><i id="spBar"></i></div>
+      <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn y" id="spGo">🎡 Spin</button><button class="btn ghost" id="spVi" disabled>🔊 Tiếng Việt</button><button class="btn" id="spAns" disabled>👁 Answer</button><button class="btn ghost" id="spOk" disabled>✓ Correct +1</button><button class="btn ghost" id="spReset">↺ Reset</button></div>
+    </div>
   </div>
 '''))
 # 21 wrap-up
@@ -344,7 +357,7 @@ def build():
     app = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read()
     man = json.load(open(os.path.join(HERE, 'manifest.json')))
     man['EL'] = {'file': C.LISTEN['file'], 'label': C.LISTEN['title'], 'dur': 180}
-    data = {k: getattr(C, k) for k in ['WARM', 'SORT', 'S_GROUPS', 'FRAMES', 'LINKERS', 'QA', 'DIALOGUE', 'DLG_Q', 'LISTEN', 'INTERVIEW', 'SITUATIONS', 'FP_LINES', 'TALK', 'SCRAMBLE']}
+    data = {k: getattr(C, k) for k in ['WARM', 'SORT', 'S_GROUPS', 'FRAMES', 'LINKERS', 'QA', 'DIALOGUE', 'DLG_Q', 'LISTEN', 'INTERVIEW', 'SITUATIONS', 'FP_LINES', 'TALK', 'SPIN']}
     data['COLL'] = [c[:3] for c in C.COLL]
     app = app.replace('/*DATA_JSON*/', json.dumps(data, ensure_ascii=False))
 

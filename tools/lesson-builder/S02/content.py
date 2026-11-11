@@ -234,3 +234,20 @@ SCRAMBLE = [
     'Do you ever miss breakfast?',
     'How often does he take a break?',
 ]
+
+# ---------------------------------------------------------------- game: spin & translate (VI → EN)
+# Same structures & words as the lesson, but NEW information (people, times, meals, days) — not copies of taught sentences.
+SPIN = [  # Vietnamese, English model answer, structure hint
+    ('Ngày của tôi thường bắt đầu với một tách trà.', 'My day usually starts with a cup of tea.', 'My day usually starts with ___.'),
+    ('Mất khoảng mười lăm phút để tôi đến trường.', 'It takes me about fifteen minutes to get to school.', 'It takes me ___ minutes to ___.'),
+    ('Anh trai tôi làm ca tối vào cuối tuần.', 'My brother works the evening shift at weekends.', 'work the evening shift · at weekends'),
+    ('Bố tôi hầu như không bao giờ bỏ bữa trưa.', 'My dad hardly ever misses lunch.', 'hardly ever + miss → misses'),
+    ('Chúng tôi luôn nghỉ giải lao ngắn lúc mười giờ.', 'We always take a short break at ten.', 'always · take a short break'),
+    ('Bạn có thường bắt đầu làm việc lúc bảy giờ không?', 'Do you usually start work at seven?', 'Do you usually ___?'),
+    ('Bạn có bao giờ bỏ bữa tối không?', 'Do you ever miss dinner?', 'Do you ever ___?'),
+    ('Cuối tuần bạn thức dậy lúc mấy giờ?', 'What time do you get up at weekends?', 'What time do you ___?'),
+    ('Vào ngày thường tôi dậy lúc năm giờ, trong khi cuối tuần tôi dậy lúc chín giờ.', 'On weekdays I get up at five, whereas at weekends I get up at nine.', 'On weekdays ___, whereas at weekends ___.'),
+    ('Tôi thường có một buổi sáng làm việc hiệu quả, nhưng tôi hầu như không bao giờ làm việc vào buổi tối.', 'I usually have a productive morning, but I hardly ever work in the evening.', 'I usually ___, but I hardly ever ___.'),
+    ('Họ không bao giờ làm việc vào Chủ nhật.', 'They never work on Sundays.', 'never · on Sundays'),
+    ('Minh thỉnh thoảng nghỉ giải lao lúc chín giờ tối vì anh ấy làm ca tối.', 'Minh sometimes takes a short break at 9 p.m. because he works the evening shift.', 'sometimes · because'),
+]
