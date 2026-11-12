@@ -321,3 +321,6 @@ MEMORY = [  # emoji, sentence
     ('🌳', 'There are three trees.'), ('☕', 'There is a café.'), ('🛒', 'There is a supermarket.'), ('🚏', 'There is a bus stop.'),
     ('🏥', 'There is a hospital.'), ('🚶', 'There are four people.'), ('🏋️', 'There is a gym.'), ('🏫', 'There is a school.'),
 ]
+
+PLACE_IPA = {'park': '/pɑːk/', 'supermarket': '/ˈsuːpəmɑːkɪt/', 'bus stop': '/ˈbʌs stɒp/', 'hospital': '/ˈhɒspɪtl/',
+             'gym': '/dʒɪm/', 'school': '/skuːl/', 'café': '/ˈkæfeɪ/', 'market': '/ˈmɑːkɪt/'}

@@ -100,7 +100,7 @@ S.append(slide('Warm-up: Spell it!', head('Warm-up', 'c-warm', "Spell it! — <e
 def word_card(i, v):
     return (f'<div class="flip wc" data-flip><div class="in">'
             f'<div class="fc"><div class="art">{I.WORD[v["k"]]}</div>'
-            f'<div class="fwd"><b>{e(v["w"])}</b>{pb("VW_" + str(i))}</div><span class="turn">↻</span></div>'
+            f'<div class="fwd"><b>{e(v["w"])}<span class="fipa">{e(v["ipa"])}</span></b>{pb("VW_" + str(i))}</div><span class="turn">↻</span></div>'
             f'<div class="bk"><span class="pos">{e(v["pos"])}</span><b>{e(v["w"])}</b><span class="ipa">{e(v["ipa"])}</span>'
             f'<span class="vi">{e(v["vi"])}</span>{pb("VW_" + str(i), "y")}</div></div></div>')
 
@@ -129,7 +129,7 @@ def week(d):
 
 
 FREQ_ROWS = ''.join(
-    f'<div class="fq2"><div class="flip mf" data-flip><div class="in"><div class="fc"><b>{e(a)}</b></div><div class="bk"><b>{e(vi)}</b></div></div></div>'
+    f'<div class="fq2"><div class="flip mf" data-flip><div class="in"><div class="fc"><b>{e(a)}<span class="fipa">{e(C.FREQ_IPA[a])}</span></b></div><div class="bk"><b>{e(vi)}</b></div></div></div>'
     f'{pb("F_" + str(i))}{week(d)}<div class="fx">{e(ex).replace(e(a), f"<b>{e(a)}</b>", 1)}</div></div>'
     for i, (a, pc, ex, vi, d) in enumerate(C.FREQ))
 S.append(slide('How often?', head('Input · Frequency', 'c-input', 'How often? — <em>always → never</em>') + f'''  <div class="row" style="gap:18px;flex:1;min-height:0">
@@ -350,6 +350,8 @@ TRACK = lambda sid: ('<script src="../../assets/config.js"></script>'
     f'<script>GT.guard("{sid}","../../")||GT.lessonOpened("{sid}")</script>\n</body>')
 
 
+__import__('sys').path.insert(0, os.path.dirname(HERE)); from audiopolicy import apply as audio_policy
+
 def build():
     head_ = open(os.path.join(HERE, 'shell_head.html'), encoding='utf-8').read().replace('</style>', CSS + '</style>', 1)
     tail_ = open(os.path.join(HERE, 'shell_tail.html'), encoding='utf-8').read()
@@ -367,7 +369,7 @@ def build():
         if with_home:
             first = d.find('<div class="s-foot"><span>'); d = d[:first] + d[first:].replace('<div class="s-foot"><span>', '<div class="s-foot"><span>' + home, 1)
             last = d.rfind('<div class="s-foot"><span>'); d = d[:last] + d[last:].replace('<div class="s-foot"><span>', '<div class="s-foot"><span>' + home, 1)
-        return head_ + '<div id="viewport"><div id="deck">' + d + tail_ + '<script>\n' + js + '\n' + app + '\n</script>\n</body>\n</html>\n'
+        return audio_policy(head_ + '<div id="viewport"><div id="deck">' + d + tail_ + '<script>\n' + js + '\n' + app + '\n</script>\n</body>\n</html>\n')
 
     def src_path(k, v):
         return os.path.join(HERE, 'listening', os.path.basename(v['file'])) if k == 'EL' else os.path.join(HERE, 'mp3', v['file'])

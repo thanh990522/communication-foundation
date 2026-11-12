@@ -66,6 +66,8 @@ TRACK = lambda sid: ('<script src="../../assets/config.js"></script>'
     f'<script>GT.guard("{sid}","../../")||GT.lessonOpened("{sid}")</script>\n</body>')
 
 
+__import__('sys').path.insert(0, os.path.dirname(HERE)); from audiopolicy import apply as audio_policy
+
 def build():
     head_ = open(os.path.join(HERE, 'shell_head.html'), encoding='utf-8').read().replace('</style>', CSS + '</style>', 1)
     tail_ = open(os.path.join(HERE, 'shell_tail.html'), encoding='utf-8').read()
@@ -88,7 +90,7 @@ def build():
         if with_home:
             first = d.find('<div class="s-foot"><span>'); d = d[:first] + d[first:].replace('<div class="s-foot"><span>', '<div class="s-foot"><span>' + home, 1)
             last = d.rfind('<div class="s-foot"><span>'); d = d[:last] + d[last:].replace('<div class="s-foot"><span>', '<div class="s-foot"><span>' + home, 1)
-        return head_ + '<div id="viewport"><div id="deck">' + d + tail_ + '<script>\n' + js + '\n' + app + '\n</script>\n</body>\n</html>\n'
+        return audio_policy(head_ + '<div id="viewport"><div id="deck">' + d + tail_ + '<script>\n' + js + '\n' + app + '\n</script>\n</body>\n</html>\n')
 
     def src_path(k, v):
         return os.path.join(HERE, 'listening', os.path.basename(v['file'])) if k == 'EL' else os.path.join(HERE, 'mp3', v['file'])

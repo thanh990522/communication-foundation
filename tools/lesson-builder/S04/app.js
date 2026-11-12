@@ -203,7 +203,7 @@ function scDraw(){ document.getElementById('scOut').innerHTML=scPicked.map((w,k)
 function scCheck(){
   const s=DATA.SCRAMBLE[scI], ok=scPicked.join(' ')===scWords(s).join(' ');
   const m=document.getElementById('scMsg');
-  m.innerHTML=ok?`✅ ${esc(s)}`:`❌ ${esc(s)}`; m.className='scmsg '+(ok?'good':'bad');
+  m.innerHTML=(ok?`✅ ${esc(s)}`:`❌ ${esc(s)}`)+` <span class="spk" role="button" data-a="SC_${scI}">🔊</span>`; m.className='scmsg '+(ok?'good':'bad');
   if(ok) scScore++; document.getElementById('scScore').textContent='Score: '+scScore;
   play('SC_'+scI);
 }

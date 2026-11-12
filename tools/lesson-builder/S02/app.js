@@ -158,7 +158,7 @@ function spInit(){
     $('spCard').innerHTML='<div class="sph">🎡 …</div>';
     setTimeout(()=>{ spBusy=false; spCur=i; spUsed.push(i); document.getElementById('wseg'+i).classList.add('used'); upd();
       const [d,pr,an,hint]=DATA.SPIN[i];
-      $('spCard').innerHTML=`<div class="sph"><span class="spn">${i+1}</span> ${d==='vi'?'🇻🇳 → 🇬🇧 Translate into English':'🇬🇧 → 🇻🇳 Dịch sang tiếng Việt'}</div><div class="spvi">${esc(pr)}</div><div class="sphint">💡 ${esc(hint)}</div><div class="spen" id="spEn" hidden>${esc(an)}</div>`;
+      $('spCard').innerHTML=`<div class="sph"><span class="spn">${i+1}</span> ${d==='vi'?'🇻🇳 → 🇬🇧 Translate into English':'🇬🇧 → 🇻🇳 Dịch sang tiếng Việt'}</div><div class="spvi">${esc(pr)}</div><div class="sphint">💡 ${esc(hint)}</div><div class="spen" id="spEn" hidden>${esc(an)} <span class="spk" role="button" data-a="SA_${i}">🔊</span></div>`;
       $('spVi').textContent=d==='vi'?'🔊 Tiếng Việt':'🔊 English';
       ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=false); timer(); play('SQ_'+i); },3300);
   };
@@ -188,7 +188,7 @@ function scDraw(){ document.getElementById('scOut').innerHTML=scPicked.map((w,k)
 function scCheck(){
   const s=DATA.SCRAMBLE[scI], ok=scPicked.join(' ')===scWords(s).join(' ');
   const m=document.getElementById('scMsg');
-  m.innerHTML=ok?`✅ ${esc(s)}`:`❌ ${esc(s)}`; m.className='scmsg '+(ok?'good':'bad');
+  m.innerHTML=(ok?`✅ ${esc(s)}`:`❌ ${esc(s)}`)+` <span class="spk" role="button" data-a="SC_${scI}">🔊</span>`; m.className='scmsg '+(ok?'good':'bad');
   if(ok) scScore++; document.getElementById('scScore').textContent='Score: '+scScore;
   play('SC_'+scI);
 }

@@ -615,8 +615,8 @@ textarea.names{width:100%;height:120px;border:2px solid var(--line);border-radiu
       <div style="font-weight:900;color:var(--navy);font-size:21px">🗣 Read these emails aloud</div>
       <div id="emails" class="col" style="gap:10px"></div>
       <div class="card" style="padding:12px 16px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:space-between">
-        <div class="row" style="align-items:center;gap:8px"><b style="font-size:40px;color:var(--navy);line-height:1">J</b><span><b style="color:var(--blue)">capital J</b></span><button class="play sm" data-a="CAP_J"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button></div>
-        <div class="row" style="align-items:center;gap:8px"><b style="font-size:40px;color:var(--blue);line-height:1">j</b><span><b style="color:var(--blue)">small j</b></span><button class="play sm" data-a="SMALL_J"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button></div>
+        <div class="row" style="align-items:center;gap:8px"><b style="font-size:40px;color:var(--navy);line-height:1">J</b><span><b style="color:var(--blue)">capital J</b><span class="fipa">/ˈkæpɪtl dʒeɪ/</span></span><button class="play sm" data-a="CAP_J"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button></div>
+        <div class="row" style="align-items:center;gap:8px"><b style="font-size:40px;color:var(--blue);line-height:1">j</b><span><b style="color:var(--blue)">small j</b><span class="fipa">/smɔːl dʒeɪ/</span></span><button class="play sm" data-a="SMALL_J"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button></div>
         <div class="row" style="align-items:center;gap:8px"><button class="play sm" data-a="PH_LOWER"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></button><span>It's <b>all lower case</b>.</span></div>
       </div>
     </div>
@@ -815,7 +815,7 @@ const ODD = [
   {L:['S','X','R','F'],odd:'R',why:'R sounds like "car"; S, X, F sound like "pen".'}
 ];
 const NAMES_TEST = [['Mr','Black'],['Mrs','Green'],['Ms','Hayes'],['Mr','Jarvis'],['Dr','Patel'],['Miss','Nguyen'],['Mr','Pham'],['Ms','Quinn'],['Mrs','Wood'],['Mr','Huynh']];
-const SYMB = [['@','at'],['.','dot'],['_','underscore'],['-','hyphen'],['.com','dot com'],['.vn','dot V-N'],['ss','double S'],['abc','all lower case']];
+const SYMB = [['@','at','/æt/'],['.','dot','/dɒt/'],['_','underscore','/ˌʌndəˈskɔː/'],['-','hyphen','/ˈhaɪfn/'],['.com','dot com','/dɒt kɒm/'],['.vn','dot V-N','/dɒt ˌviː ˈen/'],['ss','double S','/ˈdʌbl es/'],['abc','all lower case','/ɔːl ˌləʊə ˈkeɪs/']];
 const EMAILS = ['lan.pham@gmail.com','tom_baker99@yahoo.com','info@abc-english.vn','minh.anh2002@outlook.com'];
 const QA = [
   ["What's your name?",["My name's Linh.","I'm Linh Nguyen.","It's Nguyen Thuy Linh."]],
@@ -1007,7 +1007,7 @@ function buildCloud(id){
 }
 function buildAcr(){
   document.getElementById('acr').innerHTML = ACRONYMS.map(([a,m,vi,ic])=>`<div class="a"><div class="in"><div class="fr"><span class="aic">${ic}</span><b>${a}</b><span class="turn">↻</span></div><div class="bk"><b>${a}</b><span class="full">${esc(m)}</span><span class="vi">${esc(vi)}</span></div></div></div>`).join('');
-  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; const on=c.classList.toggle('flip'); if(on) play('ACR_'+i); }));
+  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; c.classList.toggle('flip'); }));
 }
 function buildAbc(){
   document.getElementById('abc').innerHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(L=>
@@ -1083,7 +1083,7 @@ function ntCheck(){
 }
 /* ---------- email symbols */
 function buildEmail(){
-  document.getElementById('symg').innerHTML = SYMB.map(([k,t],i)=>`<div class="sy"><span class="k">${esc(k)}</span><span>${esc(t)}</span><button class="play sm y" data-a="SYM_${i}">${PLAY_SVG}</button></div>`).join('');
+  document.getElementById('symg').innerHTML = SYMB.map(([k,t,ip],i)=>`<div class="sy"><span class="k">${esc(k)}</span><span>${esc(t)}<span class="fipa">${esc(ip)}</span></span><button class="play sm y" data-a="SYM_${i}">${PLAY_SVG}</button></div>`).join('');
   document.getElementById('emails').innerHTML = EMAILS.map((e,i)=>`<div class="em"><b>${esc(e)}</b><button class="play" data-a="EM_${i}">${PLAY_SVG}</button>${dl('EM_'+i)}</div>`).join('');
 }
 /* ---------- questions & answers */
@@ -1216,7 +1216,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   buildCloud('cloud'); buildCloud('cloud2'); buildAcr(); buildAbc(); buildFam(); buildOdd(); buildNT(); buildEmail(); buildQA(); buildSit(); showCard(-1);
   buildSpell(); buildDialogue(); buildKb(); hmNew();
   document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(b.closest('#lib,#spell,#odd,#nt,#emails,#symg,#qa')||!AUDIO[id]) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
-  document.querySelectorAll('#acr .a').forEach((c,i)=>c.querySelector('.bk').insertAdjacentHTML('beforeend',dl('ACR_'+i)));
+  document.querySelectorAll('#acr .a').forEach((c,i)=>c.querySelector('.bk').insertAdjacentHTML('beforeend','<span class="spk" role="button" data-a="ACR_'+i+'">🔊</span>'+dl('ACR_'+i)));
   document.getElementById('azDl').innerHTML=dl('AZ','A–Z (MP3)');
   document.getElementById('famDl').innerHTML=dl('FAM_ALL','7 families (MP3)');
 
@@ -1251,6 +1251,40 @@ window.addEventListener('DOMContentLoaded',()=>{
   window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',fit); fit();
   const h=parseInt((location.hash||'').slice(1)); go(isNaN(h)?0:h-1);
 });
+
+</script>
+<!--audiopolicy--><style>.spk{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#EAF1FF;border:2px solid #D6E4FF;font-size:15px;cursor:pointer;margin-left:6px;vertical-align:middle;flex:none;line-height:1;user-select:none}.wchip .spk,.lline .spk,.pair .spk,.kw .spk,.gx .spk,.toc .spk,.fuq .spk{width:22px;height:22px;font-size:11px;border-width:1.5px;margin-left:5px}.spk:hover{background:#FFC72C;border-color:#FFC72C}.spk.on,.spk.playing{background:#FFC72C}.fipa{display:block;font-size:.62em;font-weight:700;color:#5B6B8C;font-family:"Segoe UI","Noto Sans",system-ui,sans-serif;letter-spacing:0;margin-top:2px}</style><script>
+/* ---------- audio policy: nothing reads by itself — words & sentences play only when a read button (▶ / 🔊) is clicked */
+(function(){
+  if(typeof playQueue!=='function') return;
+  let okUntil=0;
+  const READ='.play,.spk,.ear,[data-letter],.lb';
+  const isRead=t=>{ if(!t||!t.closest) return false; if(t.closest(READ)) return true; const b=t.closest('button'); return !!(b&&/[▶🔊🔁🎧]/.test(b.textContent||'')); };
+  const allow=()=>{ okUntil=Date.now()+700; };
+  document.addEventListener('click',e=>{
+    const s=e.target.closest&&e.target.closest('.spk');
+    if(s){ e.stopPropagation(); e.preventDefault(); allow(); if(typeof stopAll==='function') stopAll(); play(s.dataset.a,s); return; }
+    if(isRead(e.target)) allow();
+  },true);
+  document.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&isRead(document.activeElement)) allow(); },true);
+  const orig=playQueue;
+  playQueue=function(){ if(Date.now()>okUntil) return Promise.resolve(); return orig.apply(this,arguments); };
+  /* clickable words/cards that used to speak on click get their own 🔊 button */
+  const SKIP='.play,.spk,.ear,.btn,[data-letter],.lb,.dl,a';
+  function arm(root){
+    (root.querySelectorAll?root:document).querySelectorAll('[data-a]').forEach(el=>{
+      if(el.matches(SKIP)||el.querySelector(':scope > .spk')||el.closest('.spk')) return;
+      if(typeof AUDIO!=='undefined'&&!AUDIO[el.dataset.a]) return;
+      el.insertAdjacentHTML('beforeend',`<span class="spk" role="button" tabindex="0" data-a="${el.dataset.a}" title="Nghe">🔊</span>`);
+    });
+    (root.querySelectorAll?root:document).querySelectorAll('.ln[data-ln]').forEach(el=>{
+      const id='DLG_'+el.dataset.ln; if(el.querySelector('.spk,.play')||(typeof AUDIO!=='undefined'&&!AUDIO[id])) return;
+      el.insertAdjacentHTML('beforeend',`<span class="spk" role="button" tabindex="0" data-a="${id}" title="Nghe">🔊</span>`);
+    });
+  }
+  arm(document);
+  new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{ if(n.nodeType===1) arm(n.parentNode||n); }))).observe(document.body,{childList:true,subtree:true});
+})();
 
 </script>
 <script src="../../assets/config.js"></script><script>document.write('<script src="../../assets/sessions.js?t='+Date.now()+'"><\/script>')</script><script src="../../assets/student.js"></script><script>GT.guard("S01","../../")||GT.lessonOpened("S01")</script>

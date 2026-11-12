@@ -257,3 +257,6 @@ SPIN = [  # direction (vi→en / en→vi), prompt, model answer, structure hint
     ('vi', 'Minh thỉnh thoảng nghỉ giải lao lúc chín giờ tối vì anh ấy làm ca tối.', 'Minh sometimes takes a short break at 9 p.m. because he works the evening shift.', 'sometimes · because'),
     ('en', 'At weekends we often have breakfast at nine.', 'Vào cuối tuần chúng tôi thường ăn sáng lúc chín giờ.', 'at weekends · often'),
 ]
+
+FREQ_IPA = {'always': '/ˈɔːlweɪz/', 'usually': '/ˈjuːʒuəli/', 'often': '/ˈɒfn/', 'sometimes': '/ˈsʌmtaɪmz/',
+            'hardly ever': '/ˌhɑːdli ˈevə/', 'never': '/ˈnevə/'}

@@ -327,3 +327,8 @@ RACE = [  # spoken text (in words), options, answer
     ('Wednesday the twelfth at five fifty.', ['Wed 12th · 5:50', 'Wed 12th · 5:15', 'Wed 20th · 5:50', 'Wed 2nd · 5:50'], 'Wed 12th · 5:50'),
     ('Thursday the nineteenth at six thirty.', ['Thu 19th · 6:30', 'Thu 9th · 6:30', 'Tue 19th · 6:30', 'Thu 19th · 7:30'], 'Thu 19th · 6:30'),
 ]
+
+ORD_IPA = ['/fɜːst/', '/ˈsekənd/', '/θɜːd/', '/fɔːθ/', '/twelfθ/', '/ˈtwentiəθ/', '/ˌtwenti ˈfɜːst/', '/ˌtwenti ˈsekənd/', '/ˌtwenti ˈθɜːd/', '/ˈθɜːtiəθ/']
+PAIR_IPA = {'13': '/ˌθɜːˈtiːn/', '30': '/ˈθɜːti/', '14': '/ˌfɔːˈtiːn/', '40': '/ˈfɔːti/', '15': '/ˌfɪfˈtiːn/', '50': '/ˈfɪfti/',
+            '16': '/ˌsɪksˈtiːn/', '60': '/ˈsɪksti/', '17': '/ˌsevnˈtiːn/', '70': '/ˈsevnti/', '18': '/ˌeɪˈtiːn/', '80': '/ˈeɪti/',
+            '19': '/ˌnaɪnˈtiːn/', '90': '/ˈnaɪnti/'}

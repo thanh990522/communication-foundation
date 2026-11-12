@@ -95,8 +95,8 @@ S.append(slide('Warm-up: This or that?', head('Warm-up', 'c-warm', 'This or that
                '<div class="fbig">I live <span class="gap">___</span>.</div><div class="fsm">— And you?</div></div></div>\n'))
 
 # 5 places -------------------------------------------------------------------------------------
-PL = ''.join(f'<div class="flip plc" data-flip><div class="in"><div class="fc"><span class="pe">{em}</span><div class="fwd"><b>{e(w)}</b>{pb(f"PL_{i}")}</div><span class="turn">↻</span></div>'
-             f'<div class="bk"><b>{e(w)}</b><span class="vi">{e(vi)}</span><span class="ex">“There is a {e(w)} near my home.”</span>{pb(f"PL_{i}", "y")}</div></div></div>'
+PL = ''.join(f'<div class="flip plc" data-flip><div class="in"><div class="fc"><span class="pe">{em}</span><div class="fwd"><b>{e(w)}<span class="fipa">{e(C.PLACE_IPA[w])}</span></b>{pb(f"PL_{i}")}</div><span class="turn">↻</span></div>'
+             f'<div class="bk"><b>{e(w)}</b><span class="ipa">{e(C.PLACE_IPA[w])}</span><span class="vi">{e(vi)}</span><span class="ex">“There is a {e(w)} near my home.”</span>{pb(f"PL_{i}", "y")}</div></div></div>'
              for i, (w, em, vi) in enumerate(C.PLACES))
 TOOLS = '  <div class="ftools"><span>↻ Click a card to flip</span><button class="btn sm ghost" data-flipall>🔄 Flip all</button><button class="btn sm ghost" data-flipreset>↺ Reset</button></div>\n'
 S.append(slide('Places near me', head('Input · Places', 'c-input', 'Places <em>near me</em>') + f'  <div class="fgrid">{PL}</div>\n' + TOOLS))
@@ -106,7 +106,7 @@ S.append(slide('Places near me', head('Input · Places', 'c-input', 'Places <em>
 def word_card(i, v):
     return (f'<div class="flip wc" data-flip><div class="in">'
             f'<div class="fc"><div class="art">{I.WORD[v["k"]]}</div>'
-            f'<div class="fwd"><b>{e(v["w"])}</b>{pb("VW_" + str(i))}</div><span class="turn">↻</span></div>'
+            f'<div class="fwd"><b>{e(v["w"])}<span class="fipa">{e(v["ipa"])}</span></b>{pb("VW_" + str(i))}</div><span class="turn">↻</span></div>'
             f'<div class="bk"><span class="pos">{e(v["pos"])}</span><b>{e(v["w"])}</b><span class="ipa">{e(v["ipa"])}</span>'
             f'<span class="vi">{e(v["vi"])}</span>{pb("VW_" + str(i), "y")}</div></div></div>')
 
@@ -318,6 +318,8 @@ TRACK = lambda sid: ('<script src="../../assets/config.js"></script>'
     f'<script>GT.guard("{sid}","../../")||GT.lessonOpened("{sid}")</script>\n</body>')
 
 
+__import__('sys').path.insert(0, os.path.dirname(HERE)); from audiopolicy import apply as audio_policy
+
 def build():
     head_ = open(os.path.join(HERE, 'shell_head.html'), encoding='utf-8').read().replace('</style>', CSS + '</style>', 1)
     tail_ = open(os.path.join(HERE, 'shell_tail.html'), encoding='utf-8').read()
@@ -337,7 +339,7 @@ def build():
         if with_home:
             first = d.find('<div class="s-foot"><span>'); d = d[:first] + d[first:].replace('<div class="s-foot"><span>', '<div class="s-foot"><span>' + home, 1)
             last = d.rfind('<div class="s-foot"><span>'); d = d[:last] + d[last:].replace('<div class="s-foot"><span>', '<div class="s-foot"><span>' + home, 1)
-        return head_ + '<div id="viewport"><div id="deck">' + d + tail_ + '<script>\n' + js + '\n' + app + '\n</script>\n</body>\n</html>\n'
+        return audio_policy(head_ + '<div id="viewport"><div id="deck">' + d + tail_ + '<script>\n' + js + '\n' + app + '\n</script>\n</body>\n</html>\n')
 
     def src_path(k, v):
         return os.path.join(HERE, 'listening', os.path.basename(v['file'])) if k == 'EL' else os.path.join(HERE, 'mp3', v['file'])

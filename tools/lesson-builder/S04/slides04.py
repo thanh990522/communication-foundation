@@ -45,7 +45,7 @@ S.append(slide('Warm-up: Say it!', head('Warm-up', 'c-warm', 'Say it! — <em>ti
 TW = ''.join(f'<div class="twc t{i}"><div class="twp">{e(p)}</div><div class="twu">{e(u)}</div>' +
              ''.join(f'<button class="gx" data-a="TW_{i}_{j}">{P}<span>{e(x)}</span></button>' for j, x in enumerate(xs)) + '</div>'
              for i, (p, u, xs) in enumerate(C.TIMEW))
-OR = ''.join(f'<button class="ordc" data-a="OR_{i}"><b>{e(o)}</b><span>{e(w)}</span></button>' for i, (o, w) in enumerate(zip(C.ORDINALS, C.ORD_SAY)))
+OR = ''.join(f'<button class="ordc" data-a="OR_{i}"><b>{e(o)}</b><span>{e(w)}</span><span class="fipa">{e(C.ORD_IPA[i])}</span></button>' for i, (o, w) in enumerate(zip(C.ORDINALS, C.ORD_SAY)))
 S.append(slide('on · at · in', head('Input · Time words', 'c-input', '<em>on</em> Monday · <em>at</em> 3 p.m. · <em>in</em> the morning') +
                f'  <div class="twgrid">{TW}</div>\n  <div class="card ordbox"><div class="rh">📅 Dates: say the <b>ordinal</b> — Friday <b>the 21st</b></div><div class="ords">{OR}</div></div>\n'))
 
@@ -55,7 +55,7 @@ WTOOLS = TOOLS.replace('Say it first — then click to check', 'Click a card to 
 
 def word_card(i, v):
     return (f'<div class="flip wc" data-flip><div class="in"><div class="fc"><div class="art">{I.WORD[v["k"]]}</div>'
-            f'<div class="fwd"><b>{e(v["w"])}</b>{pb("VW_" + str(i))}</div><span class="turn">↻</span></div>'
+            f'<div class="fwd"><b>{e(v["w"])}<span class="fipa">{e(v["ipa"])}</span></b>{pb("VW_" + str(i))}</div><span class="turn">↻</span></div>'
             f'<div class="bk"><span class="pos">{e(v["pos"])}</span><b>{e(v["w"])}</b><span class="ipa">{e(v["ipa"])}</span><span class="vi">{e(v["vi"])}</span>{pb("VW_" + str(i), "y")}</div></div></div>')
 
 
@@ -104,8 +104,8 @@ S.append(slide("Mai's week", head('Practice · Arrangements', 'c-prac', "Look at
                '<div class="ftools" style="margin-top:4px"><span class="score" id="mqScore">✓ 0 / 6</span><button class="btn sm ghost" id="mqReset">↺ Reset</button></div></div></div>\n'))
 
 # 11 numbers 13 / 30 ----------------------------------------------------------------------------
-PR = ''.join(f'<div class="pairc"><button class="pn" data-a="NP_{i}_0"><b>{a}</b><span>{e(sa)}</span></button><span class="vs">vs</span>'
-             f'<button class="pn y" data-a="NP_{i}_1"><b>{b}</b><span>{e(sb)}</span></button></div>' for i, (a, b, sa, sb) in enumerate(C.PAIRS))
+PR = ''.join(f'<div class="pairc"><button class="pn" data-a="NP_{i}_0"><b>{a}</b><span class="pst">{e(sa)}<i class="fipa">{e(C.PAIR_IPA[a])}</i></span></button><span class="vs">vs</span>'
+             f'<button class="pn y" data-a="NP_{i}_1"><b>{b}</b><span class="pst">{e(sb)}<i class="fipa">{e(C.PAIR_IPA[b])}</i></span></button></div>' for i, (a, b, sa, sb) in enumerate(C.PAIRS))
 PT = ''.join(f'<div class="ptq" id="pt{i}"><span class="n">{i + 1}</span>{pb(f"PT_{i}")}<span class="pts">{e(s)}</span>'
              '<div class="co">' + ''.join(f'<button class="opt" data-pt="{i}" data-o="{k}">{C.PAIRS[pi][k]}</button>' for k in (0, 1)) + '</div></div>'
              for i, (s, pi, ans) in enumerate(C.PAIR_TEST))

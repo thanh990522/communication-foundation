@@ -32,7 +32,7 @@ const ODD = [
   {L:['S','X','R','F'],odd:'R',why:'R sounds like "car"; S, X, F sound like "pen".'}
 ];
 const NAMES_TEST = [['Mr','Black'],['Mrs','Green'],['Ms','Hayes'],['Mr','Jarvis'],['Dr','Patel'],['Miss','Nguyen'],['Mr','Pham'],['Ms','Quinn'],['Mrs','Wood'],['Mr','Huynh']];
-const SYMB = [['@','at'],['.','dot'],['_','underscore'],['-','hyphen'],['.com','dot com'],['.vn','dot V-N'],['ss','double S'],['abc','all lower case']];
+const SYMB = [['@','at','/æt/'],['.','dot','/dɒt/'],['_','underscore','/ˌʌndəˈskɔː/'],['-','hyphen','/ˈhaɪfn/'],['.com','dot com','/dɒt kɒm/'],['.vn','dot V-N','/dɒt ˌviː ˈen/'],['ss','double S','/ˈdʌbl es/'],['abc','all lower case','/ɔːl ˌləʊə ˈkeɪs/']];
 const EMAILS = ['lan.pham@gmail.com','tom_baker99@yahoo.com','info@abc-english.vn','minh.anh2002@outlook.com'];
 const QA = [
   ["What's your name?",["My name's Linh.","I'm Linh Nguyen.","It's Nguyen Thuy Linh."]],
@@ -224,7 +224,7 @@ function buildCloud(id){
 }
 function buildAcr(){
   document.getElementById('acr').innerHTML = ACRONYMS.map(([a,m,vi,ic])=>`<div class="a"><div class="in"><div class="fr"><span class="aic">${ic}</span><b>${a}</b><span class="turn">↻</span></div><div class="bk"><b>${a}</b><span class="full">${esc(m)}</span><span class="vi">${esc(vi)}</span></div></div></div>`).join('');
-  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; const on=c.classList.toggle('flip'); if(on) play('ACR_'+i); }));
+  document.querySelectorAll('#acr .a').forEach((c,i)=>c.addEventListener('click',ev=>{ if(ev.target.closest('a')) return; c.classList.toggle('flip'); }));
 }
 function buildAbc(){
   document.getElementById('abc').innerHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(L=>
@@ -300,7 +300,7 @@ function ntCheck(){
 }
 /* ---------- email symbols */
 function buildEmail(){
-  document.getElementById('symg').innerHTML = SYMB.map(([k,t],i)=>`<div class="sy"><span class="k">${esc(k)}</span><span>${esc(t)}</span><button class="play sm y" data-a="SYM_${i}">${PLAY_SVG}</button></div>`).join('');
+  document.getElementById('symg').innerHTML = SYMB.map(([k,t,ip],i)=>`<div class="sy"><span class="k">${esc(k)}</span><span>${esc(t)}<span class="fipa">${esc(ip)}</span></span><button class="play sm y" data-a="SYM_${i}">${PLAY_SVG}</button></div>`).join('');
   document.getElementById('emails').innerHTML = EMAILS.map((e,i)=>`<div class="em"><b>${esc(e)}</b><button class="play" data-a="EM_${i}">${PLAY_SVG}</button>${dl('EM_'+i)}</div>`).join('');
 }
 /* ---------- questions & answers */
@@ -433,7 +433,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   buildCloud('cloud'); buildCloud('cloud2'); buildAcr(); buildAbc(); buildFam(); buildOdd(); buildNT(); buildEmail(); buildQA(); buildSit(); showCard(-1);
   buildSpell(); buildDialogue(); buildKb(); hmNew();
   document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(b.closest('#lib,#spell,#odd,#nt,#emails,#symg,#qa')||!AUDIO[id]) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
-  document.querySelectorAll('#acr .a').forEach((c,i)=>c.querySelector('.bk').insertAdjacentHTML('beforeend',dl('ACR_'+i)));
+  document.querySelectorAll('#acr .a').forEach((c,i)=>c.querySelector('.bk').insertAdjacentHTML('beforeend','<span class="spk" role="button" data-a="ACR_'+i+'">🔊</span>'+dl('ACR_'+i)));
   document.getElementById('azDl').innerHTML=dl('AZ','A–Z (MP3)');
   document.getElementById('famDl').innerHTML=dl('FAM_ALL','7 families (MP3)');
 
