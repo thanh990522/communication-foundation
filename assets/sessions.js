@@ -40,7 +40,7 @@ window.SESSIONS = [
   "url": "lessons/S03/",
   "zip": "lessons/S03/S03_Audio_MP3.zip",
   "offline": "lessons/S03/S03_offline.html",
-  "hw": "homework/shadow.html?s=S03"
+  "hw": "homework/?s=S03"
  },
  {
   "id": "S04",

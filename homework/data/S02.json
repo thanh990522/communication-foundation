@@ -1,102 +1,199 @@
 {
  "session": "S02",
  "title": "Routines, Habits & Real Schedules",
- "kind": "Reading",
+ "kind": "5-part",
  "pass": 80,
+ "autoMax": 43,
  "sections": [
   {
-   "id": "A",
-   "title": "Text 1. Lucy's weekdays and weekends",
-   "passage": "My name is Lucy. On weekdays, my day usually starts with a cup of coffee at six o'clock. I always have a productive morning because I get up early. I hardly ever miss breakfast.\n\nFirst, I have breakfast at home. Then I make a daily commute to the city. It takes me forty-five minutes to get to work. I usually start work at eight. At eleven, I always take a short break. After that, I work until five, and I usually get home at six.\n\nAt weekends, my day is very different. I hardly ever get up early, and I never go to work. On weekdays I get up at six, whereas at weekends I usually get up at nine.",
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
    "items": [
     {
-     "id": "A1",
      "type": "mcq",
-     "prompt": "Lucy's day usually starts with breakfast.",
+     "prompt": "“hiệu quả, năng suất” in English is…",
      "options": [
-      "True",
-      "False"
+      "short",
+      "productive",
+      "daily"
      ],
      "answers": [
-      "False"
+      "productive"
      ],
-     "show": "False",
-     "points": 1
+     "id": "V1",
+     "points": 1,
+     "show": "productive"
     },
     {
-     "id": "A2",
-     "type": "mcq",
-     "prompt": "Lucy often misses breakfast.",
-     "options": [
-      "True",
-      "False"
-     ],
-     "answers": [
-      "False"
-     ],
-     "show": "False",
-     "points": 1
-    },
-    {
-     "id": "A3",
-     "type": "mcq",
-     "prompt": "It takes Lucy forty-five minutes to get to work.",
-     "options": [
-      "True",
-      "False"
-     ],
-     "answers": [
-      "True"
-     ],
-     "show": "True",
-     "points": 1
-    },
-    {
-     "id": "A4",
-     "type": "mcq",
-     "prompt": "Lucy always takes a short break at eleven.",
-     "options": [
-      "True",
-      "False"
-     ],
-     "answers": [
-      "True"
-     ],
-     "show": "True",
-     "points": 1
-    },
-    {
-     "id": "A5",
-     "type": "mcq",
-     "prompt": "Lucy sometimes goes to work at weekends.",
-     "options": [
-      "True",
-      "False"
-     ],
-     "answers": [
-      "False"
-     ],
-     "show": "False",
-     "points": 1
-    },
-    {
-     "id": "A6",
      "type": "gap",
-     "prompt": "Lucy usually starts work at ____.",
+     "prompt": "I make a daily ____ to the city. It takes me forty minutes.",
      "answers": [
-      "eight",
-      "8",
-      "eight o'clock",
-      "8 o'clock",
-      "8:00"
+      "commute"
      ],
-     "show": "eight",
-     "points": 1
+     "id": "V2",
+     "points": 1,
+     "show": "commute"
     },
     {
-     "id": "A7",
      "type": "gap",
-     "prompt": "At weekends, Lucy usually gets up at ____.",
+     "prompt": "Minh works the evening ____. He starts at four and finishes at midnight.",
+     "answers": [
+      "shift"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "shift"
+    },
+    {
+     "type": "gap",
+     "prompt": "I always ____ a short break at eleven.",
+     "answers": [
+      "take"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "take"
+    },
+    {
+     "type": "mcq",
+     "prompt": "“hầu như không bao giờ” in English is…",
+     "options": [
+      "hardly ever",
+      "usually",
+      "always"
+     ],
+     "answers": [
+      "hardly ever"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "hardly ever"
+    },
+    {
+     "type": "gap",
+     "prompt": "I hardly ever ____ breakfast. I always have it at seven.",
+     "answers": [
+      "miss"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "miss"
+    },
+    {
+     "type": "mcq",
+     "prompt": "____ weekdays, I get up at six.",
+     "options": [
+      "On",
+      "At",
+      "In"
+     ],
+     "answers": [
+      "On"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "On"
+    },
+    {
+     "type": "mcq",
+     "prompt": "____ weekends, I usually get up late.",
+     "options": [
+      "On",
+      "At",
+      "In"
+     ],
+     "answers": [
+      "At"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "At"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — Nam and Hoa's week",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Hi, I'm Nam. On weekdays, my day usually starts with a cup of tea at six o'clock. I hardly ever miss breakfast, and I always have a productive morning after a good breakfast.\n\nI make a daily commute to the city by bus. It takes me forty minutes to get to work. I usually start work at eight, and I always take a short break at ten. I usually get home at six.\n\nMy sister Hoa works at a hospital. She works the evening shift, so she usually gets up late. It takes her only ten minutes to get to work. She hardly ever takes a break because the hospital is very busy.\n\nOn weekdays I get up early, whereas at weekends I usually get up at nine. I never work at weekends. Hoa sometimes works on Saturdays, but she never works on Sundays.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Nam's day usually starts with breakfast.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How long does it take Nam to get to work?",
+     "options": [
+      "ten minutes",
+      "fourteen minutes",
+      "forty minutes"
+     ],
+     "answers": [
+      "forty minutes"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "forty minutes"
+    },
+    {
+     "type": "mcq",
+     "prompt": "When does Nam take a short break?",
+     "options": [
+      "at six",
+      "at eight",
+      "at ten"
+     ],
+     "answers": [
+      "at ten"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "at ten"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Who works the evening shift?",
+     "options": [
+      "Nam and Hoa",
+      "Hoa",
+      "Nam"
+     ],
+     "answers": [
+      "Hoa"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "Hoa"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Hoa often takes a break at work.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "gap",
+     "prompt": "At weekends, Nam usually gets up at ____.",
      "answers": [
       "nine",
       "9",
@@ -104,224 +201,306 @@
       "9 o'clock",
       "9:00"
      ],
-     "show": "nine",
-     "points": 1
+     "id": "R6",
+     "points": 1,
+     "show": "nine"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How often does Hoa work on Sundays?",
+     "options": [
+      "sometimes",
+      "never",
+      "usually"
+     ],
+     "answers": [
+      "never"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "never"
     }
    ]
   },
   {
-   "id": "B",
-   "title": "Text 2. Minh's evening shift",
-   "passage": "Minh works the evening shift. On weekdays, he usually starts work at four o'clock and finishes at midnight. Because he finishes work late, he hardly ever gets up before nine.\n\nHis day usually starts with breakfast at ten. He doesn't make a long commute: it takes him ten minutes to get to work. He often has a productive morning before work. At work, he always takes a short break at eight.\n\nMinh works every evening on weekdays, whereas at weekends he never works. He sometimes works on Friday evening, but he never works on Saturday or Sunday.",
+   "id": "L1",
+   "title": "Part 3 · Listening — Tom's evening shift",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
    "items": [
     {
-     "id": "B1",
-     "type": "mcq",
-     "prompt": "What time does Minh usually start work?",
-     "options": [
-      "at midnight",
-      "at four",
-      "at ten"
-     ],
+     "type": "gap",
+     "prompt": "Tom works the ____ shift.",
      "answers": [
-      "at four"
+      "evening"
      ],
-     "show": "at four",
-     "points": 1
+     "id": "L11",
+     "points": 1,
+     "show": "evening"
     },
     {
-     "id": "B2",
-     "type": "mcq",
-     "prompt": "How long does it take him to get to work?",
-     "options": [
-      "four minutes",
-      "ten minutes",
-      "forty-five minutes"
-     ],
+     "type": "gap",
+     "prompt": "He usually starts work at ____ in the afternoon.",
      "answers": [
-      "ten minutes"
+      "four",
+      "4",
+      "four o'clock",
+      "4 o'clock",
+      "4:00",
+      "4pm",
+      "4p.m."
      ],
-     "show": "ten minutes",
-     "points": 1
+     "id": "L12",
+     "points": 1,
+     "show": "four"
     },
     {
-     "id": "B3",
      "type": "mcq",
-     "prompt": "How often does Minh get up before nine?",
+     "prompt": "When does he finish work?",
      "options": [
-      "hardly ever",
-      "always",
-      "usually"
+      "at eight",
+      "at ten",
+      "at midnight"
      ],
      "answers": [
-      "hardly ever"
+      "at midnight"
      ],
-     "show": "hardly ever",
-     "points": 1
+     "id": "L13",
+     "points": 1,
+     "show": "at midnight"
     },
     {
-     "id": "B4",
      "type": "mcq",
-     "prompt": "Minh's day usually starts with…",
+     "prompt": "How does Tom get to work?",
      "options": [
-      "a cup of coffee",
-      "a short break",
-      "breakfast at ten"
+      "He walks.",
+      "by bus",
+      "by train"
      ],
      "answers": [
-      "breakfast at ten"
+      "by train"
      ],
-     "show": "breakfast at ten",
-     "points": 1
+     "id": "L14",
+     "points": 1,
+     "show": "by train"
     },
     {
-     "id": "B5",
+     "type": "gap",
+     "prompt": "It takes him ____ minutes to get to work.",
+     "answers": [
+      "thirty",
+      "30"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "thirty"
+    },
+    {
      "type": "mcq",
      "prompt": "When does he take a short break?",
      "options": [
       "at eight",
-      "at ten",
-      "at four"
+      "at four",
+      "at ten"
      ],
      "answers": [
       "at eight"
      ],
-     "show": "at eight",
-     "points": 1
+     "id": "L16",
+     "points": 1,
+     "show": "at eight"
     },
     {
-     "id": "B6",
      "type": "mcq",
-     "prompt": "Does Minh work at weekends?",
+     "prompt": "Tom's day usually starts with…",
      "options": [
-      "Yes, sometimes",
-      "No, never",
-      "Yes, always"
+      "a cup of coffee",
+      "a short break",
+      "breakfast"
      ],
      "answers": [
-      "No, never"
+      "a cup of coffee"
      ],
-     "show": "No, never",
-     "points": 1
+     "id": "L17",
+     "points": 1,
+     "show": "a cup of coffee"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What does Tom usually do on Saturdays?",
+     "options": [
+      "He gets up early.",
+      "He plays football.",
+      "He works."
+     ],
+     "answers": [
+      "He plays football."
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "He plays football."
+    }
+   ],
+   "audioLabel": "Kate & Tom · conversation",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S02/S02_H5_listen1.mp3",
+   "script": [
+    [
+     "Kate",
+     "Hi Tom. You look tired!"
+    ],
+    [
+     "Tom",
+     "Yes, I am. I work the evening shift this month."
+    ],
+    [
+     "Kate",
+     "Really? What time do you usually start work?"
+    ],
+    [
+     "Tom",
+     "I usually start work at four in the afternoon, and I finish at midnight."
+    ],
+    [
+     "Kate",
+     "How do you get to work?"
+    ],
+    [
+     "Tom",
+     "I make a daily commute by train. It takes me thirty minutes."
+    ],
+    [
+     "Kate",
+     "Do you ever take a break?"
+    ],
+    [
+     "Tom",
+     "Yes. I always take a short break at eight."
+    ],
+    [
+     "Kate",
+     "And what about breakfast?"
+    ],
+    [
+     "Tom",
+     "I hardly ever have breakfast before ten. My day usually starts with a cup of coffee."
+    ],
+    [
+     "Kate",
+     "What about weekends?"
+    ],
+    [
+     "Tom",
+     "On weekdays I work, whereas at weekends I never work. I usually play football on Saturdays."
+    ],
+    [
+     "Kate",
+     "That sounds great!"
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "My weekday routine",
+     "audio": "homework/audio/S02/S02_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "My day usually starts with a cup of coffee at six o'clock.",
+       "audio": "homework/audio/S02/S02_H5_shadow_01.mp3"
+      },
+      {
+       "text": "I hardly ever miss breakfast.",
+       "audio": "homework/audio/S02/S02_H5_shadow_02.mp3"
+      },
+      {
+       "text": "I make a daily commute to the city, and it takes me forty minutes to get to work.",
+       "audio": "homework/audio/S02/S02_H5_shadow_03.mp3"
+      },
+      {
+       "text": "I usually start work at eight, and I always take a short break at eleven.",
+       "audio": "homework/audio/S02/S02_H5_shadow_04.mp3"
+      },
+      {
+       "text": "On weekdays I have a productive morning, whereas at weekends I usually get up late.",
+       "audio": "homework/audio/S02/S02_H5_shadow_05.mp3"
+      }
+     ],
+     "dur": 23.1,
+     "free": []
     }
    ]
   },
   {
-   "id": "C",
-   "title": "Part 3. Language from the texts",
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
    "items": [
     {
-     "id": "C1",
-     "type": "mcq",
-     "prompt": "Minh ____ the evening shift.",
-     "options": [
-      "works",
-      "working",
-      "work"
-     ],
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Ngày của tôi thường bắt đầu với một ly nước.",
      "answers": [
-      "works"
+      "My day usually starts with a glass of water."
      ],
-     "show": "works",
-     "points": 1
+     "show": "My day usually starts with a glass of water.",
+     "hint": "My day usually starts with …"
     },
     {
-     "id": "C2",
-     "type": "mcq",
-     "prompt": "Lucy hardly ever ____ breakfast.",
-     "options": [
-      "miss",
-      "misses",
-      "missing"
-     ],
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Mất khoảng hai mươi phút để tôi đến trường.",
      "answers": [
-      "misses"
+      "It takes me about twenty minutes to get to school.",
+      "It takes me twenty minutes to get to school."
      ],
-     "show": "misses",
-     "points": 1
+     "show": "It takes me about twenty minutes to get to school.",
+     "hint": "It takes me … minutes to …"
     },
     {
-     "id": "C3",
-     "type": "mcq",
-     "prompt": "I make a ____ commute to the city.",
-     "options": [
-      "evening",
-      "short",
-      "daily"
-     ],
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chị tôi làm ca tối vào các ngày trong tuần.",
      "answers": [
-      "daily"
+      "My sister works the evening shift on weekdays.",
+      "On weekdays, my sister works the evening shift."
      ],
-     "show": "daily",
-     "points": 1
+     "show": "My sister works the evening shift on weekdays.",
+     "hint": "work the evening shift · on weekdays"
     },
     {
-     "id": "C4",
-     "type": "mcq",
-     "prompt": "____ weekends, I usually get up late.",
-     "options": [
-      "In",
-      "At",
-      "On"
-     ],
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi thường bắt đầu làm việc lúc chín giờ, nhưng tôi hầu như không bao giờ nghỉ giải lao.",
      "answers": [
-      "At"
+      "I usually start work at nine, but I hardly ever take a break.",
+      "I usually start work at nine, but I hardly ever take a short break."
      ],
-     "show": "At",
-     "points": 1
+     "show": "I usually start work at nine, but I hardly ever take a break.",
+     "hint": "I usually …, but I hardly ever …"
     },
     {
-     "id": "C5",
-     "type": "mcq",
-     "prompt": "On weekdays I work, ____ at weekends I never work.",
-     "options": [
-      "because",
-      "whereas",
-      "then"
-     ],
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Vào các ngày trong tuần tôi dậy lúc sáu giờ, trong khi cuối tuần tôi dậy lúc mười giờ.",
      "answers": [
-      "whereas"
+      "On weekdays I get up at six, whereas at weekends I get up at ten.",
+      "On weekdays I get up at six, whereas on weekends I get up at ten."
      ],
-     "show": "whereas",
-     "points": 1
-    },
-    {
-     "id": "C6",
-     "type": "mcq",
-     "prompt": "He hardly ever gets up before nine ____ he finishes work late.",
-     "options": [
-      "because",
-      "first",
-      "whereas"
-     ],
-     "answers": [
-      "because"
-     ],
-     "show": "because",
-     "points": 1
-    },
-    {
-     "id": "C7",
-     "type": "gap",
-     "prompt": "It ____ me twenty minutes to get to work.",
-     "answers": [
-      "takes"
-     ],
-     "show": "takes",
-     "points": 1
-    },
-    {
-     "id": "C8",
-     "type": "gap",
-     "prompt": "How ____ do you take a break? — I always take a short break at eleven.",
-     "answers": [
-      "often"
-     ],
-     "show": "often",
-     "points": 1
+     "show": "On weekdays I get up at six, whereas at weekends I get up at ten.",
+     "hint": "On weekdays …, whereas at weekends …"
     }
    ]
   }
- ],
- "autoMax": 21
+ ]
 }

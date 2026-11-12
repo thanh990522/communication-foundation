@@ -12,7 +12,7 @@ SID = 'S03'
 OUT = os.path.normpath(os.path.join(HERE, '..', '..', '..', 'lessons', SID))
 SITE = 'https://thanh990522.github.io/communication-foundation/'
 LESSON_URL = SITE + f'lessons/{SID}/'
-HW_URL = SITE + f'homework/shadow.html?s={SID}'
+HW_URL = SITE + f'homework/?s={SID}'
 P = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>'
 FOOT = f'  <div class="s-foot"><span>A1 → A2 Communication Accelerator · <b>{SID}</b></span><span><b>00</b></span></div>\n'
 e = html.escape
@@ -279,14 +279,14 @@ S.append(slide('Wrap-up', head('Wrap-up', 'c-wrap', 'What can you <em>do now</em
                '</div>\n    <div class="card keys"><div class="rh">🔑 Key language</div><div class="kchips">' +
                ''.join(f'<span>{e(k)}</span>' for k in KEY) + '</div></div>\n  </div>\n'))
 # 24 homework
-S.append(slide('Homework: Shadowing', head('Homework', 'c-listen', 'After class') + f'''  <div class="hw hw2">
-    <div class="card"><h3>🎙 Speaking homework · Shadowing</h3>
+S.append(slide('Homework', head('Homework', 'c-listen', 'After class') + f'''  <div class="hw hw2">
+    <div class="card"><h3>📝 Homework · 5 parts</h3>
       <div class="steps">
-        <div class="step"><span class="n">1</span><div><b>Listen</b> to the whole conversation with the script.</div></div>
-        <div class="step"><span class="n">2</span><div><b>Shadow</b> each line: listen → speak at the same time.</div></div>
-        <div class="step"><span class="n">3</span><div><b>Record</b> each line and listen to yourself.</div></div>
-        <div class="step"><span class="n">4</span><div>Keep every <b>final sound</b> and the <b>word stress</b>: con·VE·ni·ent.</div></div>
-        <div class="step"><span class="n">5</span><div>Press <b>Nộp bài</b> — you need <b>80%</b> or do it again.</div></div>
+        <div class="step"><span class="n">1</span><div><b>Vocabulary test</b> — today's words &amp; collocations</div></div>
+        <div class="step"><span class="n">2</span><div><b>Reading</b> — a text with today's words</div></div>
+        <div class="step"><span class="n">3</span><div><b>Listening</b> — real audio, script after you finish</div></div>
+        <div class="step"><span class="n">4</span><div><b>Shadowing</b> — read aloud &amp; record → score <b>/10</b> (<span style="color:#16A34A">green</span> = correct, <span style="color:#DC2626">red</span> = fix it)</div></div>
+        <div class="step"><span class="n">5</span><div><b>Translation</b> — Vietnamese → English with today's structures</div></div>
       </div>
     </div>
     <div class="card qrcard"><h3>📝 Open the homework</h3>{qr_svg(HW_URL)}

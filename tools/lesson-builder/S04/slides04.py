@@ -239,14 +239,14 @@ S.append(slide('Wrap-up', head('Wrap-up', 'c-wrap', 'What can you <em>do now</em
                '</div>\n    <div class="card keys"><div class="rh">🔑 Key language</div><div class="kchips">' + ''.join(f'<span>{e(k)}</span>' for k in KEY) + '</div></div>\n  </div>\n'))
 
 # 23 homework -----------------------------------------------------------------------------------
-S.append(slide('Homework: Listening', head('Homework', 'c-listen', 'After class') + f'''  <div class="hw hw2">
-    <div class="card"><h3>🎧 Listening homework · Messages &amp; calls</h3>
+S.append(slide('Homework', head('Homework', 'c-listen', 'After class') + f'''  <div class="hw hw2">
+    <div class="card"><h3>📝 Homework · 5 parts</h3>
       <div class="steps">
-        <div class="step"><span class="n">1</span><div>Listen to <b>phone messages</b> about appointments.</div></div>
-        <div class="step"><span class="n">2</span><div>Write the <b>day, date and time</b> — careful: <b>13 or 30?</b></div></div>
-        <div class="step"><span class="n">3</span><div>Who is <b>rescheduling</b>? What is the <b>new time</b>?</div></div>
-        <div class="step"><span class="n">4</span><div>Press <b>Nộp bài</b> — you need <b>80%</b> or do it again.</div></div>
-        <div class="step"><span class="n">5</span><div>Real-life: arrange a <b>study call</b> in English this week.</div></div>
+        <div class="step"><span class="n">1</span><div><b>Vocabulary test</b> — today's words &amp; collocations</div></div>
+        <div class="step"><span class="n">2</span><div><b>Reading</b> — a text with today's words</div></div>
+        <div class="step"><span class="n">3</span><div><b>Listening</b> — real audio, script after you finish</div></div>
+        <div class="step"><span class="n">4</span><div><b>Shadowing</b> — read aloud &amp; record → score <b>/10</b> (<span style="color:#16A34A">green</span> = correct, <span style="color:#DC2626">red</span> = fix it)</div></div>
+        <div class="step"><span class="n">5</span><div><b>Translation</b> — Vietnamese → English with today's structures</div></div>
       </div>
     </div>
     <div class="card qrcard"><h3>📝 Open the homework</h3>{qr_svg(HW_URL)}

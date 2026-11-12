@@ -310,7 +310,7 @@ S.append(slide('Wrap-up', head('Wrap-up', 'c-wrap', 'What can you <em>do now</em
                '</div>\n    <div class="card keys"><div class="rh">🔑 Key language</div><div class="kchips">' +
                ''.join(f'<span>{e(k)}</span>' for k in KEY) + '</div></div>\n  </div>\n'))
 # 22 homework
-S.append(slide('Homework: Reading', head('Homework', 'c-listen', 'After class') + f'''  <div class="hw hw2">
+S.append(slide('Homework', head('Homework', 'c-listen', 'After class') + f'''  <div class="hw hw2">
     <div class="card"><h3>📖 Review today's lesson</h3>
       <div class="steps">
         <div class="step"><span class="n">1</span><div>Flip the word &amp; collocation cards again</div></div>
@@ -320,7 +320,7 @@ S.append(slide('Homework: Reading', head('Homework', 'c-listen', 'After class') 
         <div class="step"><span class="n">5</span><div>Record your 90-second talk</div></div>
       </div>
     </div>
-    <div class="card qrcard"><h3>📚 Homework · Reading</h3>{qr_svg(HW_URL)}
+    <div class="card qrcard"><h3>📝 Homework · 5 parts</h3>{qr_svg(HW_URL)}
       <p><b>thanh990522.github.io/communication-foundation</b><br>→ S02 → 📝 Homework</p><span class="pass">Pass mark: 80%</span></div>
   </div>
 '''))

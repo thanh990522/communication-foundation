@@ -1,178 +1,548 @@
 {
  "session": "S03",
- "title": "Shadowing: Linh’s neighbourhood",
- "kind": "Speaking · Shadowing",
+ "title": "Describing Your Neighbourhood",
+ "kind": "5-part",
  "pass": 80,
- "speakers": {
-  "L": "Linh",
-  "B": "Ben"
- },
- "free": [
-  "Mai"
- ],
- "full": "audio/S03/S03_shadow_FULL.mp3",
- "fullDur": 114.24,
- "lines": [
+ "autoMax": 43,
+ "sections": [
   {
-   "who": "B",
-   "text": "Hi Linh! Is this your neighbourhood?",
-   "audio": "audio/S03/S03_shadow_line01.mp3",
-   "dur": 3.18,
-   "start": 0.12
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“rộng rãi” in English is…",
+     "options": [
+      "spacious",
+      "peaceful",
+      "crowded"
+     ],
+     "answers": [
+      "spacious"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "spacious"
+    },
+    {
+     "type": "gap",
+     "prompt": "The market is in a ____ area. There are always lots of people.",
+     "answers": [
+      "crowded"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "crowded"
+    },
+    {
+     "type": "gap",
+     "prompt": "My apartment is centrally ____. It is in the city centre.",
+     "answers": [
+      "located"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "located"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I have a ____ neighbour. She always says hello.",
+     "options": [
+      "spacious",
+      "friendly",
+      "nearby"
+     ],
+     "answers": [
+      "friendly"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "friendly"
+    },
+    {
+     "type": "mcq",
+     "prompt": "There are lots of ____ facilities: a gym, a park and a café.",
+     "options": [
+      "nearby",
+      "crowded",
+      "located"
+     ],
+     "answers": [
+      "nearby"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "nearby"
+    },
+    {
+     "type": "mcq",
+     "prompt": "“yên bình” in English is…",
+     "options": [
+      "modern",
+      "peaceful",
+      "convenient"
+     ],
+     "answers": [
+      "peaceful"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "peaceful"
+    },
+    {
+     "type": "gap",
+     "prompt": "The gym has modern ____.",
+     "answers": [
+      "facilities"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "facilities"
+    },
+    {
+     "type": "mcq",
+     "prompt": "My home is in a ____ location. The bus stop is very near.",
+     "options": [
+      "crowded",
+      "spacious",
+      "convenient"
+     ],
+     "answers": [
+      "convenient"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "convenient"
+    }
+   ]
   },
   {
-   "who": "L",
-   "text": "Yes, it is. Welcome! It's a peaceful neighbourhood, and it's centrally located.",
-   "audio": "audio/S03/S03_shadow_line02.mp3",
-   "dur": 7.4,
-   "start": 3.76
+   "id": "R",
+   "title": "Part 2 · Reading — Hoa's neighbourhood",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Hoa lives in a spacious apartment in a peaceful neighbourhood. Her apartment isn't centrally located, but it's in a convenient location. There is a bus stop near her building, and it takes her fifteen minutes to get to the city centre by bus.\n\nThere are lots of nearby facilities. There is a supermarket, a small café and a gym with modern facilities. There isn't a hospital near her home, but there is a big hospital in the city centre.\n\nOne thing Hoa likes is her neighbour, Mrs Lan. She is a very friendly neighbour, and she always says hello in the morning.\n\nThe only problem is the market. It's in a crowded area, and it is very crowded at weekends. Hoa usually goes to the park on Sundays because it's very peaceful.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Hoa's apartment is small.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Hoa's apartment is centrally located.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "gap",
+     "prompt": "It takes her ____ minutes to get to the city centre by bus.",
+     "answers": [
+      "fifteen",
+      "15"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "fifteen"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Which place is NOT near her home?",
+     "options": [
+      "a supermarket",
+      "a gym",
+      "a hospital"
+     ],
+     "answers": [
+      "a hospital"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "a hospital"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Who is Mrs Lan?",
+     "options": [
+      "her sister",
+      "her friendly neighbour",
+      "her teacher"
+     ],
+     "answers": [
+      "her friendly neighbour"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "her friendly neighbour"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is the only problem?",
+     "options": [
+      "the gym",
+      "the crowded market",
+      "the bus stop"
+     ],
+     "answers": [
+      "the crowded market"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "the crowded market"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why does Hoa go to the park on Sundays?",
+     "options": [
+      "It's peaceful.",
+      "It's crowded.",
+      "It's centrally located."
+     ],
+     "answers": [
+      "It's peaceful."
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "It's peaceful."
+    }
+   ]
   },
   {
-   "who": "B",
-   "text": "It's really peaceful. Do you live in an apartment or a house?",
-   "audio": "audio/S03/S03_shadow_line03.mp3",
-   "dur": 4.5,
-   "start": 11.63
+   "id": "L1",
+   "title": "Part 3 · Listening — Linh's neighbourhood",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Where does Linh live?",
+     "options": [
+      "in a small apartment",
+      "in a spacious apartment",
+      "in a small house"
+     ],
+     "answers": [
+      "in a spacious apartment"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "in a spacious apartment"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Where is the big supermarket?",
+     "options": [
+      "near the bus stop",
+      "near the school",
+      "near the park"
+     ],
+     "answers": [
+      "near the bus stop"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "near the bus stop"
+    },
+    {
+     "type": "gap",
+     "prompt": "There are ____ cafés.",
+     "answers": [
+      "two",
+      "2"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "two"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why is Linh's home convenient?",
+     "options": [
+      "There is a hospital near it.",
+      "There are two bus stops near it.",
+      "It's near the market."
+     ],
+     "answers": [
+      "There are two bus stops near it."
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "There are two bus stops near it."
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why is the park peaceful?",
+     "options": [
+      "There are lots of trees.",
+      "There is a gym.",
+      "It's centrally located."
+     ],
+     "answers": [
+      "There are lots of trees."
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "There are lots of trees."
+    },
+    {
+     "type": "gap",
+     "prompt": "Linh's friendly neighbour is called ____.",
+     "answers": [
+      "Mai"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "Mai"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Is there a hospital near Linh's home?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answers": [
+      "No"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "No"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What does Ben like about his neighbourhood?",
+     "options": [
+      "the market",
+      "the parks",
+      "his apartment"
+     ],
+     "answers": [
+      "his apartment"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "his apartment"
+    }
+   ],
+   "audioLabel": "Linh & Ben · conversation",
+   "audioHint": "Bài nghe dài ~2 phút. Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S03/S03_listen_neighbourhood.mp3",
+   "script": [
+    [
+     "Ben",
+     "Hi Linh! Is this your neighbourhood?"
+    ],
+    [
+     "Linh",
+     "Yes, it is. Welcome! It's a peaceful neighbourhood, and it's centrally located."
+    ],
+    [
+     "Ben",
+     "It's really peaceful. Do you live in an apartment or a house?"
+    ],
+    [
+     "Linh",
+     "I live in a spacious apartment near the park."
+    ],
+    [
+     "Ben",
+     "That's great. Is there a supermarket near your apartment?"
+    ],
+    [
+     "Linh",
+     "Yes, there is. There's a big supermarket near the bus stop."
+    ],
+    [
+     "Ben",
+     "Are there any nearby facilities, like a gym?"
+    ],
+    [
+     "Linh",
+     "Yes, there are lots of nearby facilities. There's a gym with modern facilities, and there are two cafés."
+    ],
+    [
+     "Ben",
+     "So it's a convenient location."
+    ],
+    [
+     "Linh",
+     "Yes, it is. It's convenient because there are two bus stops near my home."
+    ],
+    [
+     "Ben",
+     "What do you like about the area?"
+    ],
+    [
+     "Linh",
+     "One thing I like is the park. It's peaceful because there are lots of trees."
+    ],
+    [
+     "Ben",
+     "And what are your neighbours like?"
+    ],
+    [
+     "Linh",
+     "I have a friendly neighbour. Her name is Mai, and she's very nice."
+    ],
+    [
+     "Ben",
+     "Is there a hospital near here?"
+    ],
+    [
+     "Linh",
+     "No, there isn't. However, there's a school and a market."
+    ],
+    [
+     "Ben",
+     "Is there anything you don't like?"
+    ],
+    [
+     "Linh",
+     "The only problem is the market. It's a crowded area at weekends."
+    ],
+    [
+     "Ben",
+     "I see. My neighbourhood is very different. It's a crowded area, and there aren't any parks."
+    ],
+    [
+     "Linh",
+     "Oh no! So what do you like about it?"
+    ],
+    [
+     "Ben",
+     "One thing I like is my apartment. It's small, but it's centrally located, so it's convenient."
+    ],
+    [
+     "Linh",
+     "Then come to my neighbourhood at weekends. The park is very peaceful!"
+    ],
+    [
+     "Ben",
+     "Great idea. Thanks, Linh!"
+    ]
+   ]
   },
   {
-   "who": "L",
-   "text": "I live in a spacious apartment near the park.",
-   "audio": "audio/S03/S03_shadow_line04.mp3",
-   "dur": 3.01,
-   "start": 16.59
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Describe your neighbourhood",
+     "audio": "homework/audio/S03/S03_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "I live in a spacious apartment in a peaceful neighbourhood.",
+       "audio": "homework/audio/S03/S03_H5_shadow_01.mp3"
+      },
+      {
+       "text": "It's centrally located, so it's very convenient.",
+       "audio": "homework/audio/S03/S03_H5_shadow_02.mp3"
+      },
+      {
+       "text": "There is a big supermarket near my home, and there are two bus stops nearby.",
+       "audio": "homework/audio/S03/S03_H5_shadow_03.mp3"
+      },
+      {
+       "text": "There are lots of nearby facilities, like a gym and a café.",
+       "audio": "homework/audio/S03/S03_H5_shadow_04.mp3"
+      },
+      {
+       "text": "One thing I like is my friendly neighbour.",
+       "audio": "homework/audio/S03/S03_H5_shadow_05.mp3"
+      },
+      {
+       "text": "The only problem is the market. It's a crowded area at weekends.",
+       "audio": "homework/audio/S03/S03_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 25.5,
+     "free": []
+    }
+   ]
   },
   {
-   "who": "B",
-   "text": "That's great. Is there a supermarket near your apartment?",
-   "audio": "audio/S03/S03_shadow_line05.mp3",
-   "dur": 4.3,
-   "start": 20.05
-  },
-  {
-   "who": "L",
-   "text": "Yes, there is. There's a big supermarket near the bus stop.",
-   "audio": "audio/S03/S03_shadow_line06.mp3",
-   "dur": 5.11,
-   "start": 24.81
-  },
-  {
-   "who": "B",
-   "text": "Are there any nearby facilities, like a gym?",
-   "audio": "audio/S03/S03_shadow_line07.mp3",
-   "dur": 2.89,
-   "start": 30.38
-  },
-  {
-   "who": "L",
-   "text": "Yes, there are lots of nearby facilities. There's a gym with modern facilities, and there are two cafés.",
-   "audio": "audio/S03/S03_shadow_line08.mp3",
-   "dur": 7.99,
-   "start": 33.73
-  },
-  {
-   "who": "B",
-   "text": "So it's a convenient location.",
-   "audio": "audio/S03/S03_shadow_line09.mp3",
-   "dur": 2.07,
-   "start": 42.17
-  },
-  {
-   "who": "L",
-   "text": "Yes, it is. It's convenient because there are two bus stops near my home.",
-   "audio": "audio/S03/S03_shadow_line10.mp3",
-   "dur": 6.31,
-   "start": 44.7
-  },
-  {
-   "who": "B",
-   "text": "What do you like about the area?",
-   "audio": "audio/S03/S03_shadow_line11.mp3",
-   "dur": 1.78,
-   "start": 51.47
-  },
-  {
-   "who": "L",
-   "text": "One thing I like is the park. It's peaceful because there are lots of trees.",
-   "audio": "audio/S03/S03_shadow_line12.mp3",
-   "dur": 5.83,
-   "start": 53.71
-  },
-  {
-   "who": "B",
-   "text": "And what are your neighbours like?",
-   "audio": "audio/S03/S03_shadow_line13.mp3",
-   "dur": 1.83,
-   "start": 59.99
-  },
-  {
-   "who": "L",
-   "text": "I have a friendly neighbour. Her name is Mai, and she's very nice.",
-   "audio": "audio/S03/S03_shadow_line14.mp3",
-   "dur": 5.56,
-   "start": 62.28
-  },
-  {
-   "who": "B",
-   "text": "Is there a hospital near here?",
-   "audio": "audio/S03/S03_shadow_line15.mp3",
-   "dur": 1.93,
-   "start": 68.3
-  },
-  {
-   "who": "L",
-   "text": "No, there isn't. However, there's a school and a market.",
-   "audio": "audio/S03/S03_shadow_line16.mp3",
-   "dur": 5.02,
-   "start": 70.7
-  },
-  {
-   "who": "B",
-   "text": "Is there anything you don't like?",
-   "audio": "audio/S03/S03_shadow_line17.mp3",
-   "dur": 1.67,
-   "start": 76.17
-  },
-  {
-   "who": "L",
-   "text": "The only problem is the market. It's a crowded area at weekends.",
-   "audio": "audio/S03/S03_shadow_line18.mp3",
-   "dur": 5.79,
-   "start": 78.3
-  },
-  {
-   "who": "B",
-   "text": "I see. My neighbourhood is very different. It's a crowded area, and there aren't any parks.",
-   "audio": "audio/S03/S03_shadow_line19.mp3",
-   "dur": 7.77,
-   "start": 84.55
-  },
-  {
-   "who": "L",
-   "text": "Oh no! So what do you like about it?",
-   "audio": "audio/S03/S03_shadow_line20.mp3",
-   "dur": 3.59,
-   "start": 92.78
-  },
-  {
-   "who": "B",
-   "text": "One thing I like is my apartment. It's small, but it's centrally located, so it's convenient.",
-   "audio": "audio/S03/S03_shadow_line21.mp3",
-   "dur": 6.93,
-   "start": 96.82
-  },
-  {
-   "who": "L",
-   "text": "Then come to my neighbourhood at weekends. The park is very peaceful!",
-   "audio": "audio/S03/S03_shadow_line22.mp3",
-   "dur": 5.62,
-   "start": 104.21
-  },
-  {
-   "who": "B",
-   "text": "Great idea. Thanks, Linh!",
-   "audio": "audio/S03/S03_shadow_line23.mp3",
-   "dur": 3.49,
-   "start": 110.29
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Có một quán cà phê gần văn phòng của tôi.",
+     "answers": [
+      "There is a café near my office.",
+      "There's a cafe near my office."
+     ],
+     "show": "There is a café near my office.",
+     "hint": "There is a … near …"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Có ba công viên trong khu phố của tôi.",
+     "answers": [
+      "There are three parks in my neighbourhood."
+     ],
+     "show": "There are three parks in my neighbourhood.",
+     "hint": "There are … in …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Khu phố của bạn tôi yên bình và thuận tiện.",
+     "answers": [
+      "My friend's neighbourhood is peaceful and convenient."
+     ],
+     "show": "My friend's neighbourhood is peaceful and convenient.",
+     "hint": "… is … and …"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Một điều tôi thích là phòng gym hiện đại gần nhà tôi.",
+     "answers": [
+      "One thing I like is the modern gym near my home.",
+      "One thing I like is the modern gym near my house."
+     ],
+     "show": "One thing I like is the modern gym near my home.",
+     "hint": "One thing I like is …"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Vấn đề duy nhất là trạm xe buýt. Nó rất đông đúc.",
+     "answers": [
+      "The only problem is the bus stop. It's very crowded."
+     ],
+     "show": "The only problem is the bus stop. It's very crowded.",
+     "hint": "The only problem is … It's …"
+    }
+   ]
   }
  ]
 }

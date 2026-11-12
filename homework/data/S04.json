@@ -1,191 +1,252 @@
 {
  "session": "S04",
  "title": "Appointments: numbers, dates & messages",
- "kind": "Listening",
+ "kind": "5-part",
  "pass": 80,
+ "autoMax": 44,
  "sections": [
   {
-   "id": "A",
-   "title": "Part 1. 13 or 30? Listen and choose",
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
    "items": [
     {
-     "id": "A1",
-     "type": "listen_mcq",
-     "prompt": "Number 1 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_1.mp3",
+     "type": "mcq",
+     "prompt": "“hoãn (một cuộc họp)” in English is…",
      "options": [
-      "30th",
-      "13th"
+      "postpone",
+      "be available",
+      "confirm"
      ],
      "answers": [
-      "13th"
+      "postpone"
      ],
+     "id": "V1",
+     "points": 1,
+     "show": "postpone"
+    },
+    {
+     "type": "mcq",
+     "prompt": "“đổi lịch một cuộc hẹn” in English is…",
+     "options": [
+      "confirm the time",
+      "reschedule an appointment",
+      "meet a deadline"
+     ],
+     "answers": [
+      "reschedule an appointment"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "reschedule an appointment"
+    },
+    {
+     "type": "gap",
+     "prompt": "I need to make an ____ with the dentist.",
+     "answers": [
+      "appointment"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "appointment"
+    },
+    {
+     "type": "gap",
+     "prompt": "Are you ____ on Monday? — Yes, I’m free after 2 p.m.",
+     "answers": [
+      "available"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "available"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I have a busy ____ this week. I’m working every evening.",
+     "options": [
+      "schedule",
+      "time slot",
+      "deadline"
+     ],
+     "answers": [
+      "schedule"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "schedule"
+    },
+    {
+     "type": "gap",
+     "prompt": "Let me ____ the time: Tuesday at 3 p.m.",
+     "answers": [
+      "confirm"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "confirm"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I’m working late, so I can meet the ____.",
+     "options": [
+      "schedule",
+      "deadline",
+      "appointment"
+     ],
+     "answers": [
+      "deadline"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "deadline"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Is there an available time ____ on Thursday?",
+     "options": [
+      "deadline",
+      "schedule",
+      "slot"
+     ],
+     "answers": [
+      "slot"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "slot"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The meeting is ____ Friday ____ 10 a.m.",
+     "options": [
+      "on … at",
+      "in … at",
+      "at … on"
+     ],
+     "answers": [
+      "on … at"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "on … at"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — Three short emails",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Hi Mr Brown,\nI'm sorry, but I need to reschedule our appointment. It's on Wednesday the 13th at 2:30, but I'm meeting a client then. I have a busy schedule this week. Are you available on Thursday the 14th? Does 10 a.m. work for you?\nBest, Mai\n\nHi Mai,\nNo problem. Unfortunately, I'm not available on Thursday morning because I have a deadline. But there is an available time slot on Friday the 15th at 3:15. Does that work for you?\nBest, David Brown\n\nHi Mr Brown,\nYes, Friday works for me. Let me confirm: Friday the 15th at 3:15. See you then!\nMai",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Why does Mai need to reschedule?",
+     "options": [
+      "She has a deadline.",
+      "She's at the dentist.",
+      "She's meeting a client."
+     ],
+     "answers": [
+      "She's meeting a client."
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "She's meeting a client."
+    },
+    {
+     "type": "gap",
+     "prompt": "The old appointment: Wednesday the ____",
+     "answers": [
+      "13th",
+      "13",
+      "thirteenth"
+     ],
+     "id": "R2",
      "points": 1,
      "show": "13th"
     },
     {
-     "id": "A2",
-     "type": "listen_mcq",
-     "prompt": "Number 2 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_2.mp3",
+     "type": "mcq",
+     "prompt": "Mai has a busy schedule this week.",
      "options": [
-      "4:40",
-      "4:14"
+      "True",
+      "False"
      ],
      "answers": [
-      "4:40"
+      "True"
      ],
+     "id": "R3",
      "points": 1,
-     "show": "4:40"
+     "show": "True"
     },
     {
-     "id": "A3",
-     "type": "listen_mcq",
-     "prompt": "Number 3 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_3.mp3",
+     "type": "mcq",
+     "prompt": "Mr Brown is available on Thursday morning.",
      "options": [
-      "15th",
-      "50th"
+      "True",
+      "False"
      ],
      "answers": [
-      "15th"
+      "False"
      ],
+     "id": "R4",
      "points": 1,
-     "show": "15th"
+     "show": "False"
     },
     {
-     "id": "A4",
-     "type": "listen_mcq",
-     "prompt": "Number 4 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_4.mp3",
+     "type": "mcq",
+     "prompt": "Why isn't Mr Brown available on Thursday?",
      "options": [
-      "2:15",
-      "2:50"
+      "He has a deadline.",
+      "He's meeting a client.",
+      "He's having dinner with his family."
      ],
      "answers": [
-      "2:50"
+      "He has a deadline."
      ],
+     "id": "R5",
      "points": 1,
-     "show": "2:50"
+     "show": "He has a deadline."
     },
     {
-     "id": "A5",
-     "type": "listen_mcq",
-     "prompt": "Number 5 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_5.mp3",
-     "options": [
-      "60",
-      "16"
-     ],
+     "type": "gap",
+     "prompt": "New appointment: Friday the 15th at ____",
      "answers": [
-      "16"
+      "3:15",
+      "3.15",
+      "315",
+      "quarterpastthree",
+      "3:15pm",
+      "3.15pm",
+      "15:15"
      ],
+     "id": "R6",
      "points": 1,
-     "show": "16"
+     "show": "3:15"
     },
     {
-     "id": "A6",
-     "type": "listen_mcq",
-     "prompt": "Number 6 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_6.mp3",
+     "type": "mcq",
+     "prompt": "In the last email, Mai…",
      "options": [
-      "70",
-      "17"
+      "confirms the time",
+      "postpones the meeting",
+      "makes a new appointment"
      ],
      "answers": [
-      "70"
+      "confirms the time"
      ],
+     "id": "R7",
      "points": 1,
-     "show": "70"
-    },
-    {
-     "id": "A7",
-     "type": "listen_mcq",
-     "prompt": "Number 7 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_7.mp3",
-     "options": [
-      "80th",
-      "18th"
-     ],
-     "answers": [
-      "18th"
-     ],
-     "points": 1,
-     "show": "18th"
-    },
-    {
-     "id": "A8",
-     "type": "listen_mcq",
-     "prompt": "Number 8 · Which one do you hear?",
-     "audio": "homework/audio/S04/S04_HW_num_8.mp3",
-     "options": [
-      "90",
-      "19"
-     ],
-     "answers": [
-      "90"
-     ],
-     "points": 1,
-     "show": "90"
+     "show": "confirms the time"
     }
    ]
   },
   {
-   "id": "B",
-   "title": "Part 2. Message 1 · Smile Dental Clinic",
-   "audio": "homework/audio/S04/S04_HW_message_1.mp3",
-   "note": "APPOINTMENT — Linh Pham",
+   "id": "L1",
+   "title": "Part 3 · Listening — Hoa's voicemail",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
    "items": [
     {
-     "id": "B1",
-     "type": "gap",
-     "prompt": "Day: ____",
-     "answers": [
-      "Thursday",
-      "Thu"
-     ],
-     "points": 1,
-     "show": "Thursday"
-    },
-    {
-     "id": "B2",
-     "type": "gap",
-     "prompt": "Date: the ____",
-     "answers": [
-      "14th",
-      "14",
-      "fourteenth",
-      "the14th"
-     ],
-     "points": 1,
-     "show": "14th"
-    },
-    {
-     "id": "B3",
-     "type": "gap",
-     "prompt": "Time: ____",
-     "answers": [
-      "3:45",
-      "3.45",
-      "345",
-      "3:45pm",
-      "3.45pm",
-      "3:45p.m.",
-      "quartertofour",
-      "15:45"
-     ],
-     "points": 1,
-     "show": "3:45"
-    }
-   ]
-  },
-  {
-   "id": "C",
-   "title": "Part 3. Message 2 · Hoa (team meeting)",
-   "audio": "homework/audio/S04/S04_HW_message_2.mp3",
-   "items": [
-    {
-     "id": "C1",
      "type": "mcq",
      "prompt": "Why is Hoa postponing the meeting?",
      "options": [
@@ -196,22 +257,11 @@
      "answers": [
       "She's meeting a client."
      ],
+     "id": "L11",
      "points": 1,
      "show": "She's meeting a client."
     },
     {
-     "id": "C2",
-     "type": "gap",
-     "prompt": "Old day: ____ morning",
-     "answers": [
-      "Monday",
-      "Mon"
-     ],
-     "points": 1,
-     "show": "Monday"
-    },
-    {
-     "id": "C3",
      "type": "gap",
      "prompt": "New day: ____",
      "answers": [
@@ -219,24 +269,23 @@
       "Tue",
       "Tues"
      ],
+     "id": "L12",
      "points": 1,
      "show": "Tuesday"
     },
     {
-     "id": "C4",
      "type": "gap",
      "prompt": "New date: the ____",
      "answers": [
       "30th",
       "30",
-      "thirtieth",
-      "the30th"
+      "thirtieth"
      ],
+     "id": "L13",
      "points": 1,
      "show": "30th"
     },
     {
-     "id": "C5",
      "type": "gap",
      "prompt": "New time: ____",
      "answers": [
@@ -248,133 +297,69 @@
       "10.30am",
       "10:30a.m."
      ],
+     "id": "L14",
      "points": 1,
      "show": "10:30"
     }
+   ],
+   "audioLabel": "Voicemail · team meeting",
+   "audioHint": "Nghe 2 lần, ghi lại thông tin.",
+   "audio": "homework/audio/S04/S04_listen_message.mp3",
+   "script": [
+    [
+     "Hoa (voicemail)",
+     "Hi Nam, it's Hoa. Unfortunately, I'm meeting a client on Monday morning, so we are postponing our team meeting. Could we move it to Tuesday the 30th at half past ten instead? Does that work for you? Call me back. Thanks!"
+    ]
    ]
   },
   {
-   "id": "D",
-   "title": "Part 4. Message 3 · Tom (study call)",
-   "audio": "homework/audio/S04/S04_HW_message_3.mp3",
+   "id": "L2",
+   "title": "Part 3 · Listening — Booking a yoga class",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
    "items": [
     {
-     "id": "D1",
-     "type": "gap",
-     "prompt": "Tom has a deadline on ____.",
-     "answers": [
-      "Friday",
-      "Fri"
-     ],
-     "points": 1,
-     "show": "Friday"
-    },
-    {
-     "id": "D2",
-     "type": "gap",
-     "prompt": "He is working late on ____.",
-     "answers": [
-      "Thursday",
-      "Thu"
-     ],
-     "points": 1,
-     "show": "Thursday"
-    },
-    {
-     "id": "D3",
-     "type": "mcq",
-     "prompt": "New day for the study call:",
-     "options": [
-      "Saturday morning",
-      "Saturday evening",
-      "Sunday morning"
-     ],
-     "answers": [
-      "Saturday morning"
-     ],
-     "points": 1,
-     "show": "Saturday morning"
-    },
-    {
-     "id": "D4",
-     "type": "gap",
-     "prompt": "New time: ____",
-     "answers": [
-      "9:15",
-      "9.15",
-      "915",
-      "quarterpastnine",
-      "9:15am",
-      "9.15am",
-      "9:15a.m."
-     ],
-     "points": 1,
-     "show": "9:15"
-    }
-   ]
-  },
-  {
-   "id": "E",
-   "title": "Part 5. Phone call · City Gym",
-   "audio": "homework/audio/S04/S04_HW_call.mp3",
-   "note": "BOOKING — yoga class",
-   "items": [
-    {
-     "id": "E1",
      "type": "mcq",
      "prompt": "Why is the 7 p.m. class no good?",
      "options": [
-      "It is postponed.",
+      "It is late.",
       "It is full.",
-      "It is late."
+      "It is postponed."
      ],
      "answers": [
       "It is full."
      ],
+     "id": "L21",
      "points": 1,
      "show": "It is full."
     },
     {
-     "id": "E2",
      "type": "mcq",
      "prompt": "Why doesn't 8:15 work for Ken?",
      "options": [
       "He's meeting a client.",
-      "He's having dinner with his family.",
-      "He's working late."
+      "He's working late.",
+      "He's having dinner with his family."
      ],
      "answers": [
       "He's having dinner with his family."
      ],
+     "id": "L22",
      "points": 1,
      "show": "He's having dinner with his family."
     },
     {
-     "id": "E3",
      "type": "gap",
-     "prompt": "Day: ____",
-     "answers": [
-      "Thursday",
-      "Thu"
-     ],
-     "points": 1,
-     "show": "Thursday"
-    },
-    {
-     "id": "E4",
-     "type": "gap",
-     "prompt": "Date: the ____",
+     "prompt": "Date: Thursday the ____",
      "answers": [
       "19th",
       "19",
-      "nineteenth",
-      "the19th"
+      "nineteenth"
      ],
+     "id": "L23",
      "points": 1,
      "show": "19th"
     },
     {
-     "id": "E5",
      "type": "gap",
      "prompt": "Time: ____",
      "answers": [
@@ -387,21 +372,175 @@
       "6:30p.m.",
       "18:30"
      ],
+     "id": "L24",
      "points": 1,
      "show": "6:30"
+    }
+   ],
+   "audioLabel": "City Gym · phone call",
+   "audioHint": "Nghe 2 lần, điền phiếu đặt lịch.",
+   "audio": "homework/audio/S04/S04_listen_call.mp3",
+   "script": [
+    [
+     "Receptionist",
+     "Good afternoon, City Gym. How can I help you?"
+    ],
+    [
+     "Ken",
+     "Hi. I need to make an appointment for a yoga class, please. Are you available on Wednesday evening?"
+    ],
+    [
+     "Receptionist",
+     "Let me check. Unfortunately, the 7 p.m. class is full. We have an available time slot at 8:15."
+    ],
+    [
+     "Ken",
+     "8:15 doesn't work for me. I'm having dinner with my family then. Do you have a time slot on Thursday?"
+    ],
+    [
+     "Receptionist",
+     "Yes. Thursday at 6:30 is available."
+    ],
+    [
+     "Ken",
+     "Great. 6:30 works for me."
+    ],
+    [
+     "Receptionist",
+     "So that's Thursday the 19th at 6:30?"
+    ],
+    [
+     "Ken",
+     "The 19th? Yes. Let me confirm: Thursday the 19th at 6:30."
+    ],
+    [
+     "Receptionist",
+     "That's right. What's your name, please?"
+    ],
+    [
+     "Ken",
+     "It's Ken Lee. L-E-E."
+    ],
+    [
+     "Receptionist",
+     "Thank you, Mr Lee. See you on Thursday!"
+    ]
+   ],
+   "note": "CITY GYM — yoga class booking"
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Leave a voicemail to reschedule a meeting",
+     "audio": "homework/audio/S04/S04_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "Hi Mark, it's Lan.",
+       "audio": "homework/audio/S04/S04_H5_shadow_01.mp3"
+      },
+      {
+       "text": "I'm calling about our meeting on Monday.",
+       "audio": "homework/audio/S04/S04_H5_shadow_02.mp3"
+      },
+      {
+       "text": "Unfortunately, I have a busy schedule on Monday, and I'm meeting a client in the afternoon.",
+       "audio": "homework/audio/S04/S04_H5_shadow_03.mp3"
+      },
+      {
+       "text": "Could we move it to Wednesday the 13th instead?",
+       "audio": "homework/audio/S04/S04_H5_shadow_04.mp3"
+      },
+      {
+       "text": "I'm available after 2 p.m. Does 3:30 work for you?",
+       "audio": "homework/audio/S04/S04_H5_shadow_05.mp3"
+      },
+      {
+       "text": "Call me back, and let me confirm the time. Thanks!",
+       "audio": "homework/audio/S04/S04_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 24.2,
+     "free": [
+      "Mark",
+      "Lan"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn có rảnh vào chiều thứ Năm không?",
+     "answers": [
+      "Are you available on Thursday afternoon?"
+     ],
+     "show": "Are you available on Thursday afternoon?",
+     "hint": "Are you available on …?"
     },
     {
-     "id": "E6",
-     "type": "gap",
-     "prompt": "Surname: Ken ____",
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi sẽ gặp bạn của tôi lúc 9 giờ sáng thứ Hai.",
      "answers": [
-      "Lee"
+      "I'm meeting my friend at 9 a.m. on Monday.",
+      "I'm meeting my friend on Monday at 9 a.m.",
+      "I'm meeting my friend at 9 on Monday morning.",
+      "I'm meeting my friend on Monday morning at 9."
      ],
-     "points": 1,
-     "show": "Lee"
+     "show": "I'm meeting my friend at 9 a.m. on Monday.",
+     "hint": "I'm …ing at / on … (kế hoạch)"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Thứ Sáu lúc 4 giờ chiều có tiện cho bạn không?",
+     "answers": [
+      "Does Friday at 4 p.m. work for you?",
+      "Does 4 p.m. on Friday work for you?"
+     ],
+     "show": "Does Friday at 4 p.m. work for you?",
+     "hint": "Does … work for you?"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chúng ta có thể dời cuộc hẹn sang ngày 20 không?",
+     "answers": [
+      "Could we move the appointment to the 20th?",
+      "Could we move our appointment to the 20th?"
+     ],
+     "show": "Could we move the appointment to the 20th?",
+     "hint": "Could we move it to …?"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Để tôi xác nhận lại: thứ Ba ngày 13 lúc 10 giờ 30.",
+     "answers": [
+      "Let me confirm: Tuesday the 13th at 10:30.",
+      "Let me confirm: Tuesday the 13th at half past ten.",
+      "Let me confirm the time: Tuesday the 13th at 10:30."
+     ],
+     "show": "Let me confirm: Tuesday the 13th at 10:30.",
+     "hint": "Let me confirm: …"
     }
    ]
   }
- ],
- "autoMax": 26
+ ]
 }

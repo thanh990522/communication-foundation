@@ -1,337 +1,536 @@
 {
  "session": "S01",
  "title": "Alphabet & Spelling Out Loud",
- "kind": "Listening",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 43,
  "sections": [
   {
-   "id": "A",
-   "title": "Part 1. People's names",
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
    "items": [
     {
-     "id": "P1",
-     "type": "listen_type",
-     "prompt": "Question 1 · Ms ______",
-     "audio": "homework/audio/S01/S01_HW_P1.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
-     "answers": [
-      "Carter",
-      "Ms Carter",
-      "Ms. Carter"
+     "type": "mcq",
+     "prompt": "In an email address, how do you say “@”?",
+     "options": [
+      "underscore",
+      "dot",
+      "at"
      ],
-     "show": "CARTER"
+     "answers": [
+      "at"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "at"
     },
     {
-     "id": "P2",
-     "type": "listen_type",
-     "prompt": "Question 2 · Mr ______",
-     "audio": "homework/audio/S01/S01_HW_P2.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
-     "answers": [
-      "Fletcher",
-      "Mr Fletcher",
-      "Mr. Fletcher"
+     "type": "mcq",
+     "prompt": "How do you say “_” in linh_tran@gmail.com?",
+     "options": [
+      "underscore",
+      "dot",
+      "hyphen"
      ],
-     "show": "FLETCHER"
+     "answers": [
+      "underscore"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "underscore"
     },
     {
-     "id": "P3",
-     "type": "listen_type",
-     "prompt": "Question 3 · Mrs ______",
-     "audio": "homework/audio/S01/S01_HW_P3.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
-     "answers": [
-      "Graham",
-      "Mrs Graham",
-      "Mrs. Graham"
+     "type": "mcq",
+     "prompt": "How do you say “-” in mai-le@gmail.com?",
+     "options": [
+      "at",
+      "hyphen",
+      "underscore"
      ],
-     "show": "GRAHAM"
+     "answers": [
+      "hyphen"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "hyphen"
     },
     {
-     "id": "P4",
-     "type": "listen_type",
-     "prompt": "Question 4 · Dr ______",
-     "audio": "homework/audio/S01/S01_HW_P4.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
-     "answers": [
-      "Shaw",
-      "Dr Shaw",
-      "Dr. Shaw"
+     "type": "mcq",
+     "prompt": "How do you say the “tt” in SCOTT?",
+     "options": [
+      "T T",
+      "double T",
+      "two T"
      ],
-     "show": "SHAW"
+     "answers": [
+      "double T"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "double T"
     },
     {
-     "id": "P5",
-     "type": "listen_type",
-     "prompt": "Question 5 · Miss ______",
-     "audio": "homework/audio/S01/S01_HW_P5.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
-     "answers": [
-      "Kelly",
-      "Miss Kelly",
-      "Miss. Kelly"
+     "type": "mcq",
+     "prompt": "Which letter is in the same sound family as A, H and K?",
+     "options": [
+      "G",
+      "E",
+      "J"
      ],
-     "show": "KELLY"
+     "answers": [
+      "J"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "J"
     },
     {
-     "id": "P6",
-     "type": "listen_type",
-     "prompt": "Question 6 · Mr ______",
-     "audio": "homework/audio/S01/S01_HW_P6.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
-     "answers": [
-      "Vaughan",
-      "Mr Vaughan",
-      "Mr. Vaughan"
+     "type": "mcq",
+     "prompt": "emma.t88@gmail.com has no capital letters. It’s all ____.",
+     "options": [
+      "capital",
+      "double",
+      "lower case"
      ],
-     "show": "VAUGHAN"
+     "answers": [
+      "lower case"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "lower case"
     },
     {
-     "id": "P7",
-     "type": "listen_type",
-     "prompt": "Question 7 · Ms ______",
-     "audio": "homework/audio/S01/S01_HW_P7.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
+     "type": "gap",
+     "prompt": "Sorry, could you spell that ____, please?",
      "answers": [
-      "Young",
-      "Ms Young",
-      "Ms. Young"
+      "again"
      ],
-     "show": "YOUNG"
+     "id": "V7",
+     "points": 1,
+     "show": "again"
     },
     {
-     "id": "P8",
-     "type": "listen_type",
-     "prompt": "Question 8 · Mrs ______",
-     "audio": "homework/audio/S01/S01_HW_P8.mp3",
-     "placeholder": "SURNAME",
-     "points": 1,
+     "type": "gap",
+     "prompt": "What’s your email ____? — It’s nam.le@gmail.com.",
      "answers": [
-      "Jenkins",
-      "Mrs Jenkins",
-      "Mrs. Jenkins"
+      "address"
      ],
-     "show": "JENKINS"
+     "id": "V8",
+     "points": 1,
+     "show": "address"
     }
    ]
   },
   {
-   "id": "B",
-   "title": "Part 2. Street names",
+   "id": "R",
+   "title": "Part 2 · Reading — At the reception desk",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Linh is a new student at Bright English Centre. Today she is at the reception desk. The receptionist asks, \"What's your name, please?\" Linh says, \"My name's Linh Tran.\" \"How do you spell your first name?\" \"It's L-I-N-H.\" Her surname is easy: T-R-A-N.\n\nThen the receptionist asks, \"What's your email address?\" Linh says, \"It's linh underscore tran ninety-nine at gmail dot com. It's all lower case.\" The receptionist says, \"Sorry, could you spell that again, please?\" Linh spells it again, slowly.\n\nLinh's friend is also at the desk. His name is Matthew Kelly. Matthew has a double T, and Kelly has a double L. \"Is that K or C?\" asks the receptionist. \"K,\" says Matthew. His email address is matt dot kelly at yahoo dot com. \"Is that a capital M?\" \"No, it's all lower case.\" ",
    "items": [
     {
+     "type": "mcq",
+     "prompt": "Linh is a teacher at Bright English Centre.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
      "id": "R1",
-     "type": "listen_type",
-     "prompt": "Number 1 · ______ Road",
-     "audio": "homework/audio/S01/S01_HW_R1.mp3",
-     "placeholder": "STREET NAME",
      "points": 1,
-     "answers": [
-      "Church",
-      "Church Road"
-     ],
-     "show": "CHURCH"
+     "show": "False"
     },
     {
+     "type": "mcq",
+     "prompt": "How do you spell Linh’s surname?",
+     "options": [
+      "T-R-A-N",
+      "T-R-A-N-G",
+      "T-R-A-M"
+     ],
+     "answers": [
+      "T-R-A-N"
+     ],
      "id": "R2",
-     "type": "listen_type",
-     "prompt": "Number 2 · ______ Street",
-     "audio": "homework/audio/S01/S01_HW_R2.mp3",
-     "placeholder": "STREET NAME",
      "points": 1,
-     "answers": [
-      "Garden",
-      "Garden Street"
-     ],
-     "show": "GARDEN"
+     "show": "T-R-A-N"
     },
     {
+     "type": "gap",
+     "prompt": "Linh’s email: linh ____ tran99@gmail.com (write the symbol or the word)",
+     "answers": [
+      "_",
+      "underscore"
+     ],
      "id": "R3",
-     "type": "listen_type",
-     "prompt": "Number 3 · ______ Avenue",
-     "audio": "homework/audio/S01/S01_HW_R3.mp3",
-     "placeholder": "STREET NAME",
      "points": 1,
-     "answers": [
-      "Kingsley",
-      "Kingsley Avenue"
-     ],
-     "show": "KINGSLEY"
+     "show": "_"
     },
     {
+     "type": "mcq",
+     "prompt": "The receptionist asks Linh to spell her email address again.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
      "id": "R4",
-     "type": "listen_type",
-     "prompt": "Number 4 · ______ Road",
-     "audio": "homework/audio/S01/S01_HW_R4.mp3",
-     "placeholder": "STREET NAME",
      "points": 1,
-     "answers": [
-      "Wellington",
-      "Wellington Road"
-     ],
-     "show": "WELLINGTON"
+     "show": "True"
     },
     {
+     "type": "mcq",
+     "prompt": "Which name has a double L?",
+     "options": [
+      "Matthew",
+      "Kelly",
+      "Linh"
+     ],
+     "answers": [
+      "Kelly"
+     ],
      "id": "R5",
-     "type": "listen_type",
-     "prompt": "Number 5 · ______ Drive",
-     "audio": "homework/audio/S01/S01_HW_R5.mp3",
-     "placeholder": "STREET NAME",
      "points": 1,
-     "answers": [
-      "Juniper",
-      "Juniper Drive"
-     ],
-     "show": "JUNIPER"
+     "show": "Kelly"
     },
     {
+     "type": "mcq",
+     "prompt": "What is Matthew’s email address?",
+     "options": [
+      "matt-kelly@yahoo.com",
+      "matt.kelly@yahoo.com",
+      "matt_kelly@yahoo.com"
+     ],
+     "answers": [
+      "matt.kelly@yahoo.com"
+     ],
      "id": "R6",
-     "type": "listen_type",
-     "prompt": "Number 6 · ______ Lane",
-     "audio": "homework/audio/S01/S01_HW_R6.mp3",
-     "placeholder": "STREET NAME",
      "points": 1,
-     "answers": [
-      "Hazel",
-      "Hazel Lane"
+     "show": "matt.kelly@yahoo.com"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Matthew’s email address has a capital M.",
+     "options": [
+      "True",
+      "False"
      ],
-     "show": "HAZEL"
+     "answers": [
+      "False"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "False"
     }
    ]
   },
   {
-   "id": "C",
-   "title": "Part 3. Towns & cities",
+   "id": "L1",
+   "title": "Part 3 · Listening — Booking a hotel room",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
    "items": [
     {
-     "id": "T1",
-     "type": "listen_type",
-     "prompt": "Number 1 · town / city",
-     "audio": "homework/audio/S01/S01_HW_T1.mp3",
-     "placeholder": "TOWN",
-     "points": 1,
-     "answers": [
-      "Cambridge"
+     "type": "mcq",
+     "prompt": "How many nights?",
+     "options": [
+      "three",
+      "two",
+      "four"
      ],
-     "show": "CAMBRIDGE"
+     "answers": [
+      "three"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "three"
     },
     {
-     "id": "T2",
-     "type": "listen_type",
-     "prompt": "Number 2 · town / city",
-     "audio": "homework/audio/S01/S01_HW_T2.mp3",
-     "placeholder": "TOWN",
-     "points": 1,
-     "answers": [
-      "Leeds"
-     ],
-     "show": "LEEDS"
-    },
-    {
-     "id": "T3",
-     "type": "listen_type",
-     "prompt": "Number 3 · town / city",
-     "audio": "homework/audio/S01/S01_HW_T3.mp3",
-     "placeholder": "TOWN",
-     "points": 1,
-     "answers": [
-      "Perth"
-     ],
-     "show": "PERTH"
-    },
-    {
-     "id": "T4",
-     "type": "listen_type",
-     "prompt": "Number 4 · town / city",
-     "audio": "homework/audio/S01/S01_HW_T4.mp3",
-     "placeholder": "TOWN",
-     "points": 1,
-     "answers": [
-      "Phoenix"
-     ],
-     "show": "PHOENIX"
-    },
-    {
-     "id": "T5",
-     "type": "listen_type",
-     "prompt": "Number 5 · town / city",
-     "audio": "homework/audio/S01/S01_HW_T5.mp3",
-     "placeholder": "TOWN",
-     "points": 1,
-     "answers": [
-      "Glasgow"
-     ],
-     "show": "GLASGOW"
-    }
-   ]
-  },
-  {
-   "id": "D",
-   "title": "Part 4. Booking form",
-   "audio": "homework/audio/S01/S01_HW_call.mp3",
-   "note": "LAKESIDE HOTEL — Booking form · Number of nights: 3 (example)",
-   "items": [
-    {
-     "id": "D1",
      "type": "gap",
      "prompt": "Guest name: Emma ____",
-     "points": 1,
      "answers": [
       "Thornton"
      ],
+     "id": "L12",
+     "points": 1,
      "show": "Thornton"
     },
     {
-     "id": "D2",
      "type": "gap",
      "prompt": "Home town: ____",
-     "points": 1,
      "answers": [
       "Norwich"
      ],
+     "id": "L13",
+     "points": 1,
      "show": "Norwich"
     },
     {
-     "id": "D3",
      "type": "gap",
      "prompt": "Address: 14 ____ Road",
-     "points": 1,
      "answers": [
       "Belmont",
       "Belmont Road"
      ],
+     "id": "L14",
+     "points": 1,
      "show": "Belmont"
     },
     {
-     "id": "D4",
+     "type": "mcq",
+     "prompt": "What does the receptionist ask her to spell again?",
+     "options": [
+      "her address",
+      "her email",
+      "her surname"
+     ],
+     "answers": [
+      "her address"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "her address"
+    },
+    {
      "type": "gap",
      "prompt": "Email: ____",
-     "points": 1,
      "answers": [
       "emma.t88@gmail.com"
      ],
+     "id": "L16",
+     "points": 1,
      "show": "emma.t88@gmail.com"
     },
     {
-     "id": "D5",
+     "type": "mcq",
+     "prompt": "Is the email address all lower case?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answers": [
+      "Yes"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "Yes"
+    },
+    {
      "type": "gap",
      "prompt": "Arrival day: ____",
-     "points": 1,
      "answers": [
       "Friday",
       "Fri"
      ],
+     "id": "L18",
+     "points": 1,
      "show": "Friday"
+    }
+   ],
+   "audioLabel": "Lakeside Hotel · phone call",
+   "audioHint": "Nghe 2 lần, điền phiếu đặt phòng.",
+   "audio": "homework/audio/S01/S01_listen_hotel.mp3",
+   "script": [
+    [
+     "Receptionist",
+     "Good afternoon, Lakeside Hotel. How can I help you?"
+    ],
+    [
+     "Emma",
+     "Hi. I'd like to book a room for three nights, please."
+    ],
+    [
+     "Receptionist",
+     "Certainly. Can I have your name, please?"
+    ],
+    [
+     "Emma",
+     "Yes. It's Emma Thornton."
+    ],
+    [
+     "Receptionist",
+     "How do you spell your surname?"
+    ],
+    [
+     "Emma",
+     "T-H-O-R-N-T-O-N."
+    ],
+    [
+     "Receptionist",
+     "Thank you. And which town are you from?"
+    ],
+    [
+     "Emma",
+     "I'm from Norwich. That's N-O-R-W-I-C-H."
+    ],
+    [
+     "Receptionist",
+     "Lovely. What's your address, please?"
+    ],
+    [
+     "Emma",
+     "It's fourteen Belmont Road. B-E-L-M-O-N-T."
+    ],
+    [
+     "Receptionist",
+     "Sorry, could you spell that again, please?"
+    ],
+    [
+     "Emma",
+     "Sure. B-E-L-M-O-N-T."
+    ],
+    [
+     "Receptionist",
+     "Thanks. And your email address?"
+    ],
+    [
+     "Emma",
+     "It's E-M-M-A dot T 8 8 at G-M-A-I-L dot C-O-M."
+    ],
+    [
+     "Receptionist",
+     "Is that all lower case?"
+    ],
+    [
+     "Emma",
+     "Yes, it's all lower case."
+    ],
+    [
+     "Receptionist",
+     "Perfect. And what day will you arrive?"
+    ],
+    [
+     "Emma",
+     "On Friday, in the afternoon."
+    ],
+    [
+     "Receptionist",
+     "Great. That's three nights from Friday. See you then, Ms Thornton!"
+    ]
+   ],
+   "note": "LAKESIDE HOTEL — Booking form"
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Introduce yourself at the reception desk",
+     "audio": "homework/audio/S01/S01_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "Hello, my name's Linh Tran.",
+       "audio": "homework/audio/S01/S01_H5_shadow_01.mp3"
+      },
+      {
+       "text": "My first name is L-I-N-H, and my surname is T-R-A-N.",
+       "audio": "homework/audio/S01/S01_H5_shadow_02.mp3"
+      },
+      {
+       "text": "I'm a new student at Bright English Centre.",
+       "audio": "homework/audio/S01/S01_H5_shadow_03.mp3"
+      },
+      {
+       "text": "My email address is linh underscore tran at gmail dot com.",
+       "audio": "homework/audio/S01/S01_H5_shadow_04.mp3"
+      },
+      {
+       "text": "It's all lower case.",
+       "audio": "homework/audio/S01/S01_H5_shadow_05.mp3"
+      },
+      {
+       "text": "What's your name?",
+       "audio": "homework/audio/S01/S01_H5_shadow_06.mp3"
+      },
+      {
+       "text": "How do you spell your surname?",
+       "audio": "homework/audio/S01/S01_H5_shadow_07.mp3"
+      },
+      {
+       "text": "Sorry, could you spell that again, please?",
+       "audio": "homework/audio/S01/S01_H5_shadow_08.mp3"
+      }
+     ],
+     "dur": 24.6,
+     "free": [
+      "Linh",
+      "Tran",
+      "gmail"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn đánh vần tên của giáo viên bạn như thế nào?",
+     "answers": [
+      "How do you spell your teacher's name?"
+     ],
+     "show": "How do you spell your teacher's name?",
+     "hint": "How do you spell …?"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Xin lỗi, bạn có thể đánh vần lại họ của bạn được không?",
+     "answers": [
+      "Sorry, could you spell your surname again, please?",
+      "Sorry, could you spell your surname again?",
+      "Could you spell your surname again, please?"
+     ],
+     "show": "Sorry, could you spell your surname again, please?",
+     "hint": "Sorry, could you spell … again, please?"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Địa chỉ email của bạn của bạn là gì?",
+     "answers": [
+      "What's your friend's email address?"
+     ],
+     "show": "What's your friend's email address?",
+     "hint": "What's … email address?"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Email của tôi là nam.le@gmail.com. Tất cả đều viết thường.",
+     "answers": [
+      "My email address is nam.le@gmail.com. It's all lower case.",
+      "My email is nam.le@gmail.com. It's all lower case."
+     ],
+     "show": "My email address is nam.le@gmail.com. It's all lower case.",
+     "hint": "My email address is … It's all lower case."
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Có phải chữ J như trong “John” không?",
+     "answers": [
+      "Is that J as in John?"
+     ],
+     "show": "Is that J as in John?",
+     "hint": "Is that … as in …?"
     }
    ]
   }
- ],
- "pass": 80,
- "autoMax": 24
+ ]
 }

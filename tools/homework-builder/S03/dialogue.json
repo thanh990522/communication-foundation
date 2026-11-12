@@ -1,0 +1,100 @@
+{
+ "speakers": {
+  "L": "Linh",
+  "B": "Ben"
+ },
+ "lines": [
+  [
+   "B",
+   "Hi Linh! Is this your neighbourhood?"
+  ],
+  [
+   "L",
+   "Yes, it is. Welcome! It's a peaceful neighbourhood, and it's centrally located."
+  ],
+  [
+   "B",
+   "It's really peaceful. Do you live in an apartment or a house?"
+  ],
+  [
+   "L",
+   "I live in a spacious apartment near the park."
+  ],
+  [
+   "B",
+   "That's great. Is there a supermarket near your apartment?"
+  ],
+  [
+   "L",
+   "Yes, there is. There's a big supermarket near the bus stop."
+  ],
+  [
+   "B",
+   "Are there any nearby facilities, like a gym?"
+  ],
+  [
+   "L",
+   "Yes, there are lots of nearby facilities. There's a gym with modern facilities, and there are two cafés."
+  ],
+  [
+   "B",
+   "So it's a convenient location."
+  ],
+  [
+   "L",
+   "Yes, it is. It's convenient because there are two bus stops near my home."
+  ],
+  [
+   "B",
+   "What do you like about the area?"
+  ],
+  [
+   "L",
+   "One thing I like is the park. It's peaceful because there are lots of trees."
+  ],
+  [
+   "B",
+   "And what are your neighbours like?"
+  ],
+  [
+   "L",
+   "I have a friendly neighbour. Her name is Mai, and she's very nice."
+  ],
+  [
+   "B",
+   "Is there a hospital near here?"
+  ],
+  [
+   "L",
+   "No, there isn't. However, there's a school and a market."
+  ],
+  [
+   "B",
+   "Is there anything you don't like?"
+  ],
+  [
+   "L",
+   "The only problem is the market. It's a crowded area at weekends."
+  ],
+  [
+   "B",
+   "I see. My neighbourhood is very different. It's a crowded area, and there aren't any parks."
+  ],
+  [
+   "L",
+   "Oh no! So what do you like about it?"
+  ],
+  [
+   "B",
+   "One thing I like is my apartment. It's small, but it's centrally located, so it's convenient."
+  ],
+  [
+   "L",
+   "Then come to my neighbourhood at weekends. The park is very peaceful!"
+  ],
+  [
+   "B",
+   "Great idea. Thanks, Linh!"
+  ]
+ ]
+}
