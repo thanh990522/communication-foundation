@@ -102,12 +102,6 @@ for i,v in enumerate(C.VOCAB):
     clip(f'VC_{i}',f'Vocabulary/S04_phrase_{i+1}_{slug(v["col"])}.mp3',[want(SONIA,v['col']),.6,want(SONIA,v['ex'],'-5%')],v['col'])
 for i,(s_,opts,ans,k_) in enumerate(C.COLL):
     t=s_.replace('___',ans); clip(f'CO_{i}',f'Collocations/S04_coll_{i+1}.mp3',[want(SONIA,t,'-5%')],t)
-# grammar
-for i,(t,pat,x) in enumerate(C.GRAM): clip(f'GR_{i}',f'Grammar/S04_present_continuous_{i+1}.mp3',[want(SONIA,x,'-6%')],x)
-for i,(q,y,n_) in enumerate(C.GRAM_QA):
-    clip(f'GQ_{i}_q',f'Grammar/S04_question_{i+1}.mp3',[want(RYAN,q,'-5%')],q)
-    clip(f'GQ_{i}_y',f'Grammar/S04_question_{i+1}_yes.mp3',[want(LIBBY,y,'-5%')],y)
-    clip(f'GQ_{i}_n',f'Grammar/S04_question_{i+1}_no.mp3',[want(LIBBY,n_,'-5%')],n_)
 for i,(s_,opts,ans) in enumerate(C.DIARYQ):
     t=s_.replace('___',ans) if '___' in s_ else s_+' '+ans
     clip(f'MQ_{i}',f'Diary/S04_mai_{i+1}.mp3',[want(SONIA,t,'-5%')],t)
@@ -123,13 +117,6 @@ for i,(s_,pi,ans) in enumerate(C.PAIR_TEST):
 for i,(q,a_) in enumerate(zip(C.CONFIRM_Q,C.CONFIRM_S)):
     clip(f'CQ_{i}',f'Intonation/S04_check_{i+1}.mp3',[want(LIBBY,q,'-8%')],q)
     clip(f'CS_{i}',f'Intonation/S04_confirm_{i+1}.mp3',[want(RYAN,a_,'-8%')],a_)
-# frames
-for i,(f,exs) in enumerate(C.FRAMES):
-    for j,x in enumerate(exs): clip(f'FR_{i}_{j}',f'Sentence_frames/S04_frame{i+1}_{j+1}.mp3',[want(SONIA,x,'-5%')],x)
-# questions & answers
-for i,(q,ans) in enumerate(C.QA):
-    clip(f'QA_{i}_q',f'Questions_answers/S04_QA{i+1}_question.mp3',[want(RYAN,q,'-5%')],'Q: '+q)
-    for j,a_ in enumerate(ans): clip(f'QA_{i}_a{j}',f'Questions_answers/S04_QA{i+1}_answer_{"abc"[j]}.mp3',[want(LIBBY,a_,'-5%')],'A: '+a_)
 # phone call: receptionist (Libby) & Nam (Ryan)
 allk=[]
 for i,(w,t) in enumerate(C.DIALOGUE):
@@ -137,8 +124,11 @@ for i,(w,t) in enumerate(C.DIALOGUE):
     clip(f'DLG_{i}',f'Dialogue/S04_phone_call_line{i+1:02d}.mp3',k,f'Line {i+1}')
     allk+=k+[.55]
 clip('DLG_ALL','Dialogue/S04_phone_call_FULL.mp3',allk,'Full dialogue')
-# scramble
-for i,s_ in enumerate(C.SCRAMBLE): clip(f'SC_{i}',f'Game/S04_sentence_{i+1}.mp3',[want(SONIA,s_,'-5%')],s_)
+# structures + race game
+import sys as _s, os as _o; _s.path.insert(0,_o.path.dirname(_o.path.dirname(_o.path.abspath(__file__))))
+from structures import audio_clips
+audio_clips(C.STRUCTS,'S04',want,clip,RYAN,LIBBY)
+for i,(say,opts,ans) in enumerate(C.RACE): clip(f'RC_{i}',f'Game/S04_race_{i+1:02d}.mp3',[want(RYAN,say,'-8%')],ans)
 
 
 asyncio.run(fetch_all())

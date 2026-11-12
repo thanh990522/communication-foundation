@@ -13,15 +13,15 @@ S.append(slide('Cover', '''  <span class="chip c-input">Week 02 · Session 04</s
 AG = [('warm', '🕒', 'Warm-up · Say it!', 'times &amp; dates'),
       ('input', '📅', 'on · at · in', '1st · 2nd · 21st…'),
       ('input', '🃏', 'Words → collocations', 'make an appointment…'),
-      ('prac', '✅', 'Collocation check', 'Choose the word'),
-      ('input', '🧱', 'Present continuous', "I'm meeting Lan on Friday."),
+      ('prac', '💬', 'Fix the message', 'type the missing word'),
+      ('input', '🧱', '4 key structures', 'step by step + translate'),
       ('prac', '📒', "Mai's week", 'is meeting · is having'),
       ('listen', '🔢', '13 or 30? · Confirm ↗', 'thirTEEN · THIRty'),
       ('listen', '🎧', 'Listening', "Sarah &amp; Todd's weekend"),
-      ('input', '💬', 'Frames · Ask &amp; answer', 'Are you available on…?'),
       ('listen', '📞', 'Phone call', 'Making an appointment'),
-      ('speak', '🗓', 'Find a time · Free practice', 'Reschedule'),
-      ('speak', '🎭', 'Text &amp; role-play · Game', 'Arrange a study call')]
+      ('speak', '🗓', 'Find a time · Text a friend', 'Arrange a study call'),
+      ('speak', '🎭', 'Role-play cards', 'Arrange &amp; reschedule'),
+      ('prac', '🏁', 'Game: Listen &amp; click race', '13th or 30th?')]
 S.append(slide('Lesson map', head('Lesson map', 'c-wrap', "Today's <em>journey</em>") + '  <div class="agenda ag2">\n' +
                ''.join(f'    <div class="ag {c}"><div class="m">{i + 1}</div><span class="agi">{ic}</span><div><b>{t}</b><small>{s}</small></div></div>\n'
                        for i, (c, ic, t, s) in enumerate(AG)) + '  </div>\n'))
@@ -80,19 +80,22 @@ def coll_row(i, s, opts, k, pre='ci', aid='CO'):
             f'<div class="co">{btns}</div></div>{pb(f"{aid}_{i}", "y")}</div>')
 
 
-S.append(slide('Collocation check', head('Practice', 'c-prac', 'Choose the <em>right word</em>') +
-               '  <div class="coll2">' + ''.join(coll_row(i, s, o, k) for i, (s, o, a, k) in enumerate(C.COLL)) + '</div>\n'
-               '  <div class="ftools"><span class="score" id="collScore">✓ 0 / 8</span><button class="btn sm ghost" id="collReset">↺ Reset</button></div>\n'))
+MF = ''.join(f'<div class="msg {w}">' + e(t).replace('___', f'<input class="mfin" id="mf{i}" autocomplete="off" spellcheck="false" aria-label="gap {i + 1}">') + f'<span class="mfa" id="mfa{i}"></span></div>' for i, (w, t, a) in enumerate(C.MSGFIX))
+import random as _r
+_B = list(C.MSG_BANK); _r.Random('S04-bank').shuffle(_B)
+S.append(slide('Fix the message', head('Practice · Collocations', 'c-prac', 'Fix the message — <em>type the missing word</em>') + f'''  <div class="row" style="gap:20px;flex:1;min-height:0;align-items:stretch">
+    <div class="phonebox wide"><div class="ph-top">💬 Lan</div><div class="ph-msgs">{MF}</div></div>
+    <div class="col" style="width:330px;flex:none;gap:12px">
+      <div class="card gapf"><div class="rh">🧩 Word bank</div><div class="bank">{''.join(f'<span>{e(w)}</span>' for w in _B)}</div></div>
+      <button class="btn y" id="mfCheck">✓ Check</button><button class="btn ghost" id="mfShow">👁 Answers</button><button class="btn ghost" id="mfReset">↺ Reset</button>
+      <span class="score" id="mfScore" style="align-self:flex-start">— / {len(C.MSGFIX)}</span>
+    </div>
+  </div>
+'''))
 
-# 9 grammar -------------------------------------------------------------------------------------
-GI = ['📅', '🚫', '❓', '🕒']
-GR = ''.join(f'<div class="gcard g{i}"><div class="gi">{GI[i]}</div><div class="gt">{e(t)}</div><div class="gp">{e(p)}</div>'
-             f'<button class="gx" data-a="GR_{i}">{P}<span>{e(x)}</span></button></div>' for i, (t, p, x) in enumerate(C.GRAM))
-GQ = ''.join(f'<div class="gq"><button class="gx q" data-a="GQ_{i}_q">{P}<span>{e(q)}</span></button>'
-             f'<div class="gya"><button class="gx y" data-a="GQ_{i}_y">{P}<span>✅ {e(y)}</span></button><button class="gx n" data-a="GQ_{i}_n">{P}<span>❌ {e(n)}</span></button></div></div>'
-             for i, (q, y, n) in enumerate(C.GRAM_QA))
-S.append(slide('Present continuous for arrangements', head('Input · Grammar', 'c-input', "Arrangements — <em>I'm meeting</em> Lan on Friday") +
-               f'  <div class="ggrid">{GR}</div>\n  <div class="card gqbox"><div class="rh">💬 Short answers</div>{GQ}<div class="gnote">A fixed plan with a <b>day / time</b> → <b>am / is / are + V-ing</b></div></div>\n'))
+# 9-12 main structures (step by step)
+for _i, _st in enumerate(C.STRUCTS):
+    S.append(struct_slide(slide, head, P, _i, len(C.STRUCTS), _st))
 
 # 10 Mai's week ---------------------------------------------------------------------------------
 S.append(slide("Mai's week", head('Practice · Arrangements', 'c-prac', "Look at <em>Mai's week</em>") +
@@ -142,12 +145,6 @@ S.append(slide('Listening: Sarah & Todd', head('Listening', 'c-listen', 'Plans f
   </div>
 '''))
 
-# 14 frames · 15 Q&A ----------------------------------------------------------------------------
-S.append(slide('Sentence frames', head('Input · Sentence frames', 'c-input', 'Arrange, move &amp; <em>confirm</em>') + '''  <div class="frames" id="frames"></div>
-  <div class="linkers"><b>Linkers:</b> <span id="linkers"></span></div>
-'''))
-S.append(slide('Questions & answers', head('Input · Questions', 'c-input', 'Ask &amp; <em>answer</em> — making plans') + '  <div class="qa" id="qa"></div>\n'))
-
 # 16 phone call + appointment card --------------------------------------------------------------
 CF = ''.join(f'<div class="cfld"><label>{e(lb)}</label><input id="cf{i}" autocomplete="off" spellcheck="false"><span class="cfa" id="cfa{i}"></span></div>'
              for i, (lb, a, ok) in enumerate(C.CARD))
@@ -194,13 +191,6 @@ S.append(slide('Find a time', head('Speaking · Pairs', 'c-speak', 'Find a time 
   </div>
 '''))
 
-# 18 free practice ------------------------------------------------------------------------------
-S.append(slide('Free practice: two situations', head('Free practice', 'c-speak', 'Two real situations — <em>change the dialogue</em>') + '''  <div class="row" style="gap:18px;flex:1;min-height:0">
-    <div class="col" style="width:380px;flex:none;gap:12px" id="sit"></div>
-    <div class="card fpd grow" id="fpd"></div>
-  </div>
-'''))
-
 # 19 real-life task: text messages --------------------------------------------------------------
 CH = ''.join(f'<div class="msg {w}">{e(t)}</div>' for w, t in C.CHAT)
 S.append(slide('Arrange a study call by text', head('Real-life task', 'c-speak', 'Arrange a <em>study call</em> by text') + f'''  <div class="row" style="gap:22px;flex:1;min-height:0;align-items:stretch">
@@ -229,16 +219,14 @@ S.append(slide('Role-play cards', head('Speaking · Role-play', 'c-speak', 'Arra
   </div>
 '''))
 
-# 21 game ---------------------------------------------------------------------------------------
-S.append(slide('Game: Sentence scramble', head('Game', 'c-prac', 'Sentence scramble — <em>put the words in order</em>') + '''  <div class="game2">
-    <div class="row" style="align-items:center;justify-content:space-between"><span class="score" id="scN">1 / 8</span><div class="dots" id="scDots"></div><span class="score" id="scScore">Score: 0</span></div>
-    <div class="scout" id="scOut"></div>
-    <div class="scpool" id="scPool"></div>
-    <div id="scMsg" class="scmsg"></div>
-    <div class="row" style="justify-content:center"><button class="btn y" id="scCheck">✓ Check</button><button class="btn ghost" id="scReset">↺ Reset</button><button class="btn" id="scNext">Next →</button></div>
+# 21 game: listen & click race
+S.append(slide('Game: Listen & click race', head('Game', 'c-prac', 'Listen &amp; click race — <em>which one do you hear?</em>') + f'''  <div class="race">
+    <div class="row" style="align-items:center;justify-content:space-between"><span class="score" id="rcN">Round 0 / {len(C.RACE)}</span><div class="tbar" style="flex:1;margin:0 16px"><i id="rcBar"></i></div><span class="score" id="rcScore">Score: 0</span></div>
+    <div class="rcq" id="rcQ"><b>🏁 Ready?</b><span>Listen to the time or date — click the right card as fast as you can!</span></div>
+    <div class="rcopts" id="rcOpts"></div>
+    <div class="row" style="justify-content:center;gap:10px"><button class="btn y" id="rcGo">▶ Start / Next round</button><button class="btn ghost" id="rcAgain">🔊 Again</button><button class="btn ghost" id="rcReset">↺ Reset</button></div>
   </div>
 '''))
-
 # 22 wrap-up ------------------------------------------------------------------------------------
 WRAP = [('📅', 'I can say times and dates: at half past three, on the 21st.'),
         ('🗓', "I can talk about arrangements: I'm meeting Lan on Friday."),

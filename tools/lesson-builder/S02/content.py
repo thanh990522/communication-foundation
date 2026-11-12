@@ -237,17 +237,23 @@ SCRAMBLE = [
 
 # ---------------------------------------------------------------- game: spin & translate (VI → EN)
 # Same structures & words as the lesson, but NEW information (people, times, meals, days) — not copies of taught sentences.
-SPIN = [  # Vietnamese, English model answer, structure hint
-    ('Ngày của tôi thường bắt đầu với một tách trà.', 'My day usually starts with a cup of tea.', 'My day usually starts with ___.'),
-    ('Mất khoảng mười lăm phút để tôi đến trường.', 'It takes me about fifteen minutes to get to school.', 'It takes me ___ minutes to ___.'),
-    ('Anh trai tôi làm ca tối vào cuối tuần.', 'My brother works the evening shift at weekends.', 'work the evening shift · at weekends'),
-    ('Bố tôi hầu như không bao giờ bỏ bữa trưa.', 'My dad hardly ever misses lunch.', 'hardly ever + miss → misses'),
-    ('Chúng tôi luôn nghỉ giải lao ngắn lúc mười giờ.', 'We always take a short break at ten.', 'always · take a short break'),
-    ('Bạn có thường bắt đầu làm việc lúc bảy giờ không?', 'Do you usually start work at seven?', 'Do you usually ___?'),
-    ('Bạn có bao giờ bỏ bữa tối không?', 'Do you ever miss dinner?', 'Do you ever ___?'),
-    ('Cuối tuần bạn thức dậy lúc mấy giờ?', 'What time do you get up at weekends?', 'What time do you ___?'),
-    ('Vào ngày thường tôi dậy lúc năm giờ, trong khi cuối tuần tôi dậy lúc chín giờ.', 'On weekdays I get up at five, whereas at weekends I get up at nine.', 'On weekdays ___, whereas at weekends ___.'),
-    ('Tôi thường có một buổi sáng làm việc hiệu quả, nhưng tôi hầu như không bao giờ làm việc vào buổi tối.', 'I usually have a productive morning, but I hardly ever work in the evening.', 'I usually ___, but I hardly ever ___.'),
-    ('Họ không bao giờ làm việc vào Chủ nhật.', 'They never work on Sundays.', 'never · on Sundays'),
-    ('Minh thỉnh thoảng nghỉ giải lao lúc chín giờ tối vì anh ấy làm ca tối.', 'Minh sometimes takes a short break at 9 p.m. because he works the evening shift.', 'sometimes · because'),
+SPIN = [  # direction (vi→en / en→vi), prompt, model answer, structure hint
+    ('vi', 'Ngày của tôi thường bắt đầu với một tách trà.', 'My day usually starts with a cup of tea.', 'My day usually starts with ___.'),
+    ('vi', 'Mất khoảng mười lăm phút để tôi đến trường.', 'It takes me about fifteen minutes to get to school.', 'It takes me ___ minutes to ___.'),
+    ('en', 'I usually have a productive afternoon.', 'Tôi thường có một buổi chiều làm việc hiệu quả.', 'usually · have a productive ___'),
+    ('vi', 'Anh trai tôi làm ca tối vào cuối tuần.', 'My brother works the evening shift at weekends.', 'work the evening shift · at weekends'),
+    ('vi', 'Bố tôi hầu như không bao giờ bỏ bữa trưa.', 'My dad hardly ever misses lunch.', 'hardly ever + miss → misses'),
+    ('en', 'My uncle makes a daily commute to the hospital.', 'Chú tôi đi làm hằng ngày đến bệnh viện.', 'make a daily commute'),
+    ('vi', 'Chúng tôi luôn nghỉ giải lao ngắn lúc mười giờ.', 'We always take a short break at ten.', 'always · take a short break'),
+    ('vi', 'Bạn có thường bắt đầu làm việc lúc bảy giờ không?', 'Do you usually start work at seven?', 'Do you usually ___?'),
+    ('en', 'Lan hardly ever takes a break on Mondays.', 'Lan hầu như không bao giờ nghỉ giải lao vào thứ Hai.', 'hardly ever · take a break'),
+    ('vi', 'Bạn có bao giờ bỏ bữa tối không?', 'Do you ever miss dinner?', 'Do you ever ___?'),
+    ('vi', 'Cuối tuần bạn thức dậy lúc mấy giờ?', 'What time do you get up at weekends?', 'What time do you ___?'),
+    ('en', 'How often do you work the evening shift?', 'Bạn làm ca tối bao lâu một lần?', 'How often do you ___?'),
+    ('vi', 'Vào ngày thường tôi dậy lúc năm giờ, trong khi cuối tuần tôi dậy lúc chín giờ.', 'On weekdays I get up at five, whereas at weekends I get up at nine.', 'On weekdays ___, whereas at weekends ___.'),
+    ('vi', 'Tôi thường có một buổi sáng làm việc hiệu quả, nhưng tôi hầu như không bao giờ làm việc vào buổi tối.', 'I usually have a productive morning, but I hardly ever work in the evening.', 'I usually ___, but I hardly ever ___.'),
+    ('en', 'It takes my dad thirty minutes to get to work.', 'Bố tôi mất ba mươi phút để đi làm.', 'It takes ___ minutes to ___.'),
+    ('vi', 'Họ không bao giờ làm việc vào Chủ nhật.', 'They never work on Sundays.', 'never · on Sundays'),
+    ('vi', 'Minh thỉnh thoảng nghỉ giải lao lúc chín giờ tối vì anh ấy làm ca tối.', 'Minh sometimes takes a short break at 9 p.m. because he works the evening shift.', 'sometimes · because'),
+    ('en', 'At weekends we often have breakfast at nine.', 'Vào cuối tuần chúng tôi thường ăn sáng lúc chín giờ.', 'at weekends · often'),
 ]

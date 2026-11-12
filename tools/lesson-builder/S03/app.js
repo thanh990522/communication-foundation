@@ -129,6 +129,25 @@ function talkTimer(){
   const draw=()=>{ el.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); bar.style.width=(t/90*100)+'%'; }; draw();
   tkRun=setInterval(()=>{ t--; draw(); if(t<=0){ clearInterval(tkRun); el.textContent="Time's up!"; beep(); } },1000);
 }
+/* ---------- match the halves */
+function matchInit(){
+  let sel=null, n=0; const sc=()=>document.getElementById('mtScore').textContent=`✓ ${n} / ${DATA.MATCH.length}`;
+  document.querySelectorAll('.mt.l').forEach(b=>b.onclick=()=>{ if(b.classList.contains('ok')) return; document.querySelectorAll('.mt.l').forEach(x=>x.classList.toggle('sel',x===b&&!b.classList.contains('sel'))); sel=b.classList.contains('sel')?b:null; });
+  document.querySelectorAll('.mt.r').forEach(b=>b.onclick=()=>{ if(!sel||b.classList.contains('ok')) return; const i=+sel.dataset.mt;
+    if(DATA.MATCH[i][1]===b.dataset.mr){ sel.classList.remove('sel'); sel.classList.add('ok'); b.classList.add('ok'); sel.querySelector('b').textContent=DATA.MATCH[i][0]+' '+DATA.MATCH[i][1]; n++; sc(); play('VC_'+i); sel=null; }
+    else { b.classList.add('no'); setTimeout(()=>b.classList.remove('no'),600); } });
+  document.getElementById('mtReset').onclick=()=>{ n=0; sel=null; sc(); document.querySelectorAll('.mt').forEach(x=>x.classList.remove('ok','sel','no')); document.querySelectorAll('.mt.l').forEach((x,i)=>x.querySelector('b').textContent=DATA.MATCH[i][0]); };
+}
+/* ---------- memory picture game */
+function memInit(){
+  const $=id=>document.getElementById(id); let t=null, n=0;
+  const sc=()=>$('memScore').textContent=`✓ ${n} / ${DATA.MEMORY.length}`;
+  $('memStart').onclick=()=>{ clearInterval(t); let s=20; $('memCover').classList.remove('on'); const draw=()=>$('memTime').textContent='0:'+String(s).padStart(2,'0'); draw();
+    t=setInterval(()=>{ s--; draw(); if(s<=0){ clearInterval(t); $('memCover').classList.add('on'); beep(); } },1000); };
+  $('memShow').onclick=()=>{ clearInterval(t); $('memCover').classList.toggle('on'); };
+  document.querySelectorAll('.memc').forEach(c=>c.addEventListener('click',()=>{ if(!c.classList.contains('on')){ c.classList.add('on'); n++; sc(); } }));
+  $('memCover').classList.add('on'); sc();
+}
 /* ---------- picture task timer */
 let picRun=null;
 function picTimer(){ const el=document.getElementById('picTime'); let t=60; clearInterval(picRun);
@@ -163,14 +182,14 @@ function scCheck(){
    ========================================================= */
 window.addEventListener('DOMContentLoaded',()=>{
   toBlobUrls();
-  buildCloud('cloud'); buildCloud('cloud2',[['🏢','spacious'],['☮','peaceful'],['📍','near'],['👋','friendly'],['🌳','park'],['🚏','bus stop'],['🏋️','gym'],['🗺','nearby']]); buildWarm(); const collReset=setupMC('ci',DATA.COLL,'collScore','CO'); const mqReset=setupMC('mq',DATA.MAPQ,'mqScore','MQ'); sortInit(); sortLoad(); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); scLoad();
+  buildCloud('cloud'); buildCloud('cloud2',[['🏢','spacious'],['☮','peaceful'],['📍','near'],['👋','friendly'],['🌳','park'],['🚏','bus stop'],['🏋️','gym'],['🗺','nearby']]); buildWarm(); const mqReset=setupMC('mq',DATA.MAPQ,'mqScore','MQ'); sortInit(); sortLoad(); buildListen(); buildDialogue(); buildInterview(); buildSit(); buildTalk(); matchInit(); memInit();
   // download links beside fixed play buttons
-  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('.coll2,.mapq,#qa,#frames,.fgrid,.ladder,.chal,.pool,.buckets,.ggrid,.gqbox,.totg,.keyw,.fuq')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
+  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('.coll2,.mapq,#qa,#frames,.fgrid,.ladder,.chal,.pool,.buckets,.ggrid,.gqbox,.totg,.keyw,.fuq,.sgrid,.memg')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   const $=id=>document.getElementById(id);
   document.querySelectorAll('[data-flipall]').forEach(b=>b.onclick=()=>flipAll(b,true));
   document.querySelectorAll('[data-flipreset]').forEach(b=>b.onclick=()=>flipAll(b,false));
   document.querySelectorAll('[data-rep]').forEach(b=>b.onclick=()=>repeatQueue(b));
-  $('collReset').onclick=collReset; $('mqReset').onclick=mqReset; $('picStart').onclick=picTimer;
+  $('mqReset').onclick=mqReset; $('picStart').onclick=picTimer;
   $('sortCheck').onclick=sortCheck; $('sortShow').onclick=sortShow; $('sortReset').onclick=sortLoad;
   $('lCheck').onclick=listenCheck;
   $('lScript').onclick=e=>{ const p=$('lscr'), show=p.hidden; p.hidden=!show; e.currentTarget.textContent=show?'🙈 Hide script':'📜 Show script'; };
@@ -179,7 +198,6 @@ window.addEventListener('DOMContentLoaded',()=>{
   $('dlgStop').onclick=stopAll;
   $('dlgScript').onclick=e=>{ const sc=$('script'); sc.classList.toggle('blur'); e.currentTarget.textContent=sc.classList.contains('blur')?'👁 Show script':'🙈 Hide script'; };
   $('tkStart').onclick=talkTimer; $('tkModel').onclick=e=>play('TALK',e.currentTarget);
-  $('scCheck').onclick=scCheck; $('scNext').onclick=()=>{ scI=(scI+1)%DATA.SCRAMBLE.length; scLoad(); }; $('scReset').onclick=()=>{ scPicked=[]; scLoad(); };
   window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',fit); fit();
   const h=parseInt((location.hash||'').slice(1)); go(isNaN(h)?0:h-1);
 });

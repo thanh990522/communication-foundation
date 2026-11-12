@@ -157,15 +157,16 @@ function spInit(){
     const g=document.getElementById('whRot'); g.style.transform=`rotate(${spRot}deg)`;
     $('spCard').innerHTML='<div class="sph">🎡 …</div>';
     setTimeout(()=>{ spBusy=false; spCur=i; spUsed.push(i); document.getElementById('wseg'+i).classList.add('used'); upd();
-      const [vi,en,hint]=DATA.SPIN[i];
-      $('spCard').innerHTML=`<div class="sph"><span class="spn">${i+1}</span> Translate into English</div><div class="spvi">${esc(vi)}</div><div class="sphint">💡 ${esc(hint)}</div><div class="spen" id="spEn" hidden>${esc(en)}</div>`;
-      ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=false); timer(); play('SV_'+i); },3300);
+      const [d,pr,an,hint]=DATA.SPIN[i];
+      $('spCard').innerHTML=`<div class="sph"><span class="spn">${i+1}</span> ${d==='vi'?'🇻🇳 → 🇬🇧 Translate into English':'🇬🇧 → 🇻🇳 Dịch sang tiếng Việt'}</div><div class="spvi">${esc(pr)}</div><div class="sphint">💡 ${esc(hint)}</div><div class="spen" id="spEn" hidden>${esc(an)}</div>`;
+      $('spVi').textContent=d==='vi'?'🔊 Tiếng Việt':'🔊 English';
+      ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=false); timer(); play('SQ_'+i); },3300);
   };
-  $('spVi').onclick=e=>{ if(spCur>=0) play('SV_'+spCur,e.currentTarget); };
-  $('spAns').onclick=e=>{ if(spCur<0) return; clearInterval(spTimer); const el=document.getElementById('spEn'); if(el) el.hidden=false; play('SP_'+spCur,e.currentTarget); };
+  $('spVi').onclick=e=>{ if(spCur>=0) play('SQ_'+spCur,e.currentTarget); };
+  $('spAns').onclick=e=>{ if(spCur<0) return; clearInterval(spTimer); const el=document.getElementById('spEn'); if(el) el.hidden=false; play('SA_'+spCur,e.currentTarget); };
   $('spOk').onclick=()=>{ if(spCur<0) return; spScore++; spCur=-1; $('spOk').disabled=true; upd(); };
   $('spReset').onclick=()=>{ stopAll(); clearInterval(spTimer); spUsed=[]; spCur=-1; spScore=0; document.querySelectorAll('.whsvg .used').forEach(x=>x.classList.remove('used'));
-    $('spCard').innerHTML='<div class="sph">🎡 Spin the wheel!</div><div class="spvi">Translate the Vietnamese sentence into English — use today\'s words &amp; structures.</div>'; $('spBar').style.width='0'; ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=true); upd(); };
+    $('spCard').innerHTML='<div class="sph">🎡 Spin the wheel!</div><div class="spvi">🇻🇳 → 🇬🇧 or 🇬🇧 → 🇻🇳 — translate with today\'s words &amp; structures.</div>'; $('spBar').style.width='0'; ['spAns','spVi','spOk'].forEach(k=>$(k).disabled=true); upd(); };
   upd();
 }
 /* ---------- game: sentence scramble (unused) */

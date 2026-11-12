@@ -101,12 +101,6 @@ for i,v in enumerate(C.VOCAB):
     clip(f'VC_{i}',f'Vocabulary/S03_phrase_{i+1}_{slug(v["col"])}.mp3',[want(SONIA,v['col']),.6,want(SONIA,v['ex'],'-5%')],v['col'])
 for i,(s_,opts,ans,k_) in enumerate(C.COLL):
     t=s_.replace('___',ans); clip(f'CO_{i}',f'Collocations/S03_coll_{i+1}.mp3',[want(SONIA,t,'-5%')],t)
-# grammar
-for i,(t,pat,x) in enumerate(C.GRAM): clip(f'GR_{i}',f'Grammar/S03_there_is_are_{i+1}.mp3',[want(SONIA,x,'-6%')],x)
-for i,(q,y,n_) in enumerate(C.GRAM_QA):
-    clip(f'GQ_{i}_q',f'Grammar/S03_question_{i+1}.mp3',[want(RYAN,q,'-5%')],q)
-    clip(f'GQ_{i}_y',f'Grammar/S03_question_{i+1}_yes.mp3',[want(LIBBY,y,'-5%')],y)
-    clip(f'GQ_{i}_n',f'Grammar/S03_question_{i+1}_no.mp3',[want(LIBBY,n_,'-5%')],n_)
 for i,(s_,opts,ans) in enumerate(C.MAPQ):
     t=s_.replace('___',ans) if '___' in s_ else s_+' '+ans
     clip(f'MQ_{i}',f'Map/S03_map_{i+1}.mp3',[want(SONIA,t,'-5%')],t)
@@ -123,13 +117,6 @@ for g,L in enumerate(C.FINALS):
     for j,t in enumerate(L['phrases']): clip(f'LP_{g}_{j}',f'Pronunciation/Final_sounds/S03_{g+1}_phrase_{j+1}.mp3',[want(SONIA,plain(t),'-8%')],plain(t))
     for j,t in enumerate(L['sents']): clip(f'LS_{g}_{j}',f'Pronunciation/Final_sounds/S03_{g+1}_sentence_{j+1}.mp3',[want(SONIA,plain(t),'-6%')],plain(t))
 for i,t in enumerate(C.CHALLENGE): clip(f'LC_{i}',f'Pronunciation/Final_sounds/S03_challenge_{i+1}.mp3',[want(SONIA,plain(t),'-4%')],plain(t))
-# frames
-for i,(f,exs) in enumerate(C.FRAMES):
-    for j,x in enumerate(exs): clip(f'FR_{i}_{j}',f'Sentence_frames/S03_frame{i+1}_{j+1}.mp3',[want(SONIA,x,'-5%')],x)
-# questions & answers
-for i,(q,ans) in enumerate(C.QA):
-    clip(f'QA_{i}_q',f'Questions_answers/S03_QA{i+1}_question.mp3',[want(RYAN,q,'-5%')],'Q: '+q)
-    for j,a_ in enumerate(ans): clip(f'QA_{i}_a{j}',f'Questions_answers/S03_QA{i+1}_answer_{"abc"[j]}.mp3',[want(LIBBY,a_,'-5%')],'A: '+a_)
 # dialogue: Tom (Ryan) & Mai (Libby)
 allk=[]
 for i,(w,t) in enumerate(C.DIALOGUE):
@@ -143,8 +130,11 @@ k=[]
 for s_ in sents: k+=[want(SONIA,s_,'-5%'),.35]
 clip('TALK','Fluency/S03_neighbourhood_talk_model.mp3',k,'Model talk')
 for i,q in enumerate(C.FOLLOW_UP): clip(f'FU_{i}',f'Fluency/S03_follow_up_{i+1}.mp3',[want(RYAN,q,'-5%')],q)
-# scramble
-for i,s_ in enumerate(C.SCRAMBLE): clip(f'SC_{i}',f'Game/S03_sentence_{i+1}.mp3',[want(SONIA,s_,'-5%')],s_)
+# structures (step by step) + memory game
+import sys as _s, os as _o; _s.path.insert(0,_o.path.dirname(_o.path.dirname(_o.path.abspath(__file__))))
+from structures import audio_clips
+audio_clips(C.STRUCTS,'S03',want,clip,RYAN,LIBBY)
+for i,(em,t) in enumerate(C.MEMORY): clip(f'MEM_{i}',f'Game/S03_memory_{i+1}.mp3',[want(SONIA,t,'-5%')],t)
 
 
 asyncio.run(fetch_all())

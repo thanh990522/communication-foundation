@@ -5,6 +5,7 @@ import content as C
 import sys as _s; _s.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from mcshuffle import shuffle_content; shuffle_content(C, 'S04')
 import illus04 as I
+from structures import struct_slide, JS as STRUCT_JS, CSS as STRUCT_CSS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SID = 'S04'
@@ -56,7 +57,7 @@ def num(m):
     n[0] += 1; return f'<span><b>{n[0]:02d}</b></span></div>'
 deck = re.sub(r'<span><b>\d\d</b></span></div>', num, deck)
 home = '<a href="../../" style="color:var(--blue);font-weight:800;text-decoration:none">← Tất cả bài học</a> · '
-CSS = open(os.path.join(HERE, 'style.css'), encoding='utf-8').read()
+CSS = open(os.path.join(HERE, 'style.css'), encoding='utf-8').read() + STRUCT_CSS
 
 
 TRACK = lambda sid: ('<script src="../../assets/config.js"></script>'
@@ -69,10 +70,10 @@ def build():
     head_ = open(os.path.join(HERE, 'shell_head.html'), encoding='utf-8').read().replace('</style>', CSS + '</style>', 1)
     tail_ = open(os.path.join(HERE, 'shell_tail.html'), encoding='utf-8').read()
     core = open(os.path.join(HERE, 'core.js'), encoding='utf-8').read()
-    app = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read()
+    app = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read() + '\n' + STRUCT_JS
     man = json.load(open(os.path.join(HERE, 'manifest.json')))
     man['EL'] = {'file': C.LISTEN['file'], 'label': C.LISTEN['title'], 'dur': C.LISTEN['dur']}
-    data = {k: getattr(C, k) for k in ['WARM', 'FRAMES', 'LINKERS', 'QA', 'DIALOGUE', 'DLG_NAMES', 'LISTEN', 'SITUATIONS', 'FP_LINES', 'SCRAMBLE']}
+    data = {k: getattr(C, k) for k in ['WARM', 'DIALOGUE', 'DLG_NAMES', 'LISTEN', 'MSGFIX', 'RACE']}
     data['COLL'] = [c[:3] for c in C.COLL]
     data['MAPQ'] = C.DIARYQ
     data['DLG_Q'] = C.DLG_Q[:2]

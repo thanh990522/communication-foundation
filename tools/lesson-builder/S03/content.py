@@ -271,3 +271,53 @@ SCRAMBLE = [
     'The only problem is the crowded market.',
     'Is there a supermarket near here?',
 ]
+
+# ---------------------------------------------------------------- main structures (step-by-step slides)
+STRUCTS = [
+    dict(name='There is / are', q='Is there a ___ near ___?', vi_q='Có ___ gần ___ không?',
+         a='There is a ___ near ___. / There are ___ near ___.', vi_a='Có một ___ gần ___. / Có (nhiều) ___ gần ___.',
+         model='Is there a supermarket near your home?',
+         answers=[("Yes, there is. There's a big supermarket near my home.", 'Có. Có một siêu thị lớn gần nhà tôi.'),
+                  ("No, there isn't. But there's a market nearby.", 'Không. Nhưng có một cái chợ ở gần đó.'),
+                  ('Yes, there are two supermarkets near my apartment.', 'Có, có hai siêu thị gần căn hộ của tôi.')],
+         tr=[('Có một phòng gym gần trường của tôi.', 'There is a gym near my school.'),
+             ('Có hai trạm xe buýt gần công viên.', 'There are two bus stops near the park.'),
+             ('Có bệnh viện nào gần nhà bạn không?', 'Is there a hospital near your home?')]),
+    dict(name="What's it like?", q="What's your neighbourhood like?", vi_q='Khu phố của bạn như thế nào?',
+         a="It's ___ and ___.", vi_a='Nó ___ và ___.',
+         model="What's your neighbourhood like?",
+         answers=[("It's peaceful and convenient.", 'Nó yên bình và thuận tiện.'),
+                  ("It's a crowded area, but it's centrally located.", 'Đó là một khu vực đông đúc, nhưng nằm ở trung tâm.'),
+                  ("It's very peaceful, so I'm happy there.", 'Nó rất yên bình, nên tôi thấy vui khi sống ở đó.')],
+         tr=[('Khu phố của tôi đông đúc nhưng thuận tiện.', "My neighbourhood is crowded, but it's convenient."),
+             ('Căn hộ của chị tôi rộng rãi và hiện đại.', "My sister's apartment is spacious and modern."),
+             ('Khu phố của bạn có yên bình không?', 'Is your neighbourhood peaceful?')]),
+    dict(name='One thing I like', q='What do you like about it?', vi_q='Bạn thích điều gì ở đó?',
+         a='One thing I like is ___.', vi_a='Một điều tôi thích là ___.',
+         model='What do you like about your neighbourhood?',
+         answers=[('One thing I like is the park.', 'Một điều tôi thích là công viên.'),
+                  ('One thing I like is my friendly neighbour.', 'Một điều tôi thích là người hàng xóm thân thiện của tôi.'),
+                  ('One thing I like is the modern gym.', 'Một điều tôi thích là phòng gym hiện đại.')],
+         tr=[('Một điều tôi thích là quán cà phê gần nhà tôi.', 'One thing I like is the café near my home.'),
+             ('Một điều mẹ tôi thích là khu chợ.', 'One thing my mum likes is the market.'),
+             ('Bạn thích điều gì ở căn hộ của bạn?', 'What do you like about your apartment?')]),
+    dict(name='The only problem', q="Is there anything you don't like?", vi_q='Có điều gì bạn không thích không?',
+         a='The only problem is ___. (It is ___ because ___.)', vi_a='Vấn đề duy nhất là ___. (Nó ___ vì ___.)',
+         model="Is there anything you don't like?",
+         answers=[('The only problem is the crowded market.', 'Vấn đề duy nhất là khu chợ đông đúc.'),
+                  ("The only problem is the bus stop. It's very crowded.", 'Vấn đề duy nhất là trạm xe buýt. Nó rất đông.'),
+                  ("Not really. It's a peaceful neighbourhood.", 'Không hẳn. Đó là một khu phố yên bình.')],
+         tr=[('Vấn đề duy nhất là căn hộ của tôi. Nó không rộng rãi.', "The only problem is my apartment. It isn't spacious."),
+             ('Vấn đề duy nhất là bệnh viện. Nó ở xa đây.', "The only problem is the hospital. It's far from here."),
+             ('Nó thuận tiện vì có một trạm xe buýt gần nhà tôi.', "It's convenient because there is a bus stop near my home.")]),
+]
+
+# ---------------------------------------------------------------- practice: match the halves
+MATCH = [('a spacious', 'apartment'), ('a crowded', 'area'), ('a peaceful', 'neighbourhood'), ('a convenient', 'location'),
+         ('nearby', 'facilities'), ('modern', 'facilities'), ('a friendly', 'neighbour'), ('centrally', 'located')]
+
+# ---------------------------------------------------------------- game: memory picture
+MEMORY = [  # emoji, sentence
+    ('🌳', 'There are three trees.'), ('☕', 'There is a café.'), ('🛒', 'There is a supermarket.'), ('🚏', 'There is a bus stop.'),
+    ('🏥', 'There is a hospital.'), ('🚶', 'There are four people.'), ('🏋️', 'There is a gym.'), ('🏫', 'There is a school.'),
+]

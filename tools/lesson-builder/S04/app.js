@@ -134,6 +134,32 @@ let picRun=null;
 function picTimer(){ const el=document.getElementById('picTime'); let t=60; clearInterval(picRun);
   const draw=()=>el.textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); draw();
   picRun=setInterval(()=>{ t--; draw(); if(t<=0){ clearInterval(picRun); el.textContent="Time!"; beep(); } },1000); }
+/* ---------- fix the message */
+function mfInit(){
+  const $=id=>document.getElementById(id), nm=v=>String(v).toLowerCase().trim();
+  const check=show=>{ let n=0; DATA.MSGFIX.forEach(([w,t,ok],i)=>{ const el=$('mf'+i), good=ok.map(nm).includes(nm(el.value)); if(good) n++;
+      el.classList.toggle('ok',good); el.classList.toggle('no',!good&&el.value!==''); if(show&&!good){ el.value=ok[0]; el.classList.add('ok'); el.classList.remove('no'); } });
+    $('mfScore').textContent=`✓ ${show?DATA.MSGFIX.length:n} / ${DATA.MSGFIX.length}`; };
+  $('mfCheck').onclick=()=>check(false); $('mfShow').onclick=()=>check(true);
+  $('mfReset').onclick=()=>{ document.querySelectorAll('.mfin').forEach(x=>{ x.value=''; x.classList.remove('ok','no'); }); $('mfScore').textContent=`— / ${DATA.MSGFIX.length}`; };
+}
+/* ---------- listen & click race */
+function raceInit(){
+  const $=id=>document.getElementById(id), N=DATA.RACE.length; let r=-1, score=0, t=null, done=false;
+  const upd=()=>{ $('rcN').textContent=`Round ${Math.max(r+1,0)} / ${N}`; $('rcScore').textContent='Score: '+score; };
+  const round=()=>{ if(r>=N-1){ $('rcQ').innerHTML=`<b>🏆 Finished!</b><span>Score: ${score} / ${N}</span>`; $('rcOpts').innerHTML=''; return; }
+    r++; done=false; upd(); const [say,opts,ans]=DATA.RACE[r];
+    $('rcQ').innerHTML='<b>🎧 Listen…</b><span>Click the card you hear.</span>';
+    $('rcOpts').innerHTML=opts.map(o=>`<button class="rco" data-o="${esc(o)}">${esc(o)}</button>`).join('');
+    document.querySelectorAll('.rco').forEach(b=>b.onclick=()=>{ if(done) return; done=true; clearInterval(t);
+      document.querySelectorAll('.rco').forEach(x=>{ if(x.dataset.o===ans) x.classList.add('ok'); }); if(b.dataset.o!==ans) b.classList.add('no'); else score++; upd();
+      $('rcQ').innerHTML=`<b>${b.dataset.o===ans?'✅ Correct!':'❌ Not quite'}</b><span>“${esc(say)}”</span>`; });
+    play('RC_'+r); clearInterval(t); let s=10; $('rcBar').style.width='100%';
+    t=setInterval(()=>{ s-=.1; $('rcBar').style.width=Math.max(0,s*10)+'%'; if(s<=0){ clearInterval(t); if(!done){ done=true; document.querySelectorAll('.rco').forEach(x=>{ if(x.dataset.o===ans) x.classList.add('ok'); }); $('rcQ').innerHTML=`<b>⏰ Time!</b><span>“${esc(say)}”</span>`; } } },100); };
+  $('rcGo').onclick=round; $('rcAgain').onclick=()=>{ if(r>=0) play('RC_'+r); };
+  $('rcReset').onclick=()=>{ clearInterval(t); r=-1; score=0; upd(); $('rcOpts').innerHTML=''; $('rcBar').style.width='0'; $('rcQ').innerHTML='<b>🏁 Ready?</b><span>Listen to the time or date — click the right card as fast as you can!</span>'; };
+  upd();
+}
 /* ---------- 13 or 30? */
 function setupPT(){
   let n=0; const sc=()=>document.getElementById('ptScore').textContent=`✓ ${n} / ${DATA.PAIR_TEST.length}`;
@@ -187,14 +213,14 @@ function scCheck(){
    ========================================================= */
 window.addEventListener('DOMContentLoaded',()=>{
   toBlobUrls();
-  buildCloud('cloud'); buildCloud('cloud2',[['📅','the 21st'],['🕒','at 3'],['✅','confirm'],['🔁','move'],['📞','call'],['🗓','free?'],['⏰','deadline'],['👍','works!']]); buildWarm(); const collReset=setupMC('ci',DATA.COLL,'collScore','CO'); const mqReset=setupMC('mq',DATA.MAPQ,'mqScore','MQ'); buildListen(); buildFrames(); buildQA(); buildDialogue(); buildSit(); scLoad(); setupPT(); setupCard(); setupGap(); setupRC();
+  buildCloud('cloud'); buildCloud('cloud2',[['📅','the 21st'],['🕒','at 3'],['✅','confirm'],['🔁','move'],['📞','call'],['🗓','free?'],['⏰','deadline'],['👍','works!']]); buildWarm(); const mqReset=setupMC('mq',DATA.MAPQ,'mqScore','MQ'); buildListen(); buildDialogue(); mfInit(); raceInit(); setupPT(); setupCard(); setupGap(); setupRC();
   // download links beside fixed play buttons
-  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('.coll2,.mapq,#qa,#frames,.fgrid,.ggrid,.gqbox,.twgrid,.ordbox,.pairbox,.ptbox,.cfg')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
+  document.querySelectorAll('button[data-a]').forEach(b=>{ const id=b.dataset.a; if(!AUDIO[id]||id==='EL') return; if(b.closest('.coll2,.mapq,#qa,#frames,.fgrid,.ggrid,.gqbox,.twgrid,.ordbox,.pairbox,.ptbox,.cfg,.sgrid')) return; if(b.nextElementSibling&&b.nextElementSibling.classList.contains('dl')) return; b.insertAdjacentHTML('afterend',dl(id)); });
   const $=id=>document.getElementById(id);
   document.querySelectorAll('[data-flipall]').forEach(b=>b.onclick=()=>flipAll(b,true));
   document.querySelectorAll('[data-flipreset]').forEach(b=>b.onclick=()=>flipAll(b,false));
   document.querySelectorAll('[data-rep]').forEach(b=>b.onclick=()=>repeatQueue(b));
-  $('collReset').onclick=collReset; $('mqReset').onclick=mqReset;
+  $('mqReset').onclick=mqReset;
   $('lCheck').onclick=listenCheck;
   $('lScript').onclick=e=>{ const p=$('lscr'), show=p.hidden; p.hidden=!show; e.currentTarget.textContent=show?'🙈 Hide script':'📜 Show script'; };
   $('lscr').innerHTML=`<div class="sh">📜 Script <span style="font-size:13px;color:var(--muted)">Source: ${esc(DATA.LISTEN.source)}</span></div>`+DATA.LISTEN.script.map(([w,t])=>`<div class="sl ${w}"><b>${DATA.LISTEN.names[w]}</b><span>${esc(t)}</span></div>`).join('');
@@ -202,7 +228,6 @@ window.addEventListener('DOMContentLoaded',()=>{
   $('dlgStop').onclick=stopAll;
   $('dlgScript').onclick=e=>{ const sc=$('script'); sc.classList.toggle('blur'); e.currentTarget.textContent=sc.classList.contains('blur')?'👁 Show script':'🙈 Hide script'; };
   $('tkStart').onclick=talkTimer;
-  $('scCheck').onclick=scCheck; $('scNext').onclick=()=>{ scI=(scI+1)%DATA.SCRAMBLE.length; scLoad(); }; $('scReset').onclick=()=>{ scPicked=[]; scLoad(); };
   window.addEventListener('resize',fit); document.addEventListener('fullscreenchange',fit); fit();
   const h=parseInt((location.hash||'').slice(1)); go(isNaN(h)?0:h-1);
 });

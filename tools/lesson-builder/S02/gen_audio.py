@@ -142,9 +142,10 @@ for s_ in sents: k+=[want(SONIA,s_,'-5%'),.35]
 clip('TALK','Fluency/S02_routine_talk_model.mp3',k,'Model routine talk')
 # spin & translate: Vietnamese prompt (HoaiMy) + English model answer (Sonia)
 HOAIMY='vi-VN-HoaiMyNeural'
-for i,(vi,en,hint) in enumerate(C.SPIN):
-    clip(f'SV_{i}',f'Game/S02_spin_{i+1:02d}_vietnamese.mp3',[want(HOAIMY,vi,'-5%')],vi)
-    clip(f'SP_{i}',f'Game/S02_spin_{i+1:02d}_english.mp3',[want(SONIA,en,'-5%')],en)
+for i,(d,pr,an,hint) in enumerate(C.SPIN):
+    VQ,VA=(HOAIMY,SONIA) if d=='vi' else (SONIA,HOAIMY)
+    clip(f'SQ_{i}',f'Game/S02_spin_{i+1:02d}_prompt_{d}.mp3',[want(VQ,pr,'-5%')],pr)
+    clip(f'SA_{i}',f'Game/S02_spin_{i+1:02d}_answer.mp3',[want(VA,an,'-5%')],an)
 
 
 asyncio.run(fetch_all())

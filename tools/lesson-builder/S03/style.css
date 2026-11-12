@@ -377,3 +377,24 @@ u.iz,.mk.iz u{color:#DC2626;text-decoration:none;border-bottom:4px solid #DC2626
 #dq .co .opt{height:32px;font-size:14.5px;padding:0 9px}
 .kchips{gap:6px}.kchips span{font-size:15px;padding:4px 10px}
 .kwr span{display:block}
+/* match the halves */
+.mtgrid{flex:1;min-height:0;display:grid;grid-template-columns:1fr 70px 1fr;gap:14px}
+.mtcol{display:grid;grid-template-rows:repeat(8,1fr);gap:8px}
+.mtmid{display:flex;align-items:center;justify-content:center;font-size:40px}
+.mt{border-radius:14px;border:3px solid var(--line);background:#fff;font-size:23px;color:var(--navy);transition:.15s;box-shadow:var(--shadow-s)}
+.mt.l{background:var(--sky);border-color:var(--sky-2)}.mt.r{background:var(--yellow-soft);border-color:#FFE7A0}
+.mt.sel{border-color:var(--blue);box-shadow:0 0 0 4px var(--sky-2);transform:scale(1.02)}
+.mt.ok{background:var(--green-soft);border-color:var(--green);color:var(--green)}.mt.r.ok{opacity:.45}
+.mt.no{background:var(--red-soft);border-color:var(--red);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+/* memory picture */
+.memart{flex:1;min-width:0;position:relative;display:flex;align-items:center}
+.memart svg{width:100%;height:auto;border-radius:20px;box-shadow:var(--shadow-s)}
+.memcover{position:absolute;inset:0;border-radius:20px;background:linear-gradient(150deg,var(--navy),var(--blue));color:#fff;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
+.memcover.on{display:flex}.memcover b{font-size:80px;line-height:1}.memcover span{font-size:30px;font-weight:900}.memcover small{font-size:20px;color:var(--yellow);font-weight:800}
+.memg{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:8px}
+.memc{border-radius:14px;border:2px solid var(--line);background:#fff;position:relative;overflow:hidden;font-size:16px;color:var(--navy)}
+.memc .q{font-size:34px;font-weight:900;color:var(--sky-2)}
+.memc .ans{display:none;flex-direction:column;align-items:center;gap:2px;font-weight:800;line-height:1.2;padding:4px}
+.memc .ans i{font-style:normal;font-size:26px}
+.memc.on{background:var(--green-soft);border-color:var(--green)}.memc.on .q{display:none}.memc.on .ans{display:flex}

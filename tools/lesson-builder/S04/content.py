@@ -260,3 +260,70 @@ SCRAMBLE = [
     'We are postponing the meeting.',
     'Is there an available time slot?',
 ]
+
+# ---------------------------------------------------------------- main structures (step-by-step slides)
+STRUCTS = [
+    dict(name='What are you doing…?', q='What are you doing on ___?', vi_q='Bạn sẽ làm gì vào ___? (kế hoạch đã sắp xếp)',
+         a="I'm ___ing on / at ___.", vi_a='Tôi sẽ ___ vào / lúc ___.',
+         model='What are you doing on Saturday?',
+         answers=[("I'm meeting my friends at 10.", 'Tôi sẽ gặp bạn bè lúc 10 giờ.'),
+                  ("I'm working all day.", 'Tôi sẽ làm việc cả ngày.'),
+                  ("I'm not doing anything. I'm free.", 'Tôi không làm gì cả. Tôi rảnh.')],
+         tr=[('Tôi sẽ gặp giáo viên của tôi vào thứ Ba.', "I'm meeting my teacher on Tuesday."),
+             ('Chị tôi sẽ đi nha sĩ lúc 4 giờ chiều.', 'My sister is going to the dentist at 4 p.m.'),
+             ('Bạn sẽ làm gì vào tối thứ Sáu?', 'What are you doing on Friday evening?')]),
+    dict(name='Are you available…?', q='Are you available on ___?', vi_q='Bạn có rảnh vào ___ không?',
+         a="Yes, I'm free… / Unfortunately, I'm ___ing.", vi_a='Có, tôi rảnh… / Tiếc là tôi đang bận ___.',
+         model='Are you available on Monday?',
+         answers=[("Yes, I am. I'm free in the afternoon.", 'Có. Tôi rảnh vào buổi chiều.'),
+                  ("Unfortunately, I'm not. I'm working late.", 'Tiếc là không. Tôi làm việc muộn.'),
+                  ("Yes, I'm available after 5 p.m.", 'Có, tôi rảnh sau 5 giờ chiều.')],
+         tr=[('Bạn có rảnh vào sáng thứ Bảy không?', 'Are you available on Saturday morning?'),
+             ('Tiếc là tôi có lịch trình bận rộn vào thứ Hai.', 'Unfortunately, I have a busy schedule on Monday.'),
+             ('Tôi rảnh vào thứ Năm sau 3 giờ chiều.', "I'm available on Thursday after 3 p.m.")]),
+    dict(name='Does … work for you?', q='Does ___ work for you? / Could we move it to ___?', vi_q='___ có tiện cho bạn không? / Chúng ta dời sang ___ được không?',
+         a="Yes, that works for me. / Sorry, could we move it to ___?", vi_a='Được, giờ đó tiện cho tôi. / Xin lỗi, dời sang ___ được không?',
+         model='Does 3 p.m. work for you?',
+         answers=[('Yes, that works for me.', 'Được, giờ đó tiện cho tôi.'),
+                  ("Sorry, it doesn't. Could we move it to 4:30?", 'Xin lỗi, không được. Chúng ta dời sang 4 giờ 30 được không?'),
+                  ('Sure. Wednesday works for me.', 'Được thôi. Thứ Tư tiện cho tôi.')],
+         tr=[('2 giờ chiều có tiện cho bạn không?', 'Does 2 p.m. work for you?'),
+             ('Chúng ta có thể dời cuộc họp sang thứ Sáu không?', 'Could we move the meeting to Friday?'),
+             ('Vậy thì thay vào đó, 10 giờ sáng thứ Ba có tiện cho bạn không?', 'Does Tuesday at 10 a.m. work for you instead?')]),
+    dict(name='Let me confirm', q='Let me confirm ___.', vi_q='Để tôi xác nhận lại ___.',
+         a="That's right. / No, it's ___.", vi_a='Đúng rồi. / Không, là ___.',
+         model='Let me confirm: Tuesday at three?',
+         answers=[("That's right. See you then.", 'Đúng rồi. Hẹn gặp lại.'),
+                  ("No, it's the 13th, not the 30th.", 'Không, là ngày 13, không phải ngày 30.'),
+                  ('Yes, Tuesday at three.', 'Vâng, thứ Ba lúc ba giờ.')],
+         tr=[('Để tôi xác nhận lại thời gian: thứ Tư lúc 9 giờ 15.', 'Let me confirm the time: Wednesday at 9:15.'),
+             ('Để tôi xác nhận lại ngày: thứ Sáu ngày 21.', 'Let me confirm the date: Friday the 21st.'),
+             ('Vậy là thứ Hai lúc 2 giờ chiều phải không?', "So that's Monday at 2 p.m.?")]),
+]
+
+# ---------------------------------------------------------------- practice: fix the message (typed gaps)
+MSGFIX = [  # who, text with ___, answer(s)
+    ('me', 'Hi Lan! I have a ___ schedule this week. 😅', ['busy']),
+    ('me', 'I need to ___ an appointment with the dentist.', ['make']),
+    ('you', 'No problem! Are you ___ on Sunday?', ['available', 'free']),
+    ('me', "Unfortunately, I'm working late. I need to ___ a deadline.", ['meet']),
+    ('you', 'OK. Could we ___ our study call to Monday?', ['move', 'reschedule', 'postpone']),
+    ('me', 'Sure. Is there an available time ___ in the evening?', ['slot']),
+    ('you', 'Yes! Let me ___ the time: Monday at 7 p.m.', ['confirm']),
+    ('me', 'Perfect. We are ___ the team meeting to Friday, so Monday works! 👍', ['postponing', 'moving']),
+]
+MSG_BANK = ['busy', 'make', 'available', 'meet', 'reschedule', 'slot', 'confirm', 'postponing']
+
+# ---------------------------------------------------------------- game: listen & click race (times / dates)
+RACE = [  # spoken text (in words), options, answer
+    ('Monday the thirteenth.', ['Mon 13th', 'Mon 30th', 'Wed 13th', 'Mon 3rd'], 'Mon 13th'),
+    ('At four fifteen.', ['4:15', '4:50', '5:15', '4:05'], '4:15'),
+    ('Friday the twenty-first at nine.', ['Fri 21st · 9:00', 'Fri 23rd · 9:00', 'Thu 21st · 9:00', 'Fri 21st · 5:00'], 'Fri 21st · 9:00'),
+    ('At half past seven.', ['7:30', '6:30', '7:15', '8:30'], '7:30'),
+    ('Saturday the thirtieth.', ['Sat 30th', 'Sat 13th', 'Sun 30th', 'Sat 3rd'], 'Sat 30th'),
+    ('At quarter to three.', ['2:45', '3:15', '3:45', '2:15'], '2:45'),
+    ('Tuesday the fourteenth at two forty.', ['Tue 14th · 2:40', 'Tue 14th · 2:14', 'Thu 14th · 2:40', 'Tue 4th · 2:40'], 'Tue 14th · 2:40'),
+    ("Sunday the second at twelve o'clock.", ['Sun 2nd · 12:00', 'Sun 22nd · 12:00', 'Sat 2nd · 12:00', 'Sun 2nd · 2:00'], 'Sun 2nd · 12:00'),
+    ('Wednesday the twelfth at five fifty.', ['Wed 12th · 5:50', 'Wed 12th · 5:15', 'Wed 20th · 5:50', 'Wed 2nd · 5:50'], 'Wed 12th · 5:50'),
+    ('Thursday the nineteenth at six thirty.', ['Thu 19th · 6:30', 'Thu 9th · 6:30', 'Tue 19th · 6:30', 'Thu 19th · 7:30'], 'Thu 19th · 6:30'),
+]

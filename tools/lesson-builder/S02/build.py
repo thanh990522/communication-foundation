@@ -283,16 +283,16 @@ def _wheel(n):
     for i in range(n):
         a0, a1 = _m.radians(i * 360 / n - 90), _m.radians((i + 1) * 360 / n - 90)
         x0, y0, x1, y1 = 100 * _m.cos(a0), 100 * _m.sin(a0), 100 * _m.cos(a1), 100 * _m.sin(a1)
-        am = _m.radians((i + .5) * 360 / n - 90); c = cols[i % 3]
+        am = _m.radians((i + .5) * 360 / n - 90); c = ('#FFC72C' if C.SPIN[i][0] == 'en' else ('#1D4ED8' if i % 2 else '#0B1F5C'))
         out.append(f'<path id="wseg{i}" d="M0 0L{x0:.2f} {y0:.2f}A100 100 0 0 1 {x1:.2f} {y1:.2f}Z" fill="{c}" stroke="#fff" stroke-width="2"/>')
-        out.append(f'<text x="{74 * _m.cos(am):.2f}" y="{74 * _m.sin(am):.2f}" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="900" fill="{"#0B1F5C" if c == "#FFC72C" else "#fff"}" font-family="Be Vietnam Pro,sans-serif" transform="rotate({(i + .5) * 360 / n:.1f} {74 * _m.cos(am):.2f} {74 * _m.sin(am):.2f})"{" text-decoration=\"underline\"" if i + 1 in (6, 9) else ""}>{i + 1}</text>')
+        out.append(f'<text x="{74 * _m.cos(am):.2f}" y="{74 * _m.sin(am):.2f}" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="900" fill="{"#0B1F5C" if c == "#FFC72C" else "#fff"}" font-family="Be Vietnam Pro,sans-serif" transform="rotate({(i + .5) * 360 / n:.1f} {74 * _m.cos(am):.2f} {74 * _m.sin(am):.2f})"{" text-decoration=\"underline\"" if i + 1 in (6, 9) else ""}>{i + 1}</text>')
     out.append('</g><circle r="24" fill="#fff" stroke="#0B1F5C" stroke-width="4"/><text y="1" text-anchor="middle" dominant-baseline="central" font-size="20">🇻🇳</text></svg>')
     return ''.join(out)
-S.append(slide('Game: Spin & translate', head('Game', 'c-prac', 'Spin &amp; translate — <em>Vietnamese → English</em>') + f'''  <div class="spin">
+S.append(slide('Game: Spin & translate', head('Game', 'c-prac', 'Spin &amp; translate — <em>Việt ⇄ English</em>') + f'''  <div class="spin">
     <div class="wheelbox"><div class="pointer">▼</div>{_wheel(len(C.SPIN))}</div>
     <div class="col grow spcol">
       <div class="row" style="justify-content:space-between;align-items:center"><span class="score" id="spN">0 / {len(C.SPIN)}</span><span class="score" id="spScore">Score: 0</span></div>
-      <div class="spcard" id="spCard"><div class="sph">🎡 Spin the wheel!</div><div class="spvi">Translate the Vietnamese sentence into English — use today's words &amp; structures.</div></div>
+      <div class="spcard" id="spCard"><div class="sph">🎡 Spin the wheel!</div><div class="spvi">🇻🇳 → 🇬🇧 or 🇬🇧 → 🇻🇳 — translate with today's words &amp; structures.</div></div>
       <div class="tbar"><i id="spBar"></i></div>
       <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn y" id="spGo">🎡 Spin</button><button class="btn ghost" id="spVi" disabled>🔊 Tiếng Việt</button><button class="btn" id="spAns" disabled>👁 Answer</button><button class="btn ghost" id="spOk" disabled>✓ Correct +1</button><button class="btn ghost" id="spReset">↺ Reset</button></div>
     </div>

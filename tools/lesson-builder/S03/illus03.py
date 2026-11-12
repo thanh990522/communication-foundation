@@ -165,3 +165,21 @@ if __name__ == '__main__':
         for k, v in d.items(): h += f'<div><b style="font:700 13px sans-serif">{k}</b>{v}</div>'
     h += f'<div style="grid-column:span 2">{MAP}</div><div>{SCENE}</div></body>'
     open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'illus_preview.html'), 'w').write(h)
+
+
+def _bld(x, w, h, col, e_, roof=N):
+    return (f'<rect x="{x}" y="{250 - h}" width="{w}" height="{h}" rx="6" fill="{col}" stroke="{N}" stroke-width="3"/>'
+            f'<rect x="{x - 4}" y="{250 - h - 10}" width="{w + 8}" height="14" rx="4" fill="{roof}"/>'
+            f'<circle cx="{x + w / 2}" cy="{250 - h + 34}" r="24" fill="{W}"/>' + emo(x + w / 2, 250 - h + 35, e_, 30)
+            + ''.join(f'<rect x="{x + 10 + c * (w - 20) / 2}" y="{250 - h + 66 + r * 30}" width="{(w - 30) / 2}" height="18" rx="3" fill="{SKY2}"/>'
+                      for r in range(max(0, (h - 90) // 30)) for c in range(2)))
+
+
+MEMORY_ART = ('<svg viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg" role="img"><rect width="640" height="330" rx="20" fill="#E0F2FE"/>'
+              + sun(590, 46, 20) + f'<rect x="0" y="250" width="640" height="80" fill="#CBD5E1"/><path d="M0 292h640" stroke="{W}" stroke-width="4" stroke-dasharray="22 16"/>'
+              + _bld(18, 100, 190, W, '🏥', RED) + _bld(132, 96, 150, YS, '🏫', B) + _bld(244, 104, 120, W, '🛒', Y2)
+              + _bld(366, 76, 96, '#FFE4E6', '☕', RED) + _bld(456, 92, 140, SKY, '🏋️', N)
+              + tree(570, 216, 1.6) + tree(124, 240, .9) + tree(356, 232, 1.0)
+              + busstop(614, 270, 1.1)
+              + ''.join(f'<g transform="translate({x} 262)">{head(0, 0, c, 8)}</g>' for x, c in [(214, B), (236, RED), (420, GREEN2), (530, Y2)])
+              + '</svg>')

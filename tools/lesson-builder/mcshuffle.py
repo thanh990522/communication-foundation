@@ -54,7 +54,7 @@ def shuffle_items(items, seed):
 
 def shuffle_content(C, sid):
     """apply to a lesson content module in place"""
-    for name in ('COLL', 'MAPQ', 'DIARYQ', 'DLG_Q'):
+    for name in ('COLL', 'MAPQ', 'DIARYQ', 'DLG_Q', 'RACE'):
         if hasattr(C, name): setattr(C, name, shuffle_rows(getattr(C, name), f'{sid}-{name}'))
     if hasattr(C, 'LISTEN'):
         L = C.LISTEN

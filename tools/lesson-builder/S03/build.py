@@ -5,6 +5,7 @@ import content as C
 import sys as _s; _s.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from mcshuffle import shuffle_content; shuffle_content(C, 'S03')
 import illus03 as I
+from structures import struct_slide, JS as STRUCT_JS, CSS as STRUCT_CSS
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SID = 'S03'
@@ -61,15 +62,15 @@ S.append(slide('Cover', '''  <span class="chip c-input">Week 01 · Session 03</s
 AG = [('warm', '🏠', 'Warm-up · This or that?', 'I live in…'),
       ('input', '📍', 'Places near me', 'park · gym · bus stop…'),
       ('input', '🃏', 'Words → collocations', 'a spacious apartment…'),
-      ('prac', '✅', 'Collocation check', 'Choose the word'),
-      ('input', '🧱', 'There is / There are', 'Is there a…? Are there any…?'),
+      ('prac', '🔗', 'Match the halves', 'a spacious + apartment'),
+      ('input', '🧱', '4 key structures', 'step by step + translate'),
       ('prac', '🗺', 'Look at the map', 'is · are · isn’t · aren’t'),
       ('listen', '👄', 'Word stress · final sounds', 'con·VE·ni·ent · par<u>k</u>'),
       ('listen', '🎧', 'Listening', "Sarah &amp; John's hometowns"),
-      ('input', '💬', 'Frames · Ask &amp; answer', 'One thing I like is…'),
       ('listen', '🎭', 'Model dialogue', 'Tom &amp; Mai'),
-      ('speak', '🗣', 'Interview · Free practice', 'Picture: 5 sentences'),
-      ('speak', '⏱', '90-second talk · Game', 'Sentence scramble')]
+      ('speak', '🎙', 'Interview · Free practice', 'Report · two situations'),
+      ('speak', '🗣', 'Picture task · 90-second talk', 'Describe your neighbourhood'),
+      ('prac', '🧠', 'Game: Memory picture', 'There is / There are…')]
 S.append(slide('Lesson map', head('Lesson map', 'c-wrap', "Today's <em>journey</em>") + '  <div class="agenda ag2">\n' +
                ''.join(f'    <div class="ag {c}"><div class="m">{i + 1}</div><span class="agi">{ic}</span><div><b>{t}</b><small>{s}</small></div></div>\n'
                        for i, (c, ic, t, s) in enumerate(AG)) + '  </div>\n'))
@@ -134,19 +135,17 @@ def coll_row(i, s, opts, k, pre='ci', aid='CO'):
             f'<div class="co">{btns}</div></div>{pb(f"{aid}_{i}", "y")}</div>')
 
 
-S.append(slide('Collocation check', head('Practice', 'c-prac', 'Choose the <em>right word</em>') +
-               '  <div class="coll2">' + ''.join(coll_row(i, s, o, k) for i, (s, o, a, k) in enumerate(C.COLL)) + '</div>\n'
-               '  <div class="ftools"><span class="score" id="collScore">✓ 0 / 8</span><button class="btn sm ghost" id="collReset">↺ Reset</button></div>\n'))
+MT_L = ''.join(f'<button class="mt l" data-mt="{i}"><b>{e(a)}</b></button>' for i, (a, b) in enumerate(C.MATCH))
+import random as _r
+_R = list(enumerate(C.MATCH)); _r.Random('S03-match').shuffle(_R)
+MT_R = ''.join(f'<button class="mt r" data-mr="{e(b)}"><b>{e(b)}</b></button>' for i, (a, b) in _R)
+S.append(slide('Match the halves', head('Practice · Collocations', 'c-prac', 'Match the halves — <em>make a collocation</em>') +
+               f'  <div class="mtgrid"><div class="mtcol">{MT_L}</div><div class="mtmid">🔗</div><div class="mtcol">{MT_R}</div></div>\n'
+               '  <div class="ftools"><span>Click a word on the left, then its partner on the right</span><span class="score" id="mtScore">✓ 0 / 8</span><button class="btn sm ghost" id="mtReset">↺ Reset</button></div>\n'))
 
-# 9 grammar: there is / there are --------------------------------------------------------------
-GI = ['🌳', '☕☕', '🚫', '❓']
-GR = ''.join(f'<div class="gcard g{i}"><div class="gi">{GI[i]}</div><div class="gt">{e(t)}</div><div class="gp">{e(p)}</div>'
-             f'<button class="gx" data-a="GR_{i}">{P}<span>{e(x)}</span></button></div>' for i, (t, p, x) in enumerate(C.GRAM))
-GQ = ''.join(f'<div class="gq"><button class="gx q" data-a="GQ_{i}_q">{P}<span>{e(q)}</span></button>'
-             f'<div class="gya"><button class="gx y" data-a="GQ_{i}_y">{P}<span>✅ {e(y)}</span></button><button class="gx n" data-a="GQ_{i}_n">{P}<span>❌ {e(n)}</span></button></div></div>'
-             for i, (q, y, n) in enumerate(C.GRAM_QA))
-S.append(slide('There is / There are', head('Input · Grammar', 'c-input', '<em>There is</em> / <em>There are</em>') +
-               f'  <div class="ggrid">{GR}</div>\n  <div class="card gqbox"><div class="rh">💬 Short answers</div>{GQ}<div class="gnote"><b>There is</b> → <b>There’s</b> · near my home · near the park</div></div>\n'))
+# 9-12 main structures (step by step)
+for _i, _st in enumerate(C.STRUCTS):
+    S.append(struct_slide(slide, head, P, _i, len(C.STRUCTS), _st))
 
 # 10 map practice ------------------------------------------------------------------------------
 S.append(slide('Look at the map', head('Practice · There is / are', 'c-prac', 'Look at the map — <em>my neighbourhood</em>') +
@@ -205,12 +204,6 @@ S.append(slide('Listening: Sarah & John', head('Listening', 'c-listen', 'My home
     </div>
   </div>
 '''))
-# 15 frames
-S.append(slide('Sentence frames', head('Input · Sentence frames', 'c-input', 'Talk about <em>your neighbourhood</em>') + '''  <div class="frames" id="frames"></div>
-  <div class="linkers"><b>Linkers:</b> <span id="linkers"></span></div>
-'''))
-# 16 Q&A
-S.append(slide('Questions & answers', head('Input · Questions', 'c-input', 'Ask &amp; <em>answer</em> — homes &amp; places') + '  <div class="qa" id="qa"></div>\n'))
 # 17 dialogue
 S.append(slide('Model dialogue: Tom & Mai', head('Model dialogue', 'c-listen', 'Tom &amp; Mai — <em>a new neighbour</em>') + '''  <div class="dlg">
     <div class="col">
@@ -262,13 +255,16 @@ S.append(slide('90-second place description', head('Fluency', 'c-speak', 'My nei
     </div>
   </div>
 '''))
-# 22 game
-S.append(slide('Game: Sentence scramble', head('Game', 'c-prac', 'Sentence scramble — <em>put the words in order</em>') + '''  <div class="game2">
-    <div class="row" style="align-items:center;justify-content:space-between"><span class="score" id="scN">1 / 8</span><div class="dots" id="scDots"></div><span class="score" id="scScore">Score: 0</span></div>
-    <div class="scout" id="scOut"></div>
-    <div class="scpool" id="scPool"></div>
-    <div id="scMsg" class="scmsg"></div>
-    <div class="row" style="justify-content:center"><button class="btn y" id="scCheck">✓ Check</button><button class="btn ghost" id="scReset">↺ Reset</button><button class="btn" id="scNext">Next →</button></div>
+# 22 game: memory picture
+MEM = ''.join(f'<button class="memc" data-mem="{i}" data-a="MEM_{i}"><span class="q">?</span><span class="ans"><i>{em}</i>{e(t)}</span></button>' for i, (em, t) in enumerate(C.MEMORY))
+S.append(slide('Game: Memory picture', head('Game', 'c-prac', 'Memory picture — <em>what can you remember?</em>') + f'''  <div class="row" style="gap:18px;flex:1;min-height:0">
+    <div class="memart" id="memArt">{I.MEMORY_ART}<div class="memcover" id="memCover"><b>🧠</b><span>What is in the picture?</span><small>Say: There is a… · There are…</small></div></div>
+    <div class="col" style="width:400px;flex:none;gap:10px">
+      <div class="row" style="justify-content:space-between;align-items:center"><span class="pict" id="memTime">0:20</span><span class="score" id="memScore">✓ 0 / {len(C.MEMORY)}</span></div>
+      <div class="row" style="gap:8px"><button class="btn y grow" id="memStart">👀 Look for 20 seconds</button><button class="btn ghost" id="memShow">🖼 Show</button></div>
+      <div class="memg">{MEM}</div>
+      <div class="tip" style="font-size:15px;padding:8px 12px">Teams take turns. Correct sentence → click a card to reveal it.</div>
+    </div>
   </div>
 '''))
 # 23 wrap-up
@@ -313,7 +309,7 @@ def num(m):
     n[0] += 1; return f'<span><b>{n[0]:02d}</b></span></div>'
 deck = re.sub(r'<span><b>\d\d</b></span></div>', num, deck)
 home = '<a href="../../" style="color:var(--blue);font-weight:800;text-decoration:none">← Tất cả bài học</a> · '
-CSS = open(os.path.join(HERE, 'style.css'), encoding='utf-8').read()
+CSS = open(os.path.join(HERE, 'style.css'), encoding='utf-8').read() + STRUCT_CSS
 
 
 TRACK = lambda sid: ('<script src="../../assets/config.js"></script>'
@@ -326,10 +322,10 @@ def build():
     head_ = open(os.path.join(HERE, 'shell_head.html'), encoding='utf-8').read().replace('</style>', CSS + '</style>', 1)
     tail_ = open(os.path.join(HERE, 'shell_tail.html'), encoding='utf-8').read()
     core = open(os.path.join(HERE, 'core.js'), encoding='utf-8').read()
-    app = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read()
+    app = open(os.path.join(HERE, 'app.js'), encoding='utf-8').read() + '\n' + STRUCT_JS
     man = json.load(open(os.path.join(HERE, 'manifest.json')))
     man['EL'] = {'file': C.LISTEN['file'], 'label': C.LISTEN['title'], 'dur': C.LISTEN['dur']}
-    data = {k: getattr(C, k) for k in ['WARM', 'FRAMES', 'LINKERS', 'QA', 'DIALOGUE', 'DLG_NAMES', 'DLG_Q', 'LISTEN', 'INTERVIEW', 'SITUATIONS', 'FP_LINES', 'TALK', 'SCRAMBLE']}
+    data = {k: getattr(C, k) for k in ['WARM', 'DIALOGUE', 'DLG_NAMES', 'DLG_Q', 'LISTEN', 'INTERVIEW', 'SITUATIONS', 'FP_LINES', 'TALK', 'MATCH', 'MEMORY']}
     data['COLL'] = [c[:3] for c in C.COLL]
     data['MAPQ'] = C.MAPQ
     data['SORT'] = [[w, k, syl] for w, syl, k in C.STRESS_WORDS]

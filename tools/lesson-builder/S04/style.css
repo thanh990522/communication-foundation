@@ -447,3 +447,21 @@ u.iz,.mk.iz u{color:#DC2626;text-decoration:none;border-bottom:4px solid #DC2626
 .rcard.pop{animation:pop .35s ease}
 @keyframes pop{0%{transform:scale(.92) rotate(-2deg)}100%{transform:none}}
 .rce{font-size:90px;line-height:1}.rct{font-size:40px;font-weight:900;color:var(--yellow)}.rcx{font-size:25px;font-weight:700;max-width:620px;line-height:1.4}.rcn{font-size:15px;opacity:.7}
+/* fix the message */
+.phonebox.wide{width:auto;flex:1}
+.phonebox.wide .ph-msgs{gap:8px}
+.phonebox.wide .msg{font-size:19px;max-width:88%;padding:7px 12px}
+.mfin{width:150px;height:32px;border:none;border-bottom:3px solid var(--yellow);background:rgba(255,255,255,.95);border-radius:8px 8px 0 0;padding:0 8px;font-size:18px;font-weight:800;color:var(--navy);text-align:center;margin:0 3px}
+.msg.you .mfin{background:var(--sky)}
+.mfin.ok{background:var(--green-soft);border-bottom-color:var(--green);color:var(--green)}.mfin.no{background:var(--red-soft);border-bottom-color:var(--red);color:var(--red)}
+.bank{display:flex;flex-wrap:wrap;gap:8px}.bank span{background:var(--yellow-soft);border:2px solid #FFE7A0;border-radius:999px;padding:6px 14px;font-size:18px;font-weight:800;color:var(--navy)}
+/* listen & click race */
+.race{flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.race .tbar{height:14px}
+.rcq{text-align:center;display:flex;flex-direction:column;gap:6px}.rcq b{font-size:34px;color:var(--navy)}.rcq span{font-size:21px;color:var(--muted);font-weight:700}
+.rcopts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;min-height:140px}
+.rco{border-radius:20px;border:3px solid var(--sky-2);background:var(--sky);font-size:32px;font-weight:900;color:var(--navy);box-shadow:var(--shadow-s);transition:.15s}
+.rco:nth-child(even){background:var(--yellow-soft);border-color:#FFE7A0}
+.rco:hover{transform:translateY(-3px)}
+.rco.ok{background:var(--green-soft);border-color:var(--green);color:var(--green)}.rco.no{background:var(--red-soft);border-color:var(--red);color:var(--red)}
+.rcopts .rco.ok{background:var(--green-soft);border-color:var(--green);color:var(--green)}.rcopts .rco.no{background:var(--red-soft);border-color:var(--red);color:var(--red)}
