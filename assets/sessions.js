@@ -36,7 +36,7 @@ window.SESSIONS = [
   "week": 1,
   "title": "People, Homes & Neighbourhoods",
   "goal": "Mô tả một người và nơi sống, đồng thời giải thích điều mình thích hoặc không thích.",
-  "status": "closed",
+  "status": "live",
   "url": "lessons/S03/",
   "zip": "lessons/S03/S03_Audio_MP3.zip",
   "offline": "lessons/S03/S03_offline.html",
