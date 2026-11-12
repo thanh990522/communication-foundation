@@ -209,7 +209,9 @@ footer b{color:var(--yellow)}
     if(!s.hw) return '';
     let b=null; try{ b=JSON.parse(localStorage.getItem('gt_hw5_best_'+s.id)||'null'); }catch(e){}
     if(!b) return '';
-    return b.passed?`<span class="hwst st done">✓ Passed · ${b.pct}%</span>`:`<span class="hwst st redo">✗ Redo · ${b.pct}%</span>`;
+    if(b.passed) return `<span class="hwst st done">✓ Passed · ${b.pct}%</span>`;
+    if(b.total) return `<span class="hwst st redo">${b.done}/${b.total} part đạt</span>`;
+    return `<span class="hwst st redo">✗ Redo · ${b.pct}%</span>`;
   }
   function card(s){
     const ph=phaseOf(s.week), cp=/^Checkpoint/i.test(s.title), isLive=s.status==='live';
