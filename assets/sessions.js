@@ -58,7 +58,11 @@ window.SESSIONS = [
   "week": 2,
   "title": "Directions & Getting Around Town",
   "goal": "Hỏi, hiểu và đưa chỉ đường nhiều bước dựa trên mốc địa điểm.",
-  "status": "soon"
+  "status": "closed",
+  "url": "lessons/S05/",
+  "zip": "lessons/S05/S05_Audio_MP3.zip",
+  "offline": "lessons/S05/S05_offline.html",
+  "hw": "homework/?s=S05"
  },
  {
   "id": "S06",

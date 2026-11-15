@@ -1,0 +1,511 @@
+{
+ "session": "S05",
+ "title": "Directions & Getting Around Town",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 43,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“địa điểm mốc” in English is…",
+     "options": [
+      "entrance",
+      "landmark",
+      "block"
+     ],
+     "answers": [
+      "landmark"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "landmark"
+    },
+    {
+     "type": "gap",
+     "prompt": "Turn left at the busy ____. There are lots of cars.",
+     "answers": [
+      "intersection"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "intersection"
+    },
+    {
+     "type": "gap",
+     "prompt": "Walk two ____ and turn right.",
+     "answers": [
+      "blocks"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "blocks"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Meet me at the main ____ of the station.",
+     "options": [
+      "block",
+      "corner",
+      "entrance"
+     ],
+     "answers": [
+      "entrance"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "entrance"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The bank is ____ from the library.",
+     "options": [
+      "next",
+      "across",
+      "between"
+     ],
+     "answers": [
+      "across"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "across"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The café is on the ____ of High Street and Park Road.",
+     "options": [
+      "corner",
+      "block",
+      "entrance"
+     ],
+     "answers": [
+      "corner"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "corner"
+    },
+    {
+     "type": "gap",
+     "prompt": "It’s within walking ____. It takes five minutes.",
+     "answers": [
+      "distance"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "distance"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How do I ____ to the museum?",
+     "options": [
+      "take",
+      "walk",
+      "get"
+     ],
+     "answers": [
+      "get"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "get"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — Mai's directions",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Hi Lan,\n\nWelcome to my neighbourhood! Here is the best way to get to my house from the bus stop. It's within walking distance. It takes about ten minutes.\n\nThe bus stop is across from the City Museum. It's a famous landmark, so you can't miss it. First, walk along Green Street for two blocks until you get to a busy intersection. There is a pharmacy on the corner.\n\nAfter that, turn right and go past the library and a small café. Don't cross the road! Finally, my house is on your left, between the bookshop and the bank. It's the blue house. The main entrance is at the side of the house.\n\nSee you on Saturday!\nMai",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Mai's house is within walking distance of the bus stop.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How long does it take to walk to her house?",
+     "options": [
+      "about twenty minutes",
+      "about ten minutes",
+      "about two minutes"
+     ],
+     "answers": [
+      "about ten minutes"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "about ten minutes"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The bus stop is across from the ___.",
+     "options": [
+      "library",
+      "City Museum",
+      "pharmacy"
+     ],
+     "answers": [
+      "City Museum"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "City Museum"
+    },
+    {
+     "type": "gap",
+     "prompt": "Walk ____ blocks until you get to a busy intersection.",
+     "answers": [
+      "two",
+      "2"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "two"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is on the corner of the intersection?",
+     "options": [
+      "a café",
+      "a bookshop",
+      "a pharmacy"
+     ],
+     "answers": [
+      "a pharmacy"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "a pharmacy"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Lan crosses the road after the café.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Mai's house is between…",
+     "options": [
+      "the pharmacy and the bank",
+      "the library and the café",
+      "the bookshop and the bank"
+     ],
+     "answers": [
+      "the bookshop and the bank"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "the bookshop and the bank"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — Anna's phone call",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "gap",
+     "prompt": "Anna is at the ____.",
+     "answers": [
+      "train station",
+      "station",
+      "the train station"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "train station"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How long does it take to walk?",
+     "options": [
+      "about five minutes",
+      "about fifty minutes",
+      "about fifteen minutes"
+     ],
+     "answers": [
+      "about fifteen minutes"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "about fifteen minutes"
+    },
+    {
+     "type": "mcq",
+     "prompt": "First, go out of the main entrance and turn ___.",
+     "options": [
+      "left",
+      "straight on",
+      "right"
+     ],
+     "answers": [
+      "left"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "left"
+    },
+    {
+     "type": "gap",
+     "prompt": "Walk two ____ until you get to a busy intersection.",
+     "answers": [
+      "blocks"
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "blocks"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is on the corner?",
+     "options": [
+      "a supermarket",
+      "a big bank",
+      "a park"
+     ],
+     "answers": [
+      "a big bank"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "a big bank"
+    },
+    {
+     "type": "mcq",
+     "prompt": "After that, Anna goes past…",
+     "options": [
+      "the bank and the cinema",
+      "the supermarket and the park",
+      "the post office"
+     ],
+     "answers": [
+      "the supermarket and the park"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "the supermarket and the park"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Ben's building is across from the ___.",
+     "options": [
+      "post office",
+      "cinema",
+      "bank"
+     ],
+     "answers": [
+      "post office"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "post office"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What landmark is next to his building?",
+     "options": [
+      "an old cinema",
+      "a museum",
+      "a hospital"
+     ],
+     "answers": [
+      "an old cinema"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "an old cinema"
+    }
+   ],
+   "audioLabel": "Anna & Ben · phone call",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S05/S05_H5_listen1.mp3",
+   "script": [
+    [
+     "Anna",
+     "Hi Ben, it's Anna. I'm at the train station. What's the best way to get to your apartment?"
+    ],
+    [
+     "Ben",
+     "Hi Anna! It's within walking distance. It takes about fifteen minutes."
+    ],
+    [
+     "Anna",
+     "Great. How do I get there?"
+    ],
+    [
+     "Ben",
+     "First, go out of the main entrance and turn left."
+    ],
+    [
+     "Anna",
+     "Turn left. OK."
+    ],
+    [
+     "Ben",
+     "Then walk two blocks until you get to a busy intersection. There's a big bank on the corner."
+    ],
+    [
+     "Anna",
+     "A bank on the corner. Got it."
+    ],
+    [
+     "Ben",
+     "After that, turn right and go past the supermarket and the park."
+    ],
+    [
+     "Anna",
+     "Go past the supermarket and the park."
+    ],
+    [
+     "Ben",
+     "Finally, my building is on your left. It's across from the post office."
+    ],
+    [
+     "Anna",
+     "Across from the post office. Is there a landmark near it?"
+    ],
+    [
+     "Ben",
+     "Yes. There's a famous old cinema next to my building. You can't miss it."
+    ],
+    [
+     "Anna",
+     "Perfect. See you in fifteen minutes!"
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Give directions from the hotel to the station",
+     "audio": "homework/audio/S05/S05_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "The station is within walking distance. It takes about ten minutes.",
+       "audio": "homework/audio/S05/S05_H5_shadow_01.mp3"
+      },
+      {
+       "text": "First, go out of the hotel and turn left.",
+       "audio": "homework/audio/S05/S05_H5_shadow_02.mp3"
+      },
+      {
+       "text": "Then walk two blocks until you get to a busy intersection.",
+       "audio": "homework/audio/S05/S05_H5_shadow_03.mp3"
+      },
+      {
+       "text": "After that, go past the bank, then turn right.",
+       "audio": "homework/audio/S05/S05_H5_shadow_04.mp3"
+      },
+      {
+       "text": "Finally, the station is on the corner, across from a famous landmark.",
+       "audio": "homework/audio/S05/S05_H5_shadow_05.mp3"
+      },
+      {
+       "text": "The main entrance is on River Road.",
+       "audio": "homework/audio/S05/S05_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 25.3,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Cách tốt nhất để đến trường của bạn là gì?",
+     "answers": [
+      "What's the best way to get to your school?"
+     ],
+     "show": "What's the best way to get to your school?",
+     "hint": "What's the best way to get to …?"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Đi qua công viên, rồi rẽ phải ở giao lộ.",
+     "answers": [
+      "Go past the park, then turn right at the intersection.",
+      "Go past the park and then turn right at the intersection."
+     ],
+     "show": "Go past the park, then turn right at the intersection.",
+     "hint": "Go past …, then …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Hiệu thuốc ở đối diện siêu thị.",
+     "answers": [
+      "The pharmacy is across from the supermarket."
+     ],
+     "show": "The pharmacy is across from the supermarket.",
+     "hint": "… is across from …"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Mất khoảng hai mươi phút đi bộ.",
+     "answers": [
+      "It takes about twenty minutes on foot.",
+      "It takes about twenty minutes to walk."
+     ],
+     "show": "It takes about twenty minutes on foot.",
+     "hint": "It takes about … minutes."
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Trước tiên, rẽ trái. Sau đó đi bộ hai dãy phố cho đến khi bạn tới ngân hàng.",
+     "answers": [
+      "First, turn left. Then walk two blocks until you get to the bank.",
+      "First, turn left. After that, walk two blocks until you get to the bank."
+     ],
+     "show": "First, turn left. Then walk two blocks until you get to the bank.",
+     "hint": "First … Then … until …"
+    }
+   ]
+  }
+ ]
+}
