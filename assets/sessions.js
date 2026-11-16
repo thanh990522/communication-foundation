@@ -47,7 +47,7 @@ window.SESSIONS = [
   "week": 2,
   "title": "Time, Appointments & Arrangements",
   "goal": "Sắp xếp, xác nhận và đổi lịch hẹn một cách lịch sự.",
-  "status": "closed",
+  "status": "live",
   "url": "lessons/S04/",
   "zip": "lessons/S04/S04_Audio_MP3.zip",
   "offline": "lessons/S04/S04_offline.html",
