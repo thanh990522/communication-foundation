@@ -1,0 +1,507 @@
+{
+ "session": "S07",
+ "title": "Eating Out: From Menu to Bill",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 43,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“món khai vị” in English is…",
+     "options": [
+      "starter",
+      "side dish",
+      "main course"
+     ],
+     "answers": [
+      "starter"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "starter"
+    },
+    {
+     "type": "gap",
+     "prompt": "For my main ____, I'll have the grilled chicken.",
+     "answers": [
+      "course"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "course"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Would you like a ____ dish? — Chips, please.",
+     "options": [
+      "service",
+      "main",
+      "side"
+     ],
+     "answers": [
+      "side"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "side"
+    },
+    {
+     "type": "gap",
+     "prompt": "Can you ____ a dish? — Try the fish and chips!",
+     "answers": [
+      "recommend"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "recommend"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I have a food ____. I can't eat nuts.",
+     "options": [
+      "charge",
+      "allergy",
+      "bill"
+     ],
+     "answers": [
+      "allergy"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "allergy"
+    },
+    {
+     "type": "gap",
+     "prompt": "Excuse me. Could we have the ____, please?",
+     "answers": [
+      "bill"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "bill"
+    },
+    {
+     "type": "mcq",
+     "prompt": "There is a ten per cent service ____.",
+     "options": [
+      "split",
+      "bill",
+      "charge"
+     ],
+     "answers": [
+      "charge"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "charge"
+    },
+    {
+     "type": "gap",
+     "prompt": "The total is £40. Could we ____ the bill? That's £20 each.",
+     "answers": [
+      "split"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "split"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — A review: The Blue Fish",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "The Blue Fish is a small restaurant near the river. When you arrive, the waiter gives you the menu and a glass of water.\n\nTo start with, I recommend the tomato soup. It is hot, fresh and only £4. For the main course, you can choose fish, chicken or a vegetable dish. The fish and chips is the most popular dish, and the portion is very large! Every main course comes with a side dish: chips, rice or a green salad.\n\nThe waiters are friendly. If you have a food allergy, tell them. They can make most dishes without nuts, cheese or onions. However, the chocolate cake contains nuts.\n\nWhen you ask for the bill, check it carefully, because there is a ten per cent service charge. With friends, you can split the bill easily. A meal for two usually costs about £40.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Where is The Blue Fish?",
+     "options": [
+      "in the city centre",
+      "near the river",
+      "near the station"
+     ],
+     "answers": [
+      "near the river"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "near the river"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What does the writer recommend as a starter?",
+     "options": [
+      "the chocolate cake",
+      "the tomato soup",
+      "the green salad"
+     ],
+     "answers": [
+      "the tomato soup"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "the tomato soup"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Every main course comes with a side dish.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is the most popular dish?",
+     "options": [
+      "the chicken",
+      "the tomato soup",
+      "the fish and chips"
+     ],
+     "answers": [
+      "the fish and chips"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "the fish and chips"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The chocolate cake is OK for people with a nut allergy.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "gap",
+     "prompt": "The service charge is ____ per cent.",
+     "answers": [
+      "ten",
+      "10"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "ten"
+    },
+    {
+     "type": "mcq",
+     "prompt": "A meal for two usually costs about…",
+     "options": [
+      "£10",
+      "£4",
+      "£40"
+     ],
+     "answers": [
+      "£40"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "£40"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — Ordering at a café",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "What does the waiter recommend?",
+     "options": [
+      "the vegetable curry",
+      "the beef burger",
+      "the green salad"
+     ],
+     "answers": [
+      "the beef burger"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "the beef burger"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The burger comes with…",
+     "options": [
+      "chips or salad",
+      "rice",
+      "soup"
+     ],
+     "answers": [
+      "chips or salad"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "chips or salad"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The customer eats meat.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why does she ask for no nuts?",
+     "options": [
+      "She has a food allergy.",
+      "She doesn't like them.",
+      "They're expensive."
+     ],
+     "answers": [
+      "She has a food allergy."
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "She has a food allergy."
+    },
+    {
+     "type": "gap",
+     "prompt": "Her main course: the vegetable ____",
+     "answers": [
+      "curry"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "curry"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Her starter:",
+     "options": [
+      "garlic bread",
+      "tomato soup",
+      "a green salad"
+     ],
+     "answers": [
+      "a green salad"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "a green salad"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Her drink:",
+     "options": [
+      "an orange juice",
+      "a coffee",
+      "water"
+     ],
+     "answers": [
+      "an orange juice"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "an orange juice"
+    },
+    {
+     "type": "gap",
+     "prompt": "The bill is ____ pounds.",
+     "answers": [
+      "twenty-one",
+      "21",
+      "twentyone"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "twenty-one"
+    }
+   ],
+   "audioLabel": "Waiter & customer",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S07/S07_H5_listen1.mp3",
+   "script": [
+    [
+     "Waiter",
+     "Hi, are you ready to order?"
+    ],
+    [
+     "Customer",
+     "Yes, I think so. What do you recommend?"
+    ],
+    [
+     "Waiter",
+     "The beef burger is very popular. It comes with a side dish of chips or salad."
+    ],
+    [
+     "Customer",
+     "Hmm, I'm vegetarian. Is there a vegetarian main course?"
+    ],
+    [
+     "Waiter",
+     "Yes, the vegetable curry. However, it contains nuts."
+    ],
+    [
+     "Customer",
+     "Oh no, I have a food allergy. Could I have it without nuts?"
+    ],
+    [
+     "Waiter",
+     "Sure, no problem."
+    ],
+    [
+     "Customer",
+     "Great. I'll have the vegetable curry, then, with rice. And to start with, a green salad, please."
+    ],
+    [
+     "Waiter",
+     "Anything to drink?"
+    ],
+    [
+     "Customer",
+     "An orange juice, please."
+    ],
+    [
+     "Customer",
+     "Excuse me, could I have the bill, please?"
+    ],
+    [
+     "Waiter",
+     "Of course. That's twenty-one pounds, with the service charge."
+    ],
+    [
+     "Customer",
+     "Here you are. Thank you!"
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Order a meal in a restaurant",
+     "audio": "homework/audio/S07/S07_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "Good evening. Could we see the menu, please?",
+       "audio": "homework/audio/S07/S07_H5_shadow_01.mp3"
+      },
+      {
+       "text": "What do you recommend?",
+       "audio": "homework/audio/S07/S07_H5_shadow_02.mp3"
+      },
+      {
+       "text": "To start with, I'll have the tomato soup.",
+       "audio": "homework/audio/S07/S07_H5_shadow_03.mp3"
+      },
+      {
+       "text": "For the main course, I'd like the grilled chicken with rice.",
+       "audio": "homework/audio/S07/S07_H5_shadow_04.mp3"
+      },
+      {
+       "text": "I have a food allergy. Could I have it without nuts?",
+       "audio": "homework/audio/S07/S07_H5_shadow_05.mp3"
+      },
+      {
+       "text": "Could we have the bill, please? Could we split it?",
+       "audio": "homework/audio/S07/S07_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 21.0,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn gợi ý món chính nào?",
+     "answers": [
+      "What main course do you recommend?",
+      "Which main course do you recommend?"
+     ],
+     "show": "What main course do you recommend?",
+     "hint": "What … do you recommend?"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi sẽ gọi cá và khoai tây chiên.",
+     "answers": [
+      "I'll have the fish and chips.",
+      "I'll have fish and chips."
+     ],
+     "show": "I'll have the fish and chips.",
+     "hint": "I'll have …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi có thể dùng món burger mà không có phô mai không?",
+     "answers": [
+      "Could I have the burger without cheese?",
+      "Could I have the burger without cheese, please?"
+     ],
+     "show": "Could I have the burger without cheese?",
+     "hint": "Could I have it without …?"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Xin lỗi, chúng tôi có thể chia hóa đơn làm hai không?",
+     "answers": [
+      "Excuse me, could we split the bill in two?",
+      "Excuse me, could we split the bill?"
+     ],
+     "show": "Excuse me, could we split the bill in two?",
+     "hint": "Could we split the bill?"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Trước tiên, tôi sẽ gọi bánh mì bơ tỏi.",
+     "answers": [
+      "To start with, I'll have the garlic bread.",
+      "To start with, I'd like the garlic bread."
+     ],
+     "show": "To start with, I'll have the garlic bread.",
+     "hint": "To start with, I'll have …"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,533 @@
+{
+ "session": "S06",
+ "title": "Food, Shopping Lists & Quantities",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 45,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“nguyên liệu” in English is…",
+     "options": [
+      "aisle",
+      "portion",
+      "ingredient"
+     ],
+     "answers": [
+      "ingredient"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "ingredient"
+    },
+    {
+     "type": "gap",
+     "prompt": "This café gives you a large ____ of rice.",
+     "answers": [
+      "portion"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "portion"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Milk, cheese and butter are ____ products.",
+     "options": [
+      "enough",
+      "fresh",
+      "dairy"
+     ],
+     "answers": [
+      "dairy"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "dairy"
+    },
+    {
+     "type": "gap",
+     "prompt": "The market sells fresh ____ every morning: tomatoes, carrots, apples…",
+     "answers": [
+      "produce"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "produce"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Which ____ is the rice in? — Aisle 3.",
+     "options": [
+      "portion",
+      "aisle",
+      "packet"
+     ],
+     "answers": [
+      "aisle"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "aisle"
+    },
+    {
+     "type": "gap",
+     "prompt": "Do we have ____ eggs for the cake? — Yes, we have six.",
+     "answers": [
+      "enough"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "enough"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Sorry, the milk is out of ____ today.",
+     "options": [
+      "stock",
+      "aisle",
+      "order"
+     ],
+     "answers": [
+      "stock"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "stock"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Can you buy a ____ of rice, please?",
+     "options": [
+      "carton",
+      "packet",
+      "loaf"
+     ],
+     "answers": [
+      "packet"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "packet"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How ____ apples do we need?",
+     "options": [
+      "many",
+      "much"
+     ],
+     "answers": [
+      "many"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "many"
+    },
+    {
+     "type": "mcq",
+     "prompt": "We need a ____ butter.",
+     "options": [
+      "little",
+      "few"
+     ],
+     "answers": [
+      "little"
+     ],
+     "id": "V10",
+     "points": 1,
+     "show": "little"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — Mum's note",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Hi Tom,\n\nI'm working late tonight, so can you go to the supermarket after school? We're having a party for Grandma on Saturday, and we need fresh ingredients.\n\nWe have enough rice, but we're running out of eggs, so please get six. We don't have any milk, so get two cartons. We also need a little butter and some cheese. They're in the dairy aisle, at the back of the supermarket. The fresh produce is at the front: please get a few tomatoes and a bag of apples.\n\nDon't buy any cola, because Grandma doesn't like it. Get a bottle of orange juice instead. If the apples are out of stock, get some oranges.\n\nThe portions at Grandma's parties are always large, so please check: is there anything else we need?\n\nThanks!\nMum",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "They need more rice.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How many cartons of milk should Tom get?",
+     "options": [
+      "one",
+      "six",
+      "two"
+     ],
+     "answers": [
+      "two"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "two"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Where are the butter and cheese?",
+     "options": [
+      "at the front",
+      "next to the drinks",
+      "in the dairy aisle, at the back"
+     ],
+     "answers": [
+      "in the dairy aisle, at the back"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "in the dairy aisle, at the back"
+    },
+    {
+     "type": "gap",
+     "prompt": "Tom should get a few ____.",
+     "answers": [
+      "tomatoes"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "tomatoes"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why shouldn't Tom buy cola?",
+     "options": [
+      "Grandma doesn't like it.",
+      "It's out of stock.",
+      "They have enough cola."
+     ],
+     "answers": [
+      "Grandma doesn't like it."
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "Grandma doesn't like it."
+    },
+    {
+     "type": "mcq",
+     "prompt": "If the apples are out of stock, Tom should get…",
+     "options": [
+      "some oranges",
+      "some cheese",
+      "a bag of tomatoes"
+     ],
+     "answers": [
+      "some oranges"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "some oranges"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The portions at Grandma's parties are small.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "False"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — At the supermarket",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Where is the rice?",
+     "options": [
+      "in aisle three",
+      "in aisle one",
+      "in aisle four"
+     ],
+     "answers": [
+      "in aisle three"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "in aisle three"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The rice is next to the ___.",
+     "options": [
+      "bread",
+      "milk",
+      "water"
+     ],
+     "answers": [
+      "bread"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "bread"
+    },
+    {
+     "type": "gap",
+     "prompt": "The customer needs ____ tomatoes.",
+     "answers": [
+      "four",
+      "4"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "four"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why are there only a few tomatoes?",
+     "options": [
+      "They are not fresh.",
+      "The shop is running out.",
+      "They are out of stock."
+     ],
+     "answers": [
+      "The shop is running out."
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "The shop is running out."
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is out of stock?",
+     "options": [
+      "cheese",
+      "rice",
+      "yoghurt"
+     ],
+     "answers": [
+      "yoghurt"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "yoghurt"
+    },
+    {
+     "type": "gap",
+     "prompt": "A large packet of rice is ____ pounds.",
+     "answers": [
+      "five",
+      "5"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "five"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Three bottles of water are…",
+     "options": [
+      "two pounds",
+      "six pounds",
+      "three pounds"
+     ],
+     "answers": [
+      "two pounds"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "two pounds"
+    },
+    {
+     "type": "gap",
+     "prompt": "The customer needs ____ bottles of water.",
+     "answers": [
+      "six",
+      "6"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "six"
+    }
+   ],
+   "audioLabel": "Customer & shop assistant",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S06/S06_H5_listen1.mp3",
+   "script": [
+    [
+     "Customer",
+     "Excuse me. Which aisle is the rice in?"
+    ],
+    [
+     "Assistant",
+     "It's in aisle three, next to the bread."
+    ],
+    [
+     "Customer",
+     "Thanks. And do you have any fresh tomatoes?"
+    ],
+    [
+     "Assistant",
+     "Yes, they're in aisle one with the fresh produce. But we're running out, so there are only a few."
+    ],
+    [
+     "Customer",
+     "That's fine. I need four. Is there any yoghurt?"
+    ],
+    [
+     "Assistant",
+     "Sorry, the yoghurt is out of stock today. How about some cheese instead? It's in the dairy aisle."
+    ],
+    [
+     "Customer",
+     "OK, a little cheese, then. How much is a packet of rice?"
+    ],
+    [
+     "Assistant",
+     "A small packet is two pounds, and a large packet is five pounds."
+    ],
+    [
+     "Customer",
+     "A large packet, please. We have a big family."
+    ],
+    [
+     "Assistant",
+     "Is there anything else?"
+    ],
+    [
+     "Customer",
+     "Yes. Do you have any bottles of water?"
+    ],
+    [
+     "Assistant",
+     "Yes, in aisle four. Three bottles are two pounds today."
+    ],
+    [
+     "Customer",
+     "Great. I need six bottles, then. That's all, thanks!"
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Call home from the supermarket",
+     "audio": "homework/audio/S06/S06_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "I'm at the supermarket now. Do we have any eggs at home?",
+       "audio": "homework/audio/S06/S06_H5_shadow_01.mp3"
+      },
+      {
+       "text": "We need a few tomatoes and a little butter.",
+       "audio": "homework/audio/S06/S06_H5_shadow_02.mp3"
+      },
+      {
+       "text": "We're running out of milk, so I'm getting two cartons.",
+       "audio": "homework/audio/S06/S06_H5_shadow_03.mp3"
+      },
+      {
+       "text": "The apples are out of stock, but there are some fresh oranges.",
+       "audio": "homework/audio/S06/S06_H5_shadow_04.mp3"
+      },
+      {
+       "text": "The rice is in the third aisle.",
+       "audio": "homework/audio/S06/S06_H5_shadow_05.mp3"
+      },
+      {
+       "text": "Is there anything else?",
+       "audio": "homework/audio/S06/S06_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 20.1,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chúng ta có táo nào không?",
+     "answers": [
+      "Do we have any apples?"
+     ],
+     "show": "Do we have any apples?",
+     "hint": "Do we have any …?"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chúng ta cần vài củ cà rốt và một ít phô mai.",
+     "answers": [
+      "We need a few carrots and a little cheese."
+     ],
+     "show": "We need a few carrots and a little cheese.",
+     "hint": "We need a few … and a little …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chúng ta sắp hết bơ rồi.",
+     "answers": [
+      "We're running out of butter."
+     ],
+     "show": "We're running out of butter.",
+     "hint": "We are running out of …"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Xin lỗi, nước cam đã hết hàng.",
+     "answers": [
+      "Sorry, the orange juice is out of stock.",
+      "Sorry, orange juice is out of stock."
+     ],
+     "show": "Sorry, the orange juice is out of stock.",
+     "hint": "… is out of stock"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Còn gì nữa không? — Có, một gói gạo.",
+     "answers": [
+      "Is there anything else? — Yes, a packet of rice.",
+      "Is there anything else? Yes, a packet of rice."
+     ],
+     "show": "Is there anything else? — Yes, a packet of rice.",
+     "hint": "Is there anything else?"
+    }
+   ]
+  }
+ ]
+}
