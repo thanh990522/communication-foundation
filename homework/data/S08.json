@@ -1,0 +1,534 @@
+{
+ "session": "S08",
+ "title": "Shopping, Sizes, Returns & Refunds",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 45,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“hoàn tiền” — get a ____",
+     "options": [
+      "receipt",
+      "refund",
+      "discount"
+     ],
+     "answers": [
+      "refund"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "refund"
+    },
+    {
+     "type": "gap",
+     "prompt": "These jeans are size 32. I’m size 32. They ____ perfectly!",
+     "answers": [
+      "fit"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "fit"
+    },
+    {
+     "type": "mcq",
+     "prompt": "That red dress really ____ you. You look great!",
+     "options": [
+      "suits",
+      "fits",
+      "exchanges"
+     ],
+     "answers": [
+      "suits"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "suits"
+    },
+    {
+     "type": "gap",
+     "prompt": "Keep the ____. You need it for a refund.",
+     "answers": [
+      "receipt"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "receipt"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Is this the correct ____? I’m a medium.",
+     "options": [
+      "size",
+      "refund",
+      "discount"
+     ],
+     "answers": [
+      "size"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "size"
+    },
+    {
+     "type": "gap",
+     "prompt": "Can I ____ this item for a bigger size?",
+     "answers": [
+      "exchange"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "exchange"
+    },
+    {
+     "type": "mcq",
+     "prompt": "There’s a hole in it. It’s a ____ product.",
+     "options": [
+      "perfect",
+      "damaged",
+      "correct"
+     ],
+     "answers": [
+      "damaged"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "damaged"
+    },
+    {
+     "type": "gap",
+     "prompt": "Do you offer a ____ for students? — Yes, 10% off.",
+     "answers": [
+      "discount"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "discount"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The shoes are size 38. I’m size 40. They are too ____.",
+     "options": [
+      "cheap",
+      "big",
+      "small"
+     ],
+     "answers": [
+      "small"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "small"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The jacket is £30. I have £50. It's cheap ____.",
+     "options": [
+      "enough",
+      "too",
+      "very"
+     ],
+     "answers": [
+      "enough"
+     ],
+     "id": "V10",
+     "points": 1,
+     "show": "enough"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — Shop rules at Blue Star Clothes",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Welcome to Blue Star Clothes! Here are some rules for our customers.\n\nBefore you buy: you can try clothes on in our fitting rooms. If something is too small or too big, ask a shop assistant. We can check if we have it in the correct size or in a different colour.\n\nDiscounts: every Monday, we offer a discount of 20% for students. Please show your student card.\n\nReturns: please keep the receipt. With the receipt, you can return an item within 30 days and get a refund. After 30 days, you can only exchange an item. Without the receipt, we cannot give you a refund, but you can exchange the item for a different size or colour.\n\nDamaged products: if your item is damaged — for example, the zip is broken — bring it back with the receipt. You can get a full refund, or a new one instead.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "What can you do in the fitting rooms?",
+     "options": [
+      "pay",
+      "try clothes on",
+      "get a refund"
+     ],
+     "answers": [
+      "try clothes on"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "try clothes on"
+    },
+    {
+     "type": "mcq",
+     "prompt": "When is the student discount?",
+     "options": [
+      "every Monday",
+      "every weekend",
+      "every day"
+     ],
+     "answers": [
+      "every Monday"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "every Monday"
+    },
+    {
+     "type": "gap",
+     "prompt": "The student discount is ____ per cent.",
+     "answers": [
+      "20",
+      "twenty"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "20"
+    },
+    {
+     "type": "mcq",
+     "prompt": "With the receipt, you can get a refund within 30 days.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "mcq",
+     "prompt": "After 30 days, you can…",
+     "options": [
+      "only exchange an item",
+      "get a refund",
+      "get a discount"
+     ],
+     "answers": [
+      "only exchange an item"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "only exchange an item"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Without the receipt, you can get a refund.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Your jacket is damaged and you have the receipt. You can get…",
+     "options": [
+      "nothing",
+      "a full refund or a new one",
+      "only a discount"
+     ],
+     "answers": [
+      "a full refund or a new one"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "a full refund or a new one"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — Returning a jacket",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "What does the customer want to return?",
+     "options": [
+      "a dress",
+      "a jacket",
+      "jeans"
+     ],
+     "answers": [
+      "a jacket"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "a jacket"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The jacket is damaged.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is the problem?",
+     "options": [
+      "It's too big.",
+      "It's too small.",
+      "It's too expensive."
+     ],
+     "answers": [
+      "It's too big."
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "It's too big."
+    },
+    {
+     "type": "mcq",
+     "prompt": "Does she have the receipt?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answers": [
+      "Yes"
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "Yes"
+    },
+    {
+     "type": "gap",
+     "prompt": "She bought it last ____.",
+     "answers": [
+      "Saturday"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "Saturday"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The shop has a small jacket in…",
+     "options": [
+      "red",
+      "blue",
+      "black"
+     ],
+     "answers": [
+      "black"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "black"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What does she get in the end?",
+     "options": [
+      "a smaller size",
+      "a refund",
+      "a black jacket"
+     ],
+     "answers": [
+      "a refund"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "a refund"
+    },
+    {
+     "type": "gap",
+     "prompt": "The refund is ____ pounds.",
+     "answers": [
+      "forty-five",
+      "45",
+      "fortyfive"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "forty-five"
+    }
+   ],
+   "audioLabel": "Shop assistant & customer",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S08/S08_H5_listen1.mp3",
+   "script": [
+    [
+     "Assistant",
+     "Hello. Can I help you?"
+    ],
+    [
+     "Customer",
+     "Yes, please. I'd like to return this jacket."
+    ],
+    [
+     "Assistant",
+     "OK. What's the problem? Is it damaged?"
+    ],
+    [
+     "Customer",
+     "No, it isn't damaged. At first I liked it, but it's too big. It doesn't fit."
+    ],
+    [
+     "Assistant",
+     "I see. Do you have the receipt?"
+    ],
+    [
+     "Customer",
+     "Yes, here's the receipt. I bought it last Saturday."
+    ],
+    [
+     "Assistant",
+     "Thank you. Would you like a refund, or would you like to exchange it for a smaller size?"
+    ],
+    [
+     "Customer",
+     "Do you have it in a small?"
+    ],
+    [
+     "Assistant",
+     "Let me check. Sorry, we only have it in large. But we have a small in black."
+    ],
+    [
+     "Customer",
+     "Hmm, black doesn't suit me. I'd like a refund instead, please."
+    ],
+    [
+     "Assistant",
+     "No problem. That was forty-five pounds, with the discount. Here you are."
+    ],
+    [
+     "Customer",
+     "Thank you very much."
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Buy it, then return it",
+     "audio": "homework/audio/S08/S08_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "Excuse me. Do you have this jacket in a medium?",
+       "audio": "homework/audio/S08/S08_H5_shadow_01.mp3"
+      },
+      {
+       "text": "Can I try it on?",
+       "audio": "homework/audio/S08/S08_H5_shadow_02.mp3"
+      },
+      {
+       "text": "It's too small. It isn't big enough.",
+       "audio": "homework/audio/S08/S08_H5_shadow_03.mp3"
+      },
+      {
+       "text": "This size fits perfectly, and the colour really suits me.",
+       "audio": "homework/audio/S08/S08_H5_shadow_04.mp3"
+      },
+      {
+       "text": "I'd like to return this jacket. The zip is broken.",
+       "audio": "homework/audio/S08/S08_H5_shadow_05.mp3"
+      },
+      {
+       "text": "Here's the receipt. Can I get a refund, please?",
+       "audio": "homework/audio/S08/S08_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 21.9,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn có chiếc áo sơ mi này cỡ nhỏ không?",
+     "answers": [
+      "Do you have this shirt in a small?",
+      "Do you have this shirt in small?",
+      "Do you have this shirt in a small size?"
+     ],
+     "show": "Do you have this shirt in a small?",
+     "hint": "Do you have this in …?"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi thử đôi giày này được không?",
+     "answers": [
+      "Can I try these shoes on?",
+      "Can I try on these shoes?"
+     ],
+     "show": "Can I try these shoes on?",
+     "hint": "Can I try … on?"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chiếc quần jean này quá dài.",
+     "answers": [
+      "These jeans are too long.",
+      "The jeans are too long."
+     ],
+     "show": "These jeans are too long.",
+     "hint": "too + adjective"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chiếc váy này không đủ dài.",
+     "answers": [
+      "This dress isn't long enough.",
+      "This dress is not long enough."
+     ],
+     "show": "This dress isn't long enough.",
+     "hint": "not + adjective + enough"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi muốn trả lại chiếc áo khoác này. Đây là biên lai.",
+     "answers": [
+      "I'd like to return this jacket. Here's the receipt.",
+      "I would like to return this jacket. Here is the receipt.",
+      "I'd like to return this jacket. Here is the receipt."
+     ],
+     "show": "I'd like to return this jacket. Here's the receipt.",
+     "hint": "I'd like to return …"
+    }
+   ]
+  }
+ ]
+}

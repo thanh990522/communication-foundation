@@ -91,7 +91,11 @@ window.SESSIONS = [
   "week": 3,
   "title": "Shopping, Sizes, Returns & Refunds",
   "goal": "Tìm sản phẩm phù hợp, thử đồ và yêu cầu đổi hoặc hoàn tiền.",
-  "status": "soon"
+  "status": "closed",
+  "url": "lessons/S08/",
+  "zip": "lessons/S08/S08_Audio_MP3.zip",
+  "offline": "lessons/S08/S08_offline.html",
+  "hw": "homework/?s=S08"
  },
  {
   "id": "S09",
