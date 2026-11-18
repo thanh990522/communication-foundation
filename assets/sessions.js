@@ -102,7 +102,11 @@ window.SESSIONS = [
   "week": 3,
   "title": "Everyday Services & Polite Requests",
   "goal": "Yêu cầu dịch vụ, giải thích vấn đề và xác nhận giải pháp.",
-  "status": "soon"
+  "status": "closed",
+  "url": "lessons/S09/",
+  "zip": "lessons/S09/S09_Audio_MP3.zip",
+  "offline": "lessons/S09/S09_offline.html",
+  "hw": "homework/?s=S09"
  },
  {
   "id": "S10",

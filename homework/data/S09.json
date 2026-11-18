@@ -1,0 +1,523 @@
+{
+ "session": "S09",
+ "title": "Everyday Services & Polite Requests",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 45,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“sản phẩm thay thế” — request a ____",
+     "options": [
+      "replacement",
+      "repair",
+      "delivery"
+     ],
+     "answers": [
+      "replacement"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "replacement"
+    },
+    {
+     "type": "gap",
+     "prompt": "Could you check the ____ status for me? My parcel is late.",
+     "answers": [
+      "delivery"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "delivery"
+    },
+    {
+     "type": "mcq",
+     "prompt": "My fridge is broken. I want to book a ____ service.",
+     "options": [
+      "charge",
+      "delivery",
+      "repair"
+     ],
+     "answers": [
+      "repair"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "repair"
+    },
+    {
+     "type": "gap",
+     "prompt": "I'm calling to report an ____ with my internet.",
+     "answers": [
+      "issue"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "issue"
+    },
+    {
+     "type": "mcq",
+     "prompt": "If there is a problem, please contact customer ____.",
+     "options": [
+      "charge",
+      "issue",
+      "service"
+     ],
+     "answers": [
+      "service"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "service"
+    },
+    {
+     "type": "gap",
+     "prompt": "Do I need to pay an extra ____ for a Saturday repair?",
+     "answers": [
+      "charge"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "charge"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Are you ____ on Friday morning? — Yes, I am free.",
+     "options": [
+      "available",
+      "extra",
+      "damaged"
+     ],
+     "answers": [
+      "available"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "available"
+    },
+    {
+     "type": "gap",
+     "prompt": "Could you ____ the details, please? — Sure. Friday at nine.",
+     "answers": [
+      "confirm"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "confirm"
+    },
+    {
+     "type": "mcq",
+     "prompt": "There ____ to be a problem with my order.",
+     "options": [
+      "is seems",
+      "seems",
+      "seem"
+     ],
+     "answers": [
+      "seems"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "seems"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Which is the most polite?",
+     "options": [
+      "I want you to check my bill.",
+      "Could you check my bill for me, please?",
+      "Check my bill."
+     ],
+     "answers": [
+      "Could you check my bill for me, please?"
+     ],
+     "id": "V10",
+     "points": 1,
+     "show": "Could you check my bill for me, please?"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — Help page: FastHome Delivery",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Thank you for shopping with FastHome! Here is how to get help.\n\nLate orders: first, check the delivery status on our website. You need your order number. If your order is more than three days late, please contact customer service.\n\nDamaged products: if your product arrives damaged, take a photo and report the issue within seven days. You can request a replacement or a refund. There is no extra charge for a replacement.\n\nRepairs: if your product stops working in the first year, we can book a repair service at your home. Repairs from Monday to Friday are free. For a repair on Saturday, you need to pay an extra charge of £20.\n\nBefore the driver or repair person comes, we will call you to confirm the details. Please tell us when you are available. If possible, give us two times.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "What do you need to check the delivery status?",
+     "options": [
+      "a photo",
+      "your receipt",
+      "your order number"
+     ],
+     "answers": [
+      "your order number"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "your order number"
+    },
+    {
+     "type": "mcq",
+     "prompt": "When should you contact customer service about a late order?",
+     "options": [
+      "after one month",
+      "on the first day",
+      "when it is more than three days late"
+     ],
+     "answers": [
+      "when it is more than three days late"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "when it is more than three days late"
+    },
+    {
+     "type": "gap",
+     "prompt": "Report a damaged product within ____ days.",
+     "answers": [
+      "seven",
+      "7"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "seven"
+    },
+    {
+     "type": "mcq",
+     "prompt": "You pay an extra charge for a replacement.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "A repair on Wednesday is free.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "gap",
+     "prompt": "A Saturday repair costs an extra ____ pounds.",
+     "answers": [
+      "twenty",
+      "20"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "twenty"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why will FastHome call you before the visit?",
+     "options": [
+      "to sell a new product",
+      "to confirm the details",
+      "to give you a discount"
+     ],
+     "answers": [
+      "to confirm the details"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "to confirm the details"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — Booking a repair",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "What is the problem?",
+     "options": [
+      "The delivery is late.",
+      "The washing machine doesn't start.",
+      "The fridge is not cold."
+     ],
+     "answers": [
+      "The washing machine doesn't start."
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "The washing machine doesn't start."
+    },
+    {
+     "type": "gap",
+     "prompt": "The washing machine is ____ months old.",
+     "answers": [
+      "ten",
+      "10"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "ten"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The repair is free.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Which two days can the repair person come?",
+     "options": [
+      "Tuesday or Saturday",
+      "Monday or Friday",
+      "Tuesday or Thursday"
+     ],
+     "answers": [
+      "Tuesday or Saturday"
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "Tuesday or Saturday"
+    },
+    {
+     "type": "gap",
+     "prompt": "The extra charge on Saturday is ____ pounds.",
+     "answers": [
+      "fifteen",
+      "15"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "fifteen"
+    },
+    {
+     "type": "mcq",
+     "prompt": "When is the customer available?",
+     "options": [
+      "Saturday morning",
+      "Tuesday afternoon",
+      "Tuesday morning"
+     ],
+     "answers": [
+      "Tuesday morning"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "Tuesday morning"
+    },
+    {
+     "type": "gap",
+     "prompt": "Her address is 12 ____ Street.",
+     "answers": [
+      "Green"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "Green"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What does the agent do at the end?",
+     "options": [
+      "sends a replacement",
+      "confirms the details",
+      "gives a refund"
+     ],
+     "answers": [
+      "confirms the details"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "confirms the details"
+    }
+   ],
+   "audioLabel": "Customer service & customer",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S09/S09_H5_listen1.mp3",
+   "script": [
+    [
+     "Agent",
+     "Good afternoon, customer service. How can I help you?"
+    ],
+    [
+     "Customer",
+     "Hello. I'm calling about my washing machine. There seems to be a problem with it. It doesn't start."
+    ],
+    [
+     "Agent",
+     "I'm sorry to hear that. How old is it?"
+    ],
+    [
+     "Customer",
+     "It's ten months old."
+    ],
+    [
+     "Agent",
+     "OK. Then the repair is free. We can send a repair person on Tuesday or on Saturday."
+    ],
+    [
+     "Customer",
+     "Is there an extra charge on Saturday?"
+    ],
+    [
+     "Agent",
+     "Yes, there's an extra charge of fifteen pounds on Saturday."
+    ],
+    [
+     "Customer",
+     "Then Tuesday, please. I'm available in the morning, if possible."
+    ],
+    [
+     "Agent",
+     "No problem. Could I have your address, please?"
+    ],
+    [
+     "Customer",
+     "It's 12 Green Street."
+    ],
+    [
+     "Agent",
+     "Thank you. Finally, let me confirm the details. A free repair on Tuesday morning at 12 Green Street."
+    ],
+    [
+     "Customer",
+     "Perfect. Thank you for your help!"
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "A polite service call",
+     "audio": "homework/audio/S09/S09_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "Hello. I'm calling about my order.",
+       "audio": "homework/audio/S09/S09_H5_shadow_01.mp3"
+      },
+      {
+       "text": "There seems to be a problem with the delivery. It is five days late.",
+       "audio": "homework/audio/S09/S09_H5_shadow_02.mp3"
+      },
+      {
+       "text": "Could you check the delivery status for me?",
+       "audio": "homework/audio/S09/S09_H5_shadow_03.mp3"
+      },
+      {
+       "text": "What are my options?",
+       "audio": "homework/audio/S09/S09_H5_shadow_04.mp3"
+      },
+      {
+       "text": "I'd like to request a replacement. Do I need to pay an extra charge?",
+       "audio": "homework/audio/S09/S09_H5_shadow_05.mp3"
+      },
+      {
+       "text": "I'm available on Friday morning. Could you confirm the details, please?",
+       "audio": "homework/audio/S09/S09_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 24.1,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi gọi về đơn hàng của tôi.",
+     "answers": [
+      "I'm calling about my order.",
+      "I am calling about my order."
+     ],
+     "show": "I'm calling about my order.",
+     "hint": "I'm calling about …"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Có vẻ như có vấn đề với chiếc máy tính xách tay của tôi.",
+     "answers": [
+      "There seems to be a problem with my laptop."
+     ],
+     "show": "There seems to be a problem with my laptop.",
+     "hint": "There seems to be a problem with …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn có thể kiểm tra tình trạng giao hàng giúp tôi được không?",
+     "answers": [
+      "Could you check the delivery status for me?",
+      "Could you check the delivery status for me, please?"
+     ],
+     "show": "Could you check the delivery status for me?",
+     "hint": "Could you check … for me?"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi có những lựa chọn nào?",
+     "answers": [
+      "What are my options?"
+     ],
+     "show": "What are my options?",
+     "hint": "What are my options?"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi rảnh vào sáng thứ Sáu. Bạn có thể xác nhận lại thông tin không?",
+     "answers": [
+      "I'm available on Friday morning. Could you confirm the details?",
+      "I am available on Friday morning. Could you confirm the details?",
+      "I'm available on Friday morning. Could you confirm the details, please?"
+     ],
+     "show": "I'm available on Friday morning. Could you confirm the details?",
+     "hint": "be available · confirm the details"
+    }
+   ]
+  }
+ ]
+}
