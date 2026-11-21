@@ -1,0 +1,66 @@
+{
+ "GMX_0_0": {
+  "file": "S07_grammar_example_1_1.mp3",
+  "label": "I'd like the grilled chicken, please."
+ },
+ "GMX_0_1": {
+  "file": "S07_grammar_example_1_2.mp3",
+  "label": "I'd like a side dish of chips."
+ },
+ "GMX_1_0": {
+  "file": "S07_grammar_example_2_1.mp3",
+  "label": "I'll have the fish and chips."
+ },
+ "GMX_1_1": {
+  "file": "S07_grammar_example_2_2.mp3",
+  "label": "To start with, I'll have the soup."
+ },
+ "GMX_2_0": {
+  "file": "S07_grammar_example_3_1.mp3",
+  "label": "Could I have it without nuts, please?"
+ },
+ "GMX_2_1": {
+  "file": "S07_grammar_example_3_2.mp3",
+  "label": "Could we have the bill, please?"
+ },
+ "GMX_3_0": {
+  "file": "S07_grammar_example_4_1.mp3",
+  "label": "Would you like a side dish?"
+ },
+ "GMX_3_1": {
+  "file": "S07_grammar_example_4_2.mp3",
+  "label": "Would you like a dessert? — No, thank you."
+ },
+ "GMP_0": {
+  "file": "S07_grammar_practice_1.mp3",
+  "label": "I'd like the tomato soup, please."
+ },
+ "GMP_1": {
+  "file": "S07_grammar_practice_2.mp3",
+  "label": "For the main course, I'll have the steak."
+ },
+ "GMP_2": {
+  "file": "S07_grammar_practice_3.mp3",
+  "label": "Could we have the bill, please?"
+ },
+ "GMP_3": {
+  "file": "S07_grammar_practice_4.mp3",
+  "label": "Would you like a dessert? — Yes, please."
+ },
+ "GMP_4": {
+  "file": "S07_grammar_practice_5.mp3",
+  "label": "Could I have it without onions, please?"
+ },
+ "GMP_5": {
+  "file": "S07_grammar_practice_6.mp3",
+  "label": "I'd like a glass of water."
+ },
+ "GMP_6": {
+  "file": "S07_grammar_practice_7.mp3",
+  "label": "Excuse me, could we split the bill?"
+ },
+ "GMP_7": {
+  "file": "S07_grammar_practice_8.mp3",
+  "label": "What do you recommend? — Try the fish!"
+ }
+}

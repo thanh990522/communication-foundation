@@ -1,0 +1,58 @@
+{
+ "GMX_0_0": {
+  "file": "S09_grammar_example_1_1.mp3",
+  "label": "Could you check the delivery status for me?"
+ },
+ "GMX_0_1": {
+  "file": "S09_grammar_example_1_2.mp3",
+  "label": "Could you confirm the details, please?"
+ },
+ "GMX_1_0": {
+  "file": "S09_grammar_example_2_1.mp3",
+  "label": "Would you book a repair service for Monday, please?"
+ },
+ "GMX_1_1": {
+  "file": "S09_grammar_example_2_2.mp3",
+  "label": "Would you send a replacement, if possible?"
+ },
+ "GMX_2_0": {
+  "file": "S09_grammar_example_3_1.mp3",
+  "label": "There seems to be a problem with my order."
+ },
+ "GMX_2_1": {
+  "file": "S09_grammar_example_3_2.mp3",
+  "label": "There seems to be an extra charge on my bill."
+ },
+ "GMX_3_0": {
+  "file": "S09_grammar_example_4_1.mp3",
+  "label": "Of course. Let me check."
+ },
+ "GMX_3_1": {
+  "file": "S09_grammar_example_4_2.mp3",
+  "label": "I'm sorry, but there is an extra charge."
+ },
+ "GMP_0": {
+  "file": "S09_grammar_practice_1.mp3",
+  "label": "Could you check the delivery status for me?"
+ },
+ "GMP_1": {
+  "file": "S09_grammar_practice_2.mp3",
+  "label": "Would you confirm the details, please?"
+ },
+ "GMP_2": {
+  "file": "S09_grammar_practice_3.mp3",
+  "label": "There seems to be a problem with my fridge."
+ },
+ "GMP_3": {
+  "file": "S09_grammar_practice_4.mp3",
+  "label": "I'm calling about my order."
+ },
+ "GMP_4": {
+  "file": "S09_grammar_practice_5.mp3",
+  "label": "Could you book a repair service for Monday?"
+ },
+ "GMP_5": {
+  "file": "S09_grammar_practice_6.mp3",
+  "label": "There seems to be an extra charge on my bill."
+ }
+}

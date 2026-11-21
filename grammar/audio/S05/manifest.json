@@ -1,0 +1,58 @@
+{
+ "GMX_0_0": {
+  "file": "S05_grammar_example_1_1.mp3",
+  "label": "Go straight ahead for two blocks."
+ },
+ "GMX_0_1": {
+  "file": "S05_grammar_example_1_2.mp3",
+  "label": "Turn left at the intersection."
+ },
+ "GMX_1_0": {
+  "file": "S05_grammar_example_2_1.mp3",
+  "label": "Don't turn right at the bank."
+ },
+ "GMX_1_1": {
+  "file": "S05_grammar_example_2_2.mp3",
+  "label": "Don't cross the road here."
+ },
+ "GMX_2_0": {
+  "file": "S05_grammar_example_3_1.mp3",
+  "label": "First, go past the bank. Then turn right."
+ },
+ "GMX_2_1": {
+  "file": "S05_grammar_example_3_2.mp3",
+  "label": "Finally, the café is on the corner."
+ },
+ "GMX_3_0": {
+  "file": "S05_grammar_example_4_1.mp3",
+  "label": "Walk until you get to the intersection."
+ },
+ "GMX_3_1": {
+  "file": "S05_grammar_example_4_2.mp3",
+  "label": "Go straight until you see the main entrance."
+ },
+ "GMP_0": {
+  "file": "S05_grammar_practice_1.mp3",
+  "label": "First, go straight for two blocks."
+ },
+ "GMP_1": {
+  "file": "S05_grammar_practice_2.mp3",
+  "label": "Then turn left at the intersection."
+ },
+ "GMP_2": {
+  "file": "S05_grammar_practice_3.mp3",
+  "label": "Don't turn right at the bank."
+ },
+ "GMP_3": {
+  "file": "S05_grammar_practice_4.mp3",
+  "label": "Walk until you get to the station."
+ },
+ "GMP_4": {
+  "file": "S05_grammar_practice_5.mp3",
+  "label": "It is across from the bank."
+ },
+ "GMP_5": {
+  "file": "S05_grammar_practice_6.mp3",
+  "label": "Finally, it is on the corner."
+ }
+}

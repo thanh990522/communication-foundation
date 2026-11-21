@@ -1,0 +1,66 @@
+{
+ "GMX_0_0": {
+  "file": "S02_grammar_example_1_1.mp3",
+  "label": "I usually start work at eight."
+ },
+ "GMX_0_1": {
+  "file": "S02_grammar_example_1_2.mp3",
+  "label": "She works the evening shift."
+ },
+ "GMX_1_0": {
+  "file": "S02_grammar_example_2_1.mp3",
+  "label": "Do you take a short break?"
+ },
+ "GMX_1_1": {
+  "file": "S02_grammar_example_2_2.mp3",
+  "label": "Does he work at weekends? — No, he doesn't."
+ },
+ "GMX_2_0": {
+  "file": "S02_grammar_example_3_1.mp3",
+  "label": "What time do you usually start work?"
+ },
+ "GMX_2_1": {
+  "file": "S02_grammar_example_3_2.mp3",
+  "label": "How often does she miss breakfast?"
+ },
+ "GMX_3_0": {
+  "file": "S02_grammar_example_4_1.mp3",
+  "label": "I hardly ever miss breakfast."
+ },
+ "GMX_3_1": {
+  "file": "S02_grammar_example_4_2.mp3",
+  "label": "She is usually busy at weekends."
+ },
+ "GMP_0": {
+  "file": "S02_grammar_practice_1.mp3",
+  "label": "Do you usually start work at eight?"
+ },
+ "GMP_1": {
+  "file": "S02_grammar_practice_2.mp3",
+  "label": "Does she work the evening shift?"
+ },
+ "GMP_2": {
+  "file": "S02_grammar_practice_3.mp3",
+  "label": "He takes a short break at eleven."
+ },
+ "GMP_3": {
+  "file": "S02_grammar_practice_4.mp3",
+  "label": "What time does she start work?"
+ },
+ "GMP_4": {
+  "file": "S02_grammar_practice_5.mp3",
+  "label": "My commute takes forty minutes."
+ },
+ "GMP_5": {
+  "file": "S02_grammar_practice_6.mp3",
+  "label": "I hardly ever miss breakfast."
+ },
+ "GMP_6": {
+  "file": "S02_grammar_practice_7.mp3",
+  "label": "She is never late on weekdays."
+ },
+ "GMP_7": {
+  "file": "S02_grammar_practice_8.mp3",
+  "label": "Does he work at weekends? — No, he doesn't."
+ }
+}

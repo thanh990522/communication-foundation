@@ -1,0 +1,66 @@
+{
+ "GMX_0_0": {
+  "file": "S06_grammar_example_1_1.mp3",
+  "label": "We need two eggs and some milk."
+ },
+ "GMX_0_1": {
+  "file": "S06_grammar_example_1_2.mp3",
+  "label": "Can you buy a packet of rice?"
+ },
+ "GMX_1_0": {
+  "file": "S06_grammar_example_2_1.mp3",
+  "label": "We have some fresh vegetables."
+ },
+ "GMX_1_1": {
+  "file": "S06_grammar_example_2_2.mp3",
+  "label": "Do we have any milk? — No, we don't have any."
+ },
+ "GMX_2_0": {
+  "file": "S06_grammar_example_3_1.mp3",
+  "label": "We need a few tomatoes."
+ },
+ "GMX_2_1": {
+  "file": "S06_grammar_example_3_2.mp3",
+  "label": "We need a little cheese."
+ },
+ "GMX_3_0": {
+  "file": "S06_grammar_example_4_1.mp3",
+  "label": "How many eggs do we need?"
+ },
+ "GMX_3_1": {
+  "file": "S06_grammar_example_4_2.mp3",
+  "label": "We don't have enough rice."
+ },
+ "GMP_0": {
+  "file": "S06_grammar_practice_1.mp3",
+  "label": "We need a few eggs for the cake."
+ },
+ "GMP_1": {
+  "file": "S06_grammar_practice_2.mp3",
+  "label": "Is there any milk in the fridge?"
+ },
+ "GMP_2": {
+  "file": "S06_grammar_practice_3.mp3",
+  "label": "We have some fresh bread."
+ },
+ "GMP_3": {
+  "file": "S06_grammar_practice_4.mp3",
+  "label": "How many apples do we need?"
+ },
+ "GMP_4": {
+  "file": "S06_grammar_practice_5.mp3",
+  "label": "How much rice do we have?"
+ },
+ "GMP_5": {
+  "file": "S06_grammar_practice_6.mp3",
+  "label": "Can you buy a little cheese?"
+ },
+ "GMP_6": {
+  "file": "S06_grammar_practice_7.mp3",
+  "label": "We don't have any dairy products."
+ },
+ "GMP_7": {
+  "file": "S06_grammar_practice_8.mp3",
+  "label": "There isn't enough juice for everyone."
+ }
+}

@@ -12,6 +12,8 @@ MARK = '<!--audiopolicy-->'
 
 def apply(html):
     if MARK in html: return html
+    sys.path.insert(0, HERE); from grammar import inject as _grammar
+    html = _grammar(html)
     i = html.rfind('</body>')
     return html[:i] + f'{MARK}<style>{CSS}</style><script>\n{JS}\n</script>\n' + html[i:]
 
