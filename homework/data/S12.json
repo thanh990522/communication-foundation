@@ -1,0 +1,837 @@
+{
+ "session": "S12",
+ "title": "Checkpoint 1: Everyday Life Simulation",
+ "kind": "test",
+ "pass": 80,
+ "autoMax": 58,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "gap",
+     "prompt": "How do you ____ your name? — L-I-N-H.",
+     "answers": [
+      "spell"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "spell"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I usually have breakfast, but I ____ ever eat lunch at home.",
+     "options": [
+      "hardly",
+      "always",
+      "never"
+     ],
+     "answers": [
+      "hardly"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "hardly"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Our apartment is centrally ____. Everything is near.",
+     "options": [
+      "located",
+      "crowded",
+      "spacious"
+     ],
+     "answers": [
+      "located"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "located"
+    },
+    {
+     "type": "gap",
+     "prompt": "I'm busy on Monday. Could we ____ the meeting to Tuesday?",
+     "answers": [
+      "move",
+      "reschedule"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "move"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The bank is across ____ the hospital.",
+     "options": [
+      "to",
+      "from",
+      "of"
+     ],
+     "answers": [
+      "from"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "from"
+    },
+    {
+     "type": "gap",
+     "prompt": "We're running ____ of milk. Can you buy some?",
+     "answers": [
+      "out"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "out"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Could we ____ the bill? That is twenty pounds each.",
+     "options": [
+      "charge",
+      "split",
+      "recommend"
+     ],
+     "answers": [
+      "split"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "split"
+    },
+    {
+     "type": "gap",
+     "prompt": "Please keep the ____. You need it for a refund.",
+     "answers": [
+      "receipt"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "receipt"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Could you check the delivery ____ for me? My order is late.",
+     "options": [
+      "replacement",
+      "charge",
+      "status"
+     ],
+     "answers": [
+      "status"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "status"
+    },
+    {
+     "type": "gap",
+     "prompt": "After the long trip, I felt ____ — I slept for ten hours!",
+     "answers": [
+      "exhausted"
+     ],
+     "id": "V10",
+     "points": 1,
+     "show": "exhausted"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I got up late and ____ the bus.",
+     "options": [
+      "realised",
+      "missed",
+      "lost"
+     ],
+     "answers": [
+      "missed"
+     ],
+     "id": "V11",
+     "points": 1,
+     "show": "missed"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Thank you for your ____. It helps me improve my English.",
+     "options": [
+      "feedback",
+      "solution",
+      "challenge"
+     ],
+     "answers": [
+      "feedback"
+     ],
+     "id": "V12",
+     "points": 1,
+     "show": "feedback"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "Part 2 · Grammar",
+   "sub": "Chọn đáp án đúng.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "___ she work at weekends?",
+     "options": [
+      "Is",
+      "Does",
+      "Do"
+     ],
+     "answers": [
+      "Does"
+     ],
+     "id": "G1",
+     "points": 1,
+     "show": "Does"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I ___ late for class.",
+     "options": [
+      "am never",
+      "never am",
+      "never be"
+     ],
+     "answers": [
+      "am never"
+     ],
+     "id": "G2",
+     "points": 1,
+     "show": "am never"
+    },
+    {
+     "type": "mcq",
+     "prompt": "There ___ two supermarkets near my home.",
+     "options": [
+      "is",
+      "are",
+      "be"
+     ],
+     "answers": [
+      "are"
+     ],
+     "id": "G3",
+     "points": 1,
+     "show": "are"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I ___ my teacher on Friday at 3 p.m. It's in my calendar.",
+     "options": [
+      "'m meeting",
+      "meeting",
+      "meet"
+     ],
+     "answers": [
+      "'m meeting"
+     ],
+     "id": "G4",
+     "points": 1,
+     "show": "'m meeting"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Turn left ___ the intersection, then go straight on.",
+     "options": [
+      "in",
+      "on",
+      "at"
+     ],
+     "answers": [
+      "at"
+     ],
+     "id": "G5",
+     "points": 1,
+     "show": "at"
+    },
+    {
+     "type": "mcq",
+     "prompt": "We need ___ eggs and a little butter.",
+     "options": [
+      "a few",
+      "much",
+      "a little"
+     ],
+     "answers": [
+      "a few"
+     ],
+     "id": "G6",
+     "points": 1,
+     "show": "a few"
+    },
+    {
+     "type": "mcq",
+     "prompt": "___ the tomato soup, please.",
+     "options": [
+      "I want to",
+      "I like",
+      "I'd like"
+     ],
+     "answers": [
+      "I'd like"
+     ],
+     "id": "G7",
+     "points": 1,
+     "show": "I'd like"
+    },
+    {
+     "type": "mcq",
+     "prompt": "These jeans aren't long ___.",
+     "options": [
+      "enough",
+      "very",
+      "too"
+     ],
+     "answers": [
+      "enough"
+     ],
+     "id": "G8",
+     "points": 1,
+     "show": "enough"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Could you ___ the details, please?",
+     "options": [
+      "confirming",
+      "to confirm",
+      "confirm"
+     ],
+     "answers": [
+      "confirm"
+     ],
+     "id": "G9",
+     "points": 1,
+     "show": "confirm"
+    },
+    {
+     "type": "mcq",
+     "prompt": "There ___ to be a problem with my order.",
+     "options": [
+      "is seems",
+      "seems",
+      "seem"
+     ],
+     "answers": [
+      "seems"
+     ],
+     "id": "G10",
+     "points": 1,
+     "show": "seems"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Last weekend, we ___ to the beach.",
+     "options": [
+      "go",
+      "went",
+      "goed"
+     ],
+     "answers": [
+      "went"
+     ],
+     "id": "G11",
+     "points": 1,
+     "show": "went"
+    },
+    {
+     "type": "mcq",
+     "prompt": "We ___ stay overnight. We returned home at ten.",
+     "options": [
+      "didn't",
+      "weren't",
+      "don't"
+     ],
+     "answers": [
+      "didn't"
+     ],
+     "id": "G12",
+     "points": 1,
+     "show": "didn't"
+    },
+    {
+     "type": "mcq",
+     "prompt": "___ you late for work yesterday?",
+     "options": [
+      "Did",
+      "Were",
+      "Was"
+     ],
+     "answers": [
+      "Were"
+     ],
+     "id": "G13",
+     "points": 1,
+     "show": "Were"
+    },
+    {
+     "type": "mcq",
+     "prompt": "While I ___ waiting for the bus, it started to rain.",
+     "options": [
+      "did",
+      "were",
+      "was"
+     ],
+     "answers": [
+      "was"
+     ],
+     "id": "G14",
+     "points": 1,
+     "show": "was"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 3 · Reading — Anna's busy Saturday",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Last Saturday was a very busy day for Anna.\n\nIn the morning, she went to a clothes shop in the city centre. She wanted to return a jacket because it was too small. Fortunately, she had the receipt, so she exchanged it for a bigger size. The shop assistant also offered her a ten per cent discount on a new T-shirt.\n\nAt twelve o'clock, she met her friend Mai at a small restaurant across from the park. To start with, they had tomato soup. For the main course, Anna had grilled chicken, but Mai has a nut allergy, so she asked for a curry without nuts. When the bill came, they split it — it was fifteen pounds each.\n\nIn the afternoon, Anna went home and called customer service. There seemed to be a problem with her new fridge — it wasn't cold enough. The agent was very helpful. He booked a repair service for Wednesday morning, with no extra charge.\n\nIn the evening, Anna was exhausted, but she was happy. It was a busy day, but everything was fine in the end.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Why did Anna return the jacket?",
+     "options": [
+      "It was too small.",
+      "It was too expensive.",
+      "It was damaged."
+     ],
+     "answers": [
+      "It was too small."
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "It was too small."
+    },
+    {
+     "type": "mcq",
+     "prompt": "Anna got a refund for the jacket.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "gap",
+     "prompt": "The shop offered a ____ per cent discount on a T-shirt.",
+     "answers": [
+      "ten",
+      "10"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "ten"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Where was the restaurant?",
+     "options": [
+      "on the corner",
+      "across from the park",
+      "next to the shop"
+     ],
+     "answers": [
+      "across from the park"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "across from the park"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why did Mai ask for a curry without nuts?",
+     "options": [
+      "She has a nut allergy.",
+      "Nuts are expensive.",
+      "She doesn't like nuts."
+     ],
+     "answers": [
+      "She has a nut allergy."
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "She has a nut allergy."
+    },
+    {
+     "type": "gap",
+     "prompt": "They split the bill. It was ____ pounds each.",
+     "answers": [
+      "fifteen",
+      "15"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "fifteen"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What was the problem with the fridge?",
+     "options": [
+      "It was the wrong colour.",
+      "It wasn't cold enough.",
+      "It was too big."
+     ],
+     "answers": [
+      "It wasn't cold enough."
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "It wasn't cold enough."
+    },
+    {
+     "type": "mcq",
+     "prompt": "When is the repair service?",
+     "options": [
+      "Monday morning",
+      "Saturday afternoon",
+      "Wednesday morning"
+     ],
+     "answers": [
+      "Wednesday morning"
+     ],
+     "id": "R8",
+     "points": 1,
+     "show": "Wednesday morning"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 4 · Listening — A phone call: making an appointment",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "When was the first appointment?",
+     "options": [
+      "Thursday at two thirty",
+      "Friday at ten",
+      "Thursday at ten"
+     ],
+     "answers": [
+      "Thursday at ten"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "Thursday at ten"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why does the caller want to change it?",
+     "options": [
+      "She's working.",
+      "She's ill.",
+      "She's on holiday."
+     ],
+     "answers": [
+      "She's working."
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "She's working."
+    },
+    {
+     "type": "mcq",
+     "prompt": "What is the new time?",
+     "options": [
+      "Friday at 2:30",
+      "Friday at 10:00",
+      "Thursday at 2:30"
+     ],
+     "answers": [
+      "Friday at 2:30"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "Friday at 2:30"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What does the caller ask the receptionist to do?",
+     "options": [
+      "call back later",
+      "spell the name",
+      "say it again"
+     ],
+     "answers": [
+      "say it again"
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "say it again"
+    },
+    {
+     "type": "gap",
+     "prompt": "The caller's surname is ____.",
+     "answers": [
+      "Nguyen"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "Nguyen"
+    }
+   ],
+   "audioLabel": "Receptionist & caller",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S12/S12_H5_listen1.mp3",
+   "script": [
+    [
+     "Receptionist",
+     "Good morning, City Dental Clinic. How can I help you?"
+    ],
+    [
+     "Caller",
+     "Hello. I'm calling about my appointment. It's on Thursday at ten, but I'm working on Thursday morning."
+    ],
+    [
+     "Receptionist",
+     "No problem. Could we move it to Friday? We have a time slot at half past two."
+    ],
+    [
+     "Caller",
+     "Sorry, could you say that again, please?"
+    ],
+    [
+     "Receptionist",
+     "Of course. Friday at half past two."
+    ],
+    [
+     "Caller",
+     "Yes, Friday at two thirty works for me."
+    ],
+    [
+     "Receptionist",
+     "Great. Could you spell your surname, please?"
+    ],
+    [
+     "Caller",
+     "Sure. It's Nguyen. N-G-U-Y-E-N."
+    ],
+    [
+     "Receptionist",
+     "Thank you. Let me confirm: Friday at two thirty, Ms Nguyen."
+    ],
+    [
+     "Caller",
+     "That's right. Thank you very much."
+    ]
+   ]
+  },
+  {
+   "id": "L2",
+   "title": "Part 4 · Listening — A weekend story",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Where did Lan go last weekend?",
+     "options": [
+      "to Hue",
+      "to Hoi An",
+      "to Da Lat"
+     ],
+     "answers": [
+      "to Hue"
+     ],
+     "id": "L21",
+     "points": 1,
+     "show": "to Hue"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Who did she go with?",
+     "options": [
+      "her sister",
+      "her cousin",
+      "her friend Ben"
+     ],
+     "answers": [
+      "her cousin"
+     ],
+     "id": "L22",
+     "points": 1,
+     "show": "her cousin"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What did she realise?",
+     "options": [
+      "Her bag was in the taxi.",
+      "She missed the train.",
+      "Her phone was at the hotel."
+     ],
+     "answers": [
+      "Her bag was in the taxi."
+     ],
+     "id": "L23",
+     "points": 1,
+     "show": "Her bag was in the taxi."
+    },
+    {
+     "type": "mcq",
+     "prompt": "They missed the train.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "L24",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "gap",
+     "prompt": "In the end, they got home at ____.",
+     "answers": [
+      "nine",
+      "9"
+     ],
+     "id": "L25",
+     "points": 1,
+     "show": "nine"
+    }
+   ],
+   "audioLabel": "Two friends on Monday",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S12/S12_H5_listen2.mp3",
+   "script": [
+    [
+     "Lan",
+     "You'll never guess what happened last weekend!"
+    ],
+    [
+     "Ben",
+     "What happened?"
+    ],
+    [
+     "Lan",
+     "I visited Hue with my cousin. At first, everything was fine. We visited a local market and ate street food."
+    ],
+    [
+     "Ben",
+     "Nice! Did you stay overnight?"
+    ],
+    [
+     "Lan",
+     "Yes, we stayed in a small hotel. But on Sunday, while we were travelling to the station, I suddenly realised my bag was in the taxi!"
+    ],
+    [
+     "Ben",
+     "Oh no! Did you get it back?"
+    ],
+    [
+     "Lan",
+     "Yes. Fortunately, the driver called the hotel. Eventually, he brought it to the station."
+    ],
+    [
+     "Ben",
+     "That was lucky! Did you miss the train?"
+    ],
+    [
+     "Lan",
+     "No, we didn't. In the end, we got home at nine. I was exhausted, but it was a memorable trip!"
+    ]
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn đánh vần lại được không?",
+     "answers": [
+      "Could you spell that again?",
+      "Could you spell that again, please?",
+      "Could you spell it again, please?"
+     ],
+     "show": "Could you spell that again?",
+     "hint": "Could you … again?"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Có một siêu thị lớn gần nhà tôi.",
+     "answers": [
+      "There is a big supermarket near my home.",
+      "There's a big supermarket near my home.",
+      "There is a big supermarket near my house."
+     ],
+     "show": "There is a big supermarket near my home.",
+     "hint": "There is …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Thứ Sáu có tiện cho bạn không?",
+     "answers": [
+      "Does Friday work for you?"
+     ],
+     "show": "Does Friday work for you?",
+     "hint": "Does … work for you?"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi muốn đổi chiếc áo khoác này lấy cỡ lớn hơn.",
+     "answers": [
+      "I'd like to exchange this jacket for a bigger size.",
+      "I would like to exchange this jacket for a bigger size."
+     ],
+     "show": "I'd like to exchange this jacket for a bigger size.",
+     "hint": "I'd like to exchange …"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Có vẻ như có vấn đề với đơn hàng của tôi.",
+     "answers": [
+      "There seems to be a problem with my order."
+     ],
+     "show": "There seems to be a problem with my order.",
+     "hint": "There seems to be …"
+    },
+    {
+     "id": "T6",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Cuối tuần trước, tôi đã ghé thăm một khu chợ địa phương.",
+     "answers": [
+      "Last weekend, I visited a local market."
+     ],
+     "show": "Last weekend, I visited a local market.",
+     "hint": "Last weekend, I …"
+    },
+    {
+     "id": "T7",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Trong khi tôi đang chờ, trời bắt đầu mưa.",
+     "answers": [
+      "While I was waiting, it started to rain."
+     ],
+     "show": "While I was waiting, it started to rain.",
+     "hint": "While I was …"
+    }
+   ]
+  }
+ ]
+}

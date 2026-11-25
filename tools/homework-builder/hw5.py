@@ -69,18 +69,21 @@ def build(sid):
     for f in os.listdir(aud_dir):
         if f.startswith(f'{sid}_H5_'): os.remove(os.path.join(aud_dir, f))
     rel = lambda f: f'homework/audio/{sid}/{f}'
-    sh = C.SHADOW; sv = sh.get('voice', SONIA)
-    need = {(sv, s) for s in sh['sentences']}
+    TEST = getattr(C, 'KIND', '') == 'test'
+    sh = getattr(C, 'SHADOW', None); sv = sh.get('voice', SONIA) if sh else SONIA
+    need = {(sv, s) for s in sh['sentences']} if sh else set()
     for L in C.LISTEN:
         for v, _, t in L.get('lines', []): need.add((v, t))
     asyncio.run(fetch(need))
 
     sections = []
-    sections.append({'id': 'V', 'title': 'Part 1 · Vocabulary test', 'sub': 'Chọn hoặc điền từ / cụm từ đã học.', 'items': C.VOCAB})
-    R = C.READING
-    sections.append({'id': 'R', 'title': 'Part 2 · Reading — ' + R['title'], 'sub': 'Đọc đoạn văn rồi trả lời câu hỏi.', 'passage': R['passage'], 'items': R['items']})
+    sections.append({'id': 'V', 'title': 'Part 1 · Vocabulary' + ('' if TEST else ' test'), 'sub': 'Chọn hoặc điền từ / cụm từ đã học.', 'items': C.VOCAB})
+    if TEST:
+        sections.append({'id': 'G', 'title': 'Part 2 · Grammar', 'sub': 'Chọn đáp án đúng.', 'items': C.GRAMMAR})
+    R = C.READING; pn = 3 if TEST else 2
+    sections.append({'id': 'R', 'title': f'Part {pn} · Reading — ' + R['title'], 'sub': 'Đọc đoạn văn rồi trả lời câu hỏi.', 'passage': R['passage'], 'items': R['items']})
     for k, L in enumerate(C.LISTEN):
-        sec = {'id': f'L{k + 1}', 'title': 'Part 3 · Listening — ' + L['title'], 'sub': L.get('sub', 'Nghe và trả lời. Script hiện ra sau khi nộp bài.'), 'items': L['items'],
+        sec = {'id': f'L{k + 1}', 'title': f'Part {pn + 1} · Listening — ' + L['title'], 'sub': L.get('sub', 'Nghe và trả lời. Script hiện ra sau khi nộp bài.'), 'items': L['items'],
                'audioLabel': L.get('label', 'Listen to the recording'), 'audioHint': L.get('hint', 'Nghe 2 lần rồi trả lời.')}
         if L.get('lines'):
             parts = []
@@ -94,11 +97,11 @@ def build(sid):
         sections.append(sec)
     # shadowing paragraph: one file per sentence + the full paragraph
     sents, full, dur = [], [], 0.0
-    for i, s in enumerate(sh['sentences']):
+    for i, s in enumerate(sh['sentences'] if sh else []):
         a = load(ck(sv, s)); f = f'{sid}_H5_shadow_{i + 1:02d}.mp3'; save(a, os.path.join(aud_dir, f))
         sents.append({'text': s, 'audio': rel(f)}); full += [a, sil(.45)]; dur += len(a) / SR + .45
-    save(np.concatenate(full), os.path.join(aud_dir, f'{sid}_H5_shadow_full.mp3'))
-    sections.append({'id': 'S', 'title': 'Part 4 · Speaking — Shadowing', 'sub': 'Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.',
+    if sh: save(np.concatenate(full), os.path.join(aud_dir, f'{sid}_H5_shadow_full.mp3'))
+    if sh: sections.append({'id': 'S', 'title': 'Part 4 · Speaking — Shadowing', 'sub': 'Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.',
                      'items': [{'id': 'S1', 'type': 'shadow', 'points': 10, 'prompt': sh['title'], 'audio': rel(f'{sid}_H5_shadow_full.mp3'),
                                 'sentences': sents, 'dur': round(dur, 1), 'free': sh.get('free', [])}]})
     sections.append({'id': 'T', 'title': 'Part 5 · Translation (Việt → Anh)', 'sub': 'Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.',
@@ -112,7 +115,7 @@ def build(sid):
             if it['type'] in ('mcq', 'listen_mcq', 'gap'): it.setdefault('show', it['answers'][0])
             mx += it['points']
         shuffle_items(sec['items'], f"{sid}-H5-{sec['id']}")
-    hw = {'session': sid, 'title': C.TITLE, 'kind': '5-part', 'pass': 80, 'autoMax': mx, 'sections': sections}
+    hw = {'session': sid, 'title': C.TITLE, 'kind': 'test' if TEST else '5-part', 'pass': 80, 'autoMax': mx, 'sections': sections}
     out = os.path.join(ROOT, 'homework', 'data', f'{sid}.json')
     json.dump(hw, open(out, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(sid, '->', out, '| points', mx, '| shadow', round(dur), 's')

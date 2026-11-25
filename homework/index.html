@@ -518,7 +518,7 @@ function showOverall(scroll){
   const rows=PARTS.map(p=>{ const g=graded[p.key], ok=g.pct>=PASS; return `<div class="${ok?'pass':'fail'}"><span>${esc(p.name)}</span><b>${ok?'✓':'✗'} ${g.pct}%${ok?'':`<button type="button" data-redo2="${p.key}">↻ Làm lại</button>`}</b></div>`; }).join('');
   const left=PARTS.filter(p=>graded[p.key].pct<PASS);
   r.innerHTML=`<div class="res ${t.all?'pass':'fail'}"><div class="score">${t.passed}<small> / ${PARTS.length} part đạt</small></div><div class="sub2">Tổng: ${fmt1(t.score)} / ${t.max} điểm (${t.pct}%)</div><div class="secbreak">${rows}</div>
-    <h2>${t.all?'✅ Hoàn thành homework':'❌ Còn '+left.length+' part cần làm lại'}</h2>
+    <h2>${t.all?(HW.kind==='test'?'✅ Hoàn thành bài test':'✅ Hoàn thành homework'):'❌ Còn '+left.length+' part cần làm lại'}</h2>
     <p>${t.all?'Tất cả các part đều đạt từ 80% trở lên. Great job!':'Mỗi part cần đạt <b>80%</b>. Chỉ làm lại part chưa đạt — các part đã đạt được giữ nguyên.'}</p>
     <div class="acts">${t.all?`<a class="btn blue" href="../">← All lessons</a><button class="btn light" type="button" id="againAll">↻ Làm lại toàn bộ</button>`:`<button class="btn blue" type="button" data-redo2="${left[0].key}">↻ Làm lại ${partLabel(left[0])}</button>`}</div></div>`;
   r.style.display='block'; if(scroll) r.scrollIntoView({behavior:'smooth'});
@@ -557,6 +557,7 @@ function normTok(r){
   if(/-/.test(w)) return w.split('-').filter(Boolean).flatMap(x=>normTok(x));
   w=w.replace(/'s$/,'s').replace(/'/g,'').replace(/[^a-z0-9]/g,'');
   if(SPELL[w]) w=SPELL[w];
+  w=w.replace(/([a-z]{3})is(e|es|ed|ing)$/,'$1iz$2').replace(/([aeiou])ll(ed|ing|er)$/,'$1l$2');   // British ↔ American: realised/realized, travelling/traveling
   if(w==='oclock') return [];
   if(w==='lowercase') return ['lower','case'];
   return w?[w]:[];
@@ -709,7 +710,10 @@ async function boot(){
   catch(e){ $('#hw').innerHTML=`<div class="loading">Chưa có homework cho buổi ${esc(SESSION)}. <a href="../">Về trang chủ</a></div>`; return; }
   HW=data;
   document.title=`Homework ${SESSION} · ${HW.title}`;
-  $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>${esc(HW.kind||'Homework')} homework</em>`; $('#intro').textContent=HW.kind==='5-part'?'5 part: Từ vựng · Đọc · Nghe · Shadowing (máy chấm /10) · Dịch Việt → Anh. Mỗi part chấm riêng và cần đạt 80% — part nào dưới 80% thì chỉ làm lại part đó.':'';
+  const TEST=HW.kind==='test';
+  if(TEST){ document.title=`Test ${SESSION} · ${HW.title}`; $('#kick').textContent='Checkpoint test · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>test</em>`;
+    $('#intro').textContent='5 part: Từ vựng · Ngữ pháp · Đọc · Nghe · Dịch Việt → Anh (phần Speaking làm trực tiếp với giáo viên). Mỗi part chấm riêng và cần đạt 80%.'; }
+  else { $('#kick').textContent='Homework · '+SESSION; $('#title').innerHTML=`${esc(HW.title)} — <em>${esc(HW.kind||'Homework')} homework</em>`; $('#intro').textContent=HW.kind==='5-part'?'5 part: Từ vựng · Đọc · Nghe · Shadowing (máy chấm /10) · Dịch Việt → Anh. Mỗi part chấm riêng và cần đạt 80% — part nào dưới 80% thì chỉ làm lại part đó.':''; }
   ITEMS=HW.sections.flatMap(s=>s.items); buildParts();
   loadDraft(); render();
   const done=loadState().filter(k=>PARTS.some(p=>p.key===k)); if(done.length) gradeParts(done,true);

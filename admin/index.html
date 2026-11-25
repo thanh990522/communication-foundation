@@ -169,7 +169,7 @@ async function loadSessions(){
   catch(e){ msg('#oMsg','err','⚠ '+esc(e.message)); }
 }
 function renderSessions(){
-  $('#ss').innerHTML=SS.map((s,i)=>{ const built=!!s.url, on=s.status==='live';
+  $('#ss').innerHTML=SS.map((s,i)=>{ const built=!!(s.url||s.hw), on=s.status==='live';
     return `<div class="si${s.status!==orig[s.id]?' dirty':''}"><span class="id">${s.id}</span><div class="t">${esc(s.title)}<small>Tuần ${s.week} · ${built?(on?'Đang mở':'Đang đóng'):'Chưa soạn'}</small></div>${built?`<label class="sw"><input type="checkbox" data-i="${i}" ${on?'checked':''}><span></span></label>`:'<span class="na">—</span>'}</div>`; }).join('');
   document.querySelectorAll('#ss input').forEach(c=>c.onchange=()=>{ SS[+c.dataset.i].status=c.checked?'live':'closed'; renderSessions(); });
   $('#oSave').disabled=!SS.some(s=>s.status!==orig[s.id]);

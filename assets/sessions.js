@@ -113,21 +113,31 @@ window.SESSIONS = [
   "week": 4,
   "title": "Past Events: What Happened?",
   "goal": "Kể về cuối tuần hoặc một sự kiện đã hoàn thành với thời gian rõ ràng.",
-  "status": "soon"
+  "status": "closed",
+  "url": "lessons/S10/",
+  "zip": "lessons/S10/S10_Audio_MP3.zip",
+  "offline": "lessons/S10/S10_offline.html",
+  "hw": "homework/?s=S10"
  },
  {
   "id": "S11",
   "week": 4,
   "title": "Past Questions & Storytelling",
   "goal": "Hỏi chi tiết và kể một sự việc theo trình tự có mở đầu, diễn biến và kết thúc.",
-  "status": "soon"
+  "status": "closed",
+  "url": "lessons/S11/",
+  "zip": "lessons/S11/S11_Audio_MP3.zip",
+  "offline": "lessons/S11/S11_offline.html",
+  "hw": "homework/?s=S11"
  },
  {
   "id": "S12",
   "week": 4,
   "title": "Checkpoint 1: Everyday Life Simulation",
   "goal": "Tích hợp nội dung Buổi 1–11 trong ba tình huống và tự sửa khi bị gián đoạn giao tiếp.",
-  "status": "soon"
+  "status": "closed",
+  "test": true,
+  "hw": "homework/?s=S12"
  },
  {
   "id": "S13",

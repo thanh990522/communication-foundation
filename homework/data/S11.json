@@ -1,0 +1,525 @@
+{
+ "session": "S11",
+ "title": "Past Questions & Storytelling",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 45,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“lỡ chuyến xe buýt” — ____ the bus",
+     "options": [
+      "miss",
+      "decide",
+      "lose"
+     ],
+     "answers": [
+      "miss"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "miss"
+    },
+    {
+     "type": "gap",
+     "prompt": "You'll never guess what ____ yesterday!",
+     "answers": [
+      "happened"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "happened"
+    },
+    {
+     "type": "mcq",
+     "prompt": "____, I realised my bag was on the bus.",
+     "options": [
+      "Suddenly",
+      "Fortunately",
+      "In the end"
+     ],
+     "answers": [
+      "Suddenly"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "Suddenly"
+    },
+    {
+     "type": "gap",
+     "prompt": "I lost my wallet, but ____ I found it in my jacket.",
+     "answers": [
+      "fortunately"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "fortunately"
+    },
+    {
+     "type": "mcq",
+     "prompt": "At the station, I realised the ____. It was the wrong train!",
+     "options": [
+      "bus",
+      "mistake",
+      "event"
+     ],
+     "answers": [
+      "mistake"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "mistake"
+    },
+    {
+     "type": "gap",
+     "prompt": "The bus was late, so we ____ to wait.",
+     "answers": [
+      "decided"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "decided"
+    },
+    {
+     "type": "mcq",
+     "prompt": "We waited for an hour. ____, the train arrived.",
+     "options": [
+      "At first",
+      "Suddenly",
+      "Eventually"
+     ],
+     "answers": [
+      "Eventually"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "Eventually"
+    },
+    {
+     "type": "gap",
+     "prompt": "I lost my phone ____ travelling in Hue.",
+     "answers": [
+      "while"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "while"
+    },
+    {
+     "type": "mcq",
+     "prompt": "____ you miss the bus?",
+     "options": [
+      "Were",
+      "Did",
+      "Was"
+     ],
+     "answers": [
+      "Did"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "Did"
+    },
+    {
+     "type": "mcq",
+     "prompt": "____ you late for work?",
+     "options": [
+      "Did",
+      "Were",
+      "Was"
+     ],
+     "answers": [
+      "Were"
+     ],
+     "id": "V10",
+     "points": 1,
+     "show": "Were"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — The wrong train",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "You'll never guess what happened to me last Saturday!\n\nAt first, everything was fine. I wanted to visit my aunt in Bien Hoa, so I went to the train station early. While I was waiting, I bought a coffee and read a book.\n\nAt nine o'clock, I got on the train. I was very happy because there were lots of free seats. Suddenly, I realised the mistake. The train was going to Nha Trang, not Bien Hoa!\n\nFortunately, a kind man helped me. He told me to get off at the next station and wait for the train back. I decided to wait. Eventually, the right train arrived after two hours.\n\nIn the end, I arrived at my aunt's house at two o'clock in the afternoon — five hours late! My aunt asked me, \"Where were you? Did you get lost?\" We laughed a lot. It was a long day, but it was a good story!",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Where did the writer want to go?",
+     "options": [
+      "to Nha Trang",
+      "to Da Lat",
+      "to Bien Hoa"
+     ],
+     "answers": [
+      "to Bien Hoa"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "to Bien Hoa"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What did the writer do while waiting?",
+     "options": [
+      "called her aunt",
+      "bought a coffee and read a book",
+      "ate breakfast"
+     ],
+     "answers": [
+      "bought a coffee and read a book"
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "bought a coffee and read a book"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The train was full.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What was the mistake?",
+     "options": [
+      "She missed the train.",
+      "She got on the wrong train.",
+      "She lost her ticket."
+     ],
+     "answers": [
+      "She got on the wrong train."
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "She got on the wrong train."
+    },
+    {
+     "type": "mcq",
+     "prompt": "Who helped her?",
+     "options": [
+      "her aunt",
+      "a student",
+      "a kind man"
+     ],
+     "answers": [
+      "a kind man"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "a kind man"
+    },
+    {
+     "type": "gap",
+     "prompt": "The right train arrived after ____ hours.",
+     "answers": [
+      "two",
+      "2"
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "two"
+    },
+    {
+     "type": "mcq",
+     "prompt": "She arrived at her aunt's house on time.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "False"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — Mai's weekend story",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Where did Mai go on Sunday?",
+     "options": [
+      "to the cinema",
+      "to the beach",
+      "to a restaurant"
+     ],
+     "answers": [
+      "to the cinema"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "to the cinema"
+    },
+    {
+     "type": "gap",
+     "prompt": "She went with her ____.",
+     "answers": [
+      "sister"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "sister"
+    },
+    {
+     "type": "mcq",
+     "prompt": "They enjoyed the film.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What happened while they were walking home?",
+     "options": [
+      "They missed the bus.",
+      "It started to rain.",
+      "They met a friend."
+     ],
+     "answers": [
+      "It started to rain."
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "It started to rain."
+    },
+    {
+     "type": "mcq",
+     "prompt": "What did Mai realise?",
+     "options": [
+      "She didn't have her phone.",
+      "The cinema was closed.",
+      "She didn't have her wallet."
+     ],
+     "answers": [
+      "She didn't have her phone."
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "She didn't have her phone."
+    },
+    {
+     "type": "mcq",
+     "prompt": "Where was the phone?",
+     "options": [
+      "in the taxi",
+      "under her seat",
+      "in her bag"
+     ],
+     "answers": [
+      "under her seat"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "under her seat"
+    },
+    {
+     "type": "mcq",
+     "prompt": "How did they get home?",
+     "options": [
+      "by bus",
+      "on foot",
+      "by taxi"
+     ],
+     "answers": [
+      "by taxi"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "by taxi"
+    },
+    {
+     "type": "gap",
+     "prompt": "They got home at ____.",
+     "answers": [
+      "eleven",
+      "11"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "eleven"
+    }
+   ],
+   "audioLabel": "Two friends",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S11/S11_H5_listen1.mp3",
+   "script": [
+    [
+     "Mai",
+     "You'll never guess what happened on Sunday!"
+    ],
+    [
+     "Dan",
+     "What happened?"
+    ],
+    [
+     "Mai",
+     "I went to the cinema with my sister. At first, everything was fine."
+    ],
+    [
+     "Dan",
+     "Did you enjoy the film?"
+    ],
+    [
+     "Mai",
+     "Yes, we did. But while we were walking home, it started to rain."
+    ],
+    [
+     "Dan",
+     "Oh no! Were you wet?"
+    ],
+    [
+     "Mai",
+     "Very! And suddenly I realised I didn't have my phone."
+    ],
+    [
+     "Dan",
+     "What happened next? Did you go back to the cinema?"
+    ],
+    [
+     "Mai",
+     "Yes, we did. Fortunately, a man at the cinema found it under my seat."
+    ],
+    [
+     "Dan",
+     "That's lucky! What time did you get home?"
+    ],
+    [
+     "Mai",
+     "Eventually, we got a taxi. In the end, we got home at eleven."
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Tell a short story",
+     "audio": "homework/audio/S11/S11_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "You'll never guess what happened yesterday!",
+       "audio": "homework/audio/S11/S11_H5_shadow_01.mp3"
+      },
+      {
+       "text": "At first, everything was fine.",
+       "audio": "homework/audio/S11/S11_H5_shadow_02.mp3"
+      },
+      {
+       "text": "While I was waiting for the bus, it started to rain.",
+       "audio": "homework/audio/S11/S11_H5_shadow_03.mp3"
+      },
+      {
+       "text": "Suddenly, I realised I didn't have my phone.",
+       "audio": "homework/audio/S11/S11_H5_shadow_04.mp3"
+      },
+      {
+       "text": "Fortunately, I found it in my bag.",
+       "audio": "homework/audio/S11/S11_H5_shadow_05.mp3"
+      },
+      {
+       "text": "In the end, I arrived at work at ten.",
+       "audio": "homework/audio/S11/S11_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 19.3,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn sẽ không đoán được chuyện gì đã xảy ra đâu!",
+     "answers": [
+      "You'll never guess what happened!",
+      "You will never guess what happened!"
+     ],
+     "show": "You'll never guess what happened!",
+     "hint": "You'll never guess what happened."
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Trong khi tôi đang chờ xe buýt, trời bắt đầu mưa.",
+     "answers": [
+      "While I was waiting for the bus, it started to rain."
+     ],
+     "show": "While I was waiting for the bus, it started to rain.",
+     "hint": "While I was …, …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chuyện gì xảy ra tiếp theo?",
+     "answers": [
+      "What happened next?"
+     ],
+     "show": "What happened next?",
+     "hint": "What happened next?"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Bạn có lỡ chuyến xe buýt không?",
+     "answers": [
+      "Did you miss the bus?"
+     ],
+     "show": "Did you miss the bus?",
+     "hint": "Did …?"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Cuối cùng, tôi đến chỗ làm lúc mười giờ.",
+     "answers": [
+      "In the end, I arrived at work at ten.",
+      "In the end, I got to work at ten."
+     ],
+     "show": "In the end, I arrived at work at ten.",
+     "hint": "In the end, …"
+    }
+   ]
+  }
+ ]
+}

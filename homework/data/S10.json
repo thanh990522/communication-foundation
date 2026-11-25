@@ -1,0 +1,523 @@
+{
+ "session": "S10",
+ "title": "Past Events: What Happened?",
+ "kind": "5-part",
+ "pass": 80,
+ "autoMax": 45,
+ "sections": [
+  {
+   "id": "V",
+   "title": "Part 1 · Vocabulary test",
+   "sub": "Chọn hoặc điền từ / cụm từ đã học.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "“tham dự một sự kiện” — ____ an event",
+     "options": [
+      "visit",
+      "return",
+      "attend"
+     ],
+     "answers": [
+      "attend"
+     ],
+     "id": "V1",
+     "points": 1,
+     "show": "attend"
+    },
+    {
+     "type": "gap",
+     "prompt": "On Sunday morning, we ____ a local market.",
+     "answers": [
+      "visited"
+     ],
+     "id": "V2",
+     "points": 1,
+     "show": "visited"
+    },
+    {
+     "type": "mcq",
+     "prompt": "We stayed ____ in a small hotel.",
+     "options": [
+      "memorable",
+      "exhausted",
+      "overnight"
+     ],
+     "answers": [
+      "overnight"
+     ],
+     "id": "V3",
+     "points": 1,
+     "show": "overnight"
+    },
+    {
+     "type": "gap",
+     "prompt": "We ____ home on Sunday evening.",
+     "answers": [
+      "returned"
+     ],
+     "id": "V4",
+     "points": 1,
+     "show": "returned"
+    },
+    {
+     "type": "mcq",
+     "prompt": "I really ____ the experience. It was great!",
+     "options": [
+      "attended",
+      "enjoyed",
+      "stayed"
+     ],
+     "answers": [
+      "enjoyed"
+     ],
+     "id": "V5",
+     "points": 1,
+     "show": "enjoyed"
+    },
+    {
+     "type": "gap",
+     "prompt": "After the long walk, I felt ____. I needed a long sleep.",
+     "answers": [
+      "exhausted"
+     ],
+     "id": "V6",
+     "points": 1,
+     "show": "exhausted"
+    },
+    {
+     "type": "mcq",
+     "prompt": "It was a ____ trip. I will never forget it.",
+     "options": [
+      "exhausted",
+      "memorable",
+      "local"
+     ],
+     "answers": [
+      "memorable"
+     ],
+     "id": "V7",
+     "points": 1,
+     "show": "memorable"
+    },
+    {
+     "type": "gap",
+     "prompt": "There was a big weekend ____ at the park.",
+     "answers": [
+      "event"
+     ],
+     "id": "V8",
+     "points": 1,
+     "show": "event"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Last weekend, I ____ to the beach.",
+     "options": [
+      "went",
+      "goed",
+      "go"
+     ],
+     "answers": [
+      "went"
+     ],
+     "id": "V9",
+     "points": 1,
+     "show": "went"
+    },
+    {
+     "type": "mcq",
+     "prompt": "We didn't ____ to the waterfall.",
+     "options": [
+      "go",
+      "going",
+      "went"
+     ],
+     "answers": [
+      "go"
+     ],
+     "id": "V10",
+     "points": 1,
+     "show": "go"
+    }
+   ]
+  },
+  {
+   "id": "R",
+   "title": "Part 2 · Reading — My weekend in Hoi An",
+   "sub": "Đọc đoạn văn rồi trả lời câu hỏi.",
+   "passage": "Last weekend, I visited Hoi An with my best friend, Lan. We left Da Nang on Saturday morning and arrived in Hoi An at nine o'clock.\n\nFirst, we visited a local market. We ate some street food and I bought a small souvenir for my mother. Then we walked around the old town and took lots of photos. In the evening, we attended a weekend event by the river. There was music and there were lots of people. It was beautiful!\n\nWe stayed overnight in a small hotel near the river. It wasn't expensive, and the people were very friendly.\n\nOn Sunday, it rained all morning, so we didn't go to the beach. Although it rained, we enjoyed the experience. We had a chance to try a cooking class instead.\n\nIn the end, we returned home on Sunday evening. I was exhausted, but it was worth it. It was a memorable trip!",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "Who did the writer go with?",
+     "options": [
+      "her best friend",
+      "her family",
+      "her mother"
+     ],
+     "answers": [
+      "her best friend"
+     ],
+     "id": "R1",
+     "points": 1,
+     "show": "her best friend"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What did they do first?",
+     "options": [
+      "They took a cooking class.",
+      "They visited a local market.",
+      "They went to the beach."
+     ],
+     "answers": [
+      "They visited a local market."
+     ],
+     "id": "R2",
+     "points": 1,
+     "show": "They visited a local market."
+    },
+    {
+     "type": "mcq",
+     "prompt": "The writer bought a souvenir for her mother.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "True"
+     ],
+     "id": "R3",
+     "points": 1,
+     "show": "True"
+    },
+    {
+     "type": "gap",
+     "prompt": "In the evening, they attended a weekend ____ by the river.",
+     "answers": [
+      "event"
+     ],
+     "id": "R4",
+     "points": 1,
+     "show": "event"
+    },
+    {
+     "type": "mcq",
+     "prompt": "The hotel was very expensive.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "R5",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Why didn't they go to the beach?",
+     "options": [
+      "It was closed.",
+      "They were tired.",
+      "It rained."
+     ],
+     "answers": [
+      "It rained."
+     ],
+     "id": "R6",
+     "points": 1,
+     "show": "It rained."
+    },
+    {
+     "type": "mcq",
+     "prompt": "How did the writer feel at the end?",
+     "options": [
+      "bored",
+      "exhausted, but happy",
+      "angry"
+     ],
+     "answers": [
+      "exhausted, but happy"
+     ],
+     "id": "R7",
+     "points": 1,
+     "show": "exhausted, but happy"
+    }
+   ]
+  },
+  {
+   "id": "L1",
+   "title": "Part 3 · Listening — Minh's weekend",
+   "sub": "Nghe và trả lời. Script hiện ra sau khi nộp bài.",
+   "items": [
+    {
+     "type": "mcq",
+     "prompt": "What did Minh attend?",
+     "options": [
+      "a music event",
+      "a cooking class",
+      "a food event"
+     ],
+     "answers": [
+      "a food event"
+     ],
+     "id": "L11",
+     "points": 1,
+     "show": "a food event"
+    },
+    {
+     "type": "gap",
+     "prompt": "First, he met his ____ at the bus station.",
+     "answers": [
+      "cousins"
+     ],
+     "id": "L12",
+     "points": 1,
+     "show": "cousins"
+    },
+    {
+     "type": "gap",
+     "prompt": "He tried food from ____ different countries.",
+     "answers": [
+      "ten",
+      "10"
+     ],
+     "id": "L13",
+     "points": 1,
+     "show": "ten"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What was the best part?",
+     "options": [
+      "the Korean food",
+      "the Thai food",
+      "the music"
+     ],
+     "answers": [
+      "the Korean food"
+     ],
+     "id": "L14",
+     "points": 1,
+     "show": "the Korean food"
+    },
+    {
+     "type": "mcq",
+     "prompt": "Where did they stay overnight?",
+     "options": [
+      "at home",
+      "at his cousin's apartment",
+      "in a hotel"
+     ],
+     "answers": [
+      "at his cousin's apartment"
+     ],
+     "id": "L15",
+     "points": 1,
+     "show": "at his cousin's apartment"
+    },
+    {
+     "type": "mcq",
+     "prompt": "They slept a lot.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "L16",
+     "points": 1,
+     "show": "False"
+    },
+    {
+     "type": "mcq",
+     "prompt": "When did Minh return home?",
+     "options": [
+      "on Sunday evening",
+      "on Monday morning",
+      "on Sunday afternoon"
+     ],
+     "answers": [
+      "on Sunday afternoon"
+     ],
+     "id": "L17",
+     "points": 1,
+     "show": "on Sunday afternoon"
+    },
+    {
+     "type": "mcq",
+     "prompt": "What was late?",
+     "options": [
+      "the bus",
+      "his cousin",
+      "the train"
+     ],
+     "answers": [
+      "the bus"
+     ],
+     "id": "L18",
+     "points": 1,
+     "show": "the bus"
+    }
+   ],
+   "audioLabel": "Two friends on Monday",
+   "audioHint": "Nghe 2 lần rồi trả lời.",
+   "audio": "homework/audio/S10/S10_H5_listen1.mp3",
+   "script": [
+    [
+     "Sara",
+     "Hi Minh! How was your weekend?"
+    ],
+    [
+     "Minh",
+     "It was great, thanks. Last weekend, I attended a food event in the city centre."
+    ],
+    [
+     "Sara",
+     "Oh, nice!"
+    ],
+    [
+     "Minh",
+     "First, I met my cousins at the bus station. Then we went to the event together."
+    ],
+    [
+     "Minh",
+     "I had a chance to try food from ten different countries. The best part was the Korean food."
+    ],
+    [
+     "Sara",
+     "Did you stay overnight in the city?"
+    ],
+    [
+     "Minh",
+     "Yes, we stayed overnight at my cousin's apartment. We didn't sleep much!"
+    ],
+    [
+     "Sara",
+     "Ha ha. When did you return home?"
+    ],
+    [
+     "Minh",
+     "I returned home on Sunday afternoon. Although the bus was late, I enjoyed the whole trip."
+    ],
+    [
+     "Sara",
+     "You look tired."
+    ],
+    [
+     "Minh",
+     "I was exhausted, but it was worth it!"
+    ]
+   ]
+  },
+  {
+   "id": "S",
+   "title": "Part 4 · Speaking — Shadowing",
+   "sub": "Nghe mẫu → đọc theo → ghi âm. Máy chấm điểm trên thang 10 và tô màu từng từ.",
+   "items": [
+    {
+     "id": "S1",
+     "type": "shadow",
+     "points": 10,
+     "prompt": "Tell me about your weekend",
+     "audio": "homework/audio/S10/S10_H5_shadow_full.mp3",
+     "sentences": [
+      {
+       "text": "Last weekend, I visited a local market with my family.",
+       "audio": "homework/audio/S10/S10_H5_shadow_01.mp3"
+      },
+      {
+       "text": "Then we attended a weekend event in the park.",
+       "audio": "homework/audio/S10/S10_H5_shadow_02.mp3"
+      },
+      {
+       "text": "I had a chance to try some local food.",
+       "audio": "homework/audio/S10/S10_H5_shadow_03.mp3"
+      },
+      {
+       "text": "The best part was the night market.",
+       "audio": "homework/audio/S10/S10_H5_shadow_04.mp3"
+      },
+      {
+       "text": "It rained on Sunday, so we didn't go to the beach.",
+       "audio": "homework/audio/S10/S10_H5_shadow_05.mp3"
+      },
+      {
+       "text": "I was exhausted, but it was worth it.",
+       "audio": "homework/audio/S10/S10_H5_shadow_06.mp3"
+      }
+     ],
+     "dur": 20.2,
+     "free": []
+    }
+   ]
+  },
+  {
+   "id": "T",
+   "title": "Part 5 · Translation (Việt → Anh)",
+   "sub": "Viết lại câu bằng cấu trúc đã học. Đúng hoàn toàn: 2 điểm · sai 1 từ: 1 điểm.",
+   "items": [
+    {
+     "id": "T1",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Cuối tuần trước, tôi đã ghé thăm một khu chợ địa phương.",
+     "answers": [
+      "Last weekend, I visited a local market."
+     ],
+     "show": "Last weekend, I visited a local market.",
+     "hint": "Last weekend, I …"
+    },
+    {
+     "id": "T2",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi đã có cơ hội tham dự một sự kiện lớn.",
+     "answers": [
+      "I had a chance to attend a big event."
+     ],
+     "show": "I had a chance to attend a big event.",
+     "hint": "I had a chance to …"
+    },
+    {
+     "id": "T3",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Phần hay nhất là đồ ăn đường phố.",
+     "answers": [
+      "The best part was the street food."
+     ],
+     "show": "The best part was the street food.",
+     "hint": "The best part was …"
+    },
+    {
+     "id": "T4",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Chúng tôi đã không ở lại qua đêm.",
+     "answers": [
+      "We didn't stay overnight.",
+      "We did not stay overnight."
+     ],
+     "show": "We didn't stay overnight.",
+     "hint": "didn't + verb"
+    },
+    {
+     "id": "T5",
+     "type": "translate",
+     "points": 2,
+     "prompt": "Tôi đã kiệt sức, nhưng nó rất xứng đáng.",
+     "answers": [
+      "I was exhausted, but it was worth it."
+     ],
+     "show": "I was exhausted, but it was worth it.",
+     "hint": "I was …, but it was worth it."
+    }
+   ]
+  }
+ ]
+}
