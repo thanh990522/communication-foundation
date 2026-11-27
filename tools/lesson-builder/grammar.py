@@ -42,7 +42,7 @@ def slides(sid, n, g, foot, total):
     legend = ('<div class="gm-leg"><span class="gm-t gm-s">subject</span><span class="gm-t gm-a">be / aux</span><span class="gm-t gm-v">verb</span>'
               '<span class="gm-t gm-k">key word</span></div>')
     star = '⭐ ' if main and total > 1 else ''
-    theory = (f'<section class="slide" data-title="Grammar {n}: {e(g["short"])}">\n'
+    theory = (f'<section class="slide" data-title="Grammar{" " + str(n) if total > 1 else ""}: {e(g["short"])}">\n'
               f'  <div class="s-head"><span class="chip c-input{" gm-main" if main and total > 1 else ""}">{star}{chip} · Theory</span><h2>{g["title"]}</h2></div>\n'
               f'  <div class="gm-sub"><span>📘 {e(g["vi"])}</span>{legend}</div>\n'
               f'  <div class="gm-grid b{len(g["boxes"])}">{boxes}</div>\n  {scale}{notes}\n{foot}</section>\n')
@@ -67,7 +67,7 @@ def slides(sid, n, g, foot, total):
             'type': 'Type the missing word · ✓ Check · then say the sentence',
             'order': 'Click the words to build the sentence · click again to remove · ✓ Check'}[t]
     data = json.dumps({'type': t, 'items': pr['items']}, ensure_ascii=False).replace('</', '<\\/')
-    practice = (f'<section class="slide" data-title="Grammar {n} practice">\n'
+    practice = (f'<section class="slide" data-title="Grammar{" " + str(n) if total > 1 else ""} practice">\n'
                 f'  <div class="s-head"><span class="chip c-prac">{star}{chip} · Practice</span><h2>{pr["title"]}</h2></div>\n'
                 f'  <div class="gm-prac gm-{t} gm-n{len(pr["items"])}" data-type="{t}"><script type="application/json" class="gm-data">{data}</script>{rows}</div>\n'
                 f'  <div class="ftools"><span>{hint}</span><span class="score gm-score">✓ 0 / {len(pr["items"])}</span>{btns}</div>\n{foot}</section>\n')

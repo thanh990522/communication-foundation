@@ -11,7 +11,7 @@ S.append(slide('Cover', '''  <span class="chip c-input">Week 04 · Session 10</s
 AG = [('warm', '📸', 'Warm-up · Weekend photos', 'Last weekend, I…'),
       ('input', '⏪', 'Verb time machine', 'visit → visited · go → went'),
       ('input', '🃏', 'Words → collocations', 'attend an event · return home…'),
-      ('input', '📘', 'Grammar', 'past simple ➕ ➖ · was / were · although'),
+      ('input', '📘', 'Grammar', 'past simple ➕ ➖ · was / were'),
       ('input', '🧱', '4 key structures', 'step by step + translate'),
       ('listen', '🔊', '-ed endings', '/t/ · /d/ · /ɪd/'),
       ('listen', '🎧', 'Listening', 'How was your trip?'),

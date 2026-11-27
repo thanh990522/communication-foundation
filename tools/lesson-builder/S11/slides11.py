@@ -11,7 +11,7 @@ S.append(slide('Cover', '''  <span class="chip c-input">Week 04 · Session 11</s
 AG = [('warm', '🔍', 'Warm-up · Guess the story', '3 picture clues'),
       ('input', '⛰', 'The story mountain', 'at first → suddenly → in the end'),
       ('input', '🃏', 'Words → collocations', 'miss the bus · suddenly realise…'),
-      ('input', '📘', 'Grammar', 'Did…? Was / Were…? · while I was…'),
+      ('input', '📘', 'Grammar', 'Did…? · Was / Were…? · Who called?'),
       ('input', '🧱', '4 key structures', 'step by step + translate'),
       ('prac', '❓', 'Question maker', 'answer → question'),
       ('listen', '🎵', 'Follow-up questions', '↗ ↘ · pause after linkers'),
