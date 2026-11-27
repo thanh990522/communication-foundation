@@ -69,7 +69,7 @@ window.SESSIONS = [
   "week": 2,
   "title": "Food, Shopping Lists & Quantities",
   "goal": "Lập danh sách mua sắm, hỏi số lượng và xử lý trường hợp thiếu hàng.",
-  "status": "closed",
+  "status": "live",
   "url": "lessons/S06/",
   "zip": "lessons/S06/S06_Audio_MP3.zip",
   "offline": "lessons/S06/S06_offline.html",
